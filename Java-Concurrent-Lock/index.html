@@ -12,26 +12,26 @@
   <!--<link href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/atelier-savanna-light.min.css" rel="stylesheet">-->
   <link rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-  <link rel="dns-prefetch" href="http://hunkier.github.io">
+  <link rel="dns-prefetch" href="https://hunkier.cn">
   <title>Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="原文：https://www.cnblogs.com/qjjazry/p/6581568.html  首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步">
 <meta name="keywords" content="jvm,lock,java,concurrent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS">
-<meta property="og:url" content="http://hunkier.github.io/Java-Concurrent-Lock/index.html">
+<meta property="og:url" content="https://hunkier.cn/Java-Concurrent-Lock/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="原文：https://www.cnblogs.com/qjjazry/p/6581568.html  首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://hunkier.github.io/assets/img/Java-Concurrent-Lock/1047941-20170319183935713-1224322401.png">
-<meta property="og:image" content="http://hunkier.github.io/assets/img/Java-Concurrent-Lock/1047941-20170319184016838-1784274955.png">
-<meta property="og:image" content="http://hunkier.github.io/assets/img/Java-Concurrent-Lock/1047941-20170319184054182-183582877.png">
-<meta property="og:image" content="http://hunkier.github.io/assets/img/Java-Concurrent-Lock/1047941-20170319190237932-274252686.png">
+<meta property="og:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319183935713-1224322401.png">
+<meta property="og:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319184016838-1784274955.png">
+<meta property="og:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319184054182-183582877.png">
+<meta property="og:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319190237932-274252686.png">
 <meta property="og:updated_time" content="2018-11-28T04:50:49.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS">
 <meta name="twitter:description" content="原文：https://www.cnblogs.com/qjjazry/p/6581568.html  首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步">
-<meta name="twitter:image" content="http://hunkier.github.io/assets/img/Java-Concurrent-Lock/1047941-20170319183935713-1224322401.png">
+<meta name="twitter:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319183935713-1224322401.png">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -497,7 +497,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hunkier.github.io/Java-Concurrent-Lock/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hunkier.cn/Java-Concurrent-Lock/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -709,14 +709,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -734,6 +726,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">

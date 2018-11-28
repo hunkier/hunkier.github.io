@@ -5,9 +5,9 @@
   <subtitle>学习笔记，开源代码分享，技术交流</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://hunkier.github.io/"/>
+  <link href="https://hunkier.cn/"/>
   <updated>2018-11-28T04:50:49.763Z</updated>
-  <id>http://hunkier.github.io/</id>
+  <id>https://hunkier.cn/</id>
   
   <author>
     <name>hunkier</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Windows环境下Vmware中Centos共享文件</title>
-    <link href="http://hunkier.github.io/Windows-Vmware-Centos-share-Folder/"/>
-    <id>http://hunkier.github.io/Windows-Vmware-Centos-share-Folder/</id>
+    <link href="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/"/>
+    <id>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</id>
     <published>2018-08-25T03:31:13.000Z</published>
     <updated>2018-11-28T04:50:49.763Z</updated>
     
@@ -30,25 +30,25 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://hunkier.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://hunkier.cn/categories/Linux/"/>
     
-      <category term="Centos" scheme="http://hunkier.github.io/categories/Linux/Centos/"/>
+      <category term="Centos" scheme="https://hunkier.cn/categories/Linux/Centos/"/>
     
-      <category term="Vmware" scheme="http://hunkier.github.io/categories/Linux/Centos/Vmware/"/>
+      <category term="Vmware" scheme="https://hunkier.cn/categories/Linux/Centos/Vmware/"/>
     
     
-      <category term="Linux" scheme="http://hunkier.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://hunkier.cn/tags/Linux/"/>
     
-      <category term="Centos" scheme="http://hunkier.github.io/tags/Centos/"/>
+      <category term="Centos" scheme="https://hunkier.cn/tags/Centos/"/>
     
-      <category term="Vmware" scheme="http://hunkier.github.io/tags/Vmware/"/>
+      <category term="Vmware" scheme="https://hunkier.cn/tags/Vmware/"/>
     
   </entry>
   
   <entry>
     <title>mycat 按月分表</title>
-    <link href="http://hunkier.github.io/mycat-single-database-log-table-part-by-month/"/>
-    <id>http://hunkier.github.io/mycat-single-database-log-table-part-by-month/</id>
+    <link href="https://hunkier.cn/mycat-single-database-log-table-part-by-month/"/>
+    <id>https://hunkier.cn/mycat-single-database-log-table-part-by-month/</id>
     <published>2018-08-09T02:58:55.000Z</published>
     <updated>2018-11-28T04:50:49.766Z</updated>
     
@@ -58,29 +58,29 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://hunkier.github.io/categories/mysql/"/>
+      <category term="mysql" scheme="https://hunkier.cn/categories/mysql/"/>
     
-      <category term="mycat" scheme="http://hunkier.github.io/categories/mysql/mycat/"/>
+      <category term="mycat" scheme="https://hunkier.cn/categories/mysql/mycat/"/>
     
-      <category term="subtable" scheme="http://hunkier.github.io/categories/mysql/mycat/subtable/"/>
+      <category term="subtable" scheme="https://hunkier.cn/categories/mysql/mycat/subtable/"/>
     
-      <category term="partbymonth" scheme="http://hunkier.github.io/categories/mysql/mycat/subtable/partbymonth/"/>
+      <category term="partbymonth" scheme="https://hunkier.cn/categories/mysql/mycat/subtable/partbymonth/"/>
     
     
-      <category term="mysql" scheme="http://hunkier.github.io/tags/mysql/"/>
+      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
     
-      <category term="mycat" scheme="http://hunkier.github.io/tags/mycat/"/>
+      <category term="mycat" scheme="https://hunkier.cn/tags/mycat/"/>
     
-      <category term="subtable" scheme="http://hunkier.github.io/tags/subtable/"/>
+      <category term="subtable" scheme="https://hunkier.cn/tags/subtable/"/>
     
-      <category term="partbymonth" scheme="http://hunkier.github.io/tags/partbymonth/"/>
+      <category term="partbymonth" scheme="https://hunkier.cn/tags/partbymonth/"/>
     
   </entry>
   
   <entry>
     <title>常用的Shell脚本和Linux命令</title>
-    <link href="http://hunkier.github.io/Common-shell-script/"/>
-    <id>http://hunkier.github.io/Common-shell-script/</id>
+    <link href="https://hunkier.cn/Common-shell-script/"/>
+    <id>https://hunkier.cn/Common-shell-script/</id>
     <published>2018-07-10T05:11:00.000Z</published>
     <updated>2018-11-28T04:59:34.856Z</updated>
     
@@ -101,21 +101,21 @@ unzip -h
     
     </summary>
     
-      <category term="linux" scheme="http://hunkier.github.io/categories/linux/"/>
+      <category term="linux" scheme="https://hunkier.cn/categories/linux/"/>
     
-      <category term="shell" scheme="http://hunkier.github.io/categories/linux/shell/"/>
+      <category term="shell" scheme="https://hunkier.cn/categories/linux/shell/"/>
     
     
-      <category term="linux" scheme="http://hunkier.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
-      <category term="shell" scheme="http://hunkier.github.io/tags/shell/"/>
+      <category term="shell" scheme="https://hunkier.cn/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS</title>
-    <link href="http://hunkier.github.io/Java-Concurrent-Lock/"/>
-    <id>http://hunkier.github.io/Java-Concurrent-Lock/</id>
+    <link href="https://hunkier.cn/Java-Concurrent-Lock/"/>
+    <id>https://hunkier.cn/Java-Concurrent-Lock/</id>
     <published>2018-07-06T06:55:00.000Z</published>
     <updated>2018-11-28T04:50:49.762Z</updated>
     
@@ -129,23 +129,23 @@ unzip -h
     
     </summary>
     
-      <category term="Java" scheme="http://hunkier.github.io/categories/Java/"/>
+      <category term="Java" scheme="https://hunkier.cn/categories/Java/"/>
     
     
-      <category term="jvm" scheme="http://hunkier.github.io/tags/jvm/"/>
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-      <category term="lock" scheme="http://hunkier.github.io/tags/lock/"/>
+      <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
     
-      <category term="java" scheme="http://hunkier.github.io/tags/java/"/>
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
-      <category term="concurrent" scheme="http://hunkier.github.io/tags/concurrent/"/>
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
     
   </entry>
   
   <entry>
     <title>Github安装hexo博客</title>
-    <link href="http://hunkier.github.io/Blog-Hexo-Install/"/>
-    <id>http://hunkier.github.io/Blog-Hexo-Install/</id>
+    <link href="https://hunkier.cn/Blog-Hexo-Install/"/>
+    <id>https://hunkier.cn/Blog-Hexo-Install/</id>
     <published>2018-06-29T09:31:13.000Z</published>
     <updated>2018-11-28T04:50:49.761Z</updated>
     
@@ -165,21 +165,21 @@ unzip -h
     
     </summary>
     
-      <category term="github" scheme="http://hunkier.github.io/categories/github/"/>
+      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
     
     
-      <category term="blog" scheme="http://hunkier.github.io/tags/blog/"/>
+      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
     
-      <category term="hexo" scheme="http://hunkier.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
-      <category term="github" scheme="http://hunkier.github.io/tags/github/"/>
+      <category term="github" scheme="https://hunkier.cn/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://hunkier.github.io/hello-world/"/>
-    <id>http://hunkier.github.io/hello-world/</id>
+    <link href="https://hunkier.cn/hello-world/"/>
+    <id>https://hunkier.cn/hello-world/</id>
     <published>2018-06-29T07:31:13.000Z</published>
     <updated>2018-11-28T04:50:49.765Z</updated>
     
@@ -190,19 +190,19 @@ unzip -h
     
     </summary>
     
-      <category term="github" scheme="http://hunkier.github.io/categories/github/"/>
+      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
     
     
-      <category term="blog" scheme="http://hunkier.github.io/tags/blog/"/>
+      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
     
-      <category term="hexo" scheme="http://hunkier.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>加微信好友</title>
-    <link href="http://hunkier.github.io/My-wechat/"/>
-    <id>http://hunkier.github.io/My-wechat/</id>
+    <link href="https://hunkier.cn/My-wechat/"/>
+    <id>https://hunkier.cn/My-wechat/</id>
     <published>2018-06-09T07:31:13.000Z</published>
     <updated>2018-11-28T04:50:49.763Z</updated>
     
@@ -215,12 +215,12 @@ unzip -h
     
     </summary>
     
-      <category term="github" scheme="http://hunkier.github.io/categories/github/"/>
+      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
     
     
-      <category term="blog" scheme="http://hunkier.github.io/tags/blog/"/>
+      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
     
-      <category term="hexo" scheme="http://hunkier.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
   </entry>
   

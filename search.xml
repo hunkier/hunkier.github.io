@@ -90,10 +90,13 @@
     <content type="text"><![CDATA[打开微信，扫一扫加微信好友]]></content>
       <categories>
         <category>github</category>
+        <category>hexo</category>
+        <category>wechat</category>
       </categories>
       <tags>
         <tag>blog</tag>
         <tag>hexo</tag>
+        <tag>wechat</tag>
       </tags>
   </entry>
 </search>

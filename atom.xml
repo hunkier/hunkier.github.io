@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hunkier</title>
+  
+  <subtitle>学习笔记，开源代码分享，技术交流</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://hunkier.github.io/"/>
+  <updated>2018-11-28T04:50:49.763Z</updated>
+  <id>http://hunkier.github.io/</id>
+  
+  <author>
+    <name>hunkier</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows环境下Vmware中Centos共享文件</title>
+    <link href="http://hunkier.github.io/Windows-Vmware-Centos-share-Folder/"/>
+    <id>http://hunkier.github.io/Windows-Vmware-Centos-share-Folder/</id>
+    <published>2018-08-25T03:31:13.000Z</published>
+    <updated>2018-11-28T04:50:49.763Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;先安装包依赖：&quot;&gt;&lt;a href=&quot;#先安装包依赖：&quot; class=&quot;headerlink&quot; title=&quot;先安装包依赖：&quot;&gt;&lt;/a&gt;先安装包依赖：&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://hunkier.github.io/categories/Linux/"/>
+    
+      <category term="Centos" scheme="http://hunkier.github.io/categories/Linux/Centos/"/>
+    
+      <category term="Vmware" scheme="http://hunkier.github.io/categories/Linux/Centos/Vmware/"/>
+    
+    
+      <category term="Linux" scheme="http://hunkier.github.io/tags/Linux/"/>
+    
+      <category term="Centos" scheme="http://hunkier.github.io/tags/Centos/"/>
+    
+      <category term="Vmware" scheme="http://hunkier.github.io/tags/Vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mycat 按月分表</title>
+    <link href="http://hunkier.github.io/mycat-single-database-log-table-part-by-month/"/>
+    <id>http://hunkier.github.io/mycat-single-database-log-table-part-by-month/</id>
+    <published>2018-08-09T02:58:55.000Z</published>
+    <updated>2018-11-28T04:50:49.766Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;什么是MYCAT&lt;br&gt;•  一个彻底开源的，面向企业应用开发的大数据库集群&lt;br&gt;•  支持事务、ACID、可以替代MySQL的加强版数据库&lt;br&gt;•  一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群&lt;br&gt;•  一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server&lt;br&gt;•  结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品&lt;br&gt;•  一个新颖的数据库中间件产品&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://hunkier.github.io/categories/mysql/"/>
+    
+      <category term="mycat" scheme="http://hunkier.github.io/categories/mysql/mycat/"/>
+    
+      <category term="subtable" scheme="http://hunkier.github.io/categories/mysql/mycat/subtable/"/>
+    
+      <category term="partbymonth" scheme="http://hunkier.github.io/categories/mysql/mycat/subtable/partbymonth/"/>
+    
+    
+      <category term="mysql" scheme="http://hunkier.github.io/tags/mysql/"/>
+    
+      <category term="mycat" scheme="http://hunkier.github.io/tags/mycat/"/>
+    
+      <category term="subtable" scheme="http://hunkier.github.io/tags/subtable/"/>
+    
+      <category term="partbymonth" scheme="http://hunkier.github.io/tags/partbymonth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用的Shell脚本和Linux命令</title>
+    <link href="http://hunkier.github.io/Common-shell-script/"/>
+    <id>http://hunkier.github.io/Common-shell-script/</id>
+    <published>2018-07-10T05:11:00.000Z</published>
+    <updated>2018-11-28T04:59:34.856Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;收集工作中经常用的Linux命令和shell脚本&lt;/p&gt;
+&lt;p&gt;zip 压缩和解压缩&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# 压缩文件夹
+zip -r data.zip  data
+# 解压缩文件,默认解压到当前路径
+unzip data.zip
+# 解压到指定路径
+unzip data.zip -d destDir
+# 查看帮助
+unzip -h
+
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="http://hunkier.github.io/categories/linux/"/>
+    
+      <category term="shell" scheme="http://hunkier.github.io/categories/linux/shell/"/>
+    
+    
+      <category term="linux" scheme="http://hunkier.github.io/tags/linux/"/>
+    
+      <category term="shell" scheme="http://hunkier.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS</title>
+    <link href="http://hunkier.github.io/Java-Concurrent-Lock/"/>
+    <id>http://hunkier.github.io/Java-Concurrent-Lock/</id>
+    <published>2018-07-06T06:55:00.000Z</published>
+    <updated>2018-11-28T04:50:49.762Z</updated>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code class=&quot;html&quot;&gt;原文：https://www.cnblogs.com/qjjazry/p/6581568.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;首先介绍一些乐观锁与悲观锁:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步原语synchronized关键字的实现也是悲观锁。&lt;/p&gt;
+&lt;p&gt;　　乐观锁：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。在Java中java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://hunkier.github.io/categories/Java/"/>
+    
+    
+      <category term="jvm" scheme="http://hunkier.github.io/tags/jvm/"/>
+    
+      <category term="lock" scheme="http://hunkier.github.io/tags/lock/"/>
+    
+      <category term="java" scheme="http://hunkier.github.io/tags/java/"/>
+    
+      <category term="concurrent" scheme="http://hunkier.github.io/tags/concurrent/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github安装hexo博客</title>
+    <link href="http://hunkier.github.io/Blog-Hexo-Install/"/>
+    <id>http://hunkier.github.io/Blog-Hexo-Install/</id>
+    <published>2018-06-29T09:31:13.000Z</published>
+    <updated>2018-11-28T04:50:49.761Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;写在开头&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;什么是Hexo？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hexo是一个轻量级的Node.js博客框架，由一位台湾的在校大学生开发完成！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hexo的配置文件_config.yml分为两种，一种是站点配置文件，也就是站点根目录下的_config.yml配置文件，另一个是主题配置文件，位于theme文件夹中对应主题的文件夹下的_config.yml。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;在后续的网站配置中需要多次使用站点配置文件和主题配置文件，需要注意辨析。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="github" scheme="http://hunkier.github.io/categories/github/"/>
+    
+    
+      <category term="blog" scheme="http://hunkier.github.io/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://hunkier.github.io/tags/hexo/"/>
+    
+      <category term="github" scheme="http://hunkier.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://hunkier.github.io/hello-world/"/>
+    <id>http://hunkier.github.io/hello-world/</id>
+    <published>2018-06-29T07:31:13.000Z</published>
+    <updated>2018-11-28T04:50:49.765Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hosted by &lt;a href=&quot;https://pages.coding.me&quot; style=&quot;font-weight: bold&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Coding Pages&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="github" scheme="http://hunkier.github.io/categories/github/"/>
+    
+    
+      <category term="blog" scheme="http://hunkier.github.io/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://hunkier.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>加微信好友</title>
+    <link href="http://hunkier.github.io/My-wechat/"/>
+    <id>http://hunkier.github.io/My-wechat/</id>
+    <published>2018-06-09T07:31:13.000Z</published>
+    <updated>2018-11-28T04:50:49.763Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;打开微信，扫一扫加微信好友&quot;&gt;&lt;a href=&quot;#打开微信，扫一扫加微信好友&quot; class=&quot;headerlink&quot; title=&quot;打开微信，扫一扫加微信好友&quot;&gt;&lt;/a&gt;打开微信，扫一扫加微信好友&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/assets/img/my_w
+      
+    
+    </summary>
+    
+      <category term="github" scheme="http://hunkier.github.io/categories/github/"/>
+    
+    
+      <category term="blog" scheme="http://hunkier.github.io/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://hunkier.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>

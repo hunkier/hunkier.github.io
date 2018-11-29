@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[清除Kubernetes环境]]></title>
     <url>%2FClean-Kubernetes-Environment%2F</url>
-    <content type="text"><![CDATA[在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount rm /var/lib/kubelet/* -rf 清理kubernetes设置rm /etc/kubernetes/* -rf 清理rancher设置rm /var/lib/rancher/* -rf 清理etc设置rm /var/lib/etcd/* -rf 清理cni设置rm /var/lib/cni/* -rf 清理iptable设置iptables -F &amp;&amp; iptables -t nat –F 清理flannel设置ip link del flannel.1 清理docker containerdocker ps -a|awk &#39;{print $1}&#39;|xargs docker rm -f 清理docker挂载的磁盘docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm 合并为在一起df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount rm /var/lib/kubelet/* -rf rm /etc/kubernetes/* -rf rm /var/lib/rancher/* -rf rm /var/lib/etcd/* -rf rm /var/lib/cni/* -rf iptables -F &amp;&amp; iptables -t nat –F ip link del flannel.1 docker ps -a|awk &#39;{print $1}&#39;|xargs docker rm -f docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm]]></content>
+    <content type="text"><![CDATA[在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount rm /var/lib/kubelet/* -rf 清理kubernetes设置rm /etc/kubernetes/* -rf 清理rancher设置rm /var/lib/rancher/* -rf 清理etc设置rm /var/lib/etcd/* -rf 清理cni设置rm /var/lib/cni/* -rf 清理iptable设置iptables -F &amp;&amp; iptables -t nat –F 清理flannel设置ip link del flannel.1 清理docker containerdocker ps -a|awk &#39;{print $1}&#39;|xargs docker rm -f 清理docker挂载的磁盘docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm 合并在一起df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount rm /var/lib/kubelet/* -rf rm /etc/kubernetes/* -rf rm /var/lib/rancher/* -rf rm /var/lib/etcd/* -rf rm /var/lib/cni/* -rf iptables -F &amp;&amp; iptables -t nat –F ip link del flannel.1 docker ps -a|awk &#39;{print $1}&#39;|xargs docker rm -f docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm]]></content>
       <categories>
         <category>kubernetes</category>
         <category>docker</category>
@@ -11,10 +11,10 @@
         <category>linux</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>kubernetes</tag>
         <tag>docker</tag>
         <tag>rancher</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -84,8 +84,8 @@
         <category>vmware</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>centos</tag>
+        <tag>linux</tag>
         <tag>vmware</tag>
       </tags>
   </entry>

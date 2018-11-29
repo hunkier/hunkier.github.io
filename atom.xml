@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2018-11-29T07:31:51.872Z</updated>
+  <updated>2018-11-29T07:55:03.381Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hunkier.cn/Clean-Kubernetes-Environment/"/>
     <id>https://hunkier.cn/Clean-Kubernetes-Environment/</id>
     <published>2018-08-13T11:07:16.000Z</published>
-    <updated>2018-11-29T07:31:51.872Z</updated>
+    <updated>2018-11-29T07:55:03.381Z</updated>
     
     <summary type="html">
     
@@ -41,13 +41,13 @@ rm /var/lib/kubelet/* -rf
       <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
     
     
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
       <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
     
       <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
     
       <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
   </entry>
   
@@ -200,9 +200,9 @@ unzip -h
       <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
     
     
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
       <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     

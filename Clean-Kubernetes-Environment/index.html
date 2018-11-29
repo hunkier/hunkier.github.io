@@ -16,14 +16,14 @@
   <title>清除Kubernetes环境 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount rm /var/lib/kubelet/* -rf">
-<meta name="keywords" content="kubernetes,docker,rancher,linux">
+<meta name="keywords" content="linux,kubernetes,docker,rancher">
 <meta property="og:type" content="article">
 <meta property="og:title" content="清除Kubernetes环境">
 <meta property="og:url" content="https://hunkier.cn/Clean-Kubernetes-Environment/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount rm /var/lib/kubelet/* -rf">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-29T07:31:51.872Z">
+<meta property="og:updated_time" content="2018-11-29T07:55:03.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清除Kubernetes环境">
 <meta name="twitter:description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount rm /var/lib/kubelet/* -rf">
@@ -244,7 +244,7 @@ rm /var/lib/kubelet/* -rf
 </code></pre>
 <h5 id="清理docker挂载的磁盘"><a href="#清理docker挂载的磁盘" class="headerlink" title="清理docker挂载的磁盘"></a>清理docker挂载的磁盘</h5><pre><code class="shell">docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
 </code></pre>
-<h5 id="合并为在一起"><a href="#合并为在一起" class="headerlink" title="合并为在一起"></a>合并为在一起</h5><pre><code class="shell">df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount
+<h5 id="合并在一起"><a href="#合并在一起" class="headerlink" title="合并在一起"></a>合并在一起</h5><pre><code class="shell">df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount
 rm /var/lib/kubelet/* -rf
 rm /etc/kubernetes/* -rf
 rm /var/lib/rancher/* -rf
@@ -299,6 +299,10 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
@@ -308,10 +312,6 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rancher</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -433,7 +433,7 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#清理kubelet挂载的磁盘和设置"><span class="toc-number">1.</span> <span class="toc-text">清理kubelet挂载的磁盘和设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理kubernetes设置"><span class="toc-number">2.</span> <span class="toc-text">清理kubernetes设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理rancher设置"><span class="toc-number">3.</span> <span class="toc-text">清理rancher设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理etc设置"><span class="toc-number">4.</span> <span class="toc-text">清理etc设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理cni设置"><span class="toc-number">5.</span> <span class="toc-text">清理cni设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理iptable设置"><span class="toc-number">6.</span> <span class="toc-text">清理iptable设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理flannel设置"><span class="toc-number">7.</span> <span class="toc-text">清理flannel设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理docker-container"><span class="toc-number">8.</span> <span class="toc-text">清理docker container</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理docker挂载的磁盘"><span class="toc-number">9.</span> <span class="toc-text">清理docker挂载的磁盘</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合并为在一起"><span class="toc-number">10.</span> <span class="toc-text">合并为在一起</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#清理kubelet挂载的磁盘和设置"><span class="toc-number">1.</span> <span class="toc-text">清理kubelet挂载的磁盘和设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理kubernetes设置"><span class="toc-number">2.</span> <span class="toc-text">清理kubernetes设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理rancher设置"><span class="toc-number">3.</span> <span class="toc-text">清理rancher设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理etc设置"><span class="toc-number">4.</span> <span class="toc-text">清理etc设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理cni设置"><span class="toc-number">5.</span> <span class="toc-text">清理cni设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理iptable设置"><span class="toc-number">6.</span> <span class="toc-text">清理iptable设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理flannel设置"><span class="toc-number">7.</span> <span class="toc-text">清理flannel设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理docker-container"><span class="toc-number">8.</span> <span class="toc-text">清理docker container</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清理docker挂载的磁盘"><span class="toc-number">9.</span> <span class="toc-text">清理docker挂载的磁盘</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合并在一起"><span class="toc-number">10.</span> <span class="toc-text">合并在一起</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -593,6 +593,22 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
@@ -602,22 +618,6 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">rancher</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">

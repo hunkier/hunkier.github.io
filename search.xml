@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[清除Kubernetes环境]]></title>
+    <url>%2FClean-Kubernetes-Environment%2F</url>
+    <content type="text"><![CDATA[在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount rm /var/lib/kubelet/* -rf 清理kubernetes设置rm /etc/kubernetes/* -rf 清理rancher设置rm /var/lib/rancher/* -rf 清理etc设置rm /var/lib/etcd/* -rf 清理cni设置rm /var/lib/cni/* -rf 清理iptable设置iptables -F &amp;&amp; iptables -t nat –F 清理flannel设置ip link del flannel.1 清理docker containerdocker ps -a|awk &#39;{print $1}&#39;|xargs docker rm -f 清理docker挂载的磁盘docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm 合并为在一起df -h|grep kubelet |awk -F % &#39;{print $2}&#39;|xargs umount rm /var/lib/kubelet/* -rf rm /etc/kubernetes/* -rf rm /var/lib/rancher/* -rf rm /var/lib/etcd/* -rf rm /var/lib/cni/* -rf iptables -F &amp;&amp; iptables -t nat –F ip link del flannel.1 docker ps -a|awk &#39;{print $1}&#39;|xargs docker rm -f docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm]]></content>
+      <categories>
+        <category>kubernetes</category>
+        <category>docker</category>
+        <category>rancher</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>kubernetes</tag>
+        <tag>docker</tag>
+        <tag>rancher</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Centos 7 设置DNS服务器]]></title>
     <url>%2FCentos-7-Seting-DNS-Server%2F</url>
     <content type="text"><![CDATA[CentOS 7需要使用全新的命令行工具 nmcli 来设置 显示当前网络连接[root@bogon ~]# nmcli connection show NAME UUID TYPE DEVICE cni0 b2b8f5f9-acd2-42fd-9ec9-a76282425cd9 bridge cni0 docker0 33ebd49e-fd1b-4a2c-8261-c0463f4f4146 bridge docker0 enp2s0 b6579214-0ba6-4bf0-9319-2e0e4f584afd ethernet enp2s0 virbr0 976717ae-c3ae-4582-aa09-039c26bef80d bridge virbr0 修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识[root@bogon ~]# nmcli con mod enp2s0 ipv4.dns &quot;114.114.114.114 8.8.8.8&quot; [root@bogon ~]# 将dns配置生效[root@bogon ~]# nmcli con up enp2s0 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7) 测试网络[root@bogon ~]# ping www.baidu.com PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data. 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms 64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms ^C --- www.a.shifen.com ping statistics --- 5 packets transmitted, 5 received, 0% packet loss, time 4005ms rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms [root@bogon ~]#]]></content>
@@ -11,21 +28,6 @@
       <tags>
         <tag>centos</tag>
         <tag>DNS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Windows环境下Vmware中Centos共享文件]]></title>
-    <url>%2FWindows-Vmware-Centos-share-Folder%2F</url>
-    <content type="text"><![CDATA[先安装包依赖：yum -y install kernel-devel-$(uname -r) net-tools perl gcc gcc-c++ 安装vm tool在home文件夹下新建tmp文件夹：mkdir tmp mount /dev/cdrom /home/tmp cp /home/tmp/VMwareTools-10.2.5-8068393.tar.gz /tmp cd /tmp tar -zxvf VMwareTools-10.2.5-8068393.tar.gz cd vmware-tools-distrib ./vmware-install.pl 根据提示输入或一直回车即 安装挂载工具yum install -y open-vm-tools-devel]]></content>
-      <categories>
-        <category>linux</category>
-        <category>centos</category>
-        <category>vmware</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>linux</tag>
-        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
@@ -70,6 +72,21 @@
         <tag>lock</tag>
         <tag>java</tag>
         <tag>concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows环境下Vmware中Centos共享文件]]></title>
+    <url>%2FWindows-Vmware-Centos-share-Folder%2F</url>
+    <content type="text"><![CDATA[先安装包依赖：yum -y install kernel-devel-$(uname -r) net-tools perl gcc gcc-c++ 安装vm tool在home文件夹下新建tmp文件夹：mkdir tmp mount /dev/cdrom /home/tmp cp /home/tmp/VMwareTools-10.2.5-8068393.tar.gz /tmp cd /tmp tar -zxvf VMwareTools-10.2.5-8068393.tar.gz cd vmware-tools-distrib ./vmware-install.pl 根据提示输入或一直回车即 安装挂载工具yum install -y open-vm-tools-devel]]></content>
+      <categories>
+        <category>linux</category>
+        <category>centos</category>
+        <category>vmware</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>linux</tag>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>

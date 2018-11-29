@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</loc>
+    
+    <lastmod>2018-11-29T07:33:03.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Clean-Kubernetes-Environment/</loc>
+    
+    <lastmod>2018-11-29T07:31:51.872Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Centos-7-Seting-DNS-Server/</loc>
     
-    <lastmod>2018-11-29T07:14:29.832Z</lastmod>
+    <lastmod>2018-11-29T07:30:24.146Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>https://hunkier.cn/Java-Concurrent-Lock/</loc>
     
     <lastmod>2018-11-29T06:46:03.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</loc>
-    
-    <lastmod>2018-11-29T06:46:03.756Z</lastmod>
     
   </url>
   

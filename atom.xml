@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2018-11-29T07:14:29.832Z</updated>
+  <updated>2018-11-29T07:31:51.872Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>清除Kubernetes环境</title>
+    <link href="https://hunkier.cn/Clean-Kubernetes-Environment/"/>
+    <id>https://hunkier.cn/Clean-Kubernetes-Environment/</id>
+    <published>2018-08-13T11:07:16.000Z</published>
+    <updated>2018-11-29T07:31:51.872Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入&lt;/p&gt;
+&lt;h5 id=&quot;清理kubelet挂载的磁盘和设置&quot;&gt;&lt;a href=&quot;#清理kubelet挂载的磁盘和设置&quot; class=&quot;headerlink&quot; title=&quot;清理kubelet挂载的磁盘和设置&quot;&gt;&lt;/a&gt;清理kubelet挂载的磁盘和设置&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount
+rm /var/lib/kubelet/* -rf
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="kubernetes" scheme="https://hunkier.cn/categories/kubernetes/"/>
+    
+      <category term="docker" scheme="https://hunkier.cn/categories/kubernetes/docker/"/>
+    
+      <category term="rancher" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
+      <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
+    
+      <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
+    
+      <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Centos 7 设置DNS服务器</title>
     <link href="https://hunkier.cn/Centos-7-Seting-DNS-Server/"/>
     <id>https://hunkier.cn/Centos-7-Seting-DNS-Server/</id>
-    <published>2018-11-29T07:13:12.469Z</published>
-    <updated>2018-11-29T07:14:29.832Z</updated>
+    <published>2018-08-10T07:07:16.000Z</published>
+    <updated>2018-11-29T07:30:24.146Z</updated>
     
     <summary type="html">
     
@@ -44,35 +79,6 @@ virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="DNS" scheme="https://hunkier.cn/tags/DNS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows环境下Vmware中Centos共享文件</title>
-    <link href="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/"/>
-    <id>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</id>
-    <published>2018-08-25T03:31:13.000Z</published>
-    <updated>2018-11-29T06:46:03.756Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;先安装包依赖：&quot;&gt;&lt;a href=&quot;#先安装包依赖：&quot; class=&quot;headerlink&quot; title=&quot;先安装包依赖：&quot;&gt;&lt;/a&gt;先安装包依赖：&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="https://hunkier.cn/categories/linux/"/>
-    
-      <category term="centos" scheme="https://hunkier.cn/categories/linux/centos/"/>
-    
-      <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
-    
-    
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
-      <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     
   </entry>
   
@@ -170,6 +176,35 @@ unzip -h
       <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
       <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows环境下Vmware中Centos共享文件</title>
+    <link href="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/"/>
+    <id>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</id>
+    <published>2018-07-05T03:31:13.000Z</published>
+    <updated>2018-11-29T07:33:03.459Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;先安装包依赖：&quot;&gt;&lt;a href=&quot;#先安装包依赖：&quot; class=&quot;headerlink&quot; title=&quot;先安装包依赖：&quot;&gt;&lt;/a&gt;先安装包依赖：&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="https://hunkier.cn/categories/linux/"/>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/linux/centos/"/>
+    
+      <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
+      <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     
   </entry>
   

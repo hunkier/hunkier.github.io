@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2018-11-28T04:50:49.763Z</updated>
+  <updated>2018-11-29T07:14:29.832Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Centos 7 设置DNS服务器</title>
+    <link href="https://hunkier.cn/Centos-7-Seting-DNS-Server/"/>
+    <id>https://hunkier.cn/Centos-7-Seting-DNS-Server/</id>
+    <published>2018-11-29T07:13:12.469Z</published>
+    <updated>2018-11-29T07:14:29.832Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CentOS 7需要使用全新的命令行工具 nmcli 来设置&lt;/p&gt;
+&lt;h5 id=&quot;显示当前网络连接&quot;&gt;&lt;a href=&quot;#显示当前网络连接&quot; class=&quot;headerlink&quot; title=&quot;显示当前网络连接&quot;&gt;&lt;/a&gt;显示当前网络连接&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;[root@bogon ~]# nmcli connection show
+NAME     UUID                                  TYPE      DEVICE
+cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0
+docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0
+enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0
+virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/categories/centos/linux/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="DNS" scheme="https://hunkier.cn/tags/DNS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Windows环境下Vmware中Centos共享文件</title>
     <link href="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/"/>
     <id>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</id>
     <published>2018-08-25T03:31:13.000Z</published>
-    <updated>2018-11-28T04:50:49.763Z</updated>
+    <updated>2018-11-29T06:46:03.756Z</updated>
     
     <summary type="html">
     
@@ -30,18 +61,18 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://hunkier.cn/categories/Linux/"/>
+      <category term="linux" scheme="https://hunkier.cn/categories/linux/"/>
     
-      <category term="Centos" scheme="https://hunkier.cn/categories/Linux/Centos/"/>
+      <category term="centos" scheme="https://hunkier.cn/categories/linux/centos/"/>
     
-      <category term="Vmware" scheme="https://hunkier.cn/categories/Linux/Centos/Vmware/"/>
+      <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
     
     
-      <category term="Linux" scheme="https://hunkier.cn/tags/Linux/"/>
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
-      <category term="Centos" scheme="https://hunkier.cn/tags/Centos/"/>
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
-      <category term="Vmware" scheme="https://hunkier.cn/tags/Vmware/"/>
+      <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     
   </entry>
   
@@ -117,7 +148,7 @@ unzip -h
     <link href="https://hunkier.cn/Java-Concurrent-Lock/"/>
     <id>https://hunkier.cn/Java-Concurrent-Lock/</id>
     <published>2018-07-06T06:55:00.000Z</published>
-    <updated>2018-11-28T04:50:49.762Z</updated>
+    <updated>2018-11-29T06:46:03.783Z</updated>
     
     <summary type="html">
     
@@ -129,7 +160,7 @@ unzip -h
     
     </summary>
     
-      <category term="Java" scheme="https://hunkier.cn/categories/Java/"/>
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
     
     
       <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
@@ -147,7 +178,7 @@ unzip -h
     <link href="https://hunkier.cn/Blog-Hexo-Install/"/>
     <id>https://hunkier.cn/Blog-Hexo-Install/</id>
     <published>2018-06-29T09:31:13.000Z</published>
-    <updated>2018-11-28T04:50:49.761Z</updated>
+    <updated>2018-11-29T06:46:03.797Z</updated>
     
     <summary type="html">
     
@@ -166,6 +197,10 @@ unzip -h
     </summary>
     
       <category term="github" scheme="https://hunkier.cn/categories/github/"/>
+    
+      <category term="blog" scheme="https://hunkier.cn/categories/github/blog/"/>
+    
+      <category term="hexo" scheme="https://hunkier.cn/categories/github/blog/hexo/"/>
     
     
       <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>

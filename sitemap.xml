@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Centos-7-Seting-DNS-Server/</loc>
+    
+    <lastmod>2018-11-29T07:14:29.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
+    
+    <lastmod>2018-11-29T06:46:03.797Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Java-Concurrent-Lock/</loc>
+    
+    <lastmod>2018-11-29T06:46:03.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</loc>
+    
+    <lastmod>2018-11-29T06:46:03.756Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/My-wechat/</loc>
     
     <lastmod>2018-11-28T06:20:25.518Z</lastmod>
@@ -26,27 +54,6 @@
     <loc>https://hunkier.cn/hello-world/</loc>
     
     <lastmod>2018-11-28T04:50:49.765Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</loc>
-    
-    <lastmod>2018-11-28T04:50:49.763Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Java-Concurrent-Lock/</loc>
-    
-    <lastmod>2018-11-28T04:50:49.762Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
-    
-    <lastmod>2018-11-28T04:50:49.761Z</lastmod>
     
   </url>
   

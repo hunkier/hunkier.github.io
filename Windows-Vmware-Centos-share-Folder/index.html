@@ -16,7 +16,7 @@
   <title>Windows环境下Vmware中Centos共享文件 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="先安装包依赖：yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++">
-<meta name="keywords" content="centos,linux,vmware">
+<meta name="keywords" content="linux,centos,vmware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows环境下Vmware中Centos共享文件">
 <meta property="og:url" content="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/index.html">
@@ -280,11 +280,11 @@ cd vmware-tools-distrib
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -575,15 +575,27 @@ cd vmware-tools-distrib
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">rancher</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DNS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,18 +612,6 @@ cd vmware-tools-distrib
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">rancher</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,28 +659,29 @@ cd vmware-tools-distrib
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
-<!--<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>-->
+       <!--     <pre  style="font-size: 12px;">
+                jsonContent:
+                  meta: false
+                  pages: false
+                  posts:
+                    title: true
+                    date: true
+                    path: true
+                    text: false
+                    raw: false
+                    content: false
+                    slug: false
+                    updated: false
+                    comments: false
+                    link: false
+                    permalink: false
+                    excerpt: false
+                    categories: false
+                    tags: true
+            </pre>-->
           </p>
           <li class="search-li" q-repeat="items" q-show="isShow">
             <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>

@@ -200,9 +200,9 @@ unzip -h
       <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
     
     
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
       <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     

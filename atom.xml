@@ -119,13 +119,12 @@ virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
     <link href="https://hunkier.cn/Common-shell-script/"/>
     <id>https://hunkier.cn/Common-shell-script/</id>
     <published>2018-07-10T05:11:00.000Z</published>
-    <updated>2018-11-28T04:59:34.856Z</updated>
+    <updated>2018-12-14T03:06:22.556Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;收集工作中经常用的Linux命令和shell脚本&lt;/p&gt;
-&lt;p&gt;zip 压缩和解压缩&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# 压缩文件夹
+&lt;h5 id=&quot;zip-压缩和解压缩&quot;&gt;&lt;a href=&quot;#zip-压缩和解压缩&quot; class=&quot;headerlink&quot; title=&quot;zip 压缩和解压缩&quot;&gt;&lt;/a&gt;zip 压缩和解压缩&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# 压缩文件夹
 zip -r data.zip  data
 # 解压缩文件,默认解压到当前路径
 unzip data.zip
@@ -200,9 +199,9 @@ unzip -h
       <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
     
     
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
       <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     

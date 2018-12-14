@@ -15,18 +15,18 @@
   <link rel="dns-prefetch" href="https://hunkier.cn">
   <title>常用的Shell脚本和Linux命令 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩 # 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
+  <meta name="description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
 <meta name="keywords" content="linux,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用的Shell脚本和Linux命令">
 <meta property="og:url" content="https://hunkier.cn/Common-shell-script/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩 # 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
+<meta property="og:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-28T04:59:34.856Z">
+<meta property="og:updated_time" content="2018-12-14T03:06:22.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用的Shell脚本和Linux命令">
-<meta name="twitter:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩 # 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
+<meta name="twitter:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -224,8 +224,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>收集工作中经常用的Linux命令和shell脚本</p>
-<p>zip 压缩和解压缩</p>
-<pre><code class="shell"># 压缩文件夹
+<h5 id="zip-压缩和解压缩"><a href="#zip-压缩和解压缩" class="headerlink" title="zip 压缩和解压缩"></a>zip 压缩和解压缩</h5><pre><code class="shell"># 压缩文件夹
 zip -r data.zip  data
 # 解压缩文件,默认解压到当前路径
 unzip data.zip
@@ -236,48 +235,40 @@ unzip -h
 
 </code></pre>
 <a id="more"></a>
-<p>tar 压缩和解压缩</p>
-<pre><code class="shell"># 压缩文件夹
+<h5 id="tar-压缩和解压缩"><a href="#tar-压缩和解压缩" class="headerlink" title="tar 压缩和解压缩"></a>tar 压缩和解压缩</h5><pre><code class="shell"># 压缩文件夹
 tar -czf data.tar.gz data
 # 解压缩到当前路径
 tar -xzf data.tar.gz
 </code></pre>
-<p>tail查看和过滤日志文件</p>
-<pre><code class="shell"># 动态输出Tomcat日志到控制台
+<h5 id="tail查看和过滤日志文件"><a href="#tail查看和过滤日志文件" class="headerlink" title="tail查看和过滤日志文件"></a>tail查看和过滤日志文件</h5><pre><code class="shell"># 动态输出Tomcat日志到控制台
 tail -1000f catalina.out
 # 按字段过滤日志
 tail -1000f catalina.out | grap -A 20 &#39;ERROR&#39;
 </code></pre>
-<p>netstat 查看监听端口的进程</p>
-<pre><code class="shell"># 查看监听端口为1600的进程
+<h5 id="netstat-查看监听端口的进程"><a href="#netstat-查看监听端口的进程" class="headerlink" title="netstat 查看监听端口的进程"></a>netstat 查看监听端口的进程</h5><pre><code class="shell"># 查看监听端口为1600的进程
 netstat -tlpn | grep &quot;\b16000\b&quot;
 </code></pre>
-<p>kill停止指定进程</p>
-<pre><code class="shell"># 停止当前路径下的应用进程
+<h5 id="kill停止指定进程"><a href="#kill停止指定进程" class="headerlink" title="kill停止指定进程"></a>kill停止指定进程</h5><pre><code class="shell"># 停止当前路径下的应用进程
 kill -9 $(ps -ef|grep $(pwd)|grep -v grep|awk &#39;{print $2}&#39;)
 # 停止监听端口为1600的进程
 kill -9 $(netstat -tlpn | grep &quot;\b16000\b&quot; | awk &#39;{print $7}&#39; | cut -d &#39;/&#39; -f 1)
 
 </code></pre>
-<p>sed替换文件内容</p>
-<pre><code class="shell"># 替换Tomcat默认端口
+<h5 id="sed替换文件内容"><a href="#sed替换文件内容" class="headerlink" title="sed替换文件内容"></a>sed替换文件内容</h5><pre><code class="shell"># 替换Tomcat默认端口
 sed -i &quot;s|&lt;Connector port=\&quot;8080\&quot;|&lt;Connector port=\&quot;51000\&quot;|g&quot; server.xml &amp;&amp; \
 sed -i &quot;s|&lt;Connector port=\&quot;8009\&quot;|&lt;Connector port=\&quot;51080\&quot;|g&quot; server.xml
 </code></pre>
-<p>crontab定时任务</p>
-<pre><code class="shell">crontab -e
+<h5 id="crontab定时任务"><a href="#crontab定时任务" class="headerlink" title="crontab定时任务"></a>crontab定时任务</h5><pre><code class="shell">crontab -e
 # 每分钟执行一次monitor.sh脚步
 */1 * * * * /usr/java/monitor.sh
 # 数据库备份
 0 3 * * *  /bin/sh /data1/script/databak.sh &amp;
 0 4 * * * find /data1/databak -type f -mtime +3 -exec rm {} \;
 </code></pre>
-<p><code>databak.sh</code>内容</p>
-<pre><code class="shell">#!/bin/bash
+<h5 id="databak-sh内容"><a href="#databak-sh内容" class="headerlink" title="databak.sh内容"></a><code>databak.sh</code>内容</h5><pre><code class="shell">#!/bin/bash
 /usr/bin/mysqldump -uroot -p123456 test &gt;/data1/databak/`date +%Y%m%d`test.sql 2&gt;/dev/null
 </code></pre>
-<p>监控Tomcat是否正常启动</p>
-<pre><code class="shell">
+<h5 id="监控Tomcat是否正常启动"><a href="#监控Tomcat是否正常启动" class="headerlink" title="监控Tomcat是否正常启动"></a>监控Tomcat是否正常启动</h5><pre><code class="shell">
 #!/bin/sh
 # 定义环境变量（要改成自己的jdk相关地址）
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -331,8 +322,7 @@ echo &quot;------------------------------&quot;
 Monitor&gt;&gt;$TomcatMonitorLog
 
 </code></pre>
-<p>监控netty服务是否正常开启端口</p>
-<pre><code class="shell">#!/bin/sh
+<h5 id="监控netty服务是否正常开启端口"><a href="#监控netty服务是否正常开启端口" class="headerlink" title="监控netty服务是否正常开启端口"></a>监控netty服务是否正常开启端口</h5><pre><code class="shell">#!/bin/sh
 # 定义环境变量（要改成自己的jdk相关地址）
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_191-oraclejdk
@@ -561,7 +551,7 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip-压缩和解压缩"><span class="toc-number">1.</span> <span class="toc-text">zip 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tar-压缩和解压缩"><span class="toc-number">2.</span> <span class="toc-text">tar 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail查看和过滤日志文件"><span class="toc-number">3.</span> <span class="toc-text">tail查看和过滤日志文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#netstat-查看监听端口的进程"><span class="toc-number">4.</span> <span class="toc-text">netstat 查看监听端口的进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#kill停止指定进程"><span class="toc-number">5.</span> <span class="toc-text">kill停止指定进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed替换文件内容"><span class="toc-number">6.</span> <span class="toc-text">sed替换文件内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#crontab定时任务"><span class="toc-number">7.</span> <span class="toc-text">crontab定时任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#databak-sh内容"><span class="toc-number">8.</span> <span class="toc-text">databak.sh内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控Tomcat是否正常启动"><span class="toc-number">9.</span> <span class="toc-text">监控Tomcat是否正常启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控netty服务是否正常开启端口"><span class="toc-number">10.</span> <span class="toc-text">监控netty服务是否正常开启端口</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -721,11 +711,31 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,27 +751,7 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">

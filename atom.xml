@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2018-11-29T07:55:03.381Z</updated>
+  <updated>2018-12-19T01:47:59.903Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reactor模式的角色构成</title>
+    <link href="https://hunkier.cn/Reactor/"/>
+    <id>https://hunkier.cn/Reactor/</id>
+    <published>2018-08-15T11:35:18.000Z</published>
+    <updated>2018-12-19T01:47:59.903Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&quot;&gt;&lt;a href=&quot;#Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&quot; class=&quot;headerlink&quot; title=&quot;Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&quot;&gt;&lt;/a&gt;Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&lt;/h2&gt;&lt;h3 id=&quot;1-Handle（句柄或是描述符）：&quot;&gt;&lt;a href=&quot;#1-Handle（句柄或是描述符）：&quot; class=&quot;headerlink&quot; title=&quot;1. Handle（句柄或是描述符）：&quot;&gt;&lt;/a&gt;1. &lt;strong&gt;Handle（句柄或是描述符）&lt;/strong&gt;：&lt;/h3&gt;&lt;p&gt;本质上表示一种资源，是由操作系统提供的；改资源用于表示一个个的事件，比如说文件描述符，或是针对网络编程过程中的Socket描述符。事件即可以来自于外部，可以来自于内部；外部事件比如说客户端的连接请求，客户端发送过来的数据等；内部事件，比如说操作系统产生的定时器事件等。它本质上就是一个文件描述符。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="reactor" scheme="https://hunkier.cn/categories/reactor/"/>
+    
+      <category term="nio" scheme="https://hunkier.cn/categories/reactor/nio/"/>
+    
+      <category term="netty" scheme="https://hunkier.cn/categories/reactor/nio/netty/"/>
+    
+    
+      <category term="reactor" scheme="https://hunkier.cn/tags/reactor/"/>
+    
+      <category term="nio" scheme="https://hunkier.cn/tags/nio/"/>
+    
+      <category term="netty" scheme="https://hunkier.cn/tags/netty/"/>
+    
+  </entry>
   
   <entry>
     <title>清除Kubernetes环境</title>
@@ -199,9 +227,9 @@ unzip -h
       <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
     
     
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
       <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     

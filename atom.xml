@@ -69,13 +69,13 @@ rm /var/lib/kubelet/* -rf
       <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
     
     
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
       <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
     
       <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
     
       <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
   </entry>
   
@@ -274,25 +274,22 @@ unzip -h
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://hunkier.cn/hello-world/"/>
-    <id>https://hunkier.cn/hello-world/</id>
-    <published>2018-06-29T07:31:13.000Z</published>
-    <updated>2018-11-28T04:50:49.765Z</updated>
+    <title>shell脚本命令备忘</title>
+    <link href="https://hunkier.cn/Shell-notes/"/>
+    <id>https://hunkier.cn/Shell-notes/</id>
+    <published>2018-06-12T09:09:19.000Z</published>
+    <updated>2018-12-19T03:12:52.471Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Hosted by &lt;a href=&quot;https://pages.coding.me&quot; style=&quot;font-weight: bold&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Coding Pages&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;这里收藏工作中用到的脚本，也为了防止做重复的搜索工作，同时分享给大家。&lt;br&gt;
     
     </summary>
     
-      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
     
+      <category term="shell" scheme="https://hunkier.cn/tags/shell/"/>
     
-      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
-    
-      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
+      <category term="vim" scheme="https://hunkier.cn/tags/vim/"/>
     
   </entry>
   
@@ -324,6 +321,29 @@ unzip -h
       <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
       <category term="wechat" scheme="https://hunkier.cn/tags/wechat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://hunkier.cn/hello-world/"/>
+    <id>https://hunkier.cn/hello-world/</id>
+    <published>2018-06-07T07:31:13.000Z</published>
+    <updated>2018-12-19T03:15:29.240Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hosted by &lt;a href=&quot;https://pages.coding.me&quot; style=&quot;font-weight: bold&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Coding Pages&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
+    
+    
+      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
+    
+      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
   </entry>
   

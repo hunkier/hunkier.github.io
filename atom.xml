@@ -143,11 +143,52 @@ virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
   </entry>
   
   <entry>
+    <title>Docker常用命令</title>
+    <link href="https://hunkier.cn/Docker-common/"/>
+    <id>https://hunkier.cn/Docker-common/</id>
+    <published>2018-08-01T11:01:32.000Z</published>
+    <updated>2018-12-21T08:48:11.177Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Docker使用比较频繁的命令&lt;/p&gt;
+&lt;h5 id=&quot;查看docker-版本&quot;&gt;&lt;a href=&quot;#查看docker-版本&quot; class=&quot;headerlink&quot; title=&quot;查看docker 版本&quot;&gt;&lt;/a&gt;查看docker 版本&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;#docker version
+Client:
+ Version:      18.03.1-ce
+ API version:  1.37
+ Go version:   go1.9.5
+ Git commit:   9ee9f40
+ Built:        Thu Apr 26 07:12:48 2018
+ OS/Arch:      windows/amd64
+ Experimental: false
+ Orchestrator: swarm
+
+Server:
+ Engine:
+  Version:      18.06.1-ce
+  API version:  1.38 (minimum version 1.12)
+  Go version:   go1.10.3
+  Git commit:   e68fc7a
+  Built:        Tue Aug 21 17:25:29 2018
+  OS/Arch:      linux/amd64
+  Experimental: true
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="https://hunkier.cn/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常用的Shell脚本和Linux命令</title>
     <link href="https://hunkier.cn/Common-shell-script/"/>
     <id>https://hunkier.cn/Common-shell-script/</id>
     <published>2018-07-10T05:11:00.000Z</published>
-    <updated>2018-12-14T03:06:22.556Z</updated>
+    <updated>2018-12-20T07:03:21.205Z</updated>
     
     <summary type="html">
     

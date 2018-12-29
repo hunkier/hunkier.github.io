@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2018-12-25T04:37:54.090Z</updated>
+  <updated>2018-12-29T15:26:23.034Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>黑苹果</title>
+    <link href="https://hunkier.cn/Hackintosh/"/>
+    <id>https://hunkier.cn/Hackintosh/</id>
+    <published>2018-12-29T14:41:13.000Z</published>
+    <updated>2018-12-29T15:26:23.034Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;写在开头&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;什么是黑苹果？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;黑苹果&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Mac osx" scheme="https://hunkier.cn/categories/Mac-osx/"/>
+    
+      <category term="Hackintosh" scheme="https://hunkier.cn/categories/Mac-osx/Hackintosh/"/>
+    
+    
+      <category term="Mac osx" scheme="https://hunkier.cn/tags/Mac-osx/"/>
+    
+      <category term="Hackintosh" scheme="https://hunkier.cn/tags/Hackintosh/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS越狱</title>
     <link href="https://hunkier.cn/iOS-Jailbreaking/"/>
     <id>https://hunkier.cn/iOS-Jailbreaking/</id>
     <published>2018-12-23T09:41:13.000Z</published>
-    <updated>2018-12-25T04:37:54.090Z</updated>
+    <updated>2018-12-23T09:51:30.943Z</updated>
     
     <summary type="html">
     
@@ -51,7 +81,7 @@
     <link href="https://hunkier.cn/Reactor/"/>
     <id>https://hunkier.cn/Reactor/</id>
     <published>2018-08-15T11:35:18.000Z</published>
-    <updated>2018-12-19T01:47:59.903Z</updated>
+    <updated>2018-12-18T14:21:51.345Z</updated>
     
     <summary type="html">
     
@@ -79,7 +109,7 @@
     <link href="https://hunkier.cn/Clean-Kubernetes-Environment/"/>
     <id>https://hunkier.cn/Clean-Kubernetes-Environment/</id>
     <published>2018-08-13T11:07:16.000Z</published>
-    <updated>2018-11-29T07:55:03.381Z</updated>
+    <updated>2018-12-17T12:26:51.789Z</updated>
     
     <summary type="html">
     
@@ -114,7 +144,7 @@ rm /var/lib/kubelet/* -rf
     <link href="https://hunkier.cn/Centos-7-Seting-DNS-Server/"/>
     <id>https://hunkier.cn/Centos-7-Seting-DNS-Server/</id>
     <published>2018-08-10T07:07:16.000Z</published>
-    <updated>2018-11-29T07:30:24.146Z</updated>
+    <updated>2018-12-17T12:26:51.788Z</updated>
     
     <summary type="html">
     
@@ -145,7 +175,7 @@ virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
     <link href="https://hunkier.cn/mycat-single-database-log-table-part-by-month/"/>
     <id>https://hunkier.cn/mycat-single-database-log-table-part-by-month/</id>
     <published>2018-08-09T02:58:55.000Z</published>
-    <updated>2018-11-28T04:50:49.766Z</updated>
+    <updated>2018-11-27T11:55:14.817Z</updated>
     
     <summary type="html">
     
@@ -177,7 +207,7 @@ virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
     <link href="https://hunkier.cn/Docker-common/"/>
     <id>https://hunkier.cn/Docker-common/</id>
     <published>2018-08-01T11:01:32.000Z</published>
-    <updated>2018-12-25T04:37:54.088Z</updated>
+    <updated>2018-12-22T14:21:53.129Z</updated>
     
     <summary type="html">
     
@@ -218,7 +248,7 @@ Server:
     <link href="https://hunkier.cn/Common-shell-script/"/>
     <id>https://hunkier.cn/Common-shell-script/</id>
     <published>2018-07-10T05:11:00.000Z</published>
-    <updated>2018-12-20T07:03:21.205Z</updated>
+    <updated>2018-12-22T14:21:19.900Z</updated>
     
     <summary type="html">
     
@@ -252,7 +282,7 @@ unzip -h
     <link href="https://hunkier.cn/Java-Concurrent-Lock/"/>
     <id>https://hunkier.cn/Java-Concurrent-Lock/</id>
     <published>2018-07-06T06:55:00.000Z</published>
-    <updated>2018-11-29T06:46:03.783Z</updated>
+    <updated>2018-12-17T12:26:51.791Z</updated>
     
     <summary type="html">
     
@@ -282,7 +312,7 @@ unzip -h
     <link href="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/"/>
     <id>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</id>
     <published>2018-07-05T03:31:13.000Z</published>
-    <updated>2018-11-29T07:33:03.459Z</updated>
+    <updated>2018-12-17T12:26:51.793Z</updated>
     
     <summary type="html">
     
@@ -311,7 +341,7 @@ unzip -h
     <link href="https://hunkier.cn/Blog-Hexo-Install/"/>
     <id>https://hunkier.cn/Blog-Hexo-Install/</id>
     <published>2018-06-29T09:31:13.000Z</published>
-    <updated>2018-11-29T06:46:03.797Z</updated>
+    <updated>2018-12-17T12:26:51.787Z</updated>
     
     <summary type="html">
     
@@ -349,7 +379,7 @@ unzip -h
     <link href="https://hunkier.cn/Shell-notes/"/>
     <id>https://hunkier.cn/Shell-notes/</id>
     <published>2018-06-12T09:09:19.000Z</published>
-    <updated>2018-12-19T03:12:52.471Z</updated>
+    <updated>2018-12-22T14:21:19.902Z</updated>
     
     <summary type="html">
     
@@ -369,7 +399,7 @@ unzip -h
     <link href="https://hunkier.cn/My-wechat/"/>
     <id>https://hunkier.cn/My-wechat/</id>
     <published>2018-06-09T07:31:13.000Z</published>
-    <updated>2018-11-28T06:20:25.518Z</updated>
+    <updated>2018-11-28T11:59:58.977Z</updated>
     
     <summary type="html">
     
@@ -400,7 +430,7 @@ unzip -h
     <link href="https://hunkier.cn/hello-world/"/>
     <id>https://hunkier.cn/hello-world/</id>
     <published>2018-06-07T07:31:13.000Z</published>
-    <updated>2018-12-19T03:15:29.240Z</updated>
+    <updated>2018-12-22T14:21:19.903Z</updated>
     
     <summary type="html">
     

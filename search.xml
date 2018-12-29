@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[黑苹果]]></title>
+    <url>%2FHackintosh%2F</url>
+    <content type="text"><![CDATA[写在开头 什么是黑苹果？ 黑苹果 黑苹果 参考资料： High Sierra 以及 Mojave 镜像集合贴 http://bbs.pcbeta.com/viewthread-1753062-1-1.html High Sierra 和 Mojave 镜像大全https://blog.iamzhl.top/High-Sierra-and-Mojave-Images-update.html 笔记本黑果安装向导 http://bbs.pcbeta.com/viewthread-1779539-1-7.html UEFI+GPT+Clover macOS原版单、双系统双版教程(正式版)https://alansachin.github.io/2017/05/07/UEFI+GPT+Clover-macOS%E5%8E%9F%E7%89%88%E5%8D%95-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%8F%8C%E7%89%88%E6%95%99%E7%A8%8B(%E6%AD%A3%E5%BC%8F%E7%89%88) 黑苹果安装 https://mp.weixin.qq.com/s/oYIrNOy8Co-SbKTPlGOlLw 增强型 macOS 维护系统https://pe.firewolf.app/cn/]]></content>
+      <categories>
+        <category>Mac osx</category>
+        <category>Hackintosh</category>
+      </categories>
+      <tags>
+        <tag>Mac osx</tag>
+        <tag>Hackintosh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS越狱]]></title>
     <url>%2FiOS-Jailbreaking%2F</url>
     <content type="text"><![CDATA[写在开头 什么是iOS越狱？ iOS越狱（英语：iOS Jailbreaking）是获取iOS设备的Root权限的技术手段。iOS系统的Root用户对除Apple特定私有进程之外的其他进程不开放，使用Root用户运行的进程在进程树中的PID为0。程序员在iOS中挖掘出一些可以将进程提权至PID0的漏洞（例如Task For PID0）。利用Root用户运行的进程意味着可以任意读取设备其中的APFS分区表和内核缓存地址，拥有一个用户可以随意控制的PID0进程还不能称之为一个完整的越狱。之后还需要利用Bypass（旁路）手段绕过Apple在iOS系统中设置的其他安全防护措施，将APFS或HFS+文件系统中的ROOTFS分区重新挂载（Remount）为可读写（R/W），从而达到添加二进制文件和守护进程的目的。通常大众用户认为能够正常使用Cydia才能被称为越狱，但其实这种说法是不正确的。但通过此软件可以完成越狱前不可能进行的动作，例如安装App Store以外未经过签名的应用、修改SpringBoard、运行Shell程序、使有运营商锁的设备利用卡贴解锁后通过替换配置文件形式实现本地化（例如“去除+86”，解锁FaceTime功能）。[1] 越狱软件分发商店Cydia的创始人Jay Freeman在2010年10月估计，全球大概有10%的iPhone曾进行过越狱[2]。 当一台iOS设备越狱之后，用户将能实践很多此前无能以得的各种功能，或是使用很多被Apple认为不安全的软件。比如：虚拟定位、修改iPhone的登录设备、翻越防火墙、修改设备界面字体和主题、快速转换自定义铃声、使用自己编程的软件或插件等。 越狱工具： 挂神团队越狱 https://app.nk8686.xin/ios/ electra越狱 https://coolstar.org/electra/ pp助手越狱 https://pro.25pp.com/ppghost 爱思越狱助手：https://www.i4.cn/ iOS9.2~iOS9.3.3越狱修复 http://jb92.i4.cn/]]></content>

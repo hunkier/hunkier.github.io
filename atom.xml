@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2018-12-30T07:15:21.981Z</updated>
+  <updated>2018-12-30T07:21:41.162Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://hunkier.cn/Hackintosh/"/>
     <id>https://hunkier.cn/Hackintosh/</id>
     <published>2018-12-29T14:41:13.000Z</published>
-    <updated>2018-12-30T07:15:21.981Z</updated>
+    <updated>2018-12-30T07:21:41.162Z</updated>
     
     <summary type="html">
     
       &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;写在开头&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;什么是黑苹果？&lt;/p&gt;
+&lt;p&gt;#什么是黑苹果？&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;黑苹果&lt;/p&gt;
+&lt;p&gt;自从苹果采用Intel的处理器，OSX被黑客破解后可以安装在Intel CPU与部分AMDCPU的机器上。从而出现了一大批非苹果设备而使用苹果操作系统的机器，被称为黑苹果(Hackintosh)；在Mac苹果机上面安装原版Mac系统的被称为白苹果（Macintosh），与黑苹果相对。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>

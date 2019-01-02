@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-01-01T13:18:25.531Z</updated>
+  <updated>2019-01-02T14:48:52.191Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决NVIDIA驱动程序安装和加载问题</title>
+    <link href="https://hunkier.cn/Hackintosh-Nvidia-Driver/"/>
+    <id>https://hunkier.cn/Hackintosh-Nvidia-Driver/</id>
+    <published>2019-02-02T14:41:13.000Z</published>
+    <updated>2019-01-02T14:48:52.191Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;问题6：您在菜单栏或Nvidia驱动程序管理器首选项面板中选择了Nvidia Web Drivers，但是当您选择时重启OS X默认图形驱动程序已选中。&lt;/p&gt;
+&lt;p&gt;当您的主板没有本机NVRAM支持（例如技嘉100系列主板）时会导致这种情况。&lt;/p&gt;
+&lt;p&gt;修复：&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="Mac osx" scheme="https://hunkier.cn/categories/Mac-osx/"/>
+    
+      <category term="Hackintosh" scheme="https://hunkier.cn/categories/Mac-osx/Hackintosh/"/>
+    
+      <category term="Nvidia" scheme="https://hunkier.cn/categories/Mac-osx/Hackintosh/Nvidia/"/>
+    
+    
+      <category term="Mac osx" scheme="https://hunkier.cn/tags/Mac-osx/"/>
+    
+      <category term="Hackintosh" scheme="https://hunkier.cn/tags/Hackintosh/"/>
+    
+      <category term="Nvidia" scheme="https://hunkier.cn/tags/Nvidia/"/>
+    
+  </entry>
   
   <entry>
     <title>黑苹果</title>
@@ -128,13 +161,13 @@ rm /var/lib/kubelet/* -rf
       <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
     
     
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
       <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
     
       <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
     
       <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
   </entry>
   

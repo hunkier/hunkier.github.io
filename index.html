@@ -204,6 +204,126 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hackintosh-Nvidia-Driver" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Hackintosh-Nvidia-Driver/">解决NVIDIA驱动程序安装和加载问题</a>
+    </h1>
+  
+
+        
+        <a href="/Hackintosh-Nvidia-Driver/" class="archive-article-date">
+  	<time datetime="2019-02-02T14:41:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题6：您在菜单栏或Nvidia驱动程序管理器首选项面板中选择了Nvidia Web Drivers，但是当您选择时重启OS X默认图形驱动程序已选中。</p>
+<p>当您的主板没有本机NVRAM支持（例如技嘉100系列主板）时会导致这种情况。</p>
+<p>修复：</p>
+<p>设置模拟NVRAM以在boot-args中存储nvda_drv = 1引导标志。</p>
+<p>在</p>
+<p>此处</p>
+<p>下载最新的Clover安装程序pkg ，启动安装程序并在此处选择自定义：</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-17-27-20pm_zpsyyxgcist-png.268544/" alt="屏幕％20Shot％202016-06-17％20AT％204.17.27％20 PM_zpsyyxgcist.PNG"></p>
+<p>之后确保您选择了EmuVariableUefi-64：</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-16-21-20pm_zpstrh5la5r-png.268545/" alt="屏幕％20Shot％202016-06-17％20AT％204.16.21％20 PM_zpstrh5la5r.PNG"></p>
+<p>继续完成Clover升级安装并重新启动。重新启动后打开系统首选项并转到Nvidia驱动程序管理器。确保您拥有最新的驱动程序是个好主意，因此请转到更新选项卡并单击立即检查按钮。如果有更新，请执行更新并在它告诉您时重新启动。你应该在这一点上完成。如果没有更新，请继续执行下一步。</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-22-24-20pm_zpss1tshhyz-png.268546/" alt="屏幕％20Shot％202016-06-17％20AT％204.22.24％20 PM_zpss1tshhyz.PNG"></p>
+<p>如果没有升级，请单击“图形驱动程序”选项卡，然后选择NVIDIA Web Drive旁边的单选按钮。重启。</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-21-54-20pm_zpstmrfmdvy-png.268547/" alt="屏幕％20Shot％202016-06-17％20AT％204.21.54％20 PM_zpstmrfmdvy.PNG"></p>
+<p>重新启动后，应该说您使用的是NVIDIA网络驱动程序。如果它仍然不起作用，那么您可能需要重新运行Clover安装程序并选择“在目标卷上安装RC脚本”。</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-27-24-20pm_zpszwpp1ven-png.268548/" alt="屏幕％20Shot％202016-06-17％20AT％204.27.24％20 PM_zpszwpp1ven.PNG"></p>
+<p>-————————— </p>
+<p>如果您遇到任何其他错误，请告知我们，我将使用解决方案更新此帖子。</p>
+<p><strong>nvidia显卡驱动</strong> <a href="https://www.tonymacx86.com/nvidia-drivers/" target="_blank" rel="noopener">https://www.tonymacx86.com/nvidia-drivers/</a><br><a href="https://www.tonymacx86.com/threads/nvidia-releases-alternate-graphics-drivers-for-macos-sierra-10-12-6-378-05-05-25.227494/" target="_blank" rel="noopener">https://www.tonymacx86.com/threads/nvidia-releases-alternate-graphics-drivers-for-macos-sierra-10-12-6-378-05-05-25.227494/</a></p>
+<p><strong> 解决NVIDIA驱动程序安装和加载问题 </strong> <a href="https://www.tonymacx86.com/threads/solving-nvidia-driver-install-loading-problems.161256/" target="_blank" rel="noopener">https://www.tonymacx86.com/threads/solving-nvidia-driver-install-loading-problems.161256/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mac osx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hackintosh</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Nvidia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mac-osx//" class="article-tag-list-link color3">Mac osx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mac-osx/Hackintosh//" class="article-tag-list-link color1">Hackintosh</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mac-osx/Hackintosh/Nvidia//" class="article-tag-list-link color2">Nvidia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Hackintosh-Nvidia-Driver/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hackintosh" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -547,6 +667,10 @@ rm /var/lib/kubelet/* -rf
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
@@ -556,10 +680,6 @@ rm /var/lib/kubelet/* -rf
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rancher</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -1151,110 +1271,6 @@ unzip -h
 
 
   
-    <article id="post-Windows-Vmware-Centos-share-Folder" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Windows-Vmware-Centos-share-Folder/">Windows环境下Vmware中Centos共享文件</a>
-    </h1>
-  
-
-        
-        <a href="/Windows-Vmware-Centos-share-Folder/" class="archive-article-date">
-  	<time datetime="2018-07-05T03:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="先安装包依赖："><a href="#先安装包依赖：" class="headerlink" title="先安装包依赖："></a>先安装包依赖：</h3><pre><code class="shell">yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++
-</code></pre>
-        
-          <a class="article-more-a" href="/Windows-Vmware-Centos-share-Folder/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vmware</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/centos//" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/centos/vmware//" class="article-tag-list-link color2">vmware</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Windows-Vmware-Centos-share-Folder/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1389,6 +1405,14 @@ unzip -h
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Mac osx</a>
               </li>
              
@@ -1409,11 +1433,7 @@ unzip -h
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nvidia</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -67,10 +67,10 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>kubernetes</tag>
         <tag>docker</tag>
         <tag>rancher</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>

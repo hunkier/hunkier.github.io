@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount rm /var/lib/kubelet/* -rf">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T12:26:51.789Z">
+<meta property="og:updated_time" content="2019-01-05T03:53:30.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清除Kubernetes环境">
 <meta name="twitter:description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount rm /var/lib/kubelet/* -rf">
@@ -654,10 +654,6 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vmware</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -667,6 +663,10 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vmware</a>
               </li>
              
               <li class="article-tag-list-item">

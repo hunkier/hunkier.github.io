@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-01-05T03:53:30.512Z</updated>
+  <updated>2019-01-14T07:04:10.054Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mysql配置主从复制</title>
+    <link href="https://hunkier.cn/Mysql-Master-Slave/"/>
+    <id>https://hunkier.cn/Mysql-Master-Slave/</id>
+    <published>2019-01-14T06:31:13.000Z</published>
+    <updated>2019-01-14T07:04:10.054Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;Mysql Replication（复制） 即 主从同步（Master/Slave）：&lt;/p&gt;
+&lt;p&gt;主要用于数据库的备份，负载均衡，读写分离等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="myql" scheme="https://hunkier.cn/categories/myql/"/>
+    
+      <category term="master" scheme="https://hunkier.cn/categories/myql/master/"/>
+    
+      <category term="slave" scheme="https://hunkier.cn/categories/myql/master/slave/"/>
+    
+    
+      <category term="myql" scheme="https://hunkier.cn/tags/myql/"/>
+    
+      <category term="master" scheme="https://hunkier.cn/tags/master/"/>
+    
+      <category term="slave" scheme="https://hunkier.cn/tags/slave/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决NVIDIA驱动程序安装和加载问题</title>
     <link href="https://hunkier.cn/Hackintosh-Nvidia-Driver/"/>
     <id>https://hunkier.cn/Hackintosh-Nvidia-Driver/</id>
-    <published>2019-02-02T14:41:13.000Z</published>
-    <updated>2019-01-05T03:53:30.512Z</updated>
+    <published>2019-01-02T14:41:13.000Z</published>
+    <updated>2019-01-14T06:52:59.496Z</updated>
     
     <summary type="html">
     
@@ -157,13 +186,13 @@ rm /var/lib/kubelet/* -rf
       <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
     
     
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
       <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
     
       <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
     
       <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
   </entry>
   

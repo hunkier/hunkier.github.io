@@ -79,7 +79,7 @@
     <link href="https://hunkier.cn/Hackintosh/"/>
     <id>https://hunkier.cn/Hackintosh/</id>
     <published>2018-12-29T14:41:13.000Z</published>
-    <updated>2019-01-05T04:08:53.445Z</updated>
+    <updated>2019-01-14T07:07:01.523Z</updated>
     
     <summary type="html">
     
@@ -186,13 +186,13 @@ rm /var/lib/kubelet/* -rf
       <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
     
     
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
       <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
     
       <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
     
       <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
   </entry>
   
@@ -385,9 +385,9 @@ unzip -h
       <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
     
     
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
       <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     

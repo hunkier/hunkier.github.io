@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-01-14T07:04:10.054Z</updated>
+  <updated>2019-02-28T08:22:11.739Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 安装 MySQL 5.7</title>
+    <link href="https://hunkier.cn/CentOS-7-install-MySQL-5-7/"/>
+    <id>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</id>
+    <published>2019-02-26T08:19:55.000Z</published>
+    <updated>2019-02-28T08:22:11.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;CentOS 7 安装MySQL5.7&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/categories/centos/mysql/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 安装 Redis</title>
+    <link href="https://hunkier.cn/CentOS-7-install-Redis/"/>
+    <id>https://hunkier.cn/CentOS-7-install-Redis/</id>
+    <published>2019-02-26T08:15:24.000Z</published>
+    <updated>2019-02-28T08:22:11.736Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;CentOS 7 安装Redis&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="redis" scheme="https://hunkier.cn/categories/centos/redis/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="redis" scheme="https://hunkier.cn/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 安装 Nginx</title>
+    <link href="https://hunkier.cn/CentOS-7-install-Nginx/"/>
+    <id>https://hunkier.cn/CentOS-7-install-Nginx/</id>
+    <published>2019-02-25T08:18:50.000Z</published>
+    <updated>2019-02-28T08:22:48.943Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;CentOS 7 安装Nginx&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="nginx" scheme="https://hunkier.cn/categories/centos/nginx/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql配置主从复制</title>

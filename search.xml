@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CentOS 7 安装 MySQL 5.7]]></title>
+    <url>%2FCentOS-7-install-MySQL-5-7%2F</url>
+    <content type="text"><![CDATA[CentOS 7 安装MySQL5.7]]></content>
+      <categories>
+        <category>centos</category>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS 7 安装 Redis]]></title>
+    <url>%2FCentOS-7-install-Redis%2F</url>
+    <content type="text"><![CDATA[CentOS 7 安装Redis]]></content>
+      <categories>
+        <category>centos</category>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS 7 安装 Nginx]]></title>
+    <url>%2FCentOS-7-install-Nginx%2F</url>
+    <content type="text"><![CDATA[CentOS 7 安装Nginx]]></content>
+      <categories>
+        <category>centos</category>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mysql配置主从复制]]></title>
     <url>%2FMysql-Master-Slave%2F</url>
     <content type="text"><![CDATA[一、概述Mysql Replication（复制） 即 主从同步（Master/Slave）： 主要用于数据库的备份，负载均衡，读写分离等。 1、数据复制技术有以下一些特点：(1) 数据分布(2) 负载平衡(load balancing)，读写分离，主写从读(3) 备份(4) 高可用性(high availability)和容错 2、复制如何工作从高层来看，复制分成三步：(1) master将改变记录到二进制日志(binary log)中（这些记录叫做二进制日志事件，binary log events）；(2) slave将master的binary log events拷贝到它的中继日志(relay log)；(3) slave重做中继日志中的事件，将改变反映它自己的数据。 二、数据备份还原在做主从同步之前首先需要对主库进行数据备份，恢复到所有的从数据库，数据库备份有冷备和热备，冷备即拷贝所有的数据文件及日志文件到从服务器， 这里使用mysqldump工具做在线热备 步骤:（这里需要备份的数据库为 db_test） 1、Master锁定库，使只能读取不能写入mysql &gt; flush tables with read lock; 2、Master导出备份~$ mysqldump –master-data -uroot -p db_test&gt;db_test.sql 说明：–master-data参数在生成的dump 文件中产生一条 CHANGE MASTER TO 命令，查看可知master当前使用的binlog文件名 3、Slave导入备份~$ mysql -uroot -p db_test&lt;db_test.sql 4、最后配置好同步以后，Master解除写锁定mysql &gt; unlock tables; 三、配置参考1、网络配置1主1从，主从数据库处于同一装有CentOS机器上，使用docker运行，可互相访问。 主数据库master端口：3311 从数据库slave1端口：3312 2、master配置3311.cnf文件mysqld段： [mysqld]server-id=1log-bin=mysql-bin说明：必需配置，server-id指定服务器唯一id，不可重复，log-bin开启binlog日志 运行master docker run --name mysql3311 -v $(PWD)/3311.cnf:/etc/mysql/conf.d/my.cnf -p 3311:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6 通过mysql客户端连胜主库，设置复制账号： GRANT REPLICATION SLAVE ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;; FLUSH PRIVILEGES; show master status; 说明：添加一个 test 账号在任何机器上使用 123456 这个密码对任何数据库行使 replication slave 权限 查看Master状态： mysql &gt; show master status; mysql&gt; show master status;+——————+———-+————–+——————+| File | Position | Binlog_Do_DB | Binlog_Ignore_DB |+——————+———-+————–+——————+| mysql-bin.000022 | 389 | | |+——————+———-+————–+——————+ 3、Slave配置3312.cnf文件配置: [mysqld]server-id=2log-bin=mysql-bin 运行slave docker run --name mysql3312 -v $(PWD)/3312.cnf:/etc/mysql/conf.d/my.cnf -p 3312:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6 使用mysql客户端连上从库，设置主从复制 stop slave; CHANGE MASTER TO MASTER_HOST = &#39;172.20.8.113&#39;, MASTER_USER = &#39;test&#39;, MASTER_PASSWORD = &#39;123456&#39;, MASTER_PORT = 3311, MASTER_RETRY_COUNT = 0, MASTER_LOG_POS = 389; START SLAVE; SHOW SLAVE STATUS ; 核对host、user、master_log_file是否正确，Slave_IO_Running: YesSlave_SQL_Running: Yes这两项yes，说明配置成功。 最后别忘了，Master解除写锁定： mysql &gt; unlock tables; 注意：如果Master的mysql服务重启会生成新的bin log日志，这时候，Slave也需要重启一下服务或者stop slave - start slave， 如果slave服务不重启，则可以修改 mysql - replication -slave 自动生成的配置文件：/var/lib/mysql/master.info 18mysql-bin.000022398172.20.8.113test123456331160查看第二行 mysq-bin文件名是否跟Master上对应，如果不对应可直接修改； 四、常见错误1、master发生故障，经修复后启动后，slave无法与master同步报错：Got fatal error 1236 from master when reading data from binary log 原因：master重启后，mysql的binlog会重新生成，相应的记录位置会改变 解决方法： -master： mysql &gt; flush logs; mysql &gt; show master status; 记录下File和Position值 -slave： mysql &gt; stop slave; mysql &gt; CHANGE MASTER TO MASTER_LOG_FILE=’mysql-bin.000049’,MASTER_LOG_POS=1359; mysql &gt; start slave; mysql &gt; show slave status\G; 2、slave发生故障，设置正确，但是无法初始化报错：ERROR 1201 (HY000): Could not initialize master 解决方法： -master： mysql &gt; flush logs; mysql &gt; show master status; 记录下File和Position值 -slave： mysql &gt; reset slave; mysql &gt; CHANGE MASTER TO MASTER_HOST = ‘172.20.8.113’, MASTER_USER = ‘test’, MASTER_PASSWORD = ‘123456’, MASTER_PORT = 3311, MASTER_RETRY_COUNT = 0, MASTER_LOG_POS = 389; mysql &gt; start slave; mysql &gt; show slave status\G;]]></content>

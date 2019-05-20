@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-02-28T08:22:11.739Z</updated>
+  <updated>2019-05-20T13:58:33.694Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,30 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CentOS 7 安装 MySQL 5.7</title>
-    <link href="https://hunkier.cn/CentOS-7-install-MySQL-5-7/"/>
-    <id>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</id>
-    <published>2019-02-26T08:19:55.000Z</published>
-    <updated>2019-02-28T08:22:11.739Z</updated>
+    <title>CentOS 用户相关操作</title>
+    <link href="https://hunkier.cn/CentOS-Users/"/>
+    <id>https://hunkier.cn/CentOS-Users/</id>
+    <published>2019-05-20T13:34:00.000Z</published>
+    <updated>2019-05-20T13:58:33.694Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;CentOS 7 安装MySQL5.7&lt;/p&gt;
-
-      
+      &lt;p&gt;Centos 用户相关操作&lt;/p&gt;
+&lt;p&gt;查看centos中的用户和用户组&lt;br&gt;1、用户列表文件：/etc/passwd/&lt;/p&gt;
+&lt;p&gt;2、用户组列表文件：/etc/group&lt;/p&gt;
+&lt;p&gt;3、查看系统中有哪些用户：&lt;/p&gt;
+&lt;p&gt;cut -d : -f 1 /etc/passwd&lt;/p&gt;
     
     </summary>
     
-      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
     
-      <category term="mysql" scheme="https://hunkier.cn/categories/centos/mysql/"/>
-    
-    
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
+      <category term="CentOS Linux Users" scheme="https://hunkier.cn/tags/CentOS-Linux-Users/"/>
     
   </entry>
   
@@ -48,8 +42,8 @@
     <title>CentOS 7 安装 Redis</title>
     <link href="https://hunkier.cn/CentOS-7-install-Redis/"/>
     <id>https://hunkier.cn/CentOS-7-install-Redis/</id>
-    <published>2019-02-26T08:15:24.000Z</published>
-    <updated>2019-02-28T08:22:11.736Z</updated>
+    <published>2019-04-26T11:30:24.000Z</published>
+    <updated>2019-05-20T14:34:10.764Z</updated>
     
     <summary type="html">
     
@@ -76,8 +70,8 @@
     <title>CentOS 7 安装 Nginx</title>
     <link href="https://hunkier.cn/CentOS-7-install-Nginx/"/>
     <id>https://hunkier.cn/CentOS-7-install-Nginx/</id>
-    <published>2019-02-25T08:18:50.000Z</published>
-    <updated>2019-02-28T08:22:48.943Z</updated>
+    <published>2019-03-25T13:18:50.000Z</published>
+    <updated>2019-05-20T14:34:10.759Z</updated>
     
     <summary type="html">
     
@@ -97,6 +91,33 @@
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 安装 MySQL 5.7</title>
+    <link href="https://hunkier.cn/CentOS-7-install-MySQL-5-7/"/>
+    <id>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</id>
+    <published>2019-02-26T14:19:55.000Z</published>
+    <updated>2019-05-20T14:34:10.768Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CentOS 7 安装MySQL5.7&lt;/p&gt;
+&lt;h1 id=&quot;一、安装包下载&quot;&gt;&lt;a href=&quot;#一、安装包下载&quot; class=&quot;headerlink&quot; title=&quot;一、安装包下载&quot;&gt;&lt;/a&gt;一、安装包下载&lt;/h1&gt;&lt;p&gt;下载地址：&lt;a href=&quot;https://dev.mysql.com/downloads/mysql/5.6.html#downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://dev.mysql.com/downloads/mysql/5.6.html#downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;国内可以使用163镜像加速下载：&lt;a href=&quot;http://mirrors.163.com/mysql/Downloads/MySQL-5.7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://mirrors.163.com/mysql/Downloads/MySQL-5.7/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;选择相应的平台和版本下载&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/categories/centos/mysql/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
     
   </entry>
   

@@ -14,18 +14,18 @@
   <link rel="dns-prefetch" href="https://hunkier.cn">
   <title>CentOS 7 安装 MySQL 5.7 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CentOS 7 安装MySQL5.7">
+  <meta name="description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta name="keywords" content="centos,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 安装 MySQL 5.7">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-install-MySQL-5-7/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="CentOS 7 安装MySQL5.7">
+<meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-28T08:22:11.739Z">
+<meta property="og:updated_time" content="2019-05-20T14:34:10.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
-<meta name="twitter:description" content="CentOS 7 安装MySQL5.7">
+<meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -215,7 +215,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/CentOS-7-install-MySQL-5-7/" class="archive-article-date">
-  	<time datetime="2019-02-26T08:19:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
+  	<time datetime="2019-02-26T14:19:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
 </a>
         
       </header>
@@ -223,6 +223,137 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>CentOS 7 安装MySQL5.7</p>
+<h1 id="一、安装包下载"><a href="#一、安装包下载" class="headerlink" title="一、安装包下载"></a>一、安装包下载</h1><p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/5.6.html#downloads" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/5.6.html#downloads</a></p>
+<p>国内可以使用163镜像加速下载：<a href="http://mirrors.163.com/mysql/Downloads/MySQL-5.7/" target="_blank" rel="noopener">http://mirrors.163.com/mysql/Downloads/MySQL-5.7/</a></p>
+<p>选择相应的平台和版本下载</p>
+<a id="more"></a>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><h2 id="1-将下载好的安装到解压到-usr-local目录下"><a href="#1-将下载好的安装到解压到-usr-local目录下" class="headerlink" title="1.将下载好的安装到解压到/usr/local目录下"></a>1.将下载好的安装到解压到/usr/local目录下</h2><pre><code class="shell">tar -zxvf mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz -C /usr/local/
+</code></pre>
+<h2 id="2-进入-usr-local目录"><a href="#2-进入-usr-local目录" class="headerlink" title="2.进入/usr/local目录"></a>2.进入/usr/local目录</h2><pre><code class="shell">cd /usr/local/
+</code></pre>
+<h2 id="3-为mysql安装目录创建软链接"><a href="#3-为mysql安装目录创建软链接" class="headerlink" title="3.为mysql安装目录创建软链接"></a>3.为mysql安装目录创建软链接</h2><pre><code class="shell">ln -s mysql-5.7.26-linux-glibc2.12-x86_64 mysql
+</code></pre>
+<h2 id="4-为centos添加mysql用户组和mysql用户-s-bin-false参数指定mysql用户仅拥有所有权，而没有登录权限"><a href="#4-为centos添加mysql用户组和mysql用户-s-bin-false参数指定mysql用户仅拥有所有权，而没有登录权限" class="headerlink" title="4.为centos添加mysql用户组和mysql用户(-s /bin/false参数指定mysql用户仅拥有所有权，而没有登录权限)"></a>4.为centos添加mysql用户组和mysql用户(-s /bin/false参数指定mysql用户仅拥有所有权，而没有登录权限)</h2><pre><code class="shell">groupadd mysql
+useradd -r -g mysql -s /bin/false mysql
+</code></pre>
+<h2 id="5-进入安装mysql软件的目录，命令如下"><a href="#5-进入安装mysql软件的目录，命令如下" class="headerlink" title="5.进入安装mysql软件的目录，命令如下"></a>5.进入安装mysql软件的目录，命令如下</h2><pre><code class="shell">cd /usr/local/mysql
+</code></pre>
+<h2 id="6-修改当前目录拥有者为新建的mysql用户，命令如下："><a href="#6-修改当前目录拥有者为新建的mysql用户，命令如下：" class="headerlink" title="6.修改当前目录拥有者为新建的mysql用户，命令如下："></a>6.修改当前目录拥有者为新建的mysql用户，命令如下：</h2><pre><code class="shell">chown -R mysql:mysql ./
+</code></pre>
+<h2 id="7-安装mysql，命令如下："><a href="#7-安装mysql，命令如下：" class="headerlink" title="7.安装mysql，命令如下："></a>7.安装mysql，命令如下：</h2><pre><code class="shell">./bin/mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
+</code></pre>
+<p>如果出现如下所示则为安装成功</p>
+<pre><code class="mysql">2019-05-20T14:14:00.607305Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2019-05-20T14:14:00.643051Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2019-05-20T14:14:00.833733Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 83d6fb34-7b09-11e9-96b7-000c2932f18d.
+2019-05-20T14:14:00.892413Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
+2019-05-20T14:14:00.893234Z 1 [Note] A temporary password is generated for root@localhost: sBN18?Wq&amp;&gt;&gt;I
+2019-05-20T14:14:01.309353Z 1 [Warning] &#39;user&#39; entry &#39;root@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309376Z 1 [Warning] &#39;user&#39; entry &#39;mysql.session@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309382Z 1 [Warning] &#39;user&#39; entry &#39;mysql.sys@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309392Z 1 [Warning] &#39;db&#39; entry &#39;performance_schema mysql.session@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309395Z 1 [Warning] &#39;db&#39; entry &#39;sys mysql.sys@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309400Z 1 [Warning] &#39;proxies_priv&#39; entry &#39;@ root@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309416Z 1 [Warning] &#39;tables_priv&#39; entry &#39;user mysql.session@localhost&#39; ignored in --skip-name-resolve mode.
+2019-05-20T14:14:01.309420Z 1 [Warning] &#39;tables_priv&#39; entry &#39;sys_config mysql.sys@localhost&#39; ignored in --skip-name-resolve mode.
+</code></pre>
+<p>其实已经生成了root的临时账号：</p>
+<pre><code class="mysql">A temporary password is generated for root@localhost: sBN18?Wq&amp;&gt;&gt;I
+</code></pre>
+<h2 id="8-开启mysql服务，命令如下："><a href="#8-开启mysql服务，命令如下：" class="headerlink" title="8.开启mysql服务，命令如下："></a>8.开启mysql服务，命令如下：</h2><pre><code class="shell">./support-files/mysql.server start
+</code></pre>
+<p>如果出现文件不存在错误，则说明mysql配置文件/etc/my.cnf中的路径不对，修改内容如下，datadir和socket都修改成mysql的安装目录下，增加[client]板块，用于命令行连接mysql数据库。</p>
+<pre><code class="ini">#在etc下新建配置文件my.cnf，并在该文件内添加以下配置
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8mb4 
+[mysqld]
+skip-name-resolve
+#设置3306端口
+port = 3306 
+# 设置mysql的安装目录
+basedir=/usr/local/mysql
+# 设置mysql数据库的数据的存放目录
+datadir=/usr/local/mysql/data
+# 允许最大连接数
+max_connections=200
+# 设置忽略大小写
+lower_case_table_names = 1
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+# 指定编码
+character-set-client-handshake=FALSE 
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+init_connect=&#39;SET NAMES utf8mb4&#39;
+
+# 开启ip绑定
+bind-address = 0.0.0.0
+
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB 
+lower_case_table_names=1
+max_allowed_packet=16M
+
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+
+#指定客户端连接mysql时的socket通信文件路径
+[client]
+socket=/usr/local/mysql/mysql.sock
+
+default-character-set=utf8mb4
+
+</code></pre>
+<h2 id="9-重新启开启mysql服务，如下图所示则开启成功！"><a href="#9-重新启开启mysql服务，如下图所示则开启成功！" class="headerlink" title="9.重新启开启mysql服务，如下图所示则开启成功！"></a>9.重新启开启mysql服务，如下图所示则开启成功！</h2><pre><code class="shell">./support-files/mysql.server start
+</code></pre>
+<h2 id="10-将mysql进程放入系统进程中，命令如下："><a href="#10-将mysql进程放入系统进程中，命令如下：" class="headerlink" title="10.将mysql进程放入系统进程中，命令如下："></a>10.将mysql进程放入系统进程中，命令如下：</h2><pre><code class="shell">cp support-files/mysql.server /etc/init.d/mysqld
+</code></pre>
+<h2 id="11-重新启动mysql服务，命令如下："><a href="#11-重新启动mysql服务，命令如下：" class="headerlink" title="11.重新启动mysql服务，命令如下："></a>11.重新启动mysql服务，命令如下：</h2><pre><code class="shell">service mysqld restart
+</code></pre>
+<h2 id="12-配置mysql环境变量"><a href="#12-配置mysql环境变量" class="headerlink" title="12.配置mysql环境变量"></a>12.配置mysql环境变量</h2><pre><code class="bash">vi /etc/profile
+export PATH=$PATH:/usr/local/mysql/bin
+</code></pre>
+<p>保存退出，再编译下：</p>
+<pre><code class="bash">source /etc/profile
+</code></pre>
+<h2 id="13-使用随机密码登录mysql数据库，命令如下："><a href="#13-使用随机密码登录mysql数据库，命令如下：" class="headerlink" title="13.使用随机密码登录mysql数据库，命令如下："></a>13.使用随机密码登录mysql数据库，命令如下：</h2><pre><code class="bash">mysql -u root -p
+</code></pre>
+<p>输入随机密码登录成功：</p>
+<pre><code class="mysql">Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2010
+Server version: 5.7.26 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; 
+</code></pre>
+<h2 id="14-进入mysql操作行，为root用户设置新密码（比如设为123456）："><a href="#14-进入mysql操作行，为root用户设置新密码（比如设为123456）：" class="headerlink" title="14.进入mysql操作行，为root用户设置新密码（比如设为123456）："></a>14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</h2><p>在13条已经登录的终端中输入如下命令：</p>
+<pre><code class="mysql">alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;123456&#39;;
+</code></pre>
+<h2 id="15-设置允许远程连接数据库，命令如下："><a href="#15-设置允许远程连接数据库，命令如下：" class="headerlink" title="15.设置允许远程连接数据库，命令如下："></a>15.设置允许远程连接数据库，命令如下：</h2><p>先选择数据库：</p>
+<pre><code class="mysql">use mysql
+update user set user.Host=&#39;%&#39; where user.User=&#39;root&#39;;
+</code></pre>
+<p>查看修改后的值：</p>
+<pre><code class="mysql">select user,host from user;
+</code></pre>
+<h2 id="16-刷新权限，命令如下："><a href="#16-刷新权限，命令如下：" class="headerlink" title="16.刷新权限，命令如下："></a>16.刷新权限，命令如下：</h2><pre><code class="mysql">flush privileges;
+</code></pre>
+<h2 id="17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）"><a href="#17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）" class="headerlink" title="17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）"></a>17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）</h2><h2 id="18、如果还是无法远程连接，查看-etc-my-cnf"><a href="#18、如果还是无法远程连接，查看-etc-my-cnf" class="headerlink" title="18、如果还是无法远程连接，查看/etc/my.cnf"></a>18、如果还是无法远程连接，查看/etc/my.cnf</h2><p>找到bind-address = 127.0.0.1这一行</p>
+<pre><code class="bash">改为bind-address = 0.0.0.0即可
+</code></pre>
+<h2 id="19、添加新的用户并授权"><a href="#19、添加新的用户并授权" class="headerlink" title="19、添加新的用户并授权"></a>19、添加新的用户并授权</h2><pre><code class="mysql">CREATE USER &#39;developer&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
+grant all privileges on *.* to &#39;developer&#39;@&#39;%&#39; identified by &#39;123456&#39;;
+flush privileges;
+</code></pre>
 
       
 
@@ -356,9 +487,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/CentOS-7-install-Nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CentOS 7 安装 Nginx
+        
+      </div>
+    </a>
   
-    <a href="/CentOS-7-install-Redis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS 7 安装 Redis</div>
+  
+    <a href="/Mysql-Master-Slave/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql配置主从复制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -385,7 +525,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、安装包下载"><span class="toc-number">1.</span> <span class="toc-text">一、安装包下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、安装"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-将下载好的安装到解压到-usr-local目录下"><span class="toc-number">2.1.</span> <span class="toc-text">1.将下载好的安装到解压到/usr/local目录下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进入-usr-local目录"><span class="toc-number">2.2.</span> <span class="toc-text">2.进入/usr/local目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-为mysql安装目录创建软链接"><span class="toc-number">2.3.</span> <span class="toc-text">3.为mysql安装目录创建软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-为centos添加mysql用户组和mysql用户-s-bin-false参数指定mysql用户仅拥有所有权，而没有登录权限"><span class="toc-number">2.4.</span> <span class="toc-text">4.为centos添加mysql用户组和mysql用户(-s /bin/false参数指定mysql用户仅拥有所有权，而没有登录权限)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-进入安装mysql软件的目录，命令如下"><span class="toc-number">2.5.</span> <span class="toc-text">5.进入安装mysql软件的目录，命令如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-修改当前目录拥有者为新建的mysql用户，命令如下："><span class="toc-number">2.6.</span> <span class="toc-text">6.修改当前目录拥有者为新建的mysql用户，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-安装mysql，命令如下："><span class="toc-number">2.7.</span> <span class="toc-text">7.安装mysql，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-开启mysql服务，命令如下："><span class="toc-number">2.8.</span> <span class="toc-text">8.开启mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-重新启开启mysql服务，如下图所示则开启成功！"><span class="toc-number">2.9.</span> <span class="toc-text">9.重新启开启mysql服务，如下图所示则开启成功！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-将mysql进程放入系统进程中，命令如下："><span class="toc-number">2.10.</span> <span class="toc-text">10.将mysql进程放入系统进程中，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-重新启动mysql服务，命令如下："><span class="toc-number">2.11.</span> <span class="toc-text">11.重新启动mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-配置mysql环境变量"><span class="toc-number">2.12.</span> <span class="toc-text">12.配置mysql环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-使用随机密码登录mysql数据库，命令如下："><span class="toc-number">2.13.</span> <span class="toc-text">13.使用随机密码登录mysql数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-进入mysql操作行，为root用户设置新密码（比如设为123456）："><span class="toc-number">2.14.</span> <span class="toc-text">14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-设置允许远程连接数据库，命令如下："><span class="toc-number">2.15.</span> <span class="toc-text">15.设置允许远程连接数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-刷新权限，命令如下："><span class="toc-number">2.16.</span> <span class="toc-text">16.刷新权限，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）"><span class="toc-number">2.17.</span> <span class="toc-text">17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、如果还是无法远程连接，查看-etc-my-cnf"><span class="toc-number">2.18.</span> <span class="toc-text">18、如果还是无法远程连接，查看/etc/my.cnf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、添加新的用户并授权"><span class="toc-number">2.19.</span> <span class="toc-text">19、添加新的用户并授权</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -554,6 +694,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
               </li>
              
               <li class="article-tag-list-item">

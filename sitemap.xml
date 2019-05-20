@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hunkier.cn/Hackintosh/</loc>
-    
-    <lastmod>2019-04-12T01:16:12.359Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
-    
-    <lastmod>2019-02-28T08:22:48.943Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
     
-    <lastmod>2019-02-28T08:22:11.739Z</lastmod>
+    <lastmod>2019-05-20T14:34:10.768Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
     
-    <lastmod>2019-02-28T08:22:11.736Z</lastmod>
+    <lastmod>2019-05-20T14:34:10.764Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
+    
+    <lastmod>2019-05-20T14:34:10.759Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-Users/</loc>
+    
+    <lastmod>2019-05-20T13:58:33.694Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Hackintosh/</loc>
+    
+    <lastmod>2019-04-12T01:16:12.359Z</lastmod>
     
   </url>
   

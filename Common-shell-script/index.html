@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-05T03:53:30.511Z">
+<meta property="og:updated_time" content="2019-05-21T13:45:17.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用的Shell脚本和Linux命令">
 <meta name="twitter:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
@@ -257,7 +257,138 @@ kill -9 $(netstat -tlpn | grep &quot;\b16000\b&quot; | awk &#39;{print $7}&#39; 
 sed -i &quot;s|&lt;Connector port=\&quot;8080\&quot;|&lt;Connector port=\&quot;51000\&quot;|g&quot; server.xml &amp;&amp; \
 sed -i &quot;s|&lt;Connector port=\&quot;8009\&quot;|&lt;Connector port=\&quot;51080\&quot;|g&quot; server.xml
 </code></pre>
-<h5 id="crontab定时任务"><a href="#crontab定时任务" class="headerlink" title="crontab定时任务"></a>crontab定时任务</h5><pre><code class="shell">crontab -e
+<h5 id="shell-判断文件夹或文件是否存在"><a href="#shell-判断文件夹或文件是否存在" class="headerlink" title="shell 判断文件夹或文件是否存在"></a>shell 判断文件夹或文件是否存在</h5><p>文件夹不存在则创建</p>
+<pre><code class="bash">if [ ! -d &quot;/data/&quot; ];then
+mkdir /data
+else
+echo &quot;文件夹已经存在&quot;
+fi
+</code></pre>
+<p>文件存在则删除</p>
+<pre><code class="bash">if [ ! -f &quot;/data/filename&quot; ];then
+echo &quot;文件不存在&quot;
+else
+rm -f /data/filename
+fi
+</code></pre>
+<p>判断文件夹是否存在</p>
+<pre><code class="bash">if [ -d &quot;/data/&quot; ];then
+echo &quot;文件夹存在&quot;
+else
+echo &quot;文件夹不存在&quot;
+fi
+</code></pre>
+<p>判断文件是否存在</p>
+<pre><code class="bash">if [ -f &quot;/data/filename&quot; ];then
+echo &quot;文件存在&quot;
+else
+echo &quot;文件不存在&quot;
+fi
+</code></pre>
+<p>文件比较符</p>
+<pre><code class="bash">-e 判断对象是否存在
+-d 判断对象是否存在，并且为目录
+-f 判断对象是否存在，并且为常规文件
+-L 判断对象是否存在，并且为符号链接
+-h 判断对象是否存在，并且为软链接
+-s 判断对象是否存在，并且长度不为0
+-r 判断对象是否存在，并且可读
+-w 判断对象是否存在，并且可写
+-x 判断对象是否存在，并且可执行
+-O 判断对象是否存在，并且属于当前用户
+-G 判断对象是否存在，并且属于当前用户组
+-nt 判断file1是否比file2新  [ &quot;/data/file1&quot; -nt &quot;/data/file2&quot; ]
+-ot 判断file1是否比file2旧  [ &quot;/data/file1&quot; -ot &quot;/data/file2&quot; ]
+</code></pre>
+<h5 id="判断某个变量是否包含字符串-变量的方法"><a href="#判断某个变量是否包含字符串-变量的方法" class="headerlink" title="判断某个变量是否包含字符串/变量的方法"></a>判断某个变量是否包含字符串/变量的方法</h5><p>尝试了有3种方法：</p>
+<ol>
+<li>使用“=~”符号，注意前后必须要有空格！</li>
+</ol>
+<p><strong>可以输出正确结果,被匹配的字符串必须要有引号括起来！</strong></p>
+<pre><code class="bash">➜  ~ a1=&#39;hello.world&#39;
+➜  ~ a2=&#39;helloworld&#39;
+➜  ~ b=&#39;.&#39;
+➜  ~ if [[ ${a1} =~ &#39;.&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~ if [[ ${a2} =~ &#39;.&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~ if [[ ${a1} =~ &quot;.&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~ if [[ ${a2} =~ &quot;.&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~ if [[ ${a1} =~ &quot;${b}&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~ if [[ ${a2} =~ &quot;${b}&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~ 
+</code></pre>
+<p><strong>不能输出正确结果</strong> </p>
+<pre><code class="bash">➜  ~  a1=&#39;hello.world&#39;
+➜  ~ &#39;
+➜  ~  b=&#39;.&#39;
+➜  ~  if [[ ${a1} =~ . ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if [[ ${a2} =~ . ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if [[ ${a1} =~ ${b} ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if [[ ${a2} =~ ${b} ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if [[ ${a1} =~ &#39;${b}&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if [[ ${a2} =~ &#39;${b}&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+</code></pre>
+<ol start="2">
+<li><p>使用”==“加通配符wildcard，注意等号前后必须有空格，注意，通配符跟正则表达式有所区别，*表示匹配 0 或多个字符</p>
+<p><strong>可以输出正确结果</strong></p>
+</li>
+</ol>
+<pre><code class="shell">➜  ~  a1=&#39;hello.world&#39;
+➜  ~  a2=&#39;helloworld&#39;
+➜  ~  if [[ ${a1} == *.* ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if [[ ${a2} == *.* ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+</code></pre>
+<p><strong>不能输出正确结果 ，通配符不能用括号括起来！</strong></p>
+<pre><code class="shell">➜  ~  a1=&#39;hello.world&#39;
+➜  ~  a2=&#39;helloworld&#39;
+➜  ~  if [[ ${a2} == &quot;*.*&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if [[ ${a1} == &quot;*.*&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if [[ ${a1} == &#39;*.*&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if [[ ${a2} == &#39;*.*&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+</code></pre>
+<ol start="3">
+<li>使用echo + grep -q 选项</li>
+</ol>
+<p><strong>使用这种方法时匹配是否有”.”会不正常，所以我们换成匹配普通字符，有没有括号都可以</strong> </p>
+<pre><code>➜  ~  a1=&#39;hello.world&#39;
+➜  ~  a2=&#39;helloworld&#39;
+➜  ~  a3=&quot;helloworlda&quot;
+➜  ~  if ( echo ${a1} |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if ( echo ${a2} |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if ( echo ${a3} |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if ( echo ${a1} |grep -q &#39;a&#39; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if ( echo ${a2} |grep -q &#39;a&#39; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if ( echo ${a3} |grep -q &#39;a&#39; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+➜  ~  if ( echo ${a1} |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if ( echo ${a2} |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+no
+➜  ~  if ( echo ${a3} |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
+yes
+</code></pre><h5 id="crontab定时任务"><a href="#crontab定时任务" class="headerlink" title="crontab定时任务"></a>crontab定时任务</h5><pre><code class="shell">crontab -e
 # 每分钟执行一次monitor.sh脚步
 */1 * * * * /usr/java/monitor.sh
 # 数据库备份
@@ -377,6 +508,99 @@ checkPort() {
         netstat -tlpn | grep &quot;\b$1\b&quot; | awk &#39;{print $2}&#39;
 }
 Monitor&gt;&gt;$NettyServerMonitorLog &amp;
+
+</code></pre>
+<h5 id="部署war包到tomcat"><a href="#部署war包到tomcat" class="headerlink" title="部署war包到tomcat"></a>部署war包到tomcat</h5><pre><code class="shell">➜  web cat start.sh 
+WORKDIR=/data1/webserver/mt_chs/web
+cd $WORKDIR
+kill -9 $(netstat -tlpn | grep &quot;\b18080\b&quot; | awk &#39;{print $7}&#39; | cut -d &#39;/&#39; -f 1)
+echo &#39;&#39; &gt; $WORKDIR/logs/catalina.out 
+$WORKDIR/bin/startup.sh 
+
+➜  web cat tailf.sh 
+WORKDIR=/data1/webserver/mt_chs/web
+tail -f $WORKDIR/logs/catalina.out
+
+➜  web cat stop.sh 
+WORKDIR=/data1/webserver/mt_chs/web
+cd $WORKDIR
+kill -9 $(netstat -tlpn | grep &quot;\b18080\b&quot; | awk &#39;{print $7}&#39; | cut -d &#39;/&#39; -f 1)
+
+➜  ~ cat deploy_web.sh 
+WEB_DIR=/data1/webserver/mt_chs/web
+APP_DIR=$WEB_DIR/webapps/chs_web
+HOME_DIR=/home/ledmon
+WAR_FILE=$HOME_DIR/$1
+
+
+function deploy(){
+    echo &quot;停止tomcat...&quot;
+    $WEB_DIR/stop.sh
+    mkdir -p $APP_DIR
+    echo &quot;更新应用...&quot;
+    rm -rf $APP_DIR/*
+    unzip $WAR_FILE -d $APP_DIR &gt;&gt; /dev/null
+    echo &quot;启动tomcat...&quot;
+    $WEB_DIR/start.sh
+    echo &quot;查看启动日志&quot;
+    $WEB_DIR/tailf.sh
+}
+
+if [ ! -f &quot;$WAR_FILE&quot; ];then
+    echo &quot;文件不存在，路径: $WAR_FILE&quot;
+elif (! echo ${WAR_FILE} |grep -q &quot;.war&quot; );then
+    echo &quot;文件不合法，路径：$WAR_FILE&quot;
+    echo &quot;请选择war文件&quot;
+elif (! echo ${WAR_FILE} |grep -q &quot;web_product&quot; );then
+    echo &quot;文件不合法，路径：$WAR_FILE&quot;
+    echo &quot;请选择web_proeuct*.war文件&quot;
+else
+    deploy
+fi
+</code></pre>
+<h5 id="部署springboot的jar包应用"><a href="#部署springboot的jar包应用" class="headerlink" title="部署springboot的jar包应用"></a>部署springboot的jar包应用</h5><pre><code class="shell">➜  appint cat start.sh 
+WORKDIR=/data1/webserver/mt_chs/appint
+cd $WORKDIR
+kill -9 $(netstat -tlpn | grep &quot;\b18083\b&quot; | awk &#39;{print $7}&#39; | cut -d &#39;/&#39; -f 1)
+echo &#39;&#39; &gt; $WORKDIR/out.log
+nohup java -jar $WORKDIR/appint_*.jar &gt; $WORKDIR/out.log &amp; 
+
+➜  appint cat tailf.sh 
+WORKDIR=/data1/webserver/mt_chs/appint
+tail -f $WORKDIR/out.log
+
+
+➜  ~ cat deploy_appint.sh 
+APP_DIR=/data1/webserver/mt_chs/appint
+HOME_DIR=/home/ledmon
+JAR_FILE=$HOME_DIR/$1
+
+
+
+function deploy(){
+    echo &quot;停止应用...&quot;
+    kill -9 $(netstat -tlpn | grep &quot;\b18083\b&quot; | awk &#39;{print $7}&#39; | cut -d &#39;/&#39; -f 1)
+    mkdir -p $APP_DIR
+    echo &quot;更新应用...&quot;
+    rm -rf $APP_DIR/*.jar
+    cp $JAR_FILE $APP_DIR
+    echo &quot;启动应用...&quot;
+    $APP_DIR/start.sh
+    echo &quot;查看启动日志&quot;
+    $APP_DIR/tailf.sh
+}
+
+if [ ! -f &quot;$JAR_FILE&quot; ];then
+    echo &quot;文件不存在，路径: $JAR_FILE&quot;
+elif (! echo ${JAR_FILE} |grep -q &quot;.jar&quot; );then
+    echo &quot;文件不合法，路径：$JAR_FILE&quot;
+    echo &quot;请选择*.jar文件&quot;
+elif (! echo ${JAR_FILE} |grep -q &quot;appint_product&quot; );then
+    echo &quot;文件不合法，路径：$JAR_FILE&quot;
+    echo &quot;请选择appint_product*.jar文件&quot;
+else
+    deploy
+fi
 
 </code></pre>
 
@@ -550,7 +774,7 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip-压缩和解压缩"><span class="toc-number">1.</span> <span class="toc-text">zip 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tar-压缩和解压缩"><span class="toc-number">2.</span> <span class="toc-text">tar 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail查看和过滤日志文件"><span class="toc-number">3.</span> <span class="toc-text">tail查看和过滤日志文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#netstat-查看监听端口的进程"><span class="toc-number">4.</span> <span class="toc-text">netstat 查看监听端口的进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#kill停止指定进程"><span class="toc-number">5.</span> <span class="toc-text">kill停止指定进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed替换文件内容"><span class="toc-number">6.</span> <span class="toc-text">sed替换文件内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#crontab定时任务"><span class="toc-number">7.</span> <span class="toc-text">crontab定时任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#databak-sh内容"><span class="toc-number">8.</span> <span class="toc-text">databak.sh内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控Tomcat是否正常启动"><span class="toc-number">9.</span> <span class="toc-text">监控Tomcat是否正常启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控netty服务是否正常开启端口"><span class="toc-number">10.</span> <span class="toc-text">监控netty服务是否正常开启端口</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip-压缩和解压缩"><span class="toc-number">1.</span> <span class="toc-text">zip 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tar-压缩和解压缩"><span class="toc-number">2.</span> <span class="toc-text">tar 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail查看和过滤日志文件"><span class="toc-number">3.</span> <span class="toc-text">tail查看和过滤日志文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#netstat-查看监听端口的进程"><span class="toc-number">4.</span> <span class="toc-text">netstat 查看监听端口的进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#kill停止指定进程"><span class="toc-number">5.</span> <span class="toc-text">kill停止指定进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed替换文件内容"><span class="toc-number">6.</span> <span class="toc-text">sed替换文件内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shell-判断文件夹或文件是否存在"><span class="toc-number">7.</span> <span class="toc-text">shell 判断文件夹或文件是否存在</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#判断某个变量是否包含字符串-变量的方法"><span class="toc-number">8.</span> <span class="toc-text">判断某个变量是否包含字符串/变量的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#crontab定时任务"><span class="toc-number">9.</span> <span class="toc-text">crontab定时任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#databak-sh内容"><span class="toc-number">10.</span> <span class="toc-text">databak.sh内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控Tomcat是否正常启动"><span class="toc-number">11.</span> <span class="toc-text">监控Tomcat是否正常启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控netty服务是否正常开启端口"><span class="toc-number">12.</span> <span class="toc-text">监控netty服务是否正常开启端口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#部署war包到tomcat"><span class="toc-number">13.</span> <span class="toc-text">部署war包到tomcat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#部署springboot的jar包应用"><span class="toc-number">14.</span> <span class="toc-text">部署springboot的jar包应用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -722,15 +946,7 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,7 +966,11 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,18 +998,6 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">master</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slave</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">reactor</a>
               </li>
              
@@ -799,6 +1007,18 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">myql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">master</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slave</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -815,6 +1035,10 @@ Monitor&gt;&gt;$NettyServerMonitorLog &amp;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">

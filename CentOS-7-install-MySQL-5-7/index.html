@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T14:34:10.768Z">
+<meta property="og:updated_time" content="2019-05-20T14:45:28.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
 <meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
@@ -306,11 +306,14 @@ socket=/usr/local/mysql/mysql.sock
 default-character-set=utf8mb4
 
 </code></pre>
-<h2 id="9-重新启开启mysql服务，如下图所示则开启成功！"><a href="#9-重新启开启mysql服务，如下图所示则开启成功！" class="headerlink" title="9.重新启开启mysql服务，如下图所示则开启成功！"></a>9.重新启开启mysql服务，如下图所示则开启成功！</h2><pre><code class="shell">./support-files/mysql.server start
+<h2 id="9-重新启开启mysql服务，如下所示则开启成功！"><a href="#9-重新启开启mysql服务，如下所示则开启成功！" class="headerlink" title="9.重新启开启mysql服务，如下所示则开启成功！"></a>9.重新启开启mysql服务，如下所示则开启成功！</h2><pre><code class="shell">./support-files/mysql.server start
+Starting MySQL.. SUCCESS!
 </code></pre>
-<h2 id="10-将mysql进程放入系统进程中，命令如下："><a href="#10-将mysql进程放入系统进程中，命令如下：" class="headerlink" title="10.将mysql进程放入系统进程中，命令如下："></a>10.将mysql进程放入系统进程中，命令如下：</h2><pre><code class="shell">cp support-files/mysql.server /etc/init.d/mysqld
+<h2 id="10-将mysql进程放入系统进程中，命令如下："><a href="#10-将mysql进程放入系统进程中，命令如下：" class="headerlink" title="10.将mysql进程放入系统进程中，命令如下："></a>10.将mysql进程放入系统进程中，命令如下：</h2><pre><code class="bash">cp support-files/mysql.server /etc/init.d/mysqld
 </code></pre>
 <h2 id="11-重新启动mysql服务，命令如下："><a href="#11-重新启动mysql服务，命令如下：" class="headerlink" title="11.重新启动mysql服务，命令如下："></a>11.重新启动mysql服务，命令如下：</h2><pre><code class="shell">service mysqld restart
+Shutting down MySQL.... SUCCESS! 
+Starting MySQL. SUCCESS! 
 </code></pre>
 <h2 id="12-配置mysql环境变量"><a href="#12-配置mysql环境变量" class="headerlink" title="12.配置mysql环境变量"></a>12.配置mysql环境变量</h2><pre><code class="bash">vi /etc/profile
 export PATH=$PATH:/usr/local/mysql/bin
@@ -525,7 +528,7 @@ flush privileges;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、安装包下载"><span class="toc-number">1.</span> <span class="toc-text">一、安装包下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、安装"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-将下载好的安装到解压到-usr-local目录下"><span class="toc-number">2.1.</span> <span class="toc-text">1.将下载好的安装到解压到/usr/local目录下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进入-usr-local目录"><span class="toc-number">2.2.</span> <span class="toc-text">2.进入/usr/local目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-为mysql安装目录创建软链接"><span class="toc-number">2.3.</span> <span class="toc-text">3.为mysql安装目录创建软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-为centos添加mysql用户组和mysql用户-s-bin-false参数指定mysql用户仅拥有所有权，而没有登录权限"><span class="toc-number">2.4.</span> <span class="toc-text">4.为centos添加mysql用户组和mysql用户(-s /bin/false参数指定mysql用户仅拥有所有权，而没有登录权限)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-进入安装mysql软件的目录，命令如下"><span class="toc-number">2.5.</span> <span class="toc-text">5.进入安装mysql软件的目录，命令如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-修改当前目录拥有者为新建的mysql用户，命令如下："><span class="toc-number">2.6.</span> <span class="toc-text">6.修改当前目录拥有者为新建的mysql用户，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-安装mysql，命令如下："><span class="toc-number">2.7.</span> <span class="toc-text">7.安装mysql，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-开启mysql服务，命令如下："><span class="toc-number">2.8.</span> <span class="toc-text">8.开启mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-重新启开启mysql服务，如下图所示则开启成功！"><span class="toc-number">2.9.</span> <span class="toc-text">9.重新启开启mysql服务，如下图所示则开启成功！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-将mysql进程放入系统进程中，命令如下："><span class="toc-number">2.10.</span> <span class="toc-text">10.将mysql进程放入系统进程中，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-重新启动mysql服务，命令如下："><span class="toc-number">2.11.</span> <span class="toc-text">11.重新启动mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-配置mysql环境变量"><span class="toc-number">2.12.</span> <span class="toc-text">12.配置mysql环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-使用随机密码登录mysql数据库，命令如下："><span class="toc-number">2.13.</span> <span class="toc-text">13.使用随机密码登录mysql数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-进入mysql操作行，为root用户设置新密码（比如设为123456）："><span class="toc-number">2.14.</span> <span class="toc-text">14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-设置允许远程连接数据库，命令如下："><span class="toc-number">2.15.</span> <span class="toc-text">15.设置允许远程连接数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-刷新权限，命令如下："><span class="toc-number">2.16.</span> <span class="toc-text">16.刷新权限，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）"><span class="toc-number">2.17.</span> <span class="toc-text">17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、如果还是无法远程连接，查看-etc-my-cnf"><span class="toc-number">2.18.</span> <span class="toc-text">18、如果还是无法远程连接，查看/etc/my.cnf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、添加新的用户并授权"><span class="toc-number">2.19.</span> <span class="toc-text">19、添加新的用户并授权</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、安装包下载"><span class="toc-number">1.</span> <span class="toc-text">一、安装包下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、安装"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-将下载好的安装到解压到-usr-local目录下"><span class="toc-number">2.1.</span> <span class="toc-text">1.将下载好的安装到解压到/usr/local目录下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进入-usr-local目录"><span class="toc-number">2.2.</span> <span class="toc-text">2.进入/usr/local目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-为mysql安装目录创建软链接"><span class="toc-number">2.3.</span> <span class="toc-text">3.为mysql安装目录创建软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-为centos添加mysql用户组和mysql用户-s-bin-false参数指定mysql用户仅拥有所有权，而没有登录权限"><span class="toc-number">2.4.</span> <span class="toc-text">4.为centos添加mysql用户组和mysql用户(-s /bin/false参数指定mysql用户仅拥有所有权，而没有登录权限)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-进入安装mysql软件的目录，命令如下"><span class="toc-number">2.5.</span> <span class="toc-text">5.进入安装mysql软件的目录，命令如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-修改当前目录拥有者为新建的mysql用户，命令如下："><span class="toc-number">2.6.</span> <span class="toc-text">6.修改当前目录拥有者为新建的mysql用户，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-安装mysql，命令如下："><span class="toc-number">2.7.</span> <span class="toc-text">7.安装mysql，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-开启mysql服务，命令如下："><span class="toc-number">2.8.</span> <span class="toc-text">8.开启mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-重新启开启mysql服务，如下所示则开启成功！"><span class="toc-number">2.9.</span> <span class="toc-text">9.重新启开启mysql服务，如下所示则开启成功！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-将mysql进程放入系统进程中，命令如下："><span class="toc-number">2.10.</span> <span class="toc-text">10.将mysql进程放入系统进程中，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-重新启动mysql服务，命令如下："><span class="toc-number">2.11.</span> <span class="toc-text">11.重新启动mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-配置mysql环境变量"><span class="toc-number">2.12.</span> <span class="toc-text">12.配置mysql环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-使用随机密码登录mysql数据库，命令如下："><span class="toc-number">2.13.</span> <span class="toc-text">13.使用随机密码登录mysql数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-进入mysql操作行，为root用户设置新密码（比如设为123456）："><span class="toc-number">2.14.</span> <span class="toc-text">14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-设置允许远程连接数据库，命令如下："><span class="toc-number">2.15.</span> <span class="toc-text">15.设置允许远程连接数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-刷新权限，命令如下："><span class="toc-number">2.16.</span> <span class="toc-text">16.刷新权限，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）"><span class="toc-number">2.17.</span> <span class="toc-text">17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、如果还是无法远程连接，查看-etc-my-cnf"><span class="toc-number">2.18.</span> <span class="toc-text">18、如果还是无法远程连接，查看/etc/my.cnf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、添加新的用户并授权"><span class="toc-number">2.19.</span> <span class="toc-text">19、添加新的用户并授权</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -697,15 +700,7 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,7 +720,11 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,18 +752,6 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">master</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slave</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">reactor</a>
               </li>
              
@@ -774,6 +761,18 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">myql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">master</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slave</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,6 +789,10 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">

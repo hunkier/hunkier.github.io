@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="Centos 用户相关操作 查看centos中的用户和用户组1、用户列表文件：/etc/passwd/ 2、用户组列表文件：/etc/group 3、查看系统中有哪些用户： cut -d : -f 1 /etc/passwd">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T13:58:33.694Z">
+<meta property="og:updated_time" content="2019-05-29T13:48:25.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 用户相关操作">
 <meta name="twitter:description" content="Centos 用户相关操作 查看centos中的用户和用户组1、用户列表文件：/etc/passwd/ 2、用户组列表文件：/etc/group 3、查看系统中有哪些用户： cut -d : -f 1 /etc/passwd">
@@ -223,25 +223,28 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Centos 用户相关操作</p>
-<p>查看centos中的用户和用户组<br>1、用户列表文件：/etc/passwd/</p>
-<p>2、用户组列表文件：/etc/group</p>
+<p>查看centos中的用户和用户组<br>1、用户列表文件：<code>/etc/passwd/</code></p>
+<p>2、用户组列表文件：<code>/etc/group</code></p>
 <p>3、查看系统中有哪些用户：</p>
-<p>cut -d : -f 1 /etc/passwd</p>
+<pre><code class="bash">cut -d : -f 1 /etc/passwd
+</code></pre>
 <a id="more"></a>
 <p>4、查看可以登录系统的用户：</p>
-<p>cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1</p>
-<p>5、查看用户操作：w命令(需要root权限)</p>
-<p>6、查看某一用户：w 用户名</p>
-<p>7、查看登录用户：who</p>
-<p>8、查看用户登录历史记录：last</p>
+<pre><code class="bash">cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1
+</code></pre>
+<p>5、查看用户操作：<code>w命令(需要root权限)</code></p>
+<p>6、查看某一用户：<code>w 用户名</code></p>
+<p>7、查看登录用户：<code>who</code></p>
+<p>8、查看用户登录历史记录：<code>last</code></p>
 <p>9、修改root用户密码：</p>
-<p>passwd</p>
+<p><code>passwd</code></p>
 <p>10、root用户修改其他用户密码：</p>
-<p>passwd &lt;user_name&gt;</p>
-<p>11、查看系统版本：cat /etc/redhat-release</p>
-<p>12、删除用户 userdel 用户名</p>
-<p>13、查看组 cat /etc/group</p>
-<p>14、删除组 groupdel 组名</p>
+<pre><code class="bash">passwd &lt;user_name&gt;
+</code></pre>
+<p>11、查看系统版本：<code>cat /etc/redhat-release</code></p>
+<p>12、删除用户 <code>userdel 用户名</code></p>
+<p>13、查看组 <code>cat /etc/group</code></p>
+<p>14、删除组 <code>groupdel 组名</code></p>
 
       
 
@@ -561,6 +564,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
@@ -574,14 +585,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,18 +612,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
@@ -630,6 +621,18 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">slave</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
               <li class="article-tag-list-item">

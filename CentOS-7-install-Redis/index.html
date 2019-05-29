@@ -14,18 +14,18 @@
   <link rel="dns-prefetch" href="https://hunkier.cn">
   <title>CentOS 7 安装 Redis | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CentOS 7 安装Redis">
+  <meta name="description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
 <meta name="keywords" content="centos,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 安装 Redis">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-install-Redis/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="CentOS 7 安装Redis">
+<meta property="og:description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T14:34:10.764Z">
+<meta property="og:updated_time" content="2019-05-29T14:38:31.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 Redis">
-<meta name="twitter:description" content="CentOS 7 安装Redis">
+<meta name="twitter:description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -223,6 +223,75 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>CentOS 7 安装Redis</p>
+<p>参照官网描述（<a href="https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a>），linux下redis安装步骤如下：</p>
+ <a id="more"></a>
+<pre><code class="shell">$ wget http://download.redis.io/releases/redis-3.2.9.tar.gz
+$ tar xzf redis-3.2.9.tar.gz
+$ cd redis-3.2.9
+$ make  或者  make install PREFIX=安装目录
+</code></pre>
+<p>上述流程依次代表，下载redis –&gt; 解压 –&gt; 进入解压目录 –&gt; 编译源码</p>
+<p>多数情况下，执行make时，可能会出现如下错误：</p>
+<p>异常一：</p>
+<pre><code class="bash">make[2]: cc: Command not found
+</code></pre>
+<p>异常原因：没有安装gcc</p>
+<p>解决方案：<code>yum install gcc-c++</code></p>
+<p>异常二：</p>
+<pre><code class="c++">zmalloc.h:51:31: error: jemalloc/jemalloc.h: No such file or directory
+</code></pre>
+<p>异常原因：一些编译依赖或原来编译遗留出现的问题</p>
+<p>解决方案：<code>make distclean</code>。清理一下，然后再<code>make</code>。</p>
+<p>在make成功以后，需要make test。在make test出现异常。</p>
+<p>异常一：</p>
+<pre><code class="shell">couldn&#39;t execute &quot;tclsh8.5&quot;: no such file or directory
+</code></pre>
+<p>异常原因：没有安装tcl</p>
+<p>解决方案：<code>yum install -y tcl</code>。</p>
+<p>到此，redis安装完成。</p>
+<p>若是通过：<code>make install PREFIX=安装目录</code>， 完成安装的，会在安装目录下生成一个bin目录，bin目录下包含如下可执行文件：</p>
+<p><code>redis-benchmark</code> ： 用于测试redis的性能。</p>
+<p><code>redis-check-aof</code> : 当aof备份文件被损坏，可通过该工具对aof文件进行修复，使用方式：<code>redis-check-aof --fix 要修复的aof文件</code>。</p>
+<p><code>redis-check-rdb</code> : 修复损坏的rdb备份文件。</p>
+<p><code>redis-cli</code> : redis客户端，用于连接服务端。</p>
+<p><code>redis-server</code> ： redis服务器端，用于启动redis服务器。</p>
+<p><code>redis-sentinel</code> : 哨兵模式（实际使用较多） 在master-slave模式下（slave默认不支持写），当master出现异常时，自动在slave中选择一台作为master。</p>
+<p>连接上redis服务器后，可通过指令“<strong>info</strong>”查看redis服务器信息，也可查看服务器知道内容信息，例如：<strong>info replication</strong> 查看主从相关信息</p>
+<p>下面介绍几个redis常用配置项（redis.cnf配置文件中配置）<br>1、<code>bind 127.0.0.1</code> 配置redis服务器接受链接的网卡（非客户端ip，而是服务器端ip，服务器可能包含多个网卡）</p>
+<p>2、<code>protected-mode yes</code> redis以保护模式运行，只接受本地链接，不能外网访问</p>
+<p>3、<code>port 6379</code>  redis接受链接端口</p>
+<p>4、<code>daemonize no</code>  redis是否后台运行，若为yes，客户端窗口将被锁定<br>重要配置项<br>5、<code>maxmemory</code> redis最大使用内存<br>6、<code>maxmemory-policy</code>  内存达到最大值时的驱逐策略</p>
+<p>redis数据持久化支持两种模式：RDB和AOF<br>RDB：rdb方式的持久化是通过快照完成的，当符合一定条件时redis会自动将内存中的所有数据执行快照操作并存储到硬盘上。默认存储在redis根目录的dump.rdb文件中。(文件名在配置文件中dbfilename)</p>
+<p>　redis进行快照的时机（在配置文件<strong>redis.conf</strong>中）</p>
+<pre><code class="shell">save 900 1：表示900秒内至少一个键被更改则进行快照。
+save 300 10
+save 60 10000
+dbfilename dump.rdb   快照保存文件名
+dir ./                快照保存地址
+</code></pre>
+<p>也可通过redis客服端执行命令save或者bgsave保存快照：</p>
+<p>　两个命令的区别在于，save是由主进程进行快照操作，会阻塞其它请求。bgsave是由redis执行fork函数复制出一个子进程来进行快照操作。</p>
+<p>文件修复<strong>：redis-check-dump</strong></p>
+<p><strong>rdb的优缺点</strong></p>
+<p>优点：由于存储的有数据快照文件，恢复数据很方便。</p>
+<p>缺点：会丢失最后一次快照以后更改的所有数据。</p>
+<p>AOF:aof方式的持久化是通过日志文件的方式，记录下redis服务器的每一条修改指令。默认情况下redis没有开启aof，可以通过参数appendonly参数开启。</p>
+<pre><code class="nginx">  appendonly yes
+</code></pre>
+<p>  aof文件的保存位置和rdb文件的位置相同，都是dir参数设置的，默认的文件名是<code>appendonly.aof</code>，可以通过      <code>appendfilename</code>参数修改</p>
+<pre><code class="ini"> appendfilename appendonly.aof
+</code></pre>
+<p>  redis写命令同步的时机：</p>
+<pre><code class="nginx"> appendfsync always 每次都会执行
+ appendfsync everysec 默认 每秒执行一次同步操作（推荐，默认）
+ appendfsync no不主动进行同步，由操作系统来做，30秒一次
+</code></pre>
+<p>redis服务器启动时会读取appendonly.aof中的指令，进行执行，这样便保证了重启后数据不会丢失。</p>
+<p><strong>注意：当redis启动时，如果rdb持久化和aof持久化都打开了，那么程序会优先使用aof方式来恢复数据集，因为aof方式所保存的数据通常是最完整的。</strong></p>
+<p>最后记录下redis服务器的启动与关闭指令：</p>
+<pre><code class="shell">[root@localhost src]# ./redis-server ../redis.conf                启动redis
+[root@localhost src]# ./redis-cli shutdown                          关闭redis
+</code></pre>
 
       
 
@@ -570,6 +639,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
@@ -583,14 +660,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,18 +687,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
@@ -639,6 +696,18 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">slave</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
               <li class="article-tag-list-item">

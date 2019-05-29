@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-05-20T13:58:33.694Z</updated>
+  <updated>2019-05-29T13:48:25.680Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,15 +21,16 @@
     <link href="https://hunkier.cn/CentOS-Users/"/>
     <id>https://hunkier.cn/CentOS-Users/</id>
     <published>2019-05-20T13:34:00.000Z</published>
-    <updated>2019-05-20T13:58:33.694Z</updated>
+    <updated>2019-05-29T13:48:25.680Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;Centos 用户相关操作&lt;/p&gt;
-&lt;p&gt;查看centos中的用户和用户组&lt;br&gt;1、用户列表文件：/etc/passwd/&lt;/p&gt;
-&lt;p&gt;2、用户组列表文件：/etc/group&lt;/p&gt;
+&lt;p&gt;查看centos中的用户和用户组&lt;br&gt;1、用户列表文件：&lt;code&gt;/etc/passwd/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2、用户组列表文件：&lt;code&gt;/etc/group&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;3、查看系统中有哪些用户：&lt;/p&gt;
-&lt;p&gt;cut -d : -f 1 /etc/passwd&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;cut -d : -f 1 /etc/passwd
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -43,15 +44,12 @@
     <link href="https://hunkier.cn/CentOS-7-install-Redis/"/>
     <id>https://hunkier.cn/CentOS-7-install-Redis/</id>
     <published>2019-04-26T11:30:24.000Z</published>
-    <updated>2019-05-20T14:34:10.764Z</updated>
+    <updated>2019-05-29T14:38:31.031Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;CentOS 7 安装Redis&lt;/p&gt;
-
-      
+      &lt;p&gt;CentOS 7 安装Redis&lt;/p&gt;
+&lt;p&gt;参照官网描述（&lt;a href=&quot;https://redis.io/download&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://redis.io/download&lt;/a&gt;），linux下redis安装步骤如下：&lt;/p&gt;
     
     </summary>
     
@@ -71,15 +69,11 @@
     <link href="https://hunkier.cn/CentOS-7-install-Nginx/"/>
     <id>https://hunkier.cn/CentOS-7-install-Nginx/</id>
     <published>2019-03-25T13:18:50.000Z</published>
-    <updated>2019-05-20T14:34:10.759Z</updated>
+    <updated>2019-05-29T14:18:32.864Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;CentOS 7 安装Nginx&lt;/p&gt;
-
-      
+      &lt;h1 id=&quot;安装所需环境&quot;&gt;&lt;a href=&quot;#安装所需环境&quot; class=&quot;headerlink&quot; title=&quot;安装所需环境&quot;&gt;&lt;/a&gt;安装所需环境&lt;/h1&gt;&lt;p&gt;Nginx 是 C语言 开发，建议在 Linux 上运行，当然，也可以安装 Windows 版本，本篇则使用 CentOS 7 作为安装环境。&lt;/p&gt;
     
     </summary>
     

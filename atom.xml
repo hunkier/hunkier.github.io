@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-05-29T13:48:25.680Z</updated>
+  <updated>2019-06-04T08:25:47.067Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 安装 go-fastdfs</title>
+    <link href="https://hunkier.cn/CentOS-7-install-GoFastdfs/"/>
+    <id>https://hunkier.cn/CentOS-7-install-GoFastdfs/</id>
+    <published>2019-06-04T11:30:24.000Z</published>
+    <updated>2019-06-04T08:25:47.067Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CentOS 7 安装go-fastdfs文件服务&lt;/p&gt;
+&lt;p&gt;参照官网描述（&lt;a href=&quot;https://github.com/sjqzhang/go-fastdfs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/sjqzhang/go-fastdfs&lt;/a&gt;），linux下go-fastdfs安装步骤如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="go-fastdfs" scheme="https://hunkier.cn/categories/centos/go-fastdfs/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="go-fastdfs" scheme="https://hunkier.cn/tags/go-fastdfs/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 用户相关操作</title>
@@ -44,7 +69,7 @@
     <link href="https://hunkier.cn/CentOS-7-install-Redis/"/>
     <id>https://hunkier.cn/CentOS-7-install-Redis/</id>
     <published>2019-04-26T11:30:24.000Z</published>
-    <updated>2019-05-29T14:38:31.031Z</updated>
+    <updated>2019-06-04T07:57:54.240Z</updated>
     
     <summary type="html">
     
@@ -69,7 +94,7 @@
     <link href="https://hunkier.cn/CentOS-7-install-Nginx/"/>
     <id>https://hunkier.cn/CentOS-7-install-Nginx/</id>
     <published>2019-03-25T13:18:50.000Z</published>
-    <updated>2019-05-29T14:18:32.864Z</updated>
+    <updated>2019-06-04T07:39:06.690Z</updated>
     
     <summary type="html">
     
@@ -578,29 +603,6 @@ unzip -h
       <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
       <category term="wechat" scheme="https://hunkier.cn/tags/wechat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://hunkier.cn/hello-world/"/>
-    <id>https://hunkier.cn/hello-world/</id>
-    <published>2018-06-07T07:31:13.000Z</published>
-    <updated>2019-01-05T03:53:30.513Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Hosted by &lt;a href=&quot;https://pages.coding.me&quot; style=&quot;font-weight: bold&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Coding Pages&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
-    
-    
-      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
-    
-      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
   </entry>
   

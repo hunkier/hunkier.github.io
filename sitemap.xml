@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-GoFastdfs/</loc>
+    
+    <lastmod>2019-06-04T08:25:47.067Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
     
-    <lastmod>2019-05-29T14:38:31.031Z</lastmod>
+    <lastmod>2019-06-04T07:57:54.240Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
     
-    <lastmod>2019-05-29T14:18:32.864Z</lastmod>
+    <lastmod>2019-06-04T07:39:06.690Z</lastmod>
     
   </url>
   

@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-04T07:57:54.240Z">
+<meta property="og:updated_time" content="2019-06-04T11:48:08.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 Redis">
 <meta name="twitter:description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
@@ -225,10 +225,11 @@ var _hmt = _hmt || [];
         <p>CentOS 7 安装Redis</p>
 <p>参照官网描述（<a href="https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a>），linux下redis安装步骤如下：</p>
  <a id="more"></a>
-<pre><code class="shell">$ wget http://download.redis.io/releases/redis-3.2.9.tar.gz
-$ tar xzf redis-3.2.9.tar.gz
-$ cd redis-3.2.9
-$ make  或者  make install PREFIX=安装目录
+<pre><code class="shell">$ wget http://download.redis.io/releases/redis-5.0.3.tar.gz
+$ tar xzf redis-5.0.3.tar.gz
+$ cd redis-5.0.3
+$ mkdir -p /data1/databases/redis
+$ make &amp;&amp; make install PREFIX=/data1/databases/redis
 </code></pre>
 <p>上述流程依次代表，下载redis –&gt; 解压 –&gt; 进入解压目录 –&gt; 编译源码</p>
 <p>多数情况下，执行make时，可能会出现如下错误：</p>
@@ -291,6 +292,72 @@ dir ./                快照保存地址
 <p>最后记录下redis服务器的启动与关闭指令：</p>
 <pre><code class="shell">[root@localhost src]# ./redis-server ../redis.conf                启动redis
 [root@localhost src]# ./redis-cli shutdown                          关闭redis
+</code></pre>
+<p>Redis 加入系统服务</p>
+<p>新建文件</p>
+<pre><code class="shell">vi /etc/rc.d/init.d/redis 
+</code></pre>
+<p>文件内容</p>
+<pre><code class="shell">#!/bin/sh
+# chkconfig: 2345 80 90  
+#
+# Simple Redis init.d script conceived to work on Linux systems
+# as it does use of the /proc filesystem.
+
+### BEGIN INIT INFO
+# Provides:     redis_6379
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Redis data structure server
+# Description:          Redis data structure server. See https://redis.io
+### END INIT INFO
+
+REDISPORT=6379
+EXEC=/data1/databases/redis/bin/redis-server
+CLIEXEC=/data1/databases/redis/bin/redis-cli
+
+PIDFILE=/var/run/redis_${REDISPORT}.pid
+CONF=&quot;/etc/redis/${REDISPORT}.conf&quot;
+
+case &quot;$1&quot; in
+    start)
+        if [ -f $PIDFILE ]
+        then
+                echo &quot;$PIDFILE exists, process is already running or crashed&quot;
+        else
+                echo &quot;Starting Redis server...&quot;
+                $EXEC $CONF &amp;
+        fi
+        ;;
+    stop)
+        if [ ! -f $PIDFILE ]
+        then
+                echo &quot;$PIDFILE does not exist, process is not running&quot;
+        else
+                PID=$(cat $PIDFILE)
+                echo &quot;Stopping ...&quot;
+                $CLIEXEC -p $REDISPORT shutdown
+                while [ -x /proc/${PID} ]
+                do
+                    echo &quot;Waiting for Redis to shutdown ...&quot;
+                    sleep 1
+                done
+                echo &quot;Redis stopped&quot;
+        fi
+        ;;
+    *)
+        echo &quot;Please use start or stop as first argument&quot;
+        ;;
+esac
+</code></pre>
+<p>修改文件权限</p>
+<pre><code class="shell">chmod 755 /etc/rc.d/init.d/redis
+</code></pre>
+<p>设置开机启动</p>
+<pre><code class="shell">chkconfig redis on
+</code></pre>
+<p>启动、停止命令</p>
+<pre><code class="shell">service redis start/stop
 </code></pre>
 
       
@@ -643,11 +710,11 @@ dir ./                快照保存地址
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
               </li>
              
               <li class="article-tag-list-item">

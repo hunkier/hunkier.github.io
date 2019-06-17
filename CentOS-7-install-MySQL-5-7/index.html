@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T14:45:28.848Z">
+<meta property="og:updated_time" content="2019-06-15T09:10:23.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
 <meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
@@ -242,6 +242,54 @@ useradd -r -g mysql -s /bin/false mysql
 </code></pre>
 <h2 id="7-安装mysql，命令如下："><a href="#7-安装mysql，命令如下：" class="headerlink" title="7.安装mysql，命令如下："></a>7.安装mysql，命令如下：</h2><pre><code class="shell">./bin/mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
 </code></pre>
+<p>可能会出现如下错误</p>
+<pre><code class="shell">./bin/mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory
+</code></pre>
+<p>解决方法</p>
+<pre><code class="shell"> yum install -y libaio
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+base                                                                                                                                                            | 3.6 kB  00:00:00     
+epel                                                                                                                                                            | 5.3 kB  00:00:00     
+extras                                                                                                                                                          | 3.4 kB  00:00:00     
+updates                                                                                                                                                         | 3.4 kB  00:00:00     
+(1/4): epel/x86_64/updateinfo                                                                                                                                   | 977 kB  00:00:00     
+(2/4): extras/7/x86_64/primary_db                                                                                                                               | 200 kB  00:00:00     
+(3/4): updates/7/x86_64/primary_db                                                                                                                              | 5.7 MB  00:00:00     
+(4/4): epel/x86_64/primary_db                                                                                                                                   | 6.7 MB  00:00:00     
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+=======================================================================================================================================================================================
+ Package                                   Arch                                      Version                                             Repository                               Size
+=======================================================================================================================================================================================
+Installing:
+ libaio                                    x86_64                                    0.3.109-13.el7                                      base                                     24 k
+
+Transaction Summary
+=======================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 38 k
+Downloading packages:
+libaio-0.3.109-13.el7.x86_64.rpm                                                                                                                                |  24 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libaio-0.3.109-13.el7.x86_64                                                                                                                                        1/1 
+  Verifying  : libaio-0.3.109-13.el7.x86_64                                                                                                                                        1/1 
+
+Installed:
+  libaio.x86_64 0:0.3.109-13.el7                                                                                                                                                       
+
+Complete!
+</code></pre>
 <p>如果出现如下所示则为安装成功</p>
 <pre><code class="mysql">2019-05-20T14:14:00.607305Z 0 [Warning] InnoDB: New log files created, LSN=45790
 2019-05-20T14:14:00.643051Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
@@ -296,8 +344,8 @@ max_allowed_packet=16M
 
 
 [mysqld_safe]
-log-error=/var/log/mysqld.log
-pid-file=/var/run/mysqld/mysqld.pid
+log-error=/var/log/mysql/mysqld.log
+pid-file=/var/run/mysql/mysqld.pid
 
 #指定客户端连接mysql时的socket通信文件路径
 [client]
@@ -306,7 +354,12 @@ socket=/usr/local/mysql/mysql.sock
 default-character-set=utf8mb4
 
 </code></pre>
-<h2 id="9-重新启开启mysql服务，如下所示则开启成功！"><a href="#9-重新启开启mysql服务，如下所示则开启成功！" class="headerlink" title="9.重新启开启mysql服务，如下所示则开启成功！"></a>9.重新启开启mysql服务，如下所示则开启成功！</h2><pre><code class="shell">./support-files/mysql.server start
+<p>创建相应目录并赋权</p>
+<pre><code> mkdir -p /var/log/mysql/
+ chown -R mysql:mysql /var/log/mysql 
+ mkdir -p /var/run/mysql
+ chown -R mysql:mysql /var/run/mysql
+</code></pre><h2 id="9-重新启开启mysql服务，如下所示则开启成功！"><a href="#9-重新启开启mysql服务，如下所示则开启成功！" class="headerlink" title="9.重新启开启mysql服务，如下所示则开启成功！"></a>9.重新启开启mysql服务，如下所示则开启成功！</h2><pre><code class="shell">./support-files/mysql.server start
 Starting MySQL.. SUCCESS!
 </code></pre>
 <h2 id="10-将mysql进程放入系统进程中，命令如下："><a href="#10-将mysql进程放入系统进程中，命令如下：" class="headerlink" title="10.将mysql进程放入系统进程中，命令如下："></a>10.将mysql进程放入系统进程中，命令如下：</h2><pre><code class="bash">cp support-files/mysql.server /etc/init.d/mysqld
@@ -322,6 +375,18 @@ export PATH=$PATH:/usr/local/mysql/bin
 <pre><code class="bash">source /etc/profile
 </code></pre>
 <h2 id="13-使用随机密码登录mysql数据库，命令如下："><a href="#13-使用随机密码登录mysql数据库，命令如下：" class="headerlink" title="13.使用随机密码登录mysql数据库，命令如下："></a>13.使用随机密码登录mysql数据库，命令如下：</h2><pre><code class="bash">mysql -u root -p
+</code></pre>
+<p>输入密码回车可能出现如下错误</p>
+<pre><code class="shell">mysql -uroot -p
+Enter password: 
+ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket &#39;/usr/local/mysql/mysql.sock&#39; (2)
+</code></pre>
+<p>查看是否系统自带的mariadb</p>
+<pre><code class="shell">rpm -qa|grep mariadb
+mariadb-libs-5.5.60-1.el7_5.x86_64
+</code></pre>
+<p>卸载系统自动的mariadb</p>
+<pre><code class="shell"> yum remove mariadb-libs-5.5.60-1.el7_5.x86_64
 </code></pre>
 <p>输入随机密码登录成功：</p>
 <pre><code class="mysql">Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -696,10 +761,6 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -708,11 +769,11 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,18 +817,6 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">master</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slave</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">reactor</a>
               </li>
              
@@ -777,6 +826,18 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">myql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">master</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slave</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,6 +854,10 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">

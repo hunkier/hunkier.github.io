@@ -12,20 +12,20 @@
   <!--<link href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/atelier-savanna-light.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
   <link rel="dns-prefetch" href="https://hunkier.cn">
-  <title>centos7上部署vnc服务器并实现远程桌面 | hunkier</title>
+  <title>CentOS 7上部署vnc服务器并实现远程桌面 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="centos7上部署vnc服务器并实现远程桌面一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control">
+  <meta name="description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
 <meta name="keywords" content="centos vnc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centos7上部署vnc服务器并实现远程桌面">
+<meta property="og:title" content="CentOS 7上部署vnc服务器并实现远程桌面">
 <meta property="og:url" content="https://hunkier.cn/CentOS-VNCserver/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="centos7上部署vnc服务器并实现远程桌面一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control">
+<meta property="og:description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T07:58:53.253Z">
+<meta property="og:updated_time" content="2019-06-18T08:47:49.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos7上部署vnc服务器并实现远程桌面">
-<meta name="twitter:description" content="centos7上部署vnc服务器并实现远程桌面一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control">
+<meta name="twitter:title" content="CentOS 7上部署vnc服务器并实现远程桌面">
+<meta name="twitter:description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -209,7 +209,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      centos7上部署vnc服务器并实现远程桌面
+      CentOS 7上部署vnc服务器并实现远程桌面
     </h1>
   
 
@@ -222,7 +222,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="centos7上部署vnc服务器并实现远程桌面"><a href="#centos7上部署vnc服务器并实现远程桌面" class="headerlink" title="centos7上部署vnc服务器并实现远程桌面"></a>centos7上部署vnc服务器并实现远程桌面</h1><h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
+        <h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
 <p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
 <pre><code class="shell"># unlink /etc/systemd/system/default.target
 # ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
@@ -453,7 +453,7 @@ Log file is /root/.vnc/server:2.log
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Centos7 修改ssh 端口
+          CentOS 7 修改ssh 端口
         
       </div>
     </a>
@@ -487,8 +487,8 @@ Log file is /root/.vnc/server:2.log
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#centos7上部署vnc服务器并实现远程桌面"><span class="toc-number">1.</span> <span class="toc-text">centos7上部署vnc服务器并实现远程桌面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装X-Window-System"><span class="toc-number">1.1.</span> <span class="toc-text">一、安装X Window System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装vnc服务"><span class="toc-number">1.2.</span> <span class="toc-text">二、安装vnc服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、执行yum install tigervnc-server -y安装VNC服务器软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置VNC"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、配置VNC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、客户端连接-VNC-server"><span class="toc-number">2.</span> <span class="toc-text">三、客户端连接 VNC server</span></a></li></ol>
-                    </div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装X-Window-System"><span class="toc-number">1.</span> <span class="toc-text">一、安装X Window System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装vnc服务"><span class="toc-number">2.</span> <span class="toc-text">二、安装vnc服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><span class="toc-number">2.1.</span> <span class="toc-text">1、执行yum install tigervnc-server -y安装VNC服务器软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置VNC"><span class="toc-number">2.2.</span> <span class="toc-text">2、配置VNC</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#三、客户端连接-VNC-server"><span class="toc-number"></span> <span class="toc-text">三、客户端连接 VNC server</span></a>
+                    </li></div>
                 </span>
             </div>
         </div>
@@ -796,6 +796,10 @@ Log file is /root/.vnc/server:2.log
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos sshd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos firewall</a>
               </li>
             
             <div class="clearfix"></div>

@@ -12,20 +12,20 @@
   <!--<link href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/atelier-savanna-light.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
   <link rel="dns-prefetch" href="https://hunkier.cn">
-  <title>Centos7 修改ssh 端口 | hunkier</title>
+  <title>CentOS 7 修改ssh 端口 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
+  <meta name="description" content="修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
 <meta name="keywords" content="centos sshd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7 修改ssh 端口">
+<meta property="og:title" content="CentOS 7 修改ssh 端口">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-Modify-sshd-port/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
+<meta property="og:description" content="修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T07:58:53.251Z">
+<meta property="og:updated_time" content="2019-06-18T08:47:49.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7 修改ssh 端口">
-<meta name="twitter:description" content="Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
+<meta name="twitter:title" content="CentOS 7 修改ssh 端口">
+<meta name="twitter:description" content="修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -209,7 +209,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Centos7 修改ssh 端口
+      CentOS 7 修改ssh 端口
     </h1>
   
 
@@ -222,7 +222,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Centos7-修改ssh-端口"><a href="#Centos7-修改ssh-端口" class="headerlink" title="Centos7 修改ssh 端口"></a>Centos7 修改ssh 端口</h1><h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
+        <h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
 Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
 
 Port 33378      //下面添加这一行
@@ -252,6 +252,15 @@ firewall-cmd --zone=public --query-port=33378/tcp
 </code></pre>
 <p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
 <p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+<h1 id="解决CentOS7-下-SSH登录慢的问题"><a href="#解决CentOS7-下-SSH登录慢的问题" class="headerlink" title="解决CentOS7 下 SSH登录慢的问题"></a>解决CentOS7 下 SSH登录慢的问题</h1><p>登陆SSH时 输入完用户名后要等一会才能输入密码，经总结下面方案可解决此问题。</p>
+<p>修改sshd_config以下两处，重启ssh即可。</p>
+<pre><code class="shell"># vi /etc/ssh/sshd_config
+GSSAPIAuthentication no
+UseDNS no
+</code></pre>
+<p>重启 ssh</p>
+<pre><code class="shell"># systemctl restart sshd
+</code></pre>
 
       
 
@@ -377,9 +386,18 @@ firewall-cmd --zone=public --query-port=33378/tcp
   
 <nav id="article-nav">
   
+    <a href="/CentOS-7-firewall/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CentOS  firewall添加开放端口
+        
+      </div>
+    </a>
+  
   
     <a href="/CentOS-VNCserver/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">centos7上部署vnc服务器并实现远程桌面</div>
+      <div class="article-nav-title">CentOS 7上部署vnc服务器并实现远程桌面</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -406,8 +424,8 @@ firewall-cmd --zone=public --query-port=33378/tcp
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Centos7-修改ssh-端口"><span class="toc-number">1.</span> <span class="toc-text">Centos7 修改ssh 端口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-ssh-sshd-config"><span class="toc-number">1.1.</span> <span class="toc-text">修改/etc/ssh/sshd_config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改firewall配置"><span class="toc-number">1.2.</span> <span class="toc-text">修改firewall配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改SELinux"><span class="toc-number">1.3.</span> <span class="toc-text">修改SELinux</span></a></li></ol></li></ol>
-                    </div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-ssh-sshd-config"><span class="toc-number">1.</span> <span class="toc-text">修改/etc/ssh/sshd_config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改firewall配置"><span class="toc-number">2.</span> <span class="toc-text">修改firewall配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改SELinux"><span class="toc-number">3.</span> <span class="toc-text">修改SELinux</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#解决CentOS7-下-SSH登录慢的问题"><span class="toc-number"></span> <span class="toc-text">解决CentOS7 下 SSH登录慢的问题</span></a>
+                    </li></div>
                 </span>
             </div>
         </div>
@@ -715,6 +733,10 @@ firewall-cmd --zone=public --query-port=33378/tcp
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos sshd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos firewall</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-06-18T07:58:53.251Z</updated>
+  <updated>2019-06-18T08:58:13.424Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,15 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Centos7 修改ssh 端口</title>
-    <link href="https://hunkier.cn/CentOS-7-Modify-sshd-port/"/>
-    <id>https://hunkier.cn/CentOS-7-Modify-sshd-port/</id>
-    <published>2019-06-18T07:35:14.000Z</published>
-    <updated>2019-06-18T07:58:53.251Z</updated>
+    <title>CentOS  firewall添加开放端口</title>
+    <link href="https://hunkier.cn/CentOS-7-firewall/"/>
+    <id>https://hunkier.cn/CentOS-7-firewall/</id>
+    <published>2019-06-18T08:42:18.000Z</published>
+    <updated>2019-06-18T08:58:13.424Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Centos7-修改ssh-端口&quot;&gt;&lt;a href=&quot;#Centos7-修改ssh-端口&quot; class=&quot;headerlink&quot; title=&quot;Centos7 修改ssh 端口&quot;&gt;&lt;/a&gt;Centos7 修改ssh 端口&lt;/h1&gt;&lt;h2 id=&quot;修改-etc-ssh-sshd-config&quot;&gt;&lt;a href=&quot;#修改-etc-ssh-sshd-config&quot; class=&quot;headerlink&quot; title=&quot;修改/etc/ssh/sshd_config&quot;&gt;&lt;/a&gt;修改/etc/ssh/sshd_config&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;vi /etc/ssh/sshd_config
+      &lt;p&gt;添加&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;  （ &lt;code&gt;–permanent&lt;/code&gt; 永久生效，没有此参数重启后失效）&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --query-port=80/tcp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --query-port=80/tcp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重新载入&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="centos firewall" scheme="https://hunkier.cn/categories/centos-firewall/"/>
+    
+    
+      <category term="centos firewall" scheme="https://hunkier.cn/tags/centos-firewall/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 修改ssh 端口</title>
+    <link href="https://hunkier.cn/CentOS-7-Modify-sshd-port/"/>
+    <id>https://hunkier.cn/CentOS-7-Modify-sshd-port/</id>
+    <published>2019-06-18T07:35:14.000Z</published>
+    <updated>2019-06-18T08:47:49.966Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;修改-etc-ssh-sshd-config&quot;&gt;&lt;a href=&quot;#修改-etc-ssh-sshd-config&quot; class=&quot;headerlink&quot; title=&quot;修改/etc/ssh/sshd_config&quot;&gt;&lt;/a&gt;修改/etc/ssh/sshd_config&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;vi /etc/ssh/sshd_config
 Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
 
 Port 33378      //下面添加这一行
@@ -41,15 +79,15 @@ Port 33378      //下面添加这一行
   </entry>
   
   <entry>
-    <title>centos7上部署vnc服务器并实现远程桌面</title>
+    <title>CentOS 7上部署vnc服务器并实现远程桌面</title>
     <link href="https://hunkier.cn/CentOS-VNCserver/"/>
     <id>https://hunkier.cn/CentOS-VNCserver/</id>
     <published>2019-06-18T03:28:00.000Z</published>
-    <updated>2019-06-18T07:58:53.253Z</updated>
+    <updated>2019-06-18T08:47:49.971Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;a href=&quot;#centos7上部署vnc服务器并实现远程桌面&quot; class=&quot;headerlink&quot; title=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;/a&gt;centos7上部署vnc服务器并实现远程桌面&lt;/h1&gt;&lt;h2 id=&quot;一、安装X-Window-System&quot;&gt;&lt;a href=&quot;#一、安装X-Window-System&quot; class=&quot;headerlink&quot; title=&quot;一、安装X Window System&quot;&gt;&lt;/a&gt;一、安装X Window System&lt;/h2&gt;&lt;p&gt;注：若已经安装GUI则可跳过&lt;/p&gt;
+      &lt;h2 id=&quot;一、安装X-Window-System&quot;&gt;&lt;a href=&quot;#一、安装X-Window-System&quot; class=&quot;headerlink&quot; title=&quot;一、安装X Window System&quot;&gt;&lt;/a&gt;一、安装X Window System&lt;/h2&gt;&lt;p&gt;注：若已经安装GUI则可跳过&lt;/p&gt;
 &lt;p&gt;1、切换到root用户，执行 &lt;code&gt;yum groupinstall &amp;quot;X Window System&amp;quot;&lt;/code&gt;&lt;br&gt;2、执行 &lt;code&gt;yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y&lt;/code&gt; 安装相关组件&lt;br&gt;3、设置默认启动图形界面&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# unlink /etc/systemd/system/default.target
 # ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
@@ -372,11 +410,11 @@ rm /var/lib/kubelet/* -rf
   </entry>
   
   <entry>
-    <title>Centos 7 设置DNS服务器</title>
-    <link href="https://hunkier.cn/Centos-7-Seting-DNS-Server/"/>
-    <id>https://hunkier.cn/Centos-7-Seting-DNS-Server/</id>
+    <title>CentOS 7 设置DNS服务器</title>
+    <link href="https://hunkier.cn/CentOS-7-Seting-DNS-Server/"/>
+    <id>https://hunkier.cn/CentOS-7-Seting-DNS-Server/</id>
     <published>2018-08-10T07:07:16.000Z</published>
-    <updated>2019-01-05T03:53:30.511Z</updated>
+    <updated>2019-06-18T08:42:11.598Z</updated>
     
     <summary type="html">
     
@@ -565,44 +603,6 @@ unzip -h
       <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
       <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github安装hexo博客</title>
-    <link href="https://hunkier.cn/Blog-Hexo-Install/"/>
-    <id>https://hunkier.cn/Blog-Hexo-Install/</id>
-    <published>2018-06-29T09:31:13.000Z</published>
-    <updated>2019-01-05T03:53:30.511Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;写在开头&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;什么是Hexo？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Hexo是一个轻量级的Node.js博客框架，由一位台湾的在校大学生开发完成！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Hexo的配置文件_config.yml分为两种，一种是站点配置文件，也就是站点根目录下的_config.yml配置文件，另一个是主题配置文件，位于theme文件夹中对应主题的文件夹下的_config.yml。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;在后续的网站配置中需要多次使用站点配置文件和主题配置文件，需要注意辨析。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
-    
-      <category term="blog" scheme="https://hunkier.cn/categories/github/blog/"/>
-    
-      <category term="hexo" scheme="https://hunkier.cn/categories/github/blog/hexo/"/>
-    
-    
-      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
-    
-      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
-    
-      <category term="github" scheme="https://hunkier.cn/tags/github/"/>
     
   </entry>
   

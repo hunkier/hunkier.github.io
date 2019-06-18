@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-firewall/</loc>
+    
+    <lastmod>2019-06-18T08:58:13.424Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-VNCserver/</loc>
     
-    <lastmod>2019-06-18T07:58:53.253Z</lastmod>
+    <lastmod>2019-06-18T08:47:49.971Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://hunkier.cn/CentOS-7-Modify-sshd-port/</loc>
     
-    <lastmod>2019-06-18T07:58:53.251Z</lastmod>
+    <lastmod>2019-06-18T08:47:49.966Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-7-Seting-DNS-Server/</loc>
+    
+    <lastmod>2019-06-18T08:42:11.598Z</lastmod>
     
   </url>
   
@@ -138,13 +152,6 @@
     <loc>https://hunkier.cn/Java-Concurrent-Lock/</loc>
     
     <lastmod>2019-01-05T03:53:30.512Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Centos-7-Seting-DNS-Server/</loc>
-    
-    <lastmod>2019-01-05T03:53:30.511Z</lastmod>
     
   </url>
   

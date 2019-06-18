@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
+    
+    <lastmod>2019-06-18T07:56:19.680Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-VNCserver/</loc>
     
     <lastmod>2019-06-18T07:52:50.959Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://hunkier.cn/CentOS-7-Modify-sshd-port/</loc>
     
     <lastmod>2019-06-18T07:41:06.820Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
-    
-    <lastmod>2019-06-18T06:29:58.638Z</lastmod>
     
   </url>
   

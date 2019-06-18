@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="安装所需环境Nginx 是 C语言 开发，建议在 Linux 上运行，当然，也可以安装 Windows 版本，本篇则使用 CentOS 7 作为安装环境。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T06:29:58.638Z">
+<meta property="og:updated_time" content="2019-06-18T07:56:19.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 Nginx">
 <meta name="twitter:description" content="安装所需环境Nginx 是 C语言 开发，建议在 Linux 上运行，当然，也可以安装 Windows 版本，本篇则使用 CentOS 7 作为安装环境。">
@@ -326,7 +326,7 @@ root     122099 121530  0 22:06 pts/0    00:00:00 grep --color=auto --exclude-di
 <h1 id="添加系统服务"><a href="#添加系统服务" class="headerlink" title="添加系统服务"></a>添加系统服务</h1><h3 id="Centos-6-添加系统服务"><a href="#Centos-6-添加系统服务" class="headerlink" title="Centos 6 添加系统服务"></a>Centos 6 添加系统服务</h3><p>nginx源码安装完成后默认不会注册为系统服务，所以需要手工添加系统服务脚本。在/etc/init.d目录下新建nginx文件，并更改权限其即可。</p>
 <h3 id="新建nginx文件"><a href="#新建nginx文件" class="headerlink" title="新建nginx文件"></a>新建nginx文件</h3><pre><code class="shell">vim /etc/init.d/nginx 
 </code></pre>
-<p>填写一下内容(根据自己的实际目录修改):</p>
+<p>填写以下内容(根据自己的实际目录修改):</p>
 <pre><code class="shell"># !/bin/bash
 
 # nginx Startup script for the Nginx HTTP Server

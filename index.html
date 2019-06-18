@@ -203,6 +203,304 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CentOS-7-Modify-sshd-port" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CentOS-7-Modify-sshd-port/">CentOS 7 Modify sshd port</a>
+    </h1>
+  
+
+        
+        <a href="/CentOS-7-Modify-sshd-port/" class="archive-article-date">
+  	<time datetime="2019-06-18T07:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Centos7-修改SSH-端口"><a href="#Centos7-修改SSH-端口" class="headerlink" title="Centos7 修改SSH 端口"></a>Centos7 修改SSH 端口</h1><h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
+Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
+
+Port 33378      //下面添加这一行
+</code></pre>
+<h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
+<pre><code class="ini">添加到防火墙：
+firewall-cmd --zone=public --add-port=33378/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)
+重启：
+firewall-cmd --reload
+查看添加端口是否成功，如果添加成功则会显示yes，否则no
+firewall-cmd --zone=public --query-port=33378/tcp
+</code></pre>
+<h2 id="修改SELinux"><a href="#修改SELinux" class="headerlink" title="修改SELinux"></a>修改SELinux</h2><p>使用以下命令查看当前SElinux 允许的ssh端口：</p>
+<pre><code class="shell">semanage port -l | grep ssh
+</code></pre>
+<p>添加33378端口到 SELinux</p>
+<pre><code class="shell">semanage port -a -t ssh_port_t -p tcp 33378
+</code></pre>
+<p>然后确认一下是否添加进去</p>
+<pre><code class="shell">semanage port -l | grep ssh
+</code></pre>
+<p>如果成功会输出</p>
+<pre><code>ssh_port_t                    tcp    33378, 22
+</code></pre><p>重启ssh</p>
+<pre><code class="shell">systemctl restart sshd.service
+</code></pre>
+<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos sshd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/centos-sshd//" class="article-tag-list-link color2">centos sshd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/CentOS-7-Modify-sshd-port/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CentOS-VNCserver" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CentOS-VNCserver/">centos7上部署vnc服务器并实现远程桌面</a>
+    </h1>
+  
+
+        
+        <a href="/CentOS-VNCserver/" class="archive-article-date">
+  	<time datetime="2019-06-18T03:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="centos7上部署vnc服务器并实现远程桌面"><a href="#centos7上部署vnc服务器并实现远程桌面" class="headerlink" title="centos7上部署vnc服务器并实现远程桌面"></a>centos7上部署vnc服务器并实现远程桌面</h1><h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
+<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
+<pre><code class="shell"># unlink /etc/systemd/system/default.target
+# ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
+</code></pre>
+<p>4、重启系统生效</p>
+<pre><code class="shell"># reboot
+</code></pre>
+<h2 id="二、安装vnc服务"><a href="#二、安装vnc服务" class="headerlink" title="二、安装vnc服务"></a>二、安装vnc服务</h2><h3 id="1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><a href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件" class="headerlink" title="1、执行yum install tigervnc-server -y安装VNC服务器软件"></a>1、执行yum install tigervnc-server -y安装VNC服务器软件</h3><pre><code># yum install tigervnc-server -y
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirror.lzu.edu.cn
+base                                                                                                                                                                                        | 3.6 kB  00:00:00     
+extras                                                                                                                                                                                      | 3.4 kB  00:00:00     
+updates                                                                                                                                                                                     | 3.4 kB  00:00:00     
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package tigervnc-server.x86_64 0:1.8.0-13.el7 will be installed
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================================================================================================================================
+ Package                                                 Arch                                           Version                                                 Repository                                    Size
+===================================================================================================================================================================================================================
+Installing:
+ tigervnc-server                                         x86_64                                         1.8.0-13.el7                                            base                                         215 k
+
+Transaction Summary
+===================================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 215 k
+Installed size: 509 k
+Downloading packages:
+tigervnc-server-1.8.0-13.el7.x86_64.rpm                                                                                                                                                     | 215 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 
+  Verifying  : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 
+
+Installed:
+  tigervnc-server.x86_64 0:1.8.0-13.el7                                                                                                                                                                            
+
+Complete!
+</code></pre><h3 id="2、配置VNC"><a href="#2、配置VNC" class="headerlink" title="2、配置VNC"></a>2、配置VNC</h3><p>在/etc/systemd/system目录里创建一个配置文件（可以将/lib/systemd/system/vncserver@.service拷贝一份配置文件范例过来）</p>
+<pre><code class="shell">cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
+</code></pre>
+<p>使用文本编辑器打开 <code>/etc/systemd/system/vncserver@:1.service</code> ，找到下面这几行，用自己的用户名替换掉 <code>&lt;USER&gt;</code></p>
+<pre><code>User=&lt;USER&gt;
+PIDFile=/home/&lt;USER&gt;/.vnc/%H%i.pid
+替换成
+User=root
+PIDFile=/home/root/.vnc/%H%i.pid
+</code></pre><p>重启systemd</p>
+<pre><code class="shell">systemctl daemon-reload
+</code></pre>
+<p>vncpasswd设置VNC登录密码</p>
+<pre><code class="shell">vncpasswd
+</code></pre>
+<p>执行vncserver开启一个VNC窗口</p>
+<pre><code class="shell"># vncserver
+
+You will require a password to access your desktops.
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+A view-only password is not used
+xauth:  file /root/.Xauthority does not exist
+
+New &#39;server:1 (root)&#39; desktop is server:1
+
+Creating default startup script /root/.vnc/xstartup
+Creating default config /root/.vnc/config
+Starting applications specified in /root/.vnc/xstartup
+Log file is /root/.vnc/server:1.log
+</code></pre>
+<p>开启远程端口</p>
+<pre><code class="shell"># vncserver :1
+A VNC server is already running as :1
+
+New &#39;server:2 (root)&#39; desktop is server:2
+
+Starting applications specified in /root/.vnc/xstartup
+Log file is /root/.vnc/server:2.log
+
+</code></pre>
+<p>设置防火墙规则，允许访问VNC-SERVER的流量通过，并重启firewall服务使之生效</p>
+<pre><code class="shell"># firewall-cmd --permanent --add-service vnc-server
+
+# systemctl restart firewalld.service
+</code></pre>
+<h1 id="三、客户端连接-VNC-server"><a href="#三、客户端连接-VNC-server" class="headerlink" title="三、客户端连接 VNC server"></a>三、客户端连接 VNC server</h1><p>地址栏填写：<code>ip::5901</code>。例如：<code>172.20.8.31::5901</code></p>
+<p>我们开启的是<code>vncserver :1</code>，而 vncserver 默认从5900开始，所以我们使用 <code>5900+1 = 5901</code>，注意需要两个 <code>::</code></p>
+<p>接下来输入服务端设置的 vncserver 的密码就可以了。</p>
+<p><strong>注意关闭防火墙和selinux</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">centos vnc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/centos-vnc//" class="article-tag-list-link color1">centos vnc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/CentOS-VNCserver/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CentOS-7-install-GoFastdfs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -977,210 +1275,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iOS-Jailbreaking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/iOS-Jailbreaking/">iOS越狱</a>
-    </h1>
-  
-
-        
-        <a href="/iOS-Jailbreaking/" class="archive-article-date">
-  	<time datetime="2018-12-23T09:41:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><strong>写在开头</strong></li>
-</ul>
-<p>什么是iOS越狱？</p>
-<blockquote>
-<p>iOS越狱（英语：iOS Jailbreaking）是获取iOS设备的Root权限的技术手段。iOS系统的Root用户对除Apple特定私有进程之外的其他进程不开放，使用Root用户运行的进程在进程树中的PID为0。程序员在iOS中挖掘出一些可以将进程提权至PID0的漏洞（例如Task For PID0）。利用Root用户运行的进程意味着可以任意读取设备其中的APFS分区表和内核缓存地址，拥有一个用户可以随意控制的PID0进程还不能称之为一个完整的越狱。之后还需要利用Bypass（旁路）手段绕过Apple在iOS系统中设置的其他安全防护措施，将APFS或HFS+文件系统中的ROOTFS分区重新挂载（Remount）为可读写（R/W），从而达到添加二进制文件和守护进程的目的。通常大众用户认为能够正常使用Cydia才能被称为越狱，但其实这种说法是不正确的。但通过此软件可以完成越狱前不可能进行的动作，例如安装App Store以外未经过签名的应用、修改SpringBoard、运行Shell程序、使有运营商锁的设备利用卡贴解锁后通过替换配置文件形式实现本地化（例如“去除+86”，解锁FaceTime功能）。[1]</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/iOS-Jailbreaking/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Jailbreaking</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ios//" class="article-tag-list-link color4">ios</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ios/Jailbreaking//" class="article-tag-list-link color3">Jailbreaking</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/iOS-Jailbreaking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Reactor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Reactor/">Reactor模式的角色构成</a>
-    </h1>
-  
-
-        
-        <a href="/Reactor/" class="archive-article-date">
-  	<time datetime="2018-08-15T11:35:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Reactor模式的角色构成（Reactor模式一共有5种角色构成）："><a href="#Reactor模式的角色构成（Reactor模式一共有5种角色构成）：" class="headerlink" title="Reactor模式的角色构成（Reactor模式一共有5种角色构成）："></a>Reactor模式的角色构成（Reactor模式一共有5种角色构成）：</h2><h3 id="1-Handle（句柄或是描述符）："><a href="#1-Handle（句柄或是描述符）：" class="headerlink" title="1. Handle（句柄或是描述符）："></a>1. <strong>Handle（句柄或是描述符）</strong>：</h3><p>本质上表示一种资源，是由操作系统提供的；改资源用于表示一个个的事件，比如说文件描述符，或是针对网络编程过程中的Socket描述符。事件即可以来自于外部，可以来自于内部；外部事件比如说客户端的连接请求，客户端发送过来的数据等；内部事件，比如说操作系统产生的定时器事件等。它本质上就是一个文件描述符。<br>
-        
-          <a class="article-more-a" href="/Reactor/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reactor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nio</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">netty</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reactor//" class="article-tag-list-link color3">reactor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reactor/nio//" class="article-tag-list-link color4">nio</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reactor/nio/netty//" class="article-tag-list-link color1">netty</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Reactor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1448,6 +1542,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">concurrent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos sshd</a>
               </li>
             
             <div class="clearfix"></div>

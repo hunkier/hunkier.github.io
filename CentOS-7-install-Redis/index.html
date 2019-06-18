@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-15T07:34:42.692Z">
+<meta property="og:updated_time" content="2019-06-18T03:32:08.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 Redis">
 <meta name="twitter:description" content="CentOS 7 安装Redis 参照官网描述（https://redis.io/download），linux下redis安装步骤如下：">
@@ -299,7 +299,7 @@ dir ./                快照保存地址
 </code></pre>
 <p>文件内容</p>
 <pre><code class="shell">#!/bin/sh
-# chkconfig: 2345 80 90  
+# chkconfig: 2345 80 90
 #
 # Simple Redis init.d script conceived to work on Linux systems
 # as it does use of the /proc filesystem.
@@ -319,36 +319,82 @@ CLIEXEC=/data1/databases/redis/bin/redis-cli
 PIDFILE=/var/run/redis_${REDISPORT}.pid
 CONF=&quot;/etc/redis/${REDISPORT}.conf&quot;
 
-case &quot;$1&quot; in
-    start)
-        if [ -f $PIDFILE ]
-        then
-                echo &quot;$PIDFILE exists, process is already running or crashed&quot;
-        else
-                echo &quot;Starting Redis server...&quot;
-                $EXEC $CONF &amp;
+function check_pid() {
+    if [ -f $PIDFILE ];then
+        pid=`cat $PIDFILE`
+        if [ -n $pid ]; then
+            running=`ps -p $pid|grep -v &quot;PID TTY&quot; |wc -l`
+            return $running
         fi
-        ;;
-    stop)
-        if [ ! -f $PIDFILE ]
-        then
-                echo &quot;$PIDFILE does not exist, process is not running&quot;
-        else
-                PID=$(cat $PIDFILE)
+    fi
+    return 0
+}
+function start() {
+    check_pid
+            running=$?
+            if [ $running -gt 0 ];then
+                echo -n &quot;Redis server now is running, pid=&quot;
+                cat $PIDFILE
+            else
+                 echo &quot;Starting Redis server...&quot;
+                 $EXEC $CONF &amp;
+                 echo $! &gt; $PIDFILE
+                 echo &quot;Redis started..., pid=$!&quot;
+            fi
+    return 0
+}
+
+function stop() {
+    check_pid
+            running=$?
+            if [ $running -gt 0 ];then
                 echo &quot;Stopping ...&quot;
+                PID=$(cat $PIDFILE)
                 $CLIEXEC -p $REDISPORT shutdown
                 while [ -x /proc/${PID} ]
                 do
-                    echo &quot;Waiting for Redis to shutdown ...&quot;
-                    sleep 1
+                   echo &quot;Waiting for Redis to shutdown ...&quot;
+                   sleep 1
                 done
-                echo &quot;Redis stopped&quot;
-        fi
+            fi
+    echo &quot;Redis stopped&quot;
+    return 0
+}
+
+
+function status() {
+     check_pid
+                running=$?
+                if [ $running -gt 0 ];then
+                    echo -n &quot;Redis server now is running, pid=&quot;
+                    cat $PIDFILE
+                else
+                    echo &quot;Redis server is stoped&quot;
+                fi
+    return 0
+}
+
+
+
+case &quot;$1&quot; in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status
+        ;;
+    restart)
+        stop
+        start
         ;;
     *)
-        echo &quot;Please use start or stop as first argument&quot;
+        echo &quot;Please use start / stop / status / restart as first argument&quot;
         ;;
 esac
+
 </code></pre>
 <p>修改文件权限</p>
 <pre><code class="shell">chmod 755 /etc/rc.d/init.d/redis
@@ -831,6 +877,14 @@ esac
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">concurrent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos sshd</a>
               </li>
             
             <div class="clearfix"></div>

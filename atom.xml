@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-06-04T08:25:47.067Z</updated>
+  <updated>2019-06-18T07:41:06.820Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 Modify sshd port</title>
+    <link href="https://hunkier.cn/CentOS-7-Modify-sshd-port/"/>
+    <id>https://hunkier.cn/CentOS-7-Modify-sshd-port/</id>
+    <published>2019-06-18T07:35:14.000Z</published>
+    <updated>2019-06-18T07:41:06.820Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Centos7-修改SSH-端口&quot;&gt;&lt;a href=&quot;#Centos7-修改SSH-端口&quot; class=&quot;headerlink&quot; title=&quot;Centos7 修改SSH 端口&quot;&gt;&lt;/a&gt;Centos7 修改SSH 端口&lt;/h1&gt;&lt;h2 id=&quot;修改-etc-ss
+      
+    
+    </summary>
+    
+      <category term="centos sshd" scheme="https://hunkier.cn/categories/centos-sshd/"/>
+    
+    
+      <category term="centos sshd" scheme="https://hunkier.cn/tags/centos-sshd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos7上部署vnc服务器并实现远程桌面</title>
+    <link href="https://hunkier.cn/CentOS-VNCserver/"/>
+    <id>https://hunkier.cn/CentOS-VNCserver/</id>
+    <published>2019-06-18T03:28:00.000Z</published>
+    <updated>2019-06-18T07:52:50.959Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;a href=&quot;#centos7上部署vnc服务器并实现远程桌面&quot; class=&quot;headerlink&quot; title=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;/a&gt;centos7上部署vnc服务器并
+      
+    
+    </summary>
+    
+      <category term="centos vnc" scheme="https://hunkier.cn/categories/centos-vnc/"/>
+    
+    
+      <category term="centos vnc" scheme="https://hunkier.cn/tags/centos-vnc/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 7 安装 go-fastdfs</title>
@@ -69,7 +115,7 @@
     <link href="https://hunkier.cn/CentOS-7-install-Redis/"/>
     <id>https://hunkier.cn/CentOS-7-install-Redis/</id>
     <published>2019-04-26T11:30:24.000Z</published>
-    <updated>2019-06-15T07:34:42.692Z</updated>
+    <updated>2019-06-18T03:32:08.187Z</updated>
     
     <summary type="html">
     
@@ -94,7 +140,7 @@
     <link href="https://hunkier.cn/CentOS-7-install-Nginx/"/>
     <id>https://hunkier.cn/CentOS-7-install-Nginx/</id>
     <published>2019-03-25T13:18:50.000Z</published>
-    <updated>2019-06-04T07:39:06.690Z</updated>
+    <updated>2019-06-18T06:29:58.638Z</updated>
     
     <summary type="html">
     
@@ -552,57 +598,6 @@ unzip -h
       <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
     
       <category term="github" scheme="https://hunkier.cn/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本命令备忘</title>
-    <link href="https://hunkier.cn/Shell-notes/"/>
-    <id>https://hunkier.cn/Shell-notes/</id>
-    <published>2018-06-12T09:09:19.000Z</published>
-    <updated>2019-05-21T13:23:38.664Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里收藏工作中用到的脚本，也为了防止做重复的搜索工作，同时分享给大家。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="https://hunkier.cn/tags/shell/"/>
-    
-      <category term="vim" scheme="https://hunkier.cn/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>加微信好友</title>
-    <link href="https://hunkier.cn/My-wechat/"/>
-    <id>https://hunkier.cn/My-wechat/</id>
-    <published>2018-06-09T07:31:13.000Z</published>
-    <updated>2019-01-05T03:53:30.512Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;打开微信，扫一扫加微信好友&quot;&gt;&lt;a href=&quot;#打开微信，扫一扫加微信好友&quot; class=&quot;headerlink&quot; title=&quot;打开微信，扫一扫加微信好友&quot;&gt;&lt;/a&gt;打开微信，扫一扫加微信好友&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/assets/img/my_w
-      
-    
-    </summary>
-    
-      <category term="github" scheme="https://hunkier.cn/categories/github/"/>
-    
-      <category term="hexo" scheme="https://hunkier.cn/categories/github/hexo/"/>
-    
-      <category term="wechat" scheme="https://hunkier.cn/categories/github/hexo/wechat/"/>
-    
-    
-      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
-    
-      <category term="hexo" scheme="https://hunkier.cn/tags/hexo/"/>
-    
-      <category term="wechat" scheme="https://hunkier.cn/tags/wechat/"/>
     
   </entry>
   

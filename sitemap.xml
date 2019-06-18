@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-VNCserver/</loc>
+    
+    <lastmod>2019-06-18T07:52:50.959Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-7-Modify-sshd-port/</loc>
+    
+    <lastmod>2019-06-18T07:41:06.820Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
+    
+    <lastmod>2019-06-18T06:29:58.638Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
+    
+    <lastmod>2019-06-18T03:32:08.187Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
     
     <lastmod>2019-06-15T09:10:23.896Z</lastmod>
@@ -9,23 +37,9 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
-    
-    <lastmod>2019-06-15T07:34:42.692Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/CentOS-7-install-GoFastdfs/</loc>
     
     <lastmod>2019-06-04T08:25:47.067Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
-    
-    <lastmod>2019-06-04T07:39:06.690Z</lastmod>
     
   </url>
   

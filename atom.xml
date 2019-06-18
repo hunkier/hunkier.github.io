@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-06-18T07:41:06.820Z</updated>
+  <updated>2019-06-18T07:58:53.251Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,18 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CentOS 7 Modify sshd port</title>
+    <title>Centos7 修改ssh 端口</title>
     <link href="https://hunkier.cn/CentOS-7-Modify-sshd-port/"/>
     <id>https://hunkier.cn/CentOS-7-Modify-sshd-port/</id>
     <published>2019-06-18T07:35:14.000Z</published>
-    <updated>2019-06-18T07:41:06.820Z</updated>
+    <updated>2019-06-18T07:58:53.251Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;Centos7-修改SSH-端口&quot;&gt;&lt;a href=&quot;#Centos7-修改SSH-端口&quot; class=&quot;headerlink&quot; title=&quot;Centos7 修改SSH 端口&quot;&gt;&lt;/a&gt;Centos7 修改SSH 端口&lt;/h1&gt;&lt;h2 id=&quot;修改-etc-ss
-      
+      &lt;h1 id=&quot;Centos7-修改ssh-端口&quot;&gt;&lt;a href=&quot;#Centos7-修改ssh-端口&quot; class=&quot;headerlink&quot; title=&quot;Centos7 修改ssh 端口&quot;&gt;&lt;/a&gt;Centos7 修改ssh 端口&lt;/h1&gt;&lt;h2 id=&quot;修改-etc-ssh-sshd-config&quot;&gt;&lt;a href=&quot;#修改-etc-ssh-sshd-config&quot; class=&quot;headerlink&quot; title=&quot;修改/etc/ssh/sshd_config&quot;&gt;&lt;/a&gt;修改/etc/ssh/sshd_config&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;vi /etc/ssh/sshd_config
+Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
+
+Port 33378      //下面添加这一行
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -44,14 +45,18 @@
     <link href="https://hunkier.cn/CentOS-VNCserver/"/>
     <id>https://hunkier.cn/CentOS-VNCserver/</id>
     <published>2019-06-18T03:28:00.000Z</published>
-    <updated>2019-06-18T07:52:50.959Z</updated>
+    <updated>2019-06-18T07:58:53.253Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;a href=&quot;#centos7上部署vnc服务器并实现远程桌面&quot; class=&quot;headerlink&quot; title=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;/a&gt;centos7上部署vnc服务器并
-      
+      &lt;h1 id=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;a href=&quot;#centos7上部署vnc服务器并实现远程桌面&quot; class=&quot;headerlink&quot; title=&quot;centos7上部署vnc服务器并实现远程桌面&quot;&gt;&lt;/a&gt;centos7上部署vnc服务器并实现远程桌面&lt;/h1&gt;&lt;h2 id=&quot;一、安装X-Window-System&quot;&gt;&lt;a href=&quot;#一、安装X-Window-System&quot; class=&quot;headerlink&quot; title=&quot;一、安装X Window System&quot;&gt;&lt;/a&gt;一、安装X Window System&lt;/h2&gt;&lt;p&gt;注：若已经安装GUI则可跳过&lt;/p&gt;
+&lt;p&gt;1、切换到root用户，执行 &lt;code&gt;yum groupinstall &amp;quot;X Window System&amp;quot;&lt;/code&gt;&lt;br&gt;2、执行 &lt;code&gt;yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y&lt;/code&gt; 安装相关组件&lt;br&gt;3、设置默认启动图形界面&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# unlink /etc/systemd/system/default.target
+# ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4、重启系统生效&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# reboot
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

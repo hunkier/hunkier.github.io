@@ -12,20 +12,20 @@
   <!--<link href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/atelier-savanna-light.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
   <link rel="dns-prefetch" href="https://hunkier.cn">
-  <title>CentOS 7 Modify sshd port | hunkier</title>
+  <title>Centos7 修改ssh 端口 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Centos7 修改SSH 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行  修改firewall配置firewall添加想要修改的ssh端口： 添加到防火墙： fi">
+  <meta name="description" content="Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
 <meta name="keywords" content="centos sshd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 7 Modify sshd port">
+<meta property="og:title" content="Centos7 修改ssh 端口">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-Modify-sshd-port/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="Centos7 修改SSH 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行  修改firewall配置firewall添加想要修改的ssh端口： 添加到防火墙： fi">
+<meta property="og:description" content="Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T07:41:06.820Z">
+<meta property="og:updated_time" content="2019-06-18T07:58:53.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7 Modify sshd port">
-<meta name="twitter:description" content="Centos7 修改SSH 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行  修改firewall配置firewall添加想要修改的ssh端口： 添加到防火墙： fi">
+<meta name="twitter:title" content="Centos7 修改ssh 端口">
+<meta name="twitter:description" content="Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉  Port 33378      //下面添加这一行">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -209,7 +209,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS 7 Modify sshd port
+      Centos7 修改ssh 端口
     </h1>
   
 
@@ -222,11 +222,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Centos7-修改SSH-端口"><a href="#Centos7-修改SSH-端口" class="headerlink" title="Centos7 修改SSH 端口"></a>Centos7 修改SSH 端口</h1><h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
+        <h1 id="Centos7-修改ssh-端口"><a href="#Centos7-修改ssh-端口" class="headerlink" title="Centos7 修改ssh 端口"></a>Centos7 修改ssh 端口</h1><h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
 Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
 
 Port 33378      //下面添加这一行
 </code></pre>
+<a id="more"></a>
 <h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
 <pre><code class="ini">添加到防火墙：
 firewall-cmd --zone=public --add-port=33378/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)
@@ -405,7 +406,7 @@ firewall-cmd --zone=public --query-port=33378/tcp
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Centos7-修改SSH-端口"><span class="toc-number">1.</span> <span class="toc-text">Centos7 修改SSH 端口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-ssh-sshd-config"><span class="toc-number">1.1.</span> <span class="toc-text">修改/etc/ssh/sshd_config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改firewall配置"><span class="toc-number">1.2.</span> <span class="toc-text">修改firewall配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改SELinux"><span class="toc-number">1.3.</span> <span class="toc-text">修改SELinux</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Centos7-修改ssh-端口"><span class="toc-number">1.</span> <span class="toc-text">Centos7 修改ssh 端口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改-etc-ssh-sshd-config"><span class="toc-number">1.1.</span> <span class="toc-text">修改/etc/ssh/sshd_config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改firewall配置"><span class="toc-number">1.2.</span> <span class="toc-text">修改firewall配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改SELinux"><span class="toc-number">1.3.</span> <span class="toc-text">修改SELinux</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

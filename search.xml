@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[CentOS 7 Modify sshd port]]></title>
+    <title><![CDATA[Centos7 修改ssh 端口]]></title>
     <url>%2FCentOS-7-Modify-sshd-port%2F</url>
-    <content type="text"><![CDATA[Centos7 修改SSH 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22 //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉 Port 33378 //下面添加这一行 修改firewall配置firewall添加想要修改的ssh端口： 添加到防火墙： firewall-cmd --zone=public --add-port=33378/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效) 重启： firewall-cmd --reload 查看添加端口是否成功，如果添加成功则会显示yes，否则no firewall-cmd --zone=public --query-port=33378/tcp 修改SELinux使用以下命令查看当前SElinux 允许的ssh端口： semanage port -l | grep ssh 添加33378端口到 SELinux semanage port -a -t ssh_port_t -p tcp 33378 然后确认一下是否添加进去 semanage port -l | grep ssh 如果成功会输出 ssh_port_t tcp 33378, 22 重启ssh systemctl restart sshd.service 测试新端口的ssh连接测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉 测试新端口的ssh连接测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉]]></content>
+    <content type="text"><![CDATA[Centos7 修改ssh 端口修改/etc/ssh/sshd_configvi /etc/ssh/sshd_config Port 22 //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉 Port 33378 //下面添加这一行 修改firewall配置firewall添加想要修改的ssh端口： 添加到防火墙： firewall-cmd --zone=public --add-port=33378/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效) 重启： firewall-cmd --reload 查看添加端口是否成功，如果添加成功则会显示yes，否则no firewall-cmd --zone=public --query-port=33378/tcp 修改SELinux使用以下命令查看当前SElinux 允许的ssh端口： semanage port -l | grep ssh 添加33378端口到 SELinux semanage port -a -t ssh_port_t -p tcp 33378 然后确认一下是否添加进去 semanage port -l | grep ssh 如果成功会输出 ssh_port_t tcp 33378, 22 重启ssh systemctl restart sshd.service 测试新端口的ssh连接测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉 测试新端口的ssh连接测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉]]></content>
       <categories>
         <category>centos sshd</category>
       </categories>

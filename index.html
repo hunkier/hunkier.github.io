@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/CentOS-7-Modify-sshd-port/">CentOS 7 Modify sshd port</a>
+      <a class="article-title" href="/CentOS-7-Modify-sshd-port/">Centos7 修改ssh 端口</a>
     </h1>
   
 
@@ -223,36 +223,14 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Centos7-修改SSH-端口"><a href="#Centos7-修改SSH-端口" class="headerlink" title="Centos7 修改SSH 端口"></a>Centos7 修改SSH 端口</h1><h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
+        <h1 id="Centos7-修改ssh-端口"><a href="#Centos7-修改ssh-端口" class="headerlink" title="Centos7 修改ssh 端口"></a>Centos7 修改ssh 端口</h1><h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
 Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
 
 Port 33378      //下面添加这一行
 </code></pre>
-<h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
-<pre><code class="ini">添加到防火墙：
-firewall-cmd --zone=public --add-port=33378/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)
-重启：
-firewall-cmd --reload
-查看添加端口是否成功，如果添加成功则会显示yes，否则no
-firewall-cmd --zone=public --query-port=33378/tcp
-</code></pre>
-<h2 id="修改SELinux"><a href="#修改SELinux" class="headerlink" title="修改SELinux"></a>修改SELinux</h2><p>使用以下命令查看当前SElinux 允许的ssh端口：</p>
-<pre><code class="shell">semanage port -l | grep ssh
-</code></pre>
-<p>添加33378端口到 SELinux</p>
-<pre><code class="shell">semanage port -a -t ssh_port_t -p tcp 33378
-</code></pre>
-<p>然后确认一下是否添加进去</p>
-<pre><code class="shell">semanage port -l | grep ssh
-</code></pre>
-<p>如果成功会输出</p>
-<pre><code>ssh_port_t                    tcp    33378, 22
-</code></pre><p>重启ssh</p>
-<pre><code class="shell">systemctl restart sshd.service
-</code></pre>
-<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
-<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
-
+        
+          <a class="article-more-a" href="/CentOS-7-Modify-sshd-port/#more">more >></a>
+        
       
 
       
@@ -344,100 +322,9 @@ firewall-cmd --zone=public --query-port=33378/tcp
 <p>4、重启系统生效</p>
 <pre><code class="shell"># reboot
 </code></pre>
-<h2 id="二、安装vnc服务"><a href="#二、安装vnc服务" class="headerlink" title="二、安装vnc服务"></a>二、安装vnc服务</h2><h3 id="1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><a href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件" class="headerlink" title="1、执行yum install tigervnc-server -y安装VNC服务器软件"></a>1、执行yum install tigervnc-server -y安装VNC服务器软件</h3><pre><code># yum install tigervnc-server -y
-Loaded plugins: fastestmirror, langpacks
-Loading mirror speeds from cached hostfile
- * base: mirrors.aliyun.com
- * extras: mirrors.aliyun.com
- * updates: mirror.lzu.edu.cn
-base                                                                                                                                                                                        | 3.6 kB  00:00:00     
-extras                                                                                                                                                                                      | 3.4 kB  00:00:00     
-updates                                                                                                                                                                                     | 3.4 kB  00:00:00     
-Resolving Dependencies
---&gt; Running transaction check
----&gt; Package tigervnc-server.x86_64 0:1.8.0-13.el7 will be installed
---&gt; Finished Dependency Resolution
-
-Dependencies Resolved
-
-===================================================================================================================================================================================================================
- Package                                                 Arch                                           Version                                                 Repository                                    Size
-===================================================================================================================================================================================================================
-Installing:
- tigervnc-server                                         x86_64                                         1.8.0-13.el7                                            base                                         215 k
-
-Transaction Summary
-===================================================================================================================================================================================================================
-Install  1 Package
-
-Total download size: 215 k
-Installed size: 509 k
-Downloading packages:
-tigervnc-server-1.8.0-13.el7.x86_64.rpm                                                                                                                                                     | 215 kB  00:00:00     
-Running transaction check
-Running transaction test
-Transaction test succeeded
-Running transaction
-  Installing : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 
-  Verifying  : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 
-
-Installed:
-  tigervnc-server.x86_64 0:1.8.0-13.el7                                                                                                                                                                            
-
-Complete!
-</code></pre><h3 id="2、配置VNC"><a href="#2、配置VNC" class="headerlink" title="2、配置VNC"></a>2、配置VNC</h3><p>在/etc/systemd/system目录里创建一个配置文件（可以将/lib/systemd/system/vncserver@.service拷贝一份配置文件范例过来）</p>
-<pre><code class="shell">cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
-</code></pre>
-<p>使用文本编辑器打开 <code>/etc/systemd/system/vncserver@:1.service</code> ，找到下面这几行，用自己的用户名替换掉 <code>&lt;USER&gt;</code></p>
-<pre><code>User=&lt;USER&gt;
-PIDFile=/home/&lt;USER&gt;/.vnc/%H%i.pid
-替换成
-User=root
-PIDFile=/home/root/.vnc/%H%i.pid
-</code></pre><p>重启systemd</p>
-<pre><code class="shell">systemctl daemon-reload
-</code></pre>
-<p>vncpasswd设置VNC登录密码</p>
-<pre><code class="shell">vncpasswd
-</code></pre>
-<p>执行vncserver开启一个VNC窗口</p>
-<pre><code class="shell"># vncserver
-
-You will require a password to access your desktops.
-
-Password:
-Verify:
-Would you like to enter a view-only password (y/n)? n
-A view-only password is not used
-xauth:  file /root/.Xauthority does not exist
-
-New &#39;server:1 (root)&#39; desktop is server:1
-
-Creating default startup script /root/.vnc/xstartup
-Creating default config /root/.vnc/config
-Starting applications specified in /root/.vnc/xstartup
-Log file is /root/.vnc/server:1.log
-</code></pre>
-<p>开启远程端口</p>
-<pre><code class="shell"># vncserver :1
-A VNC server is already running as :1
-
-New &#39;server:2 (root)&#39; desktop is server:2
-
-Starting applications specified in /root/.vnc/xstartup
-Log file is /root/.vnc/server:2.log
-
-</code></pre>
-<p>设置防火墙规则，允许访问VNC-SERVER的流量通过，并重启firewall服务使之生效</p>
-<pre><code class="shell"># firewall-cmd --permanent --add-service vnc-server
-
-# systemctl restart firewalld.service
-</code></pre>
-<h1 id="三、客户端连接-VNC-server"><a href="#三、客户端连接-VNC-server" class="headerlink" title="三、客户端连接 VNC server"></a>三、客户端连接 VNC server</h1><p>地址栏填写：<code>ip::5901</code>。例如：<code>172.20.8.31::5901</code></p>
-<p>我们开启的是<code>vncserver :1</code>，而 vncserver 默认从5900开始，所以我们使用 <code>5900+1 = 5901</code>，注意需要两个 <code>::</code></p>
-<p>接下来输入服务端设置的 vncserver 的密码就可以了。</p>
-<p><strong>注意关闭防火墙和selinux</strong></p>
-
+        
+          <a class="article-more-a" href="/CentOS-VNCserver/#more">more >></a>
+        
       
 
       

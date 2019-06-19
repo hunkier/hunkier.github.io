@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T08:47:49.971Z">
+<meta property="og:updated_time" content="2019-06-19T06:56:56.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7上部署vnc服务器并实现远程桌面">
 <meta name="twitter:description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
@@ -320,7 +320,8 @@ Log file is /root/.vnc/server:2.log
 
 # systemctl restart firewalld.service
 </code></pre>
-<h1 id="三、客户端连接-VNC-server"><a href="#三、客户端连接-VNC-server" class="headerlink" title="三、客户端连接 VNC server"></a>三、客户端连接 VNC server</h1><p>地址栏填写：<code>ip::5901</code>。例如：<code>172.20.8.31::5901</code></p>
+<h1 id="三、客户端连接-VNC-server"><a href="#三、客户端连接-VNC-server" class="headerlink" title="三、客户端连接 VNC server"></a>三、客户端连接 VNC server</h1><p>客户端可以使用官方，直接去官网下载，推荐使用 <code>MobaXterm</code>，集成常用 ssh，sftp 等功能。</p>
+<p>地址栏填写：<code>ip::5901</code>。例如：<code>172.20.8.31::5901</code></p>
 <p>我们开启的是<code>vncserver :1</code>，而 vncserver 默认从5900开始，所以我们使用 <code>5900+1 = 5901</code>，注意需要两个 <code>::</code></p>
 <p>接下来输入服务端设置的 vncserver 的密码就可以了。</p>
 <p><strong>注意关闭防火墙和selinux</strong></p>

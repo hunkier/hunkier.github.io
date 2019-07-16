@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-06-18T08:58:13.424Z</updated>
+  <updated>2019-07-16T14:02:55.277Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wget参数使用参考</title>
+    <link href="https://hunkier.cn/wget-use/"/>
+    <id>https://hunkier.cn/wget-use/</id>
+    <published>2019-07-11T13:36:12.000Z</published>
+    <updated>2019-07-16T14:02:55.277Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;wget&lt;/code&gt;是一个从网络上自动下载文件的自由工具。它支持&lt;code&gt;HTTP&lt;/code&gt;，&lt;code&gt;HTTPS&lt;/code&gt;和&lt;code&gt;FTP&lt;/code&gt;协议，可以使用&lt;code&gt;HTTP&lt;/code&gt;代理. 所谓的自动下载是指，&lt;code&gt;w
+      
+    
+    </summary>
+    
+      <category term="wget" scheme="https://hunkier.cn/categories/wget/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/categories/wget/linux/"/>
+    
+    
+      <category term="wget" scheme="https://hunkier.cn/tags/wget/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript正则表达式验证数字</title>
+    <link href="https://hunkier.cn/js-reg-exp/"/>
+    <id>https://hunkier.cn/js-reg-exp/</id>
+    <published>2019-07-01T11:36:56.000Z</published>
+    <updated>2019-07-16T14:02:55.266Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;javascript 验证输入的是否为正确的数组&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt; function validate(){
+       var reg = new RegExp(&amp;quot;^[0-9]*$&amp;quot;);
+     
+      
+    
+    </summary>
+    
+      <category term="正则" scheme="https://hunkier.cn/categories/%E6%AD%A3%E5%88%99/"/>
+    
+    
+      <category term="正则" scheme="https://hunkier.cn/tags/%E6%AD%A3%E5%88%99/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS  firewall添加开放端口</title>
@@ -544,65 +595,6 @@ unzip -h
       <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
       <category term="shell" scheme="https://hunkier.cn/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS</title>
-    <link href="https://hunkier.cn/Java-Concurrent-Lock/"/>
-    <id>https://hunkier.cn/Java-Concurrent-Lock/</id>
-    <published>2018-07-06T06:55:00.000Z</published>
-    <updated>2019-01-05T03:53:30.512Z</updated>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code class=&quot;html&quot;&gt;原文：https://www.cnblogs.com/qjjazry/p/6581568.html
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;首先介绍一些乐观锁与悲观锁:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步原语synchronized关键字的实现也是悲观锁。&lt;/p&gt;
-&lt;p&gt;　　乐观锁：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。在Java中java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-    
-      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
-    
-      <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows环境下Vmware中Centos共享文件</title>
-    <link href="https://hunkier.cn/Windows-Vmware-Centos-share-Folder/"/>
-    <id>https://hunkier.cn/Windows-Vmware-Centos-share-Folder/</id>
-    <published>2018-07-05T03:31:13.000Z</published>
-    <updated>2019-01-05T03:53:30.513Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;先安装包依赖：&quot;&gt;&lt;a href=&quot;#先安装包依赖：&quot; class=&quot;headerlink&quot; title=&quot;先安装包依赖：&quot;&gt;&lt;/a&gt;先安装包依赖：&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="https://hunkier.cn/categories/linux/"/>
-    
-      <category term="centos" scheme="https://hunkier.cn/categories/linux/centos/"/>
-    
-      <category term="vmware" scheme="https://hunkier.cn/categories/linux/centos/vmware/"/>
-    
-    
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
-      <category term="vmware" scheme="https://hunkier.cn/tags/vmware/"/>
     
   </entry>
   

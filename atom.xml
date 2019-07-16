@@ -74,7 +74,7 @@
     <link href="https://hunkier.cn/CentOS-7-firewall/"/>
     <id>https://hunkier.cn/CentOS-7-firewall/</id>
     <published>2019-06-18T08:42:18.000Z</published>
-    <updated>2019-06-18T08:58:13.424Z</updated>
+    <updated>2019-07-16T14:16:35.082Z</updated>
     
     <summary type="html">
     
@@ -82,14 +82,6 @@
 &lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent  
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;  （ &lt;code&gt;–permanent&lt;/code&gt; 永久生效，没有此参数重启后失效）&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --reload
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;查看&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --query-port=80/tcp
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;删除&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent
-&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;查看&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --query-port=80/tcp
 &lt;/code&gt;&lt;/pre&gt;
@@ -97,6 +89,8 @@
 &lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;重新载入&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

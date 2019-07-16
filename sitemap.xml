@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-firewall/</loc>
+    
+    <lastmod>2019-07-16T14:16:35.082Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/wget-use/</loc>
     
     <lastmod>2019-07-16T14:09:12.902Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://hunkier.cn/CentOS-VNCserver/</loc>
     
     <lastmod>2019-06-19T06:56:56.694Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-firewall/</loc>
-    
-    <lastmod>2019-06-18T08:58:13.424Z</lastmod>
     
   </url>
   

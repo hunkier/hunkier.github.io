@@ -416,14 +416,6 @@ var _hmt = _hmt || [];
 <pre><code class="shell">firewall-cmd --zone=public --add-port=80/tcp --permanent  
 </code></pre>
 <p>  （ <code>–permanent</code> 永久生效，没有此参数重启后失效）</p>
-<pre><code class="shell">firewall-cmd --reload
-</code></pre>
-<p>查看</p>
-<pre><code class="shell">firewall-cmd --zone=public --query-port=80/tcp
-</code></pre>
-<p>删除</p>
-<pre><code class="shell">firewall-cmd --zone=public --remove-port=80/tcp --permanent
-</code></pre>
 <p>查看</p>
 <pre><code class="shell">firewall-cmd --zone=public --query-port=80/tcp
 </code></pre>
@@ -431,6 +423,8 @@ var _hmt = _hmt || [];
 <pre><code class="shell">firewall-cmd --zone=public --remove-port=80/tcp --permanent
 </code></pre>
 <p>重新载入</p>
+<pre><code class="shell">firewall-cmd --reload
+</code></pre>
         
           <a class="article-more-a" href="/CentOS-7-firewall/#more">more >></a>
         

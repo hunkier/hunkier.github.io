@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-07-16T14:02:55.277Z</updated>
+  <updated>2019-07-16T14:09:12.902Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,14 +21,11 @@
     <link href="https://hunkier.cn/wget-use/"/>
     <id>https://hunkier.cn/wget-use/</id>
     <published>2019-07-11T13:36:12.000Z</published>
-    <updated>2019-07-16T14:02:55.277Z</updated>
+    <updated>2019-07-16T14:09:12.902Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;code&gt;wget&lt;/code&gt;是一个从网络上自动下载文件的自由工具。它支持&lt;code&gt;HTTP&lt;/code&gt;，&lt;code&gt;HTTPS&lt;/code&gt;和&lt;code&gt;FTP&lt;/code&gt;协议，可以使用&lt;code&gt;HTTP&lt;/code&gt;代理. 所谓的自动下载是指，&lt;code&gt;w
-      
+      &lt;p&gt;&lt;code&gt;wget&lt;/code&gt;是一个从网络上自动下载文件的自由工具。它支持&lt;code&gt;HTTP&lt;/code&gt;，&lt;code&gt;HTTPS&lt;/code&gt;和&lt;code&gt;FTP&lt;/code&gt;协议，可以使用&lt;code&gt;HTTP&lt;/code&gt;代理. 所谓的自动下载是指，&lt;code&gt;wget&lt;/code&gt;可以在用户退出系统的之后在后台执行。这意味这你可以登录系统，启动一个&lt;code&gt;wget&lt;/code&gt;下载任务，然后退出系统，&lt;code&gt;wget&lt;/code&gt;将在后台执行直到任务完成，相对于其它大部分浏览器在下载大量数据时需要用户一直的参与，这省去了极大的麻烦。 &lt;/p&gt;
     
     </summary>
     
@@ -46,17 +43,22 @@
     <link href="https://hunkier.cn/js-reg-exp/"/>
     <id>https://hunkier.cn/js-reg-exp/</id>
     <published>2019-07-01T11:36:56.000Z</published>
-    <updated>2019-07-16T14:02:55.266Z</updated>
+    <updated>2019-07-16T14:09:12.899Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;javascript 验证输入的是否为正确的数组&lt;/p&gt;
+      &lt;p&gt;javascript 验证输入的是否为正确的数组&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt; function validate(){
        var reg = new RegExp(&amp;quot;^[0-9]*$&amp;quot;);
-     
-      
+       var obj = document.getElementById(&amp;quot;name&amp;quot;);
+    if(!reg.test(obj.value)){
+        alert(&amp;quot;请输入数字!&amp;quot;);
+    }
+    if(!/^[0-9]*$/.test(obj.value)){
+        alert(&amp;quot;请输入数字!&amp;quot;);
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

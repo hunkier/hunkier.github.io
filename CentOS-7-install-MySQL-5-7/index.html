@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-12T13:19:22.116Z">
+<meta property="og:updated_time" content="2019-11-12T13:21:18.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
 <meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
@@ -365,6 +365,15 @@ Starting MySQL.. SUCCESS!
 <h2 id="11-重新启动mysql服务，命令如下："><a href="#11-重新启动mysql服务，命令如下：" class="headerlink" title="11.重新启动mysql服务，命令如下："></a>11.重新启动mysql服务，命令如下：</h2><pre><code class="shell">service mysqld restart
 Shutting down MySQL.... SUCCESS! 
 Starting MySQL. SUCCESS! 
+</code></pre>
+<p>修改文件权限</p>
+<pre><code class="shell">chmod 755 /etc/rc.d/init.d/mysqld
+</code></pre>
+<p>设置开机启动</p>
+<pre><code class="shell">chkconfig mysqld on
+</code></pre>
+<p>启动、停止命令</p>
+<pre><code class="shell">service mysqld start/stop
 </code></pre>
 <h2 id="12-配置mysql环境变量"><a href="#12-配置mysql环境变量" class="headerlink" title="12.配置mysql环境变量"></a>12.配置mysql环境变量</h2><pre><code class="bash">vi /etc/profile
 export PATH=$PATH:/usr/local/mysql/bin
@@ -867,11 +876,11 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">

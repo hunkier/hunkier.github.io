@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-07-16T14:09:12.902Z</updated>
+  <updated>2019-11-15T00:53:24.503Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kibana 认证登录</title>
+    <link href="https://hunkier.cn/kibana-auth/"/>
+    <id>https://hunkier.cn/kibana-auth/</id>
+    <published>2019-11-09T12:37:16.000Z</published>
+    <updated>2019-11-15T00:53:24.503Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;Kibana&lt;/code&gt;从5.5开始不提供认证功能，想用官方的认证&lt;code&gt;X-Pack&lt;/code&gt;，收费滴&lt;/p&gt;
+&lt;p&gt;所以自己动手，使用&lt;code&gt;Nginx&lt;/code&gt;的代理功能&lt;/p&gt;
+&lt;p&gt;安装&lt;code&gt;Nginx&lt;/code&gt;&lt;br&gt;安装
+      
+    
+    </summary>
+    
+      <category term="kibana" scheme="https://hunkier.cn/categories/kibana/"/>
+    
+      <category term="nginx" scheme="https://hunkier.cn/categories/kibana/nginx/"/>
+    
+      <category term="htpasswd" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/"/>
+    
+      <category term="auth" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/auth/"/>
+    
+    
+      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
+    
+      <category term="kibana" scheme="https://hunkier.cn/tags/kibana/"/>
+    
+      <category term="htpasswd" scheme="https://hunkier.cn/tags/htpasswd/"/>
+    
+      <category term="auth" scheme="https://hunkier.cn/tags/auth/"/>
+    
+  </entry>
   
   <entry>
     <title>wget参数使用参考</title>
@@ -557,40 +594,6 @@ Server:
     
     
       <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用的Shell脚本和Linux命令</title>
-    <link href="https://hunkier.cn/Common-shell-script/"/>
-    <id>https://hunkier.cn/Common-shell-script/</id>
-    <published>2018-07-10T05:11:00.000Z</published>
-    <updated>2019-05-21T13:45:17.144Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;收集工作中经常用的Linux命令和shell脚本&lt;/p&gt;
-&lt;h5 id=&quot;zip-压缩和解压缩&quot;&gt;&lt;a href=&quot;#zip-压缩和解压缩&quot; class=&quot;headerlink&quot; title=&quot;zip 压缩和解压缩&quot;&gt;&lt;/a&gt;zip 压缩和解压缩&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# 压缩文件夹
-zip -r data.zip  data
-# 解压缩文件,默认解压到当前路径
-unzip data.zip
-# 解压到指定路径
-unzip data.zip -d destDir
-# 查看帮助
-unzip -h
-
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="https://hunkier.cn/categories/linux/"/>
-    
-      <category term="shell" scheme="https://hunkier.cn/categories/linux/shell/"/>
-    
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
-      <category term="shell" scheme="https://hunkier.cn/tags/shell/"/>
     
   </entry>
   

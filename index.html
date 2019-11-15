@@ -203,6 +203,152 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-kibana-auth" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/kibana-auth/">kibana 认证登录</a>
+    </h1>
+  
+
+        
+        <a href="/kibana-auth/" class="archive-article-date">
+  	<time datetime="2019-11-09T12:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>Kibana</code>从5.5开始不提供认证功能，想用官方的认证<code>X-Pack</code>，收费滴</p>
+<p>所以自己动手，使用<code>Nginx</code>的代理功能</p>
+<p>安装<code>Nginx</code><br>安装<code>Apache</code>密码生产工具</p>
+<pre><code class="bash"> yum install httpd-tools
+</code></pre>
+<p>生成密码文件</p>
+<pre><code class="bash"> mkdir -p /etc/nginx/passwd
+
+ htpasswd -c -b /etc/nginx/passwd/kibana.passwd admin 123456
+</code></pre>
+<p>配置<code>Nginx</code></p>
+<pre><code class="bash">vim /usr/local/nginx/nginx.conf
+</code></pre>
+<pre><code class="nginx">server {
+  listen 172.20.8.113:5601;
+
+  auth_basic &quot;Kibana Auth&quot;;
+  auth_basic_user_file /etc/nginx/passwd/kibana.passwd;
+
+  location / {
+    proxy_pass http://127.0.0.1:5601;
+    proxy_redirect off;
+  }
+}
+</code></pre>
+<p>修改<code>Kibana</code>配置文件</p>
+<pre><code class="bash">vim /usr/local/kibana/config/kibana.yml
+</code></pre>
+<pre><code class="nginx"># The host to bind the server to.
+
+server.host: &quot;localhost&quot;
+</code></pre>
+<p>重启<code>Kibana</code>服务，配置文件生效</p>
+<pre><code class="bash">systemctl restart kibana
+</code></pre>
+<p>重载<code>Nginx</code>配置</p>
+<pre><code>nginx -s reload
+</code></pre><p>登录<code>Kibana</code><br>URL: <a href="http://172.20.8.113:5601" target="_blank" rel="noopener">http://172.20.8.113:5601</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kibana</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">htpasswd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">auth</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kibana//" class="article-tag-list-link color2">kibana</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kibana/nginx//" class="article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kibana/nginx/htpasswd//" class="article-tag-list-link color4">htpasswd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kibana/nginx/htpasswd/auth//" class="article-tag-list-link color5">auth</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/kibana-auth/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-wget-use" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1044,104 +1190,6 @@ Port 33378      //下面添加这一行
 
 
   
-    <article id="post-CentOS-7-install-MySQL-5-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/CentOS-7-install-MySQL-5-7/">CentOS 7 安装 MySQL 5.7</a>
-    </h1>
-  
-
-        
-        <a href="/CentOS-7-install-MySQL-5-7/" class="archive-article-date">
-  	<time datetime="2019-02-26T14:19:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CentOS 7 安装MySQL5.7</p>
-<h1 id="一、安装包下载"><a href="#一、安装包下载" class="headerlink" title="一、安装包下载"></a>一、安装包下载</h1><p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/5.6.html#downloads" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/5.6.html#downloads</a></p>
-<p>国内可以使用163镜像加速下载：<a href="http://mirrors.163.com/mysql/Downloads/MySQL-5.7/" target="_blank" rel="noopener">http://mirrors.163.com/mysql/Downloads/MySQL-5.7/</a></p>
-<p>选择相应的平台和版本下载</p>
-        
-          <a class="article-more-a" href="/CentOS-7-install-MySQL-5-7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/mysql//" class="article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/CentOS-7-install-MySQL-5-7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1429,6 +1477,18 @@ Port 33378      //下面添加这一行
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">concurrent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kibana</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">htpasswd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">auth</a>
               </li>
             
             <div class="clearfix"></div>

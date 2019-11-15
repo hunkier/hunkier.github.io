@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/kibana-auth/</loc>
+    
+    <lastmod>2019-11-15T00:53:24.503Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
     
     <lastmod>2019-11-12T13:21:18.018Z</lastmod>

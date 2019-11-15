@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-15T00:54:56.500Z</updated>
+  <updated>2019-11-15T00:58:34.003Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://hunkier.cn/kibana-auth/"/>
     <id>https://hunkier.cn/kibana-auth/</id>
     <published>2019-11-09T12:37:16.000Z</published>
-    <updated>2019-11-15T00:54:56.500Z</updated>
+    <updated>2019-11-15T00:58:34.003Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;Kibana&lt;/code&gt;从5.5开始不提供认证功能，想用官方的认证&lt;code&gt;X-Pack&lt;/code&gt;，收费滴&lt;/p&gt;
-&lt;p&gt;所以自己动手，使用&lt;code&gt;Nginx&lt;/code&gt;的代理功能&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;Kibana&lt;/code&gt;从5.5开始不提供认证功能，用官方的认证&lt;code&gt;X-Pack&lt;/code&gt;，则需购买授权许可。&lt;/p&gt;
+&lt;p&gt;为了安全访问，我们可以使用&lt;code&gt;Nginx&lt;/code&gt;的代理功能来认证登录&lt;/p&gt;
     
     </summary>
     

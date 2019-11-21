@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-12T13:21:18.018Z">
+<meta property="og:updated_time" content="2019-11-15T02:42:56.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
 <meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
@@ -317,6 +317,7 @@ Complete!
 default-character-set=utf8mb4 
 [mysqld]
 skip-name-resolve
+#skip-grant-tables
 #设置3306端口
 port = 3306 
 # 设置mysql的安装目录
@@ -412,6 +413,9 @@ mysql&gt;
 </code></pre>
 <h2 id="14-进入mysql操作行，为root用户设置新密码（比如设为123456）："><a href="#14-进入mysql操作行，为root用户设置新密码（比如设为123456）：" class="headerlink" title="14.进入mysql操作行，为root用户设置新密码（比如设为123456）："></a>14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</h2><p>在13条已经登录的终端中输入如下命令：</p>
 <pre><code class="mysql">alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;123456&#39;;
+# 或者
+use mysql
+update user set authentication_string=password(&#39;新密码&#39;) where user=&#39;root&#39;;
 </code></pre>
 <h2 id="15-设置允许远程连接数据库，命令如下："><a href="#15-设置允许远程连接数据库，命令如下：" class="headerlink" title="15.设置允许远程连接数据库，命令如下："></a>15.设置允许远程连接数据库，命令如下：</h2><p>先选择数据库：</p>
 <pre><code class="mysql">use mysql
@@ -933,6 +937,14 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">biSearch</a>
               </li>
             
             <div class="clearfix"></div>

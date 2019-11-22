@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/algorithm-bubble-sort/</loc>
+    
+    <lastmod>2019-11-22T00:22:25.323Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/algorithm-bi-search/</loc>
     
     <lastmod>2019-11-21T00:16:30.281Z</lastmod>

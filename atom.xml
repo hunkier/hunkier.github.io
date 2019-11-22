@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-21T00:16:30.281Z</updated>
+  <updated>2019-11-22T00:22:25.323Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>冒泡排序</title>
+    <link href="https://hunkier.cn/algorithm-bubble-sort/"/>
+    <id>https://hunkier.cn/algorithm-bubble-sort/</id>
+    <published>2019-11-22T00:20:15.832Z</published>
+    <updated>2019-11-22T00:22:25.323Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。&lt;/p&gt;
+&lt;p&gt;(2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。&lt;/p&gt;
+&lt;p&gt;(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="bubble sort" scheme="https://hunkier.cn/categories/java/algorithm/bubble-sort/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>二分查找</title>
@@ -545,38 +569,6 @@ virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="DNS" scheme="https://hunkier.cn/tags/DNS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mycat 按月分表</title>
-    <link href="https://hunkier.cn/mycat-single-database-log-table-part-by-month/"/>
-    <id>https://hunkier.cn/mycat-single-database-log-table-part-by-month/</id>
-    <published>2018-08-09T02:58:55.000Z</published>
-    <updated>2019-01-05T03:53:30.513Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;什么是MYCAT&lt;br&gt;•  一个彻底开源的，面向企业应用开发的大数据库集群&lt;br&gt;•  支持事务、ACID、可以替代MySQL的加强版数据库&lt;br&gt;•  一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群&lt;br&gt;•  一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server&lt;br&gt;•  结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品&lt;br&gt;•  一个新颖的数据库中间件产品&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="mysql" scheme="https://hunkier.cn/categories/mysql/"/>
-    
-      <category term="mycat" scheme="https://hunkier.cn/categories/mysql/mycat/"/>
-    
-      <category term="subtable" scheme="https://hunkier.cn/categories/mysql/mycat/subtable/"/>
-    
-      <category term="partbymonth" scheme="https://hunkier.cn/categories/mysql/mycat/subtable/partbymonth/"/>
-    
-    
-      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
-    
-      <category term="mycat" scheme="https://hunkier.cn/tags/mycat/"/>
-    
-      <category term="subtable" scheme="https://hunkier.cn/tags/subtable/"/>
-    
-      <category term="partbymonth" scheme="https://hunkier.cn/tags/partbymonth/"/>
     
   </entry>
   

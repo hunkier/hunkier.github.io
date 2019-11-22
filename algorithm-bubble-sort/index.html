@@ -12,19 +12,20 @@
   <!--<link href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/atelier-savanna-light.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
   <link rel="dns-prefetch" href="https://hunkier.cn">
-  <title>Archives: 2019 | hunkier</title>
+  <title>冒泡排序 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习笔记，开源代码分享，技术交流">
+  <meta name="description" content="(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。 (2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。 (3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。">
 <meta name="keywords" content="hexo yilia blog java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hunkier">
-<meta property="og:url" content="https://hunkier.cn/archives/2019/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="冒泡排序">
+<meta property="og:url" content="https://hunkier.cn/algorithm-bubble-sort/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="学习笔记，开源代码分享，技术交流">
+<meta property="og:description" content="(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。 (2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。 (3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-22T00:22:25.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hunkier">
-<meta name="twitter:description" content="学习笔记，开源代码分享，技术交流">
+<meta name="twitter:title" content="冒泡排序">
+<meta name="twitter:description" content="(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。 (2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。 (3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -201,327 +202,236 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-algorithm-bubble-sort" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      冒泡排序
+    </h1>
+  
+
+        
+        <a href="/algorithm-bubble-sort/" class="archive-article-date">
+  	<time datetime="2019-11-22T00:20:15.832Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。</p>
+<p>(2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。</p>
+<p>(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。</p>
+ <a id="more"></a>
+<pre><code class="java">public static void bubbleSort(int [] a){
+  int n = a.length;
+  int i,j;
+  for(i=0; i&lt;n; i++){ // 表示 n 次排序过程
+    for(j=1; j&lt;n-i; j++){
+      if(a[j-1] &gt; a[j]){ // 前面的数字大于后面的数字就交换
+        // 交换 a[j-i] 和 a[j]
+        int temp ;
+        temp = a[j-1];
+        a[j-1] = a[j];
+        a[j] = temp;
+      }
+    }
+  }
+}
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CentOS-7-install-Redis/" class="archive-article-date">
-  	<time datetime="2019-04-26T11:30:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CentOS-7-install-Redis/">CentOS 7 安装 Redis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/centos/redis//" class="article-tag-list-link color1">redis</a>
+        			<a href="/categories/java/algorithm//" class="article-tag-list-link color5">algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/algorithm/bubble-sort//" class="article-tag-list-link color2">bubble sort</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hunkier.cn/algorithm-bubble-sort/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CentOS-7-install-Nginx/" class="archive-article-date">
-  	<time datetime="2019-03-25T13:18:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/algorithm-bi-search/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二分查找</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CentOS-7-install-Nginx/">CentOS 7 安装 Nginx</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/nginx//" class="article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CentOS-7-install-MySQL-5-7/" class="archive-article-date">
-  	<time datetime="2019-02-26T14:19:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CentOS-7-install-MySQL-5-7/">CentOS 7 安装 MySQL 5.7</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/mysql//" class="article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Mysql-Master-Slave/" class="archive-article-date">
-  	<time datetime="2019-01-14T06:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Mysql-Master-Slave/">Mysql配置主从复制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">myql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">master</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">slave</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/myql//" class="article-tag-list-link color5">myql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/myql/master//" class="article-tag-list-link color2">master</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/myql/master/slave//" class="article-tag-list-link color1">slave</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Hackintosh-Nvidia-Driver/" class="archive-article-date">
-  	<time datetime="2019-01-02T14:41:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Hackintosh-Nvidia-Driver/">解决NVIDIA驱动程序安装和加载问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mac osx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hackintosh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Nvidia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Mac-osx//" class="article-tag-list-link color3">Mac osx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Mac-osx/Hackintosh//" class="article-tag-list-link color1">Hackintosh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Mac-osx/Hackintosh/Nvidia//" class="article-tag-list-link color2">Nvidia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'hunkier'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-    </nav>
   
+
+  
+
 
 
           </div>
@@ -550,8 +460,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

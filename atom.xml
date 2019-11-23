@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-22T00:22:25.323Z</updated>
+  <updated>2019-11-23T02:46:27.565Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>插入排序</title>
+    <link href="https://hunkier.cn/algorithm-insert-sort/"/>
+    <id>https://hunkier.cn/algorithm-insert-sort/</id>
+    <published>2019-11-23T02:43:53.000Z</published>
+    <updated>2019-11-23T02:46:27.565Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应的位置并插入。插入排序非常类似于整扑克。在开始摸牌时，左手是空的，牌面朝下放在桌面。接着，一次从桌上磨起一张牌，并将它插入到左手一把牌中的正确位置上。为了找到这张牌的正确位置，要将它与手中已有的牌从左到右地进行比较。无论什么时候，左手中的牌都是排好序的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="insert sort" scheme="https://hunkier.cn/categories/java/algorithm/insert-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="insert sort" scheme="https://hunkier.cn/tags/insert-sort/"/>
+    
+  </entry>
   
   <entry>
     <title>冒泡排序</title>
@@ -538,37 +566,6 @@ rm /var/lib/kubelet/* -rf
       <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
     
       <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 设置DNS服务器</title>
-    <link href="https://hunkier.cn/CentOS-7-Seting-DNS-Server/"/>
-    <id>https://hunkier.cn/CentOS-7-Seting-DNS-Server/</id>
-    <published>2018-08-10T07:07:16.000Z</published>
-    <updated>2019-06-18T08:42:11.598Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CentOS 7需要使用全新的命令行工具 nmcli 来设置&lt;/p&gt;
-&lt;h5 id=&quot;显示当前网络连接&quot;&gt;&lt;a href=&quot;#显示当前网络连接&quot; class=&quot;headerlink&quot; title=&quot;显示当前网络连接&quot;&gt;&lt;/a&gt;显示当前网络连接&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;[root@bogon ~]# nmcli connection show
-NAME     UUID                                  TYPE      DEVICE
-cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0
-docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0
-enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0
-virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/categories/centos/linux/"/>
-    
-    
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-      <category term="DNS" scheme="https://hunkier.cn/tags/DNS/"/>
     
   </entry>
   

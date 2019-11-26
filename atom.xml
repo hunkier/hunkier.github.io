@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-23T02:46:27.565Z</updated>
+  <updated>2019-11-26T00:22:24.309Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快速排序算法</title>
+    <link href="https://hunkier.cn/algorithm-quick-sort/"/>
+    <id>https://hunkier.cn/algorithm-quick-sort/</id>
+    <published>2019-11-26T00:21:07.000Z</published>
+    <updated>2019-11-26T00:22:24.309Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;快速排序的原理：选择一个关键值作为基准值。比较基准值小的都放在左边序列(一般是无序的), 比基准值大的都在右边(一般是无序的)。一般选择序列的第一个元素。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="quick sort" scheme="https://hunkier.cn/categories/java/algorithm/quick-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="quick sort" scheme="https://hunkier.cn/tags/quick-sort/"/>
+    
+  </entry>
   
   <entry>
     <title>插入排序</title>
@@ -119,9 +147,9 @@
       <category term="auth" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/auth/"/>
     
     
-      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
-    
       <category term="kibana" scheme="https://hunkier.cn/tags/kibana/"/>
+    
+      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
     
       <category term="htpasswd" scheme="https://hunkier.cn/tags/htpasswd/"/>
     
@@ -531,41 +559,6 @@ Port 33378      //下面添加这一行
       <category term="nio" scheme="https://hunkier.cn/tags/nio/"/>
     
       <category term="netty" scheme="https://hunkier.cn/tags/netty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>清除Kubernetes环境</title>
-    <link href="https://hunkier.cn/Clean-Kubernetes-Environment/"/>
-    <id>https://hunkier.cn/Clean-Kubernetes-Environment/</id>
-    <published>2018-08-13T11:07:16.000Z</published>
-    <updated>2019-01-05T03:53:30.511Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入&lt;/p&gt;
-&lt;h5 id=&quot;清理kubelet挂载的磁盘和设置&quot;&gt;&lt;a href=&quot;#清理kubelet挂载的磁盘和设置&quot; class=&quot;headerlink&quot; title=&quot;清理kubelet挂载的磁盘和设置&quot;&gt;&lt;/a&gt;清理kubelet挂载的磁盘和设置&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount
-rm /var/lib/kubelet/* -rf
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="kubernetes" scheme="https://hunkier.cn/categories/kubernetes/"/>
-    
-      <category term="docker" scheme="https://hunkier.cn/categories/kubernetes/docker/"/>
-    
-      <category term="rancher" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/categories/kubernetes/docker/rancher/linux/"/>
-    
-    
-      <category term="kubernetes" scheme="https://hunkier.cn/tags/kubernetes/"/>
-    
-      <category term="docker" scheme="https://hunkier.cn/tags/docker/"/>
-    
-      <category term="rancher" scheme="https://hunkier.cn/tags/rancher/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/tags/linux/"/>
     
   </entry>
   

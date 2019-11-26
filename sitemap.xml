@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/algorithm-quick-sort/</loc>
+    
+    <lastmod>2019-11-26T00:22:24.309Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/algorithm-insert-sort/</loc>
     
     <lastmod>2019-11-23T02:46:27.565Z</lastmod>

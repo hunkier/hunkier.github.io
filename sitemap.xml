@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/algorithm-shell-sort/</loc>
+    
+    <lastmod>2019-11-27T00:27:56.979Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/algorithm-quick-sort/</loc>
     
-    <lastmod>2019-11-26T00:22:24.309Z</lastmod>
+    <lastmod>2019-11-27T00:24:40.829Z</lastmod>
     
   </url>
   

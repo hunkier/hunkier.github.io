@@ -203,6 +203,100 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CentOS-VNCserver" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CentOS-VNCserver/">CentOS 7上部署vnc服务器并实现远程桌面</a>
+    </h1>
+  
+
+        
+        <a href="/CentOS-VNCserver/" class="archive-article-date">
+  	<time datetime="2019-06-18T03:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
+<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
+<pre><code class="shell"># unlink /etc/systemd/system/default.target
+# ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
+</code></pre>
+<p>4、重启系统生效</p>
+<pre><code class="shell"># reboot
+</code></pre>
+        
+          <a class="article-more-a" href="/CentOS-VNCserver/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">centos vnc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/centos-vnc//" class="article-tag-list-link color1">centos vnc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/CentOS-VNCserver/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CentOS-7-install-GoFastdfs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1078,109 +1172,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Reactor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Reactor/">Reactor模式的角色构成</a>
-    </h1>
-  
-
-        
-        <a href="/Reactor/" class="archive-article-date">
-  	<time datetime="2018-08-15T11:35:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Reactor模式的角色构成（Reactor模式一共有5种角色构成）："><a href="#Reactor模式的角色构成（Reactor模式一共有5种角色构成）：" class="headerlink" title="Reactor模式的角色构成（Reactor模式一共有5种角色构成）："></a>Reactor模式的角色构成（Reactor模式一共有5种角色构成）：</h2><h3 id="1-Handle（句柄或是描述符）："><a href="#1-Handle（句柄或是描述符）：" class="headerlink" title="1. Handle（句柄或是描述符）："></a>1. <strong>Handle（句柄或是描述符）</strong>：</h3><p>本质上表示一种资源，是由操作系统提供的；改资源用于表示一个个的事件，比如说文件描述符，或是针对网络编程过程中的Socket描述符。事件即可以来自于外部，可以来自于内部；外部事件比如说客户端的连接请求，客户端发送过来的数据等；内部事件，比如说操作系统产生的定时器事件等。它本质上就是一个文件描述符。<br>
-        
-          <a class="article-more-a" href="/Reactor/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reactor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nio</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">netty</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reactor//" class="article-tag-list-link color3">reactor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reactor/nio//" class="article-tag-list-link color4">nio</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reactor/nio/netty//" class="article-tag-list-link color1">netty</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Reactor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1496,6 +1487,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell sort</a>
               </li>
             
             <div class="clearfix"></div>

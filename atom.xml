@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-26T00:22:24.309Z</updated>
+  <updated>2019-11-27T00:27:56.979Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>快速排序算法</title>
+    <title>希尔排序</title>
+    <link href="https://hunkier.cn/algorithm-shell-sort/"/>
+    <id>https://hunkier.cn/algorithm-shell-sort/</id>
+    <published>2019-11-27T00:23:42.000Z</published>
+    <updated>2019-11-27T00:27:56.979Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;基本思想：先将整个待排序的记录分割成若干子序列分别进行插入排序，待整个序列中的记录 ”基本有序“ 时，再对全体记录进行依次直接插入排序。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="shell sort" scheme="https://hunkier.cn/categories/java/algorithm/shell-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="shell sort" scheme="https://hunkier.cn/tags/shell-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序</title>
     <link href="https://hunkier.cn/algorithm-quick-sort/"/>
     <id>https://hunkier.cn/algorithm-quick-sort/</id>
     <published>2019-11-26T00:21:07.000Z</published>
-    <updated>2019-11-26T00:22:24.309Z</updated>
+    <updated>2019-11-27T00:24:40.829Z</updated>
     
     <summary type="html">
     
@@ -531,34 +559,6 @@ Port 33378      //下面添加这一行
       <category term="ios" scheme="https://hunkier.cn/tags/ios/"/>
     
       <category term="Jailbreaking" scheme="https://hunkier.cn/tags/Jailbreaking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reactor模式的角色构成</title>
-    <link href="https://hunkier.cn/Reactor/"/>
-    <id>https://hunkier.cn/Reactor/</id>
-    <published>2018-08-15T11:35:18.000Z</published>
-    <updated>2019-01-05T03:53:30.513Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&quot;&gt;&lt;a href=&quot;#Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&quot; class=&quot;headerlink&quot; title=&quot;Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&quot;&gt;&lt;/a&gt;Reactor模式的角色构成（Reactor模式一共有5种角色构成）：&lt;/h2&gt;&lt;h3 id=&quot;1-Handle（句柄或是描述符）：&quot;&gt;&lt;a href=&quot;#1-Handle（句柄或是描述符）：&quot; class=&quot;headerlink&quot; title=&quot;1. Handle（句柄或是描述符）：&quot;&gt;&lt;/a&gt;1. &lt;strong&gt;Handle（句柄或是描述符）&lt;/strong&gt;：&lt;/h3&gt;&lt;p&gt;本质上表示一种资源，是由操作系统提供的；改资源用于表示一个个的事件，比如说文件描述符，或是针对网络编程过程中的Socket描述符。事件即可以来自于外部，可以来自于内部；外部事件比如说客户端的连接请求，客户端发送过来的数据等；内部事件，比如说操作系统产生的定时器事件等。它本质上就是一个文件描述符。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="reactor" scheme="https://hunkier.cn/categories/reactor/"/>
-    
-      <category term="nio" scheme="https://hunkier.cn/categories/reactor/nio/"/>
-    
-      <category term="netty" scheme="https://hunkier.cn/categories/reactor/nio/netty/"/>
-    
-    
-      <category term="reactor" scheme="https://hunkier.cn/tags/reactor/"/>
-    
-      <category term="nio" scheme="https://hunkier.cn/tags/nio/"/>
-    
-      <category term="netty" scheme="https://hunkier.cn/tags/netty/"/>
     
   </entry>
   

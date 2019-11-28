@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-15T02:42:56.809Z">
+<meta property="og:updated_time" content="2019-11-28T09:22:41.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
 <meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
@@ -431,6 +431,7 @@ update user set user.Host=&#39;%&#39; where user.User=&#39;root&#39;;
 </code></pre>
 <h2 id="19、添加新的用户并授权"><a href="#19、添加新的用户并授权" class="headerlink" title="19、添加新的用户并授权"></a>19、添加新的用户并授权</h2><pre><code class="mysql">CREATE USER &#39;developer&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
 grant all privileges on *.* to &#39;developer&#39;@&#39;%&#39; identified by &#39;123456&#39;;
+GRANT Grant Option ON *.* TO &#39;developer&#39;@&#39;%&#39;;
 flush privileges;
 </code></pre>
 

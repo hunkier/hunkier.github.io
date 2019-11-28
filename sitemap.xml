@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
+    
+    <lastmod>2019-11-28T09:22:41.737Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/algorithm-merge-sort/</loc>
     
     <lastmod>2019-11-28T01:16:12.515Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://hunkier.cn/algorithm-bi-search/</loc>
     
     <lastmod>2019-11-21T00:16:30.281Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
-    
-    <lastmod>2019-11-15T02:42:56.809Z</lastmod>
     
   </url>
   

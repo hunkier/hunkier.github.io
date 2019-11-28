@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-27T00:27:56.979Z</updated>
+  <updated>2019-11-28T01:16:12.515Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>归并排序</title>
+    <link href="https://hunkier.cn/algorithm-merge-sort/"/>
+    <id>https://hunkier.cn/algorithm-merge-sort/</id>
+    <published>2019-11-28T00:50:08.000Z</published>
+    <updated>2019-11-28T01:16:12.515Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;归并 （Merge） 排序法是将两个 （或两个以上）有序表合并成一个新的有序表，即把待排序序列分为多干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="merge sort" scheme="https://hunkier.cn/categories/java/algorithm/merge-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="merge sort" scheme="https://hunkier.cn/tags/merge-sort/"/>
+    
+  </entry>
   
   <entry>
     <title>希尔排序</title>
@@ -529,36 +557,6 @@ Port 33378      //下面添加这一行
       <category term="Mac osx" scheme="https://hunkier.cn/tags/Mac-osx/"/>
     
       <category term="Hackintosh" scheme="https://hunkier.cn/tags/Hackintosh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS越狱</title>
-    <link href="https://hunkier.cn/iOS-Jailbreaking/"/>
-    <id>https://hunkier.cn/iOS-Jailbreaking/</id>
-    <published>2018-12-23T09:41:13.000Z</published>
-    <updated>2019-01-05T03:53:30.513Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;写在开头&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;什么是iOS越狱？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;iOS越狱（英语：iOS Jailbreaking）是获取iOS设备的Root权限的技术手段。iOS系统的Root用户对除Apple特定私有进程之外的其他进程不开放，使用Root用户运行的进程在进程树中的PID为0。程序员在iOS中挖掘出一些可以将进程提权至PID0的漏洞（例如Task For PID0）。利用Root用户运行的进程意味着可以任意读取设备其中的APFS分区表和内核缓存地址，拥有一个用户可以随意控制的PID0进程还不能称之为一个完整的越狱。之后还需要利用Bypass（旁路）手段绕过Apple在iOS系统中设置的其他安全防护措施，将APFS或HFS+文件系统中的ROOTFS分区重新挂载（Remount）为可读写（R/W），从而达到添加二进制文件和守护进程的目的。通常大众用户认为能够正常使用Cydia才能被称为越狱，但其实这种说法是不正确的。但通过此软件可以完成越狱前不可能进行的动作，例如安装App Store以外未经过签名的应用、修改SpringBoard、运行Shell程序、使有运营商锁的设备利用卡贴解锁后通过替换配置文件形式实现本地化（例如“去除+86”，解锁FaceTime功能）。[1]&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="ios" scheme="https://hunkier.cn/categories/ios/"/>
-    
-      <category term="Jailbreaking" scheme="https://hunkier.cn/categories/ios/Jailbreaking/"/>
-    
-    
-      <category term="ios" scheme="https://hunkier.cn/tags/ios/"/>
-    
-      <category term="Jailbreaking" scheme="https://hunkier.cn/tags/Jailbreaking/"/>
     
   </entry>
   

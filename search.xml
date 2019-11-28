@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[归并排序]]></title>
+    <url>%2Falgorithm-merge-sort%2F</url>
+    <content type="text"><![CDATA[归并 （Merge） 排序法是将两个 （或两个以上）有序表合并成一个新的有序表，即把待排序序列分为多干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。 public class MergeSortTest { public static void main(String[] args){ int[] data = new int[]{5, 3, 6, 2, 1, 9, 4, 8, 7}; print(data); mergeSort(data); System.out.println(&quot;排序后的数组&quot;); print(data); } public static void mergeSort(int[] data){ sort(data,0,data.length-1); } public void sort(int[] data, int left, int right){ if(left&gt;=right){ return; } // 找出中间索引 int center = (left + right)/2; // 对左边数组进行递归 sort(data,left,center); // 对右边数组进行递归 sort(data, center+1, right); // 合并 merge(data, left, center, right); print(data); } /** * 将两个数组进行归并，归并前面 2 个数组已经有序，归并后依然有序 * * @param data * 数组对象 * @param left * 左数组的第一个元素的索引 * @param center * 左数组的最后一个元素的索引，center+1 是右数组第一个元素的索引 * @param right * 右数组最后一个元素的索引 */ public static void merge(int[] data, int left, int center, int right) { // 临时数组 int[] tmpArr = new int[data.length]; // 右数组第一个元素索引 int mid = center + 1; // third 记录临时数组的索引 int third = left; // 缓存数组第一个元素的索引 int tmp = left; while(left &lt;= center &amp;&amp; mid &lt;= right){ // 从两个数组中取出最小的放入临时数组 if(data[left] &lt;= data[mid]){ tmpArr[third++] = data[left++]; }else { tempArr[third++] = data[mid++]; } } // 剩余部分依次放入临时数组 （实际上两个 while 只会执行其中一个） while(mid &lt;=right){ tmpArr[third++] = data[mid++]; } while(left &lt;= center){ temArr[third++] = data[left++]; } // 将临时数组中的内容拷贝会原数组中 // （原 left-right 范围的内容被复制回原数组） while(tmp &lt;= right){ data[tmp] = tempArr[tmp++]; } } public static void print(int[] data){ for(int i = 0 ; i &lt; data.length; i++){ System.out.print(data[i] + &quot;\t&quot;); } System.out.println(); } }]]></content>
+      <categories>
+        <category>java</category>
+        <category>algorithm</category>
+        <category>merge sort</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+        <tag>merge sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[希尔排序]]></title>
     <url>%2Falgorithm-shell-sort%2F</url>
     <content type="text"><![CDATA[基本思想：先将整个待排序的记录分割成若干子序列分别进行插入排序，待整个序列中的记录 ”基本有序“ 时，再对全体记录进行依次直接插入排序。 1.操作方法： ​ 选择一个增量序列 t1, t2, …, tk, 其中 ti&gt;tj, tk=1; 2.按增量序列个数 k，对序列进行 k 趟排序； 3.每趟排序，根据对应的增量 ti，将待排序列分割成若干长度为 m 的子序列，分别对各字表进行直接插入排序。仅增量因子为 1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。 private void shellSort(int[] a){ int dk = a.length/2; while(dk&gt;1){ ShellInSertSort(a,dk); } } private void ShellInsertSort(int[] a,int dk){ // 类似插入排序，只是插入排序增量是1，这里增量是 dk，把 1 换成 dk 就可以了 for(int i=dk; i&lt;a.length; i++){ if(a[i]&lt;a[i-dk]){ int j ; int x = a[i]; // X 为待插入元素 a[i] = a[i-dk]; for(j=i-dk; j&gt;=0 &amp;&amp; x&lt;a[j]; j=j-dk){ // 通过循环，逐个后移一位找到要插入的位置。 a[j+dk] = a[j]; } a[j+dk]=x; // 插入 } } }]]></content>

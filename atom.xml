@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-11-28T01:16:12.515Z</updated>
+  <updated>2019-11-29T09:34:57.460Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 下使用 Percona XtraBackup 备份和恢复 MySQL5.7</title>
+    <link href="https://hunkier.cn/Percona-XtraBackup-MySQL5-7/"/>
+    <id>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</id>
+    <published>2019-11-29T01:14:01.000Z</published>
+    <updated>2019-11-29T09:34:57.460Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.percona.com/software/mysql-database/percona-xtrabackup&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;XtraBackup&lt;/a&gt; 是 &lt;a href=&quot;https://www.percona.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Percona&lt;/a&gt; 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/categories/centos/mysql/"/>
+    
+      <category term="Percona XtraBackup" scheme="https://hunkier.cn/categories/centos/mysql/Percona-XtraBackup/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
+    
+      <category term="Percona XtraBackup" scheme="https://hunkier.cn/tags/Percona-XtraBackup/"/>
+    
+  </entry>
   
   <entry>
     <title>归并排序</title>
@@ -528,35 +556,6 @@ Port 33378      //下面添加这一行
       <category term="Hackintosh" scheme="https://hunkier.cn/tags/Hackintosh/"/>
     
       <category term="Nvidia" scheme="https://hunkier.cn/tags/Nvidia/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>黑苹果</title>
-    <link href="https://hunkier.cn/Hackintosh/"/>
-    <id>https://hunkier.cn/Hackintosh/</id>
-    <published>2018-12-29T14:41:13.000Z</published>
-    <updated>2019-04-12T01:16:12.359Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;写在开头&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;什么是黑苹果？&quot;&gt;&lt;a href=&quot;#什么是黑苹果？&quot; class=&quot;headerlink&quot; title=&quot;什么是黑苹果？&quot;&gt;&lt;/a&gt;什么是黑苹果？&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;自从苹果采用Intel的处理器，OSX被黑客破解后可以安装在Intel CPU与部分AMDCPU的机器上。从而出现了一大批非苹果设备而使用苹果操作系统的机器，被称为黑苹果(Hackintosh)；在Mac苹果机上面安装原版Mac系统的被称为白苹果（Macintosh），与黑苹果相对。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Mac osx" scheme="https://hunkier.cn/categories/Mac-osx/"/>
-    
-      <category term="Hackintosh" scheme="https://hunkier.cn/categories/Mac-osx/Hackintosh/"/>
-    
-    
-      <category term="Mac osx" scheme="https://hunkier.cn/tags/Mac-osx/"/>
-    
-      <category term="Hackintosh" scheme="https://hunkier.cn/tags/Hackintosh/"/>
     
   </entry>
   

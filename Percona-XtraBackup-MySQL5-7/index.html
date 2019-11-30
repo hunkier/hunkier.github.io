@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="一、概述XtraBackup 是 Percona 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-29T09:41:24.753Z">
+<meta property="og:updated_time" content="2019-11-30T06:25:38.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 下使用 Percona XtraBackup 备份和恢复 MySQL5.7">
 <meta name="twitter:description" content="一、概述XtraBackup 是 Percona 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。">
@@ -477,83 +477,93 @@ chown -R mysql.mysql /data1/databases/mysql/
 <p>备份策略（crontab）：</p>
 <pre><code class="shell">crontab -e
 # 每周一的凌晨3点执行完全备份
-0 3 * * 1 /data1/databases/shell/allbak.sh  &amp;&gt;/dev/null 
+0 3 * * 1 /data1/databases/shell/allbak.sh  &gt;/dev/null 
 
 vim /root/allbak.sh
 #!/bin/bash
 tmpPath=/data1/databases/backup/xfull
-compressPath=/data1/databases/backup/compress/full
+compressPath=/data1/databases/backup/compress/$(date &#39;+%Y/%m/&#39;)
 # 定义日期是时间
 day=`date +%F` 
 user=root
 pass=123456
 host=127.0.0.1
 # 新建个文件夹临时存放备份文件的
-[ ! -e &quot;$tmpPath/$day&quot; ]&amp;&amp; mkdir -p &quot;$tmpPath/$day&quot;
+[ ! -e &quot;${tmpPath}/${day}-full&quot; ]&amp;&amp; mkdir -p &quot;${tmpPath}/${day}-full&quot;
 [ ! -e ${compressPath} ]&amp;&amp; mkdir -p ${compressPath}
 # 删除历史备份临时文件
-[ -e $tmpPath ]&amp;&amp; rm -rf $tmpPath/*
+[ -e ${tmpPath} ]&amp;&amp; rm -rf &quot;${tmpPath}/*&quot;
 # 用innobackupex做完全备份
-innobackupex --host=$host --user=$user --password=$pass &quot;$tmpPath/$day&quot; --no-timestamp 
-cd $tmpPath
-tar -czvf $compressPath/`date &#39;+%Y-%m-%d_%H_%M_%S&#39;`-all.tar.gz  $day
+innobackupex --host=$host --user=$user --password=$pass &quot;${tmpPath}/${day}-full&quot; --no-timestamp 
+cd &quot;${tmpPath}&quot;
+echo &quot;$(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${day}-full/time.txt&quot;
+echo &quot;本次全量备份时间： $(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt;&gt; &quot;${day}-full/full.txt&quot;
+tar -czvf &quot;${compressPath}/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-full.tar.gz&quot;  &quot;${day}-full&quot;
 # 启用binlog日志，每次完全备份之后，每周刷新一遍binlog日志
 mysql -u$user -p$pass -e &quot;flush logs&quot;
 
 # 每周二到周日的凌晨4点执行增量备份
-0 4 * * 2-7 /data1/databases/shell/newbak.sh &amp; &gt;/dev/null 
+0 4 * * 2-7 /data1/databases/shell/newbak.sh  &gt;/dev/null 
 
 
 # 周一全备，如果是周二执行，判断dir1 存在，则增量备份，如果不存在，则判断昨天的增量，存在则执行周三的增量，如果都没有，则全备执行一次吧
-vim /data1/databases/shell/newbak.sh
+vi /data1/databases/shell/newbak.sh
 #!/bin/bash
 # 定义时间，用日期来区分
 d1=`date +%F` 
 # 找到昨天的日期，好指明上一次备份的备份文件
 d2=`date +%F -d &quot;-1 days&quot; `
 # 昨天做的完全备份文件
-dir1=/data1/databases/backup/xfull/${d2} 
+dir1=&quot;/data1/databases/backup/xfull/${d2}-full&quot; 
 #昨天做的增量备份文件
-dir2=/data1/databases/backup/xincrement/${d2} 
+dir2=&quot;/data1/databases/backup/xincrement/${d2}-increment&quot; 
 # 备份压缩文件存储路径
-compressPath=/data1/databases/backup/compress
+compressPath=/data1/databases/backup/compress/$(date &#39;+%Y/%m/&#39;)
 host=127.0.0.1
 user=root
 pass=123456
 # 如果文件不存在，则创建文件夹
 [ ! -e $(dirname $dir1 ) ]&amp;&amp; mkdir -p $(dirname $dir1 )
 [ ! -e $(dirname $dir2 ) ]&amp;&amp; mkdir -p $(dirname $dir2 )
-[ ! -e ${compressPath} ]&amp;&amp; mkdir -p &quot;$compressPath/full&quot; &quot;$compressPath/increment&quot; 
-# 判断昨天做的是完全备份
-if [ -e ${dir1} ];then 
-# 删除上次的增量备份的临时文件
-[ -e &quot;$(dirname $dir1)&quot; ]&amp;&amp; rm -rf &quot;$(dirname $dir1)/*&quot;
-# 指定昨天备份的完全备份文件
-innobackupex --host=$host --user=$user --password=$pass --incremental $(dirname $dir2)/${d1} --incremental-basedir=${dir1} --no-timestamp 
-cd &quot;$(dirname $dir2)&quot;
-tar -czvf &quot;${compressPath}/increment/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-increment.tar.gz&quot;  &quot;${d1}&quot;
-echo &quot; 指定昨天备份的完全备份文件 &quot;
+[ ! -e ${compressPath} ]&amp;&amp; mkdir -p &quot;${compressPath}&quot; 
 # 判断昨天做的是增量备份
-elif [ -e ${dir2} ];then 
-# 指定昨天备份的增量备份文件
-innobackupex --host=$host --user=$user --password=$pass --incremental &quot;$(dirname $dir2)/${d1}&quot; --incremental-basedir=&quot;${dir2}&quot; --no-timestamp 
-cd &quot;$(dirname $dir2)&quot;
-tar -czvf &quot;${compressPath}/increment/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-increment.tar.gz&quot;  &quot;${d1}&quot;
-echo &quot; 指定昨天备份的增量备份文件&quot;
-# 删除上次的增量备份的临时文件
-[ -e &quot;${dir2}&quot; ]&amp;&amp; rm -rf &quot;${dir2}&quot;
+if [ -e ${dir2} ];then 
+        # 指定昨天备份的增量备份文件
+        innobackupex --host=$host --user=$user --password=$pass --incremental &quot;$(dirname $dir2)/${d1}-increment&quot; --incremental-basedir=&quot;${dir2}&quot; --no-timestamp 
+        cd &quot;$(dirname $dir2)&quot;
+        echo &quot;$(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${d1}-increment/time.txt&quot;
+        echo &quot;本次增量量备份时间： $(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${d1}-increment/increment.txt&quot;
+        echo &quot;基于上次增量备份时间： $(cat $dir2/time.txt)&quot; &gt;&gt; &quot;${d1}-increment/increment.txt&quot;
+        tar -czvf &quot;${compressPath}/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-increment.tar.gz&quot;  &quot;${d1}-increment&quot;
+        echo &quot; 指定昨天备份的增量备份文件&quot;
+        # 删除上次的增量备份的临时文件
+        [ -e &quot;${dir2}&quot; ]&amp;&amp; rm -rf &quot;${dir2}&quot;
+# 判断昨天做的是全量备份
+elif [ -e ${dir1} ];then 
+          # 删除上次的增量备份的临时文件
+          [ -e &quot;$(dirname $dir1)&quot; ]&amp;&amp; rm -rf &quot;$(dirname $dir1)/*&quot;
+          # 指定昨天备份的完全备份文件
+          innobackupex --host=$host --user=$user --password=$pass --incremental &quot;$(dirname $dir2)/${d1}-increment&quot; --incremental-basedir=${dir1} --no-timestamp 
+          cd &quot;$(dirname $dir2)&quot;
+          echo &quot;$(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${d1}-increment/time.txt&quot;
+          echo &quot;本次增量量备份时间： $(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${d1}-increment/increment.txt&quot;
+          echo &quot;基于上次全量备份时间： $(cat $dir1/time.txt)&quot; &gt;&gt; &quot;${d1}-increment/increment.txt&quot;
+          tar -czvf &quot;${compressPath}/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-increment.tar.gz&quot;  &quot;${d1}-increment&quot;
+          echo &quot; 指定昨天备份的完全备份文件 &quot;
 else
 # 昨天既没有做增量备份，又没有做完全备份，则做一次完全备份。
-# 删除上次的全量备份的临时文件
-[ -e ${dir2} ]&amp;&amp; rm -rf ${dir2}
-# 做一次完全备份。
-innobackupex --host=$host --user=$user --password=$pass &quot;$(dirname $dir1)/${d1}&quot; --no-timestamp
-cd &quot;$(dirname $dir1)&quot;
-tar -czvf &quot;${compressPath}/full/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-all.tar.gz&quot;  &quot;${d1}&quot;
-echo &quot; 做一次完全备份&quot;
+        # 删除上次的全量备份的临时文件
+        [ -e ${dir2} ]&amp;&amp; rm -rf ${dir2}
+        # 做一次完全备份。
+        innobackupex --host=$host --user=$user --password=$pass &quot;$(dirname $dir1)/${d1}-full&quot; --no-timestamp 
+        cd &quot;$(dirname $dir1)&quot;
+        echo &quot;$(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${d1}-full/time.txt&quot;
+        echo &quot;本次全量备份时间： $(date &#39;+%Y-%m-%d %H:%M:%S&#39;)&quot; &gt; &quot;${d1}-full/full.txt&quot;
+        tar -czvf &quot;${compressPath}/$(date &#39;+%Y-%m-%d_%H_%M_%S&#39;)-full.tar.gz&quot;  &quot;${d1}-full&quot;
+        echo &quot; 做一次完全备份&quot;
 fi
 
-#echo &quot;  ${dir1} ${dir2} ${compressPath}&quot;
+echo &quot;  ${dir1} ${dir2} ${compressPath}&quot;
 
 </code></pre>
 <p><strong>实际应用</strong></p>

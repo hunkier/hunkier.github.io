@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
+    
+    <lastmod>2019-11-30T08:42:43.066Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</loc>
     
-    <lastmod>2019-11-29T09:41:24.753Z</lastmod>
+    <lastmod>2019-11-30T06:25:38.163Z</lastmod>
     
   </url>
   
@@ -110,13 +117,6 @@
     <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
     
     <lastmod>2019-06-18T07:56:19.680Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
-    
-    <lastmod>2019-06-18T03:32:08.187Z</lastmod>
     
   </url>
   

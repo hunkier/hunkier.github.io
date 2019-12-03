@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/algorithm-bucket-sort/</loc>
+    
+    <lastmod>2019-12-03T00:11:55.466Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
     
     <lastmod>2019-11-30T08:42:43.066Z</lastmod>

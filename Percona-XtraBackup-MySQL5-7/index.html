@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="一、概述XtraBackup 是 Percona 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-30T06:25:38.163Z">
+<meta property="og:updated_time" content="2019-12-03T09:02:37.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 下使用 Percona XtraBackup 备份和恢复 MySQL5.7">
 <meta name="twitter:description" content="一、概述XtraBackup 是 Percona 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。">
@@ -541,7 +541,7 @@ if [ -e ${dir2} ];then
 # 判断昨天做的是全量备份
 elif [ -e ${dir1} ];then 
           # 删除上次的增量备份的临时文件
-          [ -e &quot;$(dirname $dir1)&quot; ]&amp;&amp; rm -rf &quot;$(dirname $dir1)/*&quot;
+          [ -e &quot;$(dirname $dir2)&quot; ]&amp;&amp; rm -rf &quot;$(dirname $dir2)/*&quot;
           # 指定昨天备份的完全备份文件
           innobackupex --host=$host --user=$user --password=$pass --incremental &quot;$(dirname $dir2)/${d1}-increment&quot; --incremental-basedir=${dir1} --no-timestamp 
           cd &quot;$(dirname $dir2)&quot;
@@ -553,7 +553,7 @@ elif [ -e ${dir1} ];then
 else
 # 昨天既没有做增量备份，又没有做完全备份，则做一次完全备份。
         # 删除上次的全量备份的临时文件
-        [ -e ${dir2} ]&amp;&amp; rm -rf ${dir2}
+        [ -e &quot;$(dirname $dir1)&quot; ]&amp;&amp; rm -rf &quot;$(dirname $dir1)/*&quot;
         # 做一次完全备份。
         innobackupex --host=$host --user=$user --password=$pass &quot;$(dirname $dir1)/${d1}-full&quot; --no-timestamp 
         cd &quot;$(dirname $dir1)&quot;

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-12-15T09:48:49.138Z</updated>
+  <updated>2019-12-16T02:17:28.550Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CentOS 修改时区</title>
+    <link href="https://hunkier.cn/Centos-chanage-date-zone/"/>
+    <id>https://hunkier.cn/Centos-chanage-date-zone/</id>
+    <published>2019-12-16T02:09:01.000Z</published>
+    <updated>2019-12-16T02:17:28.550Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一、修改时区：&lt;/p&gt;
+&lt;p&gt;  方法1:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;  方法2：    &lt;/p&gt;
+&lt;p&gt;列出时区：  &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;timedatectl list-timezones
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="date" scheme="https://hunkier.cn/categories/centos/date/"/>
+    
+      <category term="timezone" scheme="https://hunkier.cn/categories/centos/date/timezone/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="date" scheme="https://hunkier.cn/tags/date/"/>
+    
+      <category term="timezone" scheme="https://hunkier.cn/tags/timezone/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用 https 协议部署博客</title>
     <link href="https://hunkier.cn/deploy-blog-with-https/"/>
     <id>https://hunkier.cn/deploy-blog-with-https/</id>
     <published>2019-12-15T08:48:34.000Z</published>
-    <updated>2019-12-15T09:48:49.138Z</updated>
+    <updated>2019-12-16T02:04:55.677Z</updated>
     
     <summary type="html">
     
@@ -46,35 +81,11 @@
   </entry>
   
   <entry>
-    <title>冒泡排序</title>
-    <link href="https://hunkier.cn/algorithm-bubble-sort/"/>
-    <id>https://hunkier.cn/algorithm-bubble-sort/</id>
-    <published>2019-12-15T08:44:32.554Z</published>
-    <updated>2019-12-15T08:44:32.554Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。&lt;/p&gt;
-&lt;p&gt;(2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。&lt;/p&gt;
-&lt;p&gt;(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="bubble sort" scheme="https://hunkier.cn/categories/java/algorithm/bubble-sort/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>计数排序</title>
     <link href="https://hunkier.cn/algorithm-radix-sort/"/>
     <id>https://hunkier.cn/algorithm-radix-sort/</id>
     <published>2019-12-04T00:26:30.000Z</published>
-    <updated>2019-12-15T08:44:32.556Z</updated>
+    <updated>2019-12-04T00:44:22.464Z</updated>
     
     <summary type="html">
     
@@ -102,7 +113,7 @@
     <link href="https://hunkier.cn/algorithm-bucket-sort/"/>
     <id>https://hunkier.cn/algorithm-bucket-sort/</id>
     <published>2019-12-03T00:10:03.000Z</published>
-    <updated>2019-12-15T08:44:32.554Z</updated>
+    <updated>2019-12-03T00:11:55.466Z</updated>
     
     <summary type="html">
     
@@ -130,7 +141,7 @@
     <link href="https://hunkier.cn/Percona-XtraBackup-MySQL5-7/"/>
     <id>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</id>
     <published>2019-11-29T01:14:01.000Z</published>
-    <updated>2019-12-15T08:44:32.553Z</updated>
+    <updated>2019-12-03T09:02:37.485Z</updated>
     
     <summary type="html">
     
@@ -158,7 +169,7 @@
     <link href="https://hunkier.cn/algorithm-merge-sort/"/>
     <id>https://hunkier.cn/algorithm-merge-sort/</id>
     <published>2019-11-28T00:50:08.000Z</published>
-    <updated>2019-12-15T08:44:32.555Z</updated>
+    <updated>2019-11-28T01:16:12.515Z</updated>
     
     <summary type="html">
     
@@ -186,7 +197,7 @@
     <link href="https://hunkier.cn/algorithm-shell-sort/"/>
     <id>https://hunkier.cn/algorithm-shell-sort/</id>
     <published>2019-11-27T00:23:42.000Z</published>
-    <updated>2019-12-15T08:44:32.556Z</updated>
+    <updated>2019-11-27T00:27:56.979Z</updated>
     
     <summary type="html">
     
@@ -214,7 +225,7 @@
     <link href="https://hunkier.cn/algorithm-quick-sort/"/>
     <id>https://hunkier.cn/algorithm-quick-sort/</id>
     <published>2019-11-26T00:21:07.000Z</published>
-    <updated>2019-12-15T08:44:32.555Z</updated>
+    <updated>2019-11-27T00:24:40.829Z</updated>
     
     <summary type="html">
     
@@ -242,7 +253,7 @@
     <link href="https://hunkier.cn/algorithm-insert-sort/"/>
     <id>https://hunkier.cn/algorithm-insert-sort/</id>
     <published>2019-11-23T02:43:53.000Z</published>
-    <updated>2019-12-15T08:44:32.555Z</updated>
+    <updated>2019-11-23T02:46:27.565Z</updated>
     
     <summary type="html">
     
@@ -266,11 +277,35 @@
   </entry>
   
   <entry>
+    <title>冒泡排序</title>
+    <link href="https://hunkier.cn/algorithm-bubble-sort/"/>
+    <id>https://hunkier.cn/algorithm-bubble-sort/</id>
+    <published>2019-11-22T00:20:15.832Z</published>
+    <updated>2019-11-22T00:22:25.323Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。&lt;/p&gt;
+&lt;p&gt;(2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。&lt;/p&gt;
+&lt;p&gt;(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="bubble sort" scheme="https://hunkier.cn/categories/java/algorithm/bubble-sort/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>二分查找</title>
     <link href="https://hunkier.cn/algorithm-bi-search/"/>
     <id>https://hunkier.cn/algorithm-bi-search/</id>
     <published>2019-11-21T00:13:21.000Z</published>
-    <updated>2019-12-15T08:44:32.554Z</updated>
+    <updated>2019-11-21T00:16:30.281Z</updated>
     
     <summary type="html">
     
@@ -298,7 +333,7 @@
     <link href="https://hunkier.cn/kibana-auth/"/>
     <id>https://hunkier.cn/kibana-auth/</id>
     <published>2019-11-09T12:37:16.000Z</published>
-    <updated>2019-12-15T08:44:32.557Z</updated>
+    <updated>2019-11-15T00:58:34.003Z</updated>
     
     <summary type="html">
     
@@ -331,7 +366,7 @@
     <link href="https://hunkier.cn/wget-use/"/>
     <id>https://hunkier.cn/wget-use/</id>
     <published>2019-07-11T13:36:12.000Z</published>
-    <updated>2019-12-15T08:44:32.558Z</updated>
+    <updated>2019-07-16T14:09:12.902Z</updated>
     
     <summary type="html">
     
@@ -353,7 +388,7 @@
     <link href="https://hunkier.cn/js-reg-exp/"/>
     <id>https://hunkier.cn/js-reg-exp/</id>
     <published>2019-07-01T11:36:56.000Z</published>
-    <updated>2019-12-15T08:44:32.557Z</updated>
+    <updated>2019-07-16T14:09:12.899Z</updated>
     
     <summary type="html">
     
@@ -384,7 +419,7 @@
     <link href="https://hunkier.cn/CentOS-7-firewall/"/>
     <id>https://hunkier.cn/CentOS-7-firewall/</id>
     <published>2019-06-18T08:42:18.000Z</published>
-    <updated>2019-12-15T08:44:32.548Z</updated>
+    <updated>2019-07-16T14:16:35.082Z</updated>
     
     <summary type="html">
     
@@ -416,7 +451,7 @@
     <link href="https://hunkier.cn/CentOS-7-Modify-sshd-port/"/>
     <id>https://hunkier.cn/CentOS-7-Modify-sshd-port/</id>
     <published>2019-06-18T07:35:14.000Z</published>
-    <updated>2019-12-15T08:44:32.548Z</updated>
+    <updated>2019-12-16T02:10:46.397Z</updated>
     
     <summary type="html">
     
@@ -428,10 +463,14 @@ Port 33378      //下面添加这一行
     
     </summary>
     
-      <category term="centos sshd" scheme="https://hunkier.cn/categories/centos-sshd/"/>
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="sshd" scheme="https://hunkier.cn/categories/centos/sshd/"/>
     
     
-      <category term="centos sshd" scheme="https://hunkier.cn/tags/centos-sshd/"/>
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="sshd" scheme="https://hunkier.cn/tags/sshd/"/>
     
   </entry>
   
@@ -440,7 +479,7 @@ Port 33378      //下面添加这一行
     <link href="https://hunkier.cn/CentOS-VNCserver/"/>
     <id>https://hunkier.cn/CentOS-VNCserver/</id>
     <published>2019-06-18T03:28:00.000Z</published>
-    <updated>2019-12-15T08:44:32.550Z</updated>
+    <updated>2019-06-19T06:56:56.694Z</updated>
     
     <summary type="html">
     
@@ -467,7 +506,7 @@ Port 33378      //下面添加这一行
     <link href="https://hunkier.cn/CentOS-7-install-GoFastdfs/"/>
     <id>https://hunkier.cn/CentOS-7-install-GoFastdfs/</id>
     <published>2019-06-04T11:30:24.000Z</published>
-    <updated>2019-12-15T08:44:32.549Z</updated>
+    <updated>2019-06-04T08:25:47.067Z</updated>
     
     <summary type="html">
     
@@ -492,7 +531,7 @@ Port 33378      //下面添加这一行
     <link href="https://hunkier.cn/CentOS-Users/"/>
     <id>https://hunkier.cn/CentOS-Users/</id>
     <published>2019-05-20T13:34:00.000Z</published>
-    <updated>2019-12-15T08:44:32.550Z</updated>
+    <updated>2019-05-29T13:48:25.680Z</updated>
     
     <summary type="html">
     
@@ -515,7 +554,7 @@ Port 33378      //下面添加这一行
     <link href="https://hunkier.cn/CentOS-7-install-Redis/"/>
     <id>https://hunkier.cn/CentOS-7-install-Redis/</id>
     <published>2019-04-26T11:30:24.000Z</published>
-    <updated>2019-12-15T08:44:32.550Z</updated>
+    <updated>2019-11-30T08:42:43.066Z</updated>
     
     <summary type="html">
     
@@ -532,30 +571,6 @@ Port 33378      //下面添加这一行
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="redis" scheme="https://hunkier.cn/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 安装 Nginx</title>
-    <link href="https://hunkier.cn/CentOS-7-install-Nginx/"/>
-    <id>https://hunkier.cn/CentOS-7-install-Nginx/</id>
-    <published>2019-03-25T13:18:50.000Z</published>
-    <updated>2019-12-15T08:44:32.549Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;安装所需环境&quot;&gt;&lt;a href=&quot;#安装所需环境&quot; class=&quot;headerlink&quot; title=&quot;安装所需环境&quot;&gt;&lt;/a&gt;安装所需环境&lt;/h1&gt;&lt;p&gt;Nginx 是 C语言 开发，建议在 Linux 上运行，当然，也可以安装 Windows 版本，本篇则使用 CentOS 7 作为安装环境。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
-    
-      <category term="nginx" scheme="https://hunkier.cn/categories/centos/nginx/"/>
-    
-    
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
     
   </entry>
   

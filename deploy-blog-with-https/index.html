@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-16T02:04:55.677Z">
+<meta property="og:updated_time" content="2019-12-16T08:45:40.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 https 协议部署博客">
 <meta name="twitter:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
@@ -382,7 +382,9 @@ hunkier.cn www.hunkier.cn {
         hide_ip
         hide_via
         # 使用 basic 认证
-        basicauth user passwd
+        basicauth user1 passwd1
+        basicauth user2 passwd2
+        basicauth user3 passwd3
     }
 }
 </code></pre>

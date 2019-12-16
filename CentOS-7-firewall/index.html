@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="添加 firewall-cmd --zone=public --add-port=80/tcp --permanent      （ –permanent 永久生效，没有此参数重启后失效） 查看 firewall-cmd --zone=public --query-port=80/tcp  删除 firewall-cmd --zone=public --remove-port=80/tcp --p">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-16T14:16:35.082Z">
+<meta property="og:updated_time" content="2019-12-16T08:47:03.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS  firewall添加开放端口">
 <meta name="twitter:description" content="添加 firewall-cmd --zone=public --add-port=80/tcp --permanent      （ –permanent 永久生效，没有此参数重启后失效） 查看 firewall-cmd --zone=public --query-port=80/tcp  删除 firewall-cmd --zone=public --remove-port=80/tcp --p">
@@ -270,8 +270,8 @@ sudo firewall-cmd --add-port=80/tcp --permanent
 firewall-cmd --zone=public --query-port=80/tcp
 </code></pre>
 <p>删除</p>
-<pre><code class="shell">firewall-cmd --zone=public --remove-service=http –permanent
-firewall-cmd --zone=public --remove-port=80/tcp –permanent
+<pre><code class="shell">firewall-cmd --zone=public --remove-service=http --permanent
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
 </code></pre>
 
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2019-12-16T08:45:40.424Z</updated>
+  <updated>2019-12-24T13:16:58.338Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://hunkier.cn/deploy-blog-with-https/"/>
     <id>https://hunkier.cn/deploy-blog-with-https/</id>
     <published>2019-12-15T08:48:34.000Z</published>
-    <updated>2019-12-16T08:45:40.424Z</updated>
+    <updated>2019-12-24T13:16:58.338Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。&lt;/p&gt;
-&lt;p&gt;首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。&lt;/p&gt;
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。&lt;/p&gt;
+&lt;p&gt;首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。&lt;a href=&quot;https://caddyserver.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;caddy&lt;/a&gt; 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。&lt;/p&gt;
     
     </summary>
     

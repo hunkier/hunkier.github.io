@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
+    
+    <lastmod>2019-12-24T13:16:58.338Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-install-mamager-cockpit/</loc>
     
     <lastmod>2019-12-16T12:41:50.173Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://hunkier.cn/CentOS-7-firewall/</loc>
     
     <lastmod>2019-12-16T08:47:03.583Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
-    
-    <lastmod>2019-12-16T08:45:40.424Z</lastmod>
     
   </url>
   

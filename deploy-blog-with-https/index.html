@@ -14,18 +14,18 @@
   <link rel="dns-prefetch" href="https://hunkier.cn">
   <title>使用 https 协议部署博客 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
+  <meta name="description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
 <meta name="keywords" content="blog,https,caddy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 https 协议部署博客">
 <meta property="og:url" content="https://hunkier.cn/deploy-blog-with-https/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
+<meta property="og:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-16T08:45:40.424Z">
+<meta property="og:updated_time" content="2019-12-24T13:16:58.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 https 协议部署博客">
-<meta name="twitter:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
+<meta name="twitter:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -222,8 +222,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>https 成为互联网标配，自然得跟上，给自己的博客加密版的传输协议 https。</p>
-<p>首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。</p>
+<p>首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。<a href="https://caddyserver.com/" target="_blank" rel="noopener">caddy</a> 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。</p>
 <a id="more"></a> 
 <p>博客源码托管在 GitHub，因此需要先安装 git</p>
 <pre><code class="shell">yum install -y git
@@ -341,6 +341,10 @@ import vhost/*.conf
 hunkier.cn www.hunkier.cn {
     # web 页面存放路径
     root /var/www/hunkier/
+    # 配置错误页面，所有错误都显示 404.html 页面
+    errors {
+        * 404.html
+    }
     # 启用压缩
     gzip
     # 用来申请及更新 https 证书的邮箱，前提是 hunkier.cn 的域名能解析到 本机
@@ -374,10 +378,15 @@ hunkier.cn www.hunkier.cn {
 <pre><code class="nginx">xxx.hunkier.cn {
     # 伪装成正常的网站
     root /var/www/hunkier/
+    # 配置错误页面，所有错误都显示 404.html 页面
+    errors {
+        * 404.html
+    }
     # 开启压缩
     gzip
     # 使用邮箱申请和续期证书
     tls huangkuier@gmail.com
+    # http 代理设置
     forwardproxy {
         hide_ip
         hide_via
@@ -388,7 +397,7 @@ hunkier.cn www.hunkier.cn {
     }
 }
 </code></pre>
-<p>此时 caddy 被用作 web 服务器和代理服务器。</p>
+<p>此时 caddy 被用作 web 服务器和代理服务器，协议转换推荐使用<a href="https://github.com/ginuerzh/gost/releases" target="_blank" rel="noopener">gost</a> 。</p>
 <p> caddy 服务 启动/停止/重启/检查状态</p>
 <pre><code class="shell">service caddy start/stop/restart/status
 </code></pre>

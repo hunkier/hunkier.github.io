@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-24T13:16:58.338Z">
+<meta property="og:updated_time" content="2020-01-02T13:05:02.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 https 协议部署博客">
 <meta name="twitter:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
@@ -402,6 +402,9 @@ hunkier.cn www.hunkier.cn {
 <pre><code class="shell">service caddy start/stop/restart/status
 </code></pre>
 <p>启动成功后可以在浏览器里面正常访问 <a href="https://hunkier.cn">https://hunkier.cn</a></p>
+<p>若启动失败，查看日志</p>
+<pre><code class="shell">tail -100f /tmp/caddy.log 
+</code></pre>
 
       
 
@@ -620,7 +623,7 @@ hunkier.cn www.hunkier.cn {
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 hunkier
+    		&copy; 2020 hunkier
     	</div>
       <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>

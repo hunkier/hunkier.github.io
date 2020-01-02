@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="Cockpit 是一个基于 Web 界面的应用，它提供了对系统的图形化管理。 拥有如下功能：  监控系统活动（CPU、内存、磁盘 IO 和网络流量） —— 系统 查看系统日志条目 —— 日志 查看磁盘分区的容量 —— 存储 查看网络活动（发送和接收） —— 网络">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-16T12:41:50.173Z">
+<meta property="og:updated_time" content="2020-01-02T13:02:00.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 安装 cockpit 管理系统">
 <meta name="twitter:description" content="Cockpit 是一个基于 Web 界面的应用，它提供了对系统的图形化管理。 拥有如下功能：  监控系统活动（CPU、内存、磁盘 IO 和网络流量） —— 系统 查看系统日志条目 —— 日志 查看磁盘分区的容量 —— 存储 查看网络活动（发送和接收） —— 网络">
@@ -241,6 +241,14 @@ yum -y install cockpit-*    #所有cockpit模块安装
 </code></pre>
 <p>启动cockpit</p>
 <pre><code class="shell">systemctl start cockpit
+</code></pre>
+<p>开机自启动</p>
+<pre><code class="shell">vi /usr/lib/systemd/system/cockpit.service 
+# 在最后加上下面两行
+[Install]
+WantedBy=multi-user.target
+
+# 退出编辑，加入系统启动
 systemctl enable cockpit
 </code></pre>
 <p>防火墙配置</p>
@@ -467,7 +475,7 @@ firewall-cmd --reload
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 hunkier
+    		&copy; 2020 hunkier
     	</div>
       <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>

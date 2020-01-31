@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
+    
+    <lastmod>2020-01-31T03:53:58.136Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-install-mamager-cockpit/</loc>
+    
+    <lastmod>2020-01-14T02:15:00.476Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
     
     <lastmod>2020-01-07T00:35:38.999Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</loc>
     
     <lastmod>2020-01-03T09:03:30.601Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
-    
-    <lastmod>2020-01-02T13:05:02.706Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-install-mamager-cockpit/</loc>
-    
-    <lastmod>2020-01-02T13:02:00.387Z</lastmod>
     
   </url>
   
@@ -240,13 +240,6 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/My-wechat/</loc>
-    
-    <lastmod>2019-01-05T03:53:30.512Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/Docker-common/</loc>
     
     <lastmod>2019-01-05T03:53:30.512Z</lastmod>
@@ -261,14 +254,21 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/Clean-Kubernetes-Environment/</loc>
+    <loc>https://hunkier.cn/My-wechat/</loc>
+    
+    <lastmod>2019-01-05T03:53:30.512Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
     
     <lastmod>2019-01-05T03:53:30.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
+    <loc>https://hunkier.cn/Clean-Kubernetes-Environment/</loc>
     
     <lastmod>2019-01-05T03:53:30.511Z</lastmod>
     

@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>hunkier</title>
   
-  <subtitle>学习笔记，开源代码分享，技术交流</subtitle>
+  <subtitle>学习笔记，开源代码，技术分享</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-01-02T13:05:02.706Z</updated>
+  <updated>2020-01-31T03:53:58.136Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hunkier.cn/deploy-blog-with-https/"/>
     <id>https://hunkier.cn/deploy-blog-with-https/</id>
     <published>2019-12-15T08:48:34.000Z</published>
-    <updated>2020-01-02T13:05:02.706Z</updated>
+    <updated>2020-01-31T03:53:58.136Z</updated>
     
     <summary type="html">
     
@@ -81,7 +81,7 @@
     <link href="https://hunkier.cn/CentOS-install-mamager-cockpit/"/>
     <id>https://hunkier.cn/CentOS-install-mamager-cockpit/</id>
     <published>2019-12-13T11:51:03.000Z</published>
-    <updated>2020-01-02T13:02:00.387Z</updated>
+    <updated>2020-01-14T02:15:00.476Z</updated>
     
     <summary type="html">
     
@@ -377,9 +377,9 @@
       <category term="auth" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/auth/"/>
     
     
-      <category term="kibana" scheme="https://hunkier.cn/tags/kibana/"/>
-    
       <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
+    
+      <category term="kibana" scheme="https://hunkier.cn/tags/kibana/"/>
     
       <category term="htpasswd" scheme="https://hunkier.cn/tags/htpasswd/"/>
     

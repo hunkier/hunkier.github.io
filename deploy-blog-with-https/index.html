@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-02T13:05:02.706Z">
+<meta property="og:updated_time" content="2020-01-31T03:53:58.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 https 协议部署博客">
 <meta name="twitter:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 		  <h1 class="header-author"><a href="/">hunkier</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">学习笔记，开源代码分享，技术交流</p>
+		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -151,7 +151,7 @@ var _hmt = _hmt || [];
 			  <h1 class="header-author js-header-author">hunkier</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码分享，技术交流<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -306,16 +306,23 @@ do_status(){
         RETVAL=1
     fi
 }
+do_tail(){
+    tail -100f /tmp/caddy.log
+}
 do_restart(){
     do_stop
     do_start
 }
+do_console(){
+    do_stop
+    do_tail
+}
 case &quot;$1&quot; in
-    start|stop|restart|status)
+    start|stop|restart|status|console|tail)
     do_$1
     ;;
     *)
-    echo &quot;使用方法: $0 { start | stop | restart | status }&quot;
+    echo &quot;使用方法: $0 { start | stop | restart | status | console | tail }&quot;
     RETVAL=1
     ;;
 esac
@@ -326,14 +333,14 @@ exit $RETVAL
 chkconfig caddy on
 </code></pre>
 <p>编辑配置文件</p>
-<pre><code class="shell">vi /etc/caddy/Caddyfile
+<pre><code class="shell">vi /usr/local/caddy/Caddyfile
 </code></pre>
 <p>caddyfile 文件内容</p>
 <pre><code class="shell"># 配置文件分开存放
 import vhost/*.conf
 </code></pre>
 <p>具体配置文件</p>
-<pre><code class="shell">vi /etc/caddy/vhosts/hunkier.cn.conf
+<pre><code class="shell">vi /usr/local/caddy/vhosts/hunkier.cn.conf
 </code></pre>
 <p>这里的代码仓库是开放的，若是私有项目，请自行查阅相关资料。</p>
 <p>文件内容</p>
@@ -372,7 +379,7 @@ hunkier.cn www.hunkier.cn {
 <pre><code class="shell">ulimit -n 8192
 </code></pre>
 <p>也可以使用 caddy 用作代理服务器用来科学上网（你懂得^_^）</p>
-<pre><code class="shell">vi /etc/caddy/vhost/xxx.hunkier.cn.conf
+<pre><code class="shell">vi /usr/local/caddy/vhost/xxx.hunkier.cn.conf
 </code></pre>
 <p>文件 xxx.hunkier.cn.conf 内容如下：</p>
 <pre><code class="nginx">xxx.hunkier.cn {
@@ -619,16 +626,18 @@ hunkier.cn www.hunkier.cn {
           </div>
         </div>
       </div>
-      <footer id="footer">
+      
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2020 hunkier
+            <span id="icp_container"></span>
     	</div>
+      <script async src="/footer.js"></script>
       <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-      <span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人次
 </span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -735,6 +744,18 @@ hunkier.cn www.hunkier.cn {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
@@ -743,11 +764,11 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos firewall</a>
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+                <a href="javascript:void(0)" class="js-tag color1">centos firewall</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,7 +776,23 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,7 +828,7 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,27 +844,23 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">lock</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">concurrent</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,11 +876,27 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Percona XtraBackup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,7 +916,7 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,7 +924,7 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+                <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,35 +956,11 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">htpasswd</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,22 +977,6 @@ hunkier.cn www.hunkier.cn {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lock</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">concurrent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Percona XtraBackup</a>
               </li>
             
             <div class="clearfix"></div>

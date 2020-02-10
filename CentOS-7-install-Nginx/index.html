@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="安装所需环境Nginx 是 C语言 开发，建议在 Linux 上运行，当然，也可以安装 Windows 版本，本篇则使用 CentOS 7 作为安装环境。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T07:56:19.680Z">
+<meta property="og:updated_time" content="2020-02-10T07:21:34.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 安装 Nginx">
 <meta name="twitter:description" content="安装所需环境Nginx 是 C语言 开发，建议在 Linux 上运行，当然，也可以安装 Windows 版本，本篇则使用 CentOS 7 作为安装环境。">
@@ -236,6 +236,9 @@ var _hmt = _hmt || [];
 <h2 id="四-OpenSSL-安装"><a href="#四-OpenSSL-安装" class="headerlink" title="四. OpenSSL 安装"></a>四. OpenSSL 安装</h2><p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。<br>nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。</p>
 <pre><code class="shell">yum install -y openssl openssl-devel
 </code></pre>
+<p>所有工具和依赖一起安装</p>
+<pre><code class="shell">yum install -y openssl openssl-devel zlib zlib-devel pcre pcre-devel gcc-c++
+</code></pre>
 <h3 id="官网下载"><a href="#官网下载" class="headerlink" title="官网下载"></a>官网下载</h3><ol>
 <li><p>直接下载<code>.tar.gz</code>安装包，地址：<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">https://nginx.org/en/download.html</a></p>
 </li>
@@ -349,13 +352,13 @@ root     122099 121530  0 22:06 pts/0    00:00:00 grep --color=auto --exclude-di
 
 # processname: nginx
 
-# pidfile: /var/run/nginx.pid
+# pidfile: /usr/local/nginx/logs/nginx.pid
 
 # config: /usr/local/nginx/conf/nginx.conf
 
 nginxd=/usr/local/nginx/sbin/nginx
 nginx_config=/usr/local/nginx/conf/nginx.conf
-nginx_pid=/var/run/nginx.pid
+nginx_pid=/usr/local/nginx/logs/nginx.pid
 
 RETVAL=0
 prog=&quot;nginx&quot;
@@ -476,7 +479,7 @@ After=network.target remote-fs.target nss-lookup.target
 Type=forking
 #pid文件位置
 #要与nginx配置文件中的pid配置路径一致，这个很重要，否则会服务启动失败
-PIDFile=/var/run/nginx.pid
+PIDFile=/usr/local/nginx/logs/nginx.pid
 #启动前检测 nginx配置文件 是否正确
 ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
 #启动

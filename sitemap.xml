@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
+    
+    <lastmod>2020-02-10T07:21:34.984Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
+    
+    <lastmod>2020-02-10T07:21:34.977Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
     
     <lastmod>2020-01-31T04:03:25.871Z</lastmod>
@@ -61,13 +75,6 @@
     <loc>https://hunkier.cn/algorithm-bucket-sort/</loc>
     
     <lastmod>2019-12-03T00:11:55.466Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
-    
-    <lastmod>2019-11-30T08:42:43.066Z</lastmod>
     
   </url>
   
@@ -145,13 +152,6 @@
     <loc>https://hunkier.cn/CentOS-7-Seting-DNS-Server/</loc>
     
     <lastmod>2019-06-18T08:42:11.598Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
-    
-    <lastmod>2019-06-18T07:56:19.680Z</lastmod>
     
   </url>
   

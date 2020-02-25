@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-01-31T04:03:25.871Z</updated>
+  <updated>2020-02-25T08:46:42.210Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式七大原则</title>
+    <link href="https://hunkier.cn/Design-patter-7-principle/"/>
+    <id>https://hunkier.cn/Design-patter-7-principle/</id>
+    <published>2020-01-10T13:34:00.000Z</published>
+    <updated>2020-02-25T08:46:42.210Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;设计模式的目的&quot;&gt;&lt;a href=&quot;#设计模式的目的&quot; class=&quot;headerlink&quot; title=&quot;设计模式的目的&quot;&gt;&lt;/a&gt;设计模式的目的&lt;/h1&gt;&lt;p&gt;​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://hunkier.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="七大原则" scheme="https://hunkier.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
+    
+    
+      <category term="设计模式" scheme="https://hunkier.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="七大原则" scheme="https://hunkier.cn/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 https 协议部署博客</title>
@@ -549,29 +576,6 @@ Port 33378      //下面添加这一行
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="go-fastdfs" scheme="https://hunkier.cn/tags/go-fastdfs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 用户相关操作</title>
-    <link href="https://hunkier.cn/CentOS-Users/"/>
-    <id>https://hunkier.cn/CentOS-Users/</id>
-    <published>2019-05-20T13:34:00.000Z</published>
-    <updated>2019-05-29T13:48:25.680Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Centos 用户相关操作&lt;/p&gt;
-&lt;p&gt;查看centos中的用户和用户组&lt;br&gt;1、用户列表文件：&lt;code&gt;/etc/passwd/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2、用户组列表文件：&lt;code&gt;/etc/group&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;3、查看系统中有哪些用户：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;cut -d : -f 1 /etc/passwd
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-      <category term="CentOS Linux Users" scheme="https://hunkier.cn/tags/CentOS-Linux-Users/"/>
     
   </entry>
   

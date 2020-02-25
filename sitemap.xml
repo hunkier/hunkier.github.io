@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Design-patter-7-principle/</loc>
+    
+    <lastmod>2020-02-25T08:46:42.210Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-Redis/</loc>
     
     <lastmod>2020-02-10T07:21:34.984Z</lastmod>

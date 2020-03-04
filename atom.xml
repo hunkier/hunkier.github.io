@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-02-25T08:52:06.395Z</updated>
+  <updated>2020-02-28T09:17:08.273Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hunkier.cn/Design-patter-7-principle/"/>
     <id>https://hunkier.cn/Design-patter-7-principle/</id>
     <published>2020-01-10T13:34:00.000Z</published>
-    <updated>2020-02-25T08:52:06.395Z</updated>
+    <updated>2020-02-28T09:17:08.273Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;设计模式的目的&quot;&gt;&lt;a href=&quot;#设计模式的目的&quot; class=&quot;headerlink&quot; title=&quot;设计模式的目的&quot;&gt;&lt;/a&gt;设计模式的目的&lt;/h1&gt;&lt;p&gt;​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的&lt;/p&gt;
+      &lt;h1 id=&quot;一、设计模式的目的&quot;&gt;&lt;a href=&quot;#一、设计模式的目的&quot; class=&quot;headerlink&quot; title=&quot;一、设计模式的目的&quot;&gt;&lt;/a&gt;一、设计模式的目的&lt;/h1&gt;&lt;p&gt;​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的&lt;/p&gt;
     
     </summary>
     

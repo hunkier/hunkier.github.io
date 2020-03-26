@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-02-28T09:17:08.273Z</updated>
+  <updated>2020-03-26T08:37:56.750Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 安装 google chrome</title>
+    <link href="https://hunkier.cn/CentOS-7-install-google-chrome/"/>
+    <id>https://hunkier.cn/CentOS-7-install-google-chrome/</id>
+    <published>2020-01-20T13:18:50.000Z</published>
+    <updated>2020-03-26T08:37:56.750Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一步： 执行如下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;cd /etc/yum.repos.d/
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="chrome" scheme="https://hunkier.cn/categories/centos/chrome/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="chrome" scheme="https://hunkier.cn/tags/chrome/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式七大原则</title>
@@ -548,31 +574,6 @@ Port 33378      //下面添加这一行
     
     
       <category term="centos vnc" scheme="https://hunkier.cn/tags/centos-vnc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 安装 go-fastdfs</title>
-    <link href="https://hunkier.cn/CentOS-7-install-GoFastdfs/"/>
-    <id>https://hunkier.cn/CentOS-7-install-GoFastdfs/</id>
-    <published>2019-06-04T11:30:24.000Z</published>
-    <updated>2019-06-04T08:25:47.067Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CentOS 7 安装go-fastdfs文件服务&lt;/p&gt;
-&lt;p&gt;参照官网描述（&lt;a href=&quot;https://github.com/sjqzhang/go-fastdfs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/sjqzhang/go-fastdfs&lt;/a&gt;），linux下go-fastdfs安装步骤如下：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
-    
-      <category term="go-fastdfs" scheme="https://hunkier.cn/categories/centos/go-fastdfs/"/>
-    
-    
-      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-      <category term="go-fastdfs" scheme="https://hunkier.cn/tags/go-fastdfs/"/>
     
   </entry>
   

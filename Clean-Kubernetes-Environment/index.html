@@ -16,7 +16,7 @@
   <title>清除Kubernetes环境 | hunkier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &amp;#39;{print $2}&amp;#39;|xargs umount rm /var/lib/kubelet/* -rf">
-<meta name="keywords" content="kubernetes,docker,rancher,linux">
+<meta name="keywords" content="linux,kubernetes,docker,rancher">
 <meta property="og:type" content="article">
 <meta property="og:title" content="清除Kubernetes环境">
 <meta property="og:url" content="https://hunkier.cn/Clean-Kubernetes-Environment/index.html">
@@ -299,6 +299,10 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
         		</li>
       		 
@@ -308,10 +312,6 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rancher</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -636,7 +636,7 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,11 +644,11 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,19 +656,7 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,6 +665,22 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cockpit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">timezone</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,11 +696,11 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,6 +717,18 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">myql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">master</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">slave</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,27 +760,15 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Percona XtraBackup</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">master</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">slave</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,23 +784,11 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">bucket sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell sort</a>
+                <a href="javascript:void(0)" class="js-tag color2">bucket sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,6 +797,18 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">caddy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,6 +836,10 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mycat</a>
               </li>
              
@@ -841,10 +849,6 @@ docker volume ls|awk &#39;{print $2}&#39;|xargs docker volume rm
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">partbymonth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
             
             <div class="clearfix"></div>

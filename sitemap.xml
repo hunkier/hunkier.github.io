@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
+    
+    <lastmod>2020-04-14T08:03:01.985Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-google-chrome/</loc>
     
     <lastmod>2020-03-26T08:37:56.750Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://hunkier.cn/CentOS-7-install-Nginx/</loc>
     
     <lastmod>2020-02-10T07:21:34.977Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
-    
-    <lastmod>2020-01-31T04:03:25.871Z</lastmod>
     
   </url>
   

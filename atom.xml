@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hunkier</title>
+  
+  <subtitle>学习笔记，开源代码，技术分享</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://hunkier.cn/"/>
+  <updated>2020-03-26T08:37:56.750Z</updated>
+  <id>https://hunkier.cn/</id>
+  
+  <author>
+    <name>hunkier</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 安装 google chrome</title>
+    <link href="https://hunkier.cn/CentOS-7-install-google-chrome/"/>
+    <id>https://hunkier.cn/CentOS-7-install-google-chrome/</id>
+    <published>2020-01-20T13:18:50.000Z</published>
+    <updated>2020-03-26T08:37:56.750Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一步： 执行如下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;cd /etc/yum.repos.d/
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="chrome" scheme="https://hunkier.cn/categories/centos/chrome/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="chrome" scheme="https://hunkier.cn/tags/chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式七大原则</title>
+    <link href="https://hunkier.cn/Design-patter-7-principle/"/>
+    <id>https://hunkier.cn/Design-patter-7-principle/</id>
+    <published>2020-01-10T13:34:00.000Z</published>
+    <updated>2020-02-28T09:17:08.273Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、设计模式的目的&quot;&gt;&lt;a href=&quot;#一、设计模式的目的&quot; class=&quot;headerlink&quot; title=&quot;一、设计模式的目的&quot;&gt;&lt;/a&gt;一、设计模式的目的&lt;/h1&gt;&lt;p&gt;​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://hunkier.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="七大原则" scheme="https://hunkier.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
+    
+    
+      <category term="设计模式" scheme="https://hunkier.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="七大原则" scheme="https://hunkier.cn/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 https 协议部署博客</title>
+    <link href="https://hunkier.cn/deploy-blog-with-https/"/>
+    <id>https://hunkier.cn/deploy-blog-with-https/</id>
+    <published>2019-12-15T08:48:34.000Z</published>
+    <updated>2020-04-14T13:52:40.384Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。&lt;/p&gt;
+&lt;p&gt;首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。&lt;a href=&quot;https://caddyserver.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;caddy&lt;/a&gt; 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="https" scheme="https://hunkier.cn/categories/https/"/>
+    
+      <category term="blog" scheme="https://hunkier.cn/categories/https/blog/"/>
+    
+      <category term="caddy" scheme="https://hunkier.cn/categories/https/blog/caddy/"/>
+    
+    
+      <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
+    
+      <category term="https" scheme="https://hunkier.cn/tags/https/"/>
+    
+      <category term="caddy" scheme="https://hunkier.cn/tags/caddy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 修改时区、设置时间</title>
+    <link href="https://hunkier.cn/CentOS-chanage-date-zone/"/>
+    <id>https://hunkier.cn/CentOS-chanage-date-zone/</id>
+    <published>2019-12-14T02:09:01.000Z</published>
+    <updated>2019-12-16T12:41:27.001Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一、修改时区：&lt;/p&gt;
+&lt;p&gt;  方法1:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="date" scheme="https://hunkier.cn/categories/centos/date/"/>
+    
+      <category term="timezone" scheme="https://hunkier.cn/categories/centos/date/timezone/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="date" scheme="https://hunkier.cn/tags/date/"/>
+    
+      <category term="timezone" scheme="https://hunkier.cn/tags/timezone/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 安装 cockpit 管理系统</title>
+    <link href="https://hunkier.cn/CentOS-install-mamager-cockpit/"/>
+    <id>https://hunkier.cn/CentOS-install-mamager-cockpit/</id>
+    <published>2019-12-13T11:51:03.000Z</published>
+    <updated>2020-01-14T02:15:00.476Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; &lt;a href=&quot;https://cockpit-project.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Cockpit&lt;/a&gt; 是一个基于 Web 界面的应用，它提供了对系统的图形化管理。&lt;/p&gt;
+&lt;p&gt;拥有如下功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;监控系统活动（CPU、内存、磁盘 IO 和网络流量） —— 系统&lt;/li&gt;
+&lt;li&gt;查看系统日志条目 —— 日志&lt;/li&gt;
+&lt;li&gt;查看磁盘分区的容量 —— 存储&lt;/li&gt;
+&lt;li&gt;查看网络活动（发送和接收） —— 网络
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://hunkier.cn/categories/Linux/"/>
+    
+      <category term="cockpit" scheme="https://hunkier.cn/categories/Linux/cockpit/"/>
+    
+    
+      <category term="Linux" scheme="https://hunkier.cn/tags/Linux/"/>
+    
+      <category term="cockpit" scheme="https://hunkier.cn/tags/cockpit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计数排序</title>
+    <link href="https://hunkier.cn/algorithm-radix-sort/"/>
+    <id>https://hunkier.cn/algorithm-radix-sort/</id>
+    <published>2019-12-04T00:26:30.000Z</published>
+    <updated>2019-12-04T00:44:22.464Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将所有待比较数值 （正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="radix sort" scheme="https://hunkier.cn/categories/java/algorithm/radix-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="radix sort" scheme="https://hunkier.cn/tags/radix-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>桶排序</title>
+    <link href="https://hunkier.cn/algorithm-bucket-sort/"/>
+    <id>https://hunkier.cn/algorithm-bucket-sort/</id>
+    <published>2019-12-03T00:10:03.000Z</published>
+    <updated>2019-12-03T00:11:55.466Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;桶排序的基本思想是：把数组 arr 划分为 n 个大小相同子区间 (桶), 每个子区间各自排序，最后合并。计数排序是桶排序的一种特殊情况，可以把计数排序当成每个桶里面只有一个元素的情况。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="bucket sort" scheme="https://hunkier.cn/categories/java/algorithm/bucket-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="bucket sort" scheme="https://hunkier.cn/tags/bucket-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 下使用 Percona XtraBackup 备份和恢复 MySQL5.7</title>
+    <link href="https://hunkier.cn/Percona-XtraBackup-MySQL5-7/"/>
+    <id>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</id>
+    <published>2019-11-29T01:14:01.000Z</published>
+    <updated>2020-01-03T09:03:30.601Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.percona.com/software/mysql-database/percona-xtrabackup&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;XtraBackup&lt;/a&gt; 是 &lt;a href=&quot;https://www.percona.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Percona&lt;/a&gt; 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/categories/centos/mysql/"/>
+    
+      <category term="Percona XtraBackup" scheme="https://hunkier.cn/categories/centos/mysql/Percona-XtraBackup/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
+    
+      <category term="Percona XtraBackup" scheme="https://hunkier.cn/tags/Percona-XtraBackup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>归并排序</title>
+    <link href="https://hunkier.cn/algorithm-merge-sort/"/>
+    <id>https://hunkier.cn/algorithm-merge-sort/</id>
+    <published>2019-11-28T00:50:08.000Z</published>
+    <updated>2019-11-28T01:16:12.515Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;归并 （Merge） 排序法是将两个 （或两个以上）有序表合并成一个新的有序表，即把待排序序列分为多干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="merge sort" scheme="https://hunkier.cn/categories/java/algorithm/merge-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="merge sort" scheme="https://hunkier.cn/tags/merge-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>希尔排序</title>
+    <link href="https://hunkier.cn/algorithm-shell-sort/"/>
+    <id>https://hunkier.cn/algorithm-shell-sort/</id>
+    <published>2019-11-27T00:23:42.000Z</published>
+    <updated>2019-11-27T00:27:56.979Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;基本思想：先将整个待排序的记录分割成若干子序列分别进行插入排序，待整个序列中的记录 ”基本有序“ 时，再对全体记录进行依次直接插入排序。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="shell sort" scheme="https://hunkier.cn/categories/java/algorithm/shell-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="shell sort" scheme="https://hunkier.cn/tags/shell-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序</title>
+    <link href="https://hunkier.cn/algorithm-quick-sort/"/>
+    <id>https://hunkier.cn/algorithm-quick-sort/</id>
+    <published>2019-11-26T00:21:07.000Z</published>
+    <updated>2019-11-27T00:24:40.829Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;快速排序的原理：选择一个关键值作为基准值。比较基准值小的都放在左边序列(一般是无序的), 比基准值大的都在右边(一般是无序的)。一般选择序列的第一个元素。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="quick sort" scheme="https://hunkier.cn/categories/java/algorithm/quick-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="quick sort" scheme="https://hunkier.cn/tags/quick-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>插入排序</title>
+    <link href="https://hunkier.cn/algorithm-insert-sort/"/>
+    <id>https://hunkier.cn/algorithm-insert-sort/</id>
+    <published>2019-11-23T02:43:53.000Z</published>
+    <updated>2019-11-23T02:46:27.565Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应的位置并插入。插入排序非常类似于整扑克。在开始摸牌时，左手是空的，牌面朝下放在桌面。接着，一次从桌上磨起一张牌，并将它插入到左手一把牌中的正确位置上。为了找到这张牌的正确位置，要将它与手中已有的牌从左到右地进行比较。无论什么时候，左手中的牌都是排好序的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="insert sort" scheme="https://hunkier.cn/categories/java/algorithm/insert-sort/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="insert sort" scheme="https://hunkier.cn/tags/insert-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>冒泡排序</title>
+    <link href="https://hunkier.cn/algorithm-bubble-sort/"/>
+    <id>https://hunkier.cn/algorithm-bubble-sort/</id>
+    <published>2019-11-22T00:20:15.832Z</published>
+    <updated>2019-11-22T00:22:25.323Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。&lt;/p&gt;
+&lt;p&gt;(2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。&lt;/p&gt;
+&lt;p&gt;(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="bubble sort" scheme="https://hunkier.cn/categories/java/algorithm/bubble-sort/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>二分查找</title>
+    <link href="https://hunkier.cn/algorithm-bi-search/"/>
+    <id>https://hunkier.cn/algorithm-bi-search/</id>
+    <published>2019-11-21T00:13:21.000Z</published>
+    <updated>2019-11-21T00:16:30.281Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;又叫折半查找，要求待查找的序列有序。每次取中间位置与待查关键字比较，如果中间位置的值比待查关键字大，则在前半部分循环这个查找的过程，如果中间位置的值比待查关键字小，则在后半部分循环这个查找的过程。直到查找到了为止。否则序列中没有待查的关键字。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
+    
+      <category term="biSearch" scheme="https://hunkier.cn/categories/java/algorithm/biSearch/"/>
+    
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
+    
+      <category term="biSearch" scheme="https://hunkier.cn/tags/biSearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kibana 认证登录</title>
+    <link href="https://hunkier.cn/kibana-auth/"/>
+    <id>https://hunkier.cn/kibana-auth/</id>
+    <published>2019-11-09T12:37:16.000Z</published>
+    <updated>2019-11-15T00:58:34.003Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;Kibana&lt;/code&gt;从5.5开始不提供认证功能，用官方的认证&lt;code&gt;X-Pack&lt;/code&gt;，则需购买授权许可。&lt;/p&gt;
+&lt;p&gt;为了安全访问，我们可以使用&lt;code&gt;Nginx&lt;/code&gt;的代理功能来认证登录&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="kibana" scheme="https://hunkier.cn/categories/kibana/"/>
+    
+      <category term="nginx" scheme="https://hunkier.cn/categories/kibana/nginx/"/>
+    
+      <category term="htpasswd" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/"/>
+    
+      <category term="auth" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/auth/"/>
+    
+    
+      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
+    
+      <category term="kibana" scheme="https://hunkier.cn/tags/kibana/"/>
+    
+      <category term="htpasswd" scheme="https://hunkier.cn/tags/htpasswd/"/>
+    
+      <category term="auth" scheme="https://hunkier.cn/tags/auth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wget参数使用参考</title>
+    <link href="https://hunkier.cn/wget-use/"/>
+    <id>https://hunkier.cn/wget-use/</id>
+    <published>2019-07-11T13:36:12.000Z</published>
+    <updated>2019-07-16T14:09:12.902Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;wget&lt;/code&gt;是一个从网络上自动下载文件的自由工具。它支持&lt;code&gt;HTTP&lt;/code&gt;，&lt;code&gt;HTTPS&lt;/code&gt;和&lt;code&gt;FTP&lt;/code&gt;协议，可以使用&lt;code&gt;HTTP&lt;/code&gt;代理. 所谓的自动下载是指，&lt;code&gt;wget&lt;/code&gt;可以在用户退出系统的之后在后台执行。这意味这你可以登录系统，启动一个&lt;code&gt;wget&lt;/code&gt;下载任务，然后退出系统，&lt;code&gt;wget&lt;/code&gt;将在后台执行直到任务完成，相对于其它大部分浏览器在下载大量数据时需要用户一直的参与，这省去了极大的麻烦。 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="wget" scheme="https://hunkier.cn/categories/wget/"/>
+    
+      <category term="linux" scheme="https://hunkier.cn/categories/wget/linux/"/>
+    
+    
+      <category term="wget" scheme="https://hunkier.cn/tags/wget/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript正则表达式验证数字</title>
+    <link href="https://hunkier.cn/js-reg-exp/"/>
+    <id>https://hunkier.cn/js-reg-exp/</id>
+    <published>2019-07-01T11:36:56.000Z</published>
+    <updated>2019-07-16T14:09:12.899Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;javascript 验证输入的是否为正确的数组&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt; function validate(){
+       var reg = new RegExp(&amp;quot;^[0-9]*$&amp;quot;);
+       var obj = document.getElementById(&amp;quot;name&amp;quot;);
+    if(!reg.test(obj.value)){
+        alert(&amp;quot;请输入数字!&amp;quot;);
+    }
+    if(!/^[0-9]*$/.test(obj.value)){
+        alert(&amp;quot;请输入数字!&amp;quot;);
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="正则" scheme="https://hunkier.cn/categories/%E6%AD%A3%E5%88%99/"/>
+    
+    
+      <category term="正则" scheme="https://hunkier.cn/tags/%E6%AD%A3%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS  firewall添加开放端口</title>
+    <link href="https://hunkier.cn/CentOS-7-firewall/"/>
+    <id>https://hunkier.cn/CentOS-7-firewall/</id>
+    <published>2019-06-18T08:42:18.000Z</published>
+    <updated>2019-12-16T08:47:03.583Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;添加&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;  （ &lt;code&gt;–permanent&lt;/code&gt; 永久生效，没有此参数重启后失效）&lt;/p&gt;
+&lt;p&gt;查看&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --query-port=80/tcp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重新载入&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos firewall" scheme="https://hunkier.cn/categories/centos-firewall/"/>
+    
+    
+      <category term="centos firewall" scheme="https://hunkier.cn/tags/centos-firewall/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 修改ssh 端口</title>
+    <link href="https://hunkier.cn/CentOS-7-Modify-sshd-port/"/>
+    <id>https://hunkier.cn/CentOS-7-Modify-sshd-port/</id>
+    <published>2019-06-18T07:35:14.000Z</published>
+    <updated>2019-12-16T02:10:46.397Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;修改-etc-ssh-sshd-config&quot;&gt;&lt;a href=&quot;#修改-etc-ssh-sshd-config&quot; class=&quot;headerlink&quot; title=&quot;修改/etc/ssh/sshd_config&quot;&gt;&lt;/a&gt;修改/etc/ssh/sshd_config&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;vi /etc/ssh/sshd_config
+Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
+
+Port 33378      //下面添加这一行
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="sshd" scheme="https://hunkier.cn/categories/centos/sshd/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="sshd" scheme="https://hunkier.cn/tags/sshd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7上部署vnc服务器并实现远程桌面</title>
+    <link href="https://hunkier.cn/CentOS-VNCserver/"/>
+    <id>https://hunkier.cn/CentOS-VNCserver/</id>
+    <published>2019-06-18T03:28:00.000Z</published>
+    <updated>2019-06-19T06:56:56.694Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、安装X-Window-System&quot;&gt;&lt;a href=&quot;#一、安装X-Window-System&quot; class=&quot;headerlink&quot; title=&quot;一、安装X Window System&quot;&gt;&lt;/a&gt;一、安装X Window System&lt;/h2&gt;&lt;p&gt;注：若已经安装GUI则可跳过&lt;/p&gt;
+&lt;p&gt;1、切换到root用户，执行 &lt;code&gt;yum groupinstall &amp;quot;X Window System&amp;quot;&lt;/code&gt;&lt;br&gt;2、执行 &lt;code&gt;yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y&lt;/code&gt; 安装相关组件&lt;br&gt;3、设置默认启动图形界面&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# unlink /etc/systemd/system/default.target
+# ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4、重启系统生效&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# reboot
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="centos vnc" scheme="https://hunkier.cn/categories/centos-vnc/"/>
+    
+    
+      <category term="centos vnc" scheme="https://hunkier.cn/tags/centos-vnc/"/>
+    
+  </entry>
+  
+</feed>

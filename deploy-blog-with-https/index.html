@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-14T13:52:40.384Z">
+<meta property="og:updated_time" content="2020-05-13T02:41:16.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 https 协议部署博客">
 <meta name="twitter:description" content="前言https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。 首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。caddy 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。">
@@ -275,6 +275,7 @@ check_running(){
         return 1
     fi
 }
+
 do_start(){
     check_running
     if [[ $? -eq 0 ]]; then
@@ -291,6 +292,7 @@ do_start(){
         fi
     fi
 }
+
 do_stop(){
     check_running
     if [[ $? -eq 0 ]]; then
@@ -306,6 +308,7 @@ do_stop(){
         RETVAL=1
     fi
 }
+
 do_status(){
     check_running
     if [[ $? -eq 0 ]]; then
@@ -315,17 +318,21 @@ do_status(){
         RETVAL=1
     fi
 }
+
 do_tail(){
     tail -100f /tmp/caddy.log
 }
+
 do_restart(){
     do_stop
     do_start
 }
+
 do_console(){
     do_start
     do_tail
 }
+
 case &quot;$1&quot; in
     start|stop|restart|status|console|tail)
     do_$1
@@ -763,18 +770,6 @@ hunkier.cn www.hunkier.cn {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
@@ -787,11 +782,23 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos firewall</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">go-fastdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos firewall</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,10 +819,6 @@ hunkier.cn www.hunkier.cn {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,15 +854,7 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,6 +867,22 @@ hunkier.cn www.hunkier.cn {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Nvidia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,10 +902,6 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
@@ -904,10 +911,6 @@ hunkier.cn www.hunkier.cn {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">slave</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Percona XtraBackup</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -923,6 +926,10 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Percona XtraBackup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
@@ -935,14 +942,6 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">biSearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">bucket sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
@@ -951,15 +950,11 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+                <a href="javascript:void(0)" class="js-tag color4">biSearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell sort</a>
+                <a href="javascript:void(0)" class="js-tag color2">bucket sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -971,15 +966,19 @@ hunkier.cn www.hunkier.cn {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jailbreaking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,6 +991,14 @@ hunkier.cn www.hunkier.cn {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">

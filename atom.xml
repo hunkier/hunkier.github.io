@@ -71,7 +71,7 @@
     <link href="https://hunkier.cn/deploy-blog-with-https/"/>
     <id>https://hunkier.cn/deploy-blog-with-https/</id>
     <published>2019-12-15T08:48:34.000Z</published>
-    <updated>2020-04-14T13:52:40.384Z</updated>
+    <updated>2020-05-13T02:41:16.698Z</updated>
     
     <summary type="html">
     
@@ -555,16 +555,17 @@ Port 33378      //下面添加这一行
     <link href="https://hunkier.cn/CentOS-VNCserver/"/>
     <id>https://hunkier.cn/CentOS-VNCserver/</id>
     <published>2019-06-18T03:28:00.000Z</published>
-    <updated>2019-06-19T06:56:56.694Z</updated>
+    <updated>2020-04-28T03:31:55.722Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;一、安装X-Window-System&quot;&gt;&lt;a href=&quot;#一、安装X-Window-System&quot; class=&quot;headerlink&quot; title=&quot;一、安装X Window System&quot;&gt;&lt;/a&gt;一、安装X Window System&lt;/h2&gt;&lt;p&gt;注：若已经安装GUI则可跳过&lt;/p&gt;
-&lt;p&gt;1、切换到root用户，执行 &lt;code&gt;yum groupinstall &amp;quot;X Window System&amp;quot;&lt;/code&gt;&lt;br&gt;2、执行 &lt;code&gt;yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts -y&lt;/code&gt; 安装相关组件&lt;br&gt;3、设置默认启动图形界面&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# unlink /etc/systemd/system/default.target
+&lt;p&gt;1、切换到root用户，执行 &lt;code&gt;yum groupinstall &amp;quot;X Window System&amp;quot;&lt;/code&gt;&lt;br&gt;2、执行 &lt;code&gt;yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y&lt;/code&gt; 安装相关组件&lt;br&gt;3、设置默认启动图形界面&lt;br&gt;&lt;code&gt;`&lt;/code&gt;shell script&lt;br&gt;yum groupinstall -y “Fonts”&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4、设置默认启动图形界面
+```shell
+# unlink /etc/systemd/system/default.target
 # ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;4、重启系统生效&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;5、重启系统生效&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# reboot
 &lt;/code&gt;&lt;/pre&gt;
     

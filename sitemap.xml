@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
+    
+    <lastmod>2020-05-23T14:30:35.367Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
     
     <lastmod>2020-05-22T14:16:17.549Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://hunkier.cn/Design-patter-7-principle/</loc>
     
     <lastmod>2020-02-28T09:17:08.273Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
-    
-    <lastmod>2020-02-26T01:58:39.146Z</lastmod>
     
   </url>
   

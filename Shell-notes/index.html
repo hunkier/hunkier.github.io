@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="这里收藏工作中用到的脚本，也为了防止做重复的搜索工作，同时分享给大家。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T13:23:38.664Z">
+<meta property="og:updated_time" content="2020-05-31T14:27:02.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell脚本命令备忘">
 <meta name="twitter:description" content="这里收藏工作中用到的脚本，也为了防止做重复的搜索工作，同时分享给大家。">
@@ -364,6 +364,9 @@ $ find . | while read file; do if [ -f $file ]; then content=`cat ${file} | grep
 </li>
 <li><p>列举文件并用管道打包</p>
 <pre><code class="shell">$ find . -name &quot;*.class&quot; | xargs tar cvf classes.tar
+</code></pre>
+</li>
+<li>批量重命名文件<pre><code class="shell">for file in `ls `;do mv $file `echo $file|sed &#39;s/aaa/bbb/g&#39;`;done;
 </code></pre>
 </li>
 </ul>

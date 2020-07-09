@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-03-26T08:37:56.750Z</updated>
+  <updated>2020-07-09T01:38:06.046Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java并发--volatile 的应用</title>
+    <link href="https://hunkier.cn/Java-Concurrent-volatile/"/>
+    <id>https://hunkier.cn/Java-Concurrent-volatile/</id>
+    <published>2020-02-02T06:55:00.000Z</published>
+    <updated>2020-07-09T01:38:06.046Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-volatile的应用&quot;&gt;&lt;a href=&quot;#1-volatile的应用&quot; class=&quot;headerlink&quot; title=&quot;1　volatile的应用&quot;&gt;&lt;/a&gt;1　volatile的应用&lt;/h2&gt;&lt;p&gt;在多线程并发编程中synchronized和vola
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 7 安装 google chrome</title>
@@ -547,34 +578,6 @@ Port 33378      //下面添加这一行
       <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
       <category term="sshd" scheme="https://hunkier.cn/tags/sshd/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7上部署vnc服务器并实现远程桌面</title>
-    <link href="https://hunkier.cn/CentOS-VNCserver/"/>
-    <id>https://hunkier.cn/CentOS-VNCserver/</id>
-    <published>2019-06-18T03:28:00.000Z</published>
-    <updated>2020-04-28T03:31:55.722Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、安装X-Window-System&quot;&gt;&lt;a href=&quot;#一、安装X-Window-System&quot; class=&quot;headerlink&quot; title=&quot;一、安装X Window System&quot;&gt;&lt;/a&gt;一、安装X Window System&lt;/h2&gt;&lt;p&gt;注：若已经安装GUI则可跳过&lt;/p&gt;
-&lt;p&gt;1、切换到root用户，执行 &lt;code&gt;yum groupinstall &amp;quot;X Window System&amp;quot;&lt;/code&gt;&lt;br&gt;2、执行 &lt;code&gt;yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y&lt;/code&gt; 安装相关组件&lt;br&gt;3、设置默认启动图形界面&lt;br&gt;&lt;code&gt;`&lt;/code&gt;shell script&lt;br&gt;yum groupinstall -y “Fonts”&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;4、设置默认启动图形界面
-```shell
-# unlink /etc/systemd/system/default.target
-# ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;5、重启系统生效&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;# reboot
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="centos vnc" scheme="https://hunkier.cn/categories/centos-vnc/"/>
-    
-    
-      <category term="centos vnc" scheme="https://hunkier.cn/tags/centos-vnc/"/>
     
   </entry>
   

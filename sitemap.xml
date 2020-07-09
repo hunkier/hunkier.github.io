@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Java-Concurrent-volatile/</loc>
+    
+    <lastmod>2020-07-09T01:38:06.046Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/algorithm-shell-sort/</loc>
     
     <lastmod>2020-06-07T00:57:29.519Z</lastmod>

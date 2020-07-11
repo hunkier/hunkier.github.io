@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hunkier.cn/Java-Concurrent-synchronized/</loc>
+    <loc>https://hunkier.cn/Java-Concurrent-volatile/</loc>
     
-    <lastmod>2020-07-10T01:08:54.289Z</lastmod>
+    <lastmod>2020-07-11T14:45:32.612Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hunkier.cn/Java-Concurrent-volatile/</loc>
+    <loc>https://hunkier.cn/Java-Concurrent-java-object-header/</loc>
     
-    <lastmod>2020-07-09T01:40:52.773Z</lastmod>
+    <lastmod>2020-07-11T14:44:32.209Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Java-Concurrent-synchronized/</loc>
+    
+    <lastmod>2020-07-10T01:08:54.289Z</lastmod>
     
   </url>
   

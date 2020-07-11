@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java 并发--Java对象头]]></title>
+    <url>%2FJava-Concurrent-java-object-header%2F</url>
+    <content type="text"><![CDATA[synchronized用的锁是存在Java对象头里的。如果对象是数组类型，则虚拟机用3个字宽（Word）存储对象头，如果对象是非数组类型，则用2字宽存储对象头。在32位虚拟机中，1字宽等于4字节，即32bit，如表所示。 长度 内容 说明 32/64bit Mark Word 存储对象的 hashCode 或锁信息等 32/64bit Class Metadata Address 存储到对象类型数据的指针 32/64bit Array length 数组的长度 （如果当前对象是数组） Java对象头里的Mark Word里默认存储对象的HashCode、分代年龄和锁标记位。32位JVM的Mark Word的默认存储结构如表所示。 锁状态 25bit 4bit 1bit 是否偏向锁 2bit 锁标志位 无锁状态 对象的 hashCode 对象分代年龄 0 01 在运行期间，Mark Word里存储的数据会随着锁标志位的变化而变化。Mark Word可能变化为存储以下4种数据，如表所示。 锁状态 25bit 4bit 1bit 2bit 23bit 2bit 是否偏向锁 锁标志位 轻量级锁 指向栈中锁记录的指针 00 重量级锁 指向互斥（重量级锁）的指针 10 GC 标记 空 11 偏向锁 线程 ID Epoch 对象分代年龄 1 01 在64位虚拟机下，Mark Word是64bit大小的，其存储结构如表所示。 锁状态 25bit 31bit 1bit 4bit 1bit 2bit cms_free 分代年龄 偏向锁 锁标志位 无锁 unused hashcode 0 01 偏向锁 TheadId(54bit) Epoch(2bit) 1 01 参考: 方腾飞,魏鹏,程晓明 著. 《Java并发编程的艺术 》(Java核心技术系列)]]></content>
+      <categories>
+        <category>java</category>
+        <category>concurrent</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+        <tag>object header</tag>
+        <tag>java</tag>
+        <tag>concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java 并发--synchronized 的实现原理与应用]]></title>
     <url>%2FJava-Concurrent-synchronized%2F</url>
     <content type="text"><![CDATA[在多线程并发编程中 synchronized 一直是元老级角色，很多人都会称呼它为重量级锁。但是，随着 Java SE 1.6 对 synchronized 进行了各种优化之后，有些情况下它就并不那么重了。本文详细介绍 Java SE 1.6 中为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁，以及锁的存储结构和升级过程。 先来看下利用 synchronized 实现同步的基础：Java中的每一个对象都可以作为锁。具体表现为以下3种形式。 ·对于普通同步方法，锁是当前实例对象。 ·对于静态同步方法，锁是当前类的 Class 对象。 ·对于同步方法块，锁是 Synchonized 括号里配置的对象。 当一个线程试图访问同步代码块时，它首先必须得到锁，退出或抛出异常时必须释放锁。那么锁到底存在哪里呢？锁里面会存储什么信息呢？ 从 JVM 规范中可以看到 Synchonized 在 JVM 里的实现原理，JVM 基于进入和退出 Monitor 对象来实现方法同步和代码块同步，但两者的实现细节不一样。代码块同步是使用 monitorenter 和 monitorexit 指令实现的，而方法同步是使用另外一种方式实现的，细节在 JVM 规范里并没有详细说明。但是，方法的同步同样可以使用这两个指令来实现。 monitorenter 指令是在编译后插入到同步代码块的开始位置，而monitorexit是插入到方法结束处和异常处，JVM要保证每个monitorenter必须有对应的monitorexit与之配对。任何对象都有一个monitor与之关联，当且一个monitor被持有后，它将处于锁定状态。线程执行到monitorenter指令时，将会尝试获取对象所对应的monitor的所有权，即尝试获得对象的锁。 参考: 方腾飞,魏鹏,程晓明 著. 《Java并发编程的艺术 》(Java核心技术系列)]]></content>
@@ -446,10 +461,10 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>kubernetes</tag>
         <tag>docker</tag>
         <tag>rancher</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -515,9 +530,9 @@
       </categories>
       <tags>
         <tag>jvm</tag>
-        <tag>lock</tag>
         <tag>java</tag>
         <tag>concurrent</tag>
+        <tag>lock</tag>
       </tags>
   </entry>
   <entry>

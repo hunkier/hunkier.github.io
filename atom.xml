@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-07-10T01:08:54.289Z</updated>
+  <updated>2020-07-11T14:44:32.209Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 并发--Java对象头</title>
+    <link href="https://hunkier.cn/Java-Concurrent-java-object-header/"/>
+    <id>https://hunkier.cn/Java-Concurrent-java-object-header/</id>
+    <published>2020-02-04T07:31:11.000Z</published>
+    <updated>2020-07-11T14:44:32.209Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;synchronized用的锁是存在Java对象头里的。如果对象是数组类型，则虚拟机用3个字宽（Word）存储对象头，如果对象是非数组类型，则用2字宽存储对象头。在32位虚拟机中，1字宽等于4字节，即32bit，如表所示。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="object header" scheme="https://hunkier.cn/tags/object-header/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 并发--synchronized 的实现原理与应用</title>
@@ -49,7 +77,7 @@
     <link href="https://hunkier.cn/Java-Concurrent-volatile/"/>
     <id>https://hunkier.cn/Java-Concurrent-volatile/</id>
     <published>2020-02-02T06:55:00.000Z</published>
-    <updated>2020-07-09T01:40:52.773Z</updated>
+    <updated>2020-07-11T14:45:32.612Z</updated>
     
     <summary type="html">
     
@@ -543,38 +571,6 @@
     
     
       <category term="正则" scheme="https://hunkier.cn/tags/%E6%AD%A3%E5%88%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS  firewall添加开放端口</title>
-    <link href="https://hunkier.cn/CentOS-7-firewall/"/>
-    <id>https://hunkier.cn/CentOS-7-firewall/</id>
-    <published>2019-06-18T08:42:18.000Z</published>
-    <updated>2019-12-16T08:47:03.583Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;添加&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent  
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;  （ &lt;code&gt;–permanent&lt;/code&gt; 永久生效，没有此参数重启后失效）&lt;/p&gt;
-&lt;p&gt;查看&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --query-port=80/tcp
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;删除&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;重新载入&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;firewall-cmd --reload
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="centos firewall" scheme="https://hunkier.cn/categories/centos-firewall/"/>
-    
-    
-      <category term="centos firewall" scheme="https://hunkier.cn/tags/centos-firewall/"/>
     
   </entry>
   

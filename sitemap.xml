@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Java-Concurrent-lock-escalation-comparison/</loc>
+    
+    <lastmod>2020-07-12T00:22:09.951Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Java-Concurrent-volatile/</loc>
     
-    <lastmod>2020-07-11T14:45:32.612Z</lastmod>
+    <lastmod>2020-07-11T23:21:22.841Z</lastmod>
     
   </url>
   

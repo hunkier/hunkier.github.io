@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-07-11T14:44:32.209Z</updated>
+  <updated>2020-07-12T00:22:09.951Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java并发--锁的升级与对比</title>
+    <link href="https://hunkier.cn/Java-Concurrent-lock-escalation-comparison/"/>
+    <id>https://hunkier.cn/Java-Concurrent-lock-escalation-comparison/</id>
+    <published>2020-02-05T03:15:10.000Z</published>
+    <updated>2020-07-12T00:22:09.951Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Java SE 1.6为了减少获得锁和释放锁带来的性能消耗，引入了“偏向锁”和“轻量级锁”，在Java SE 1.6中，锁一共有4种状态，级别从低到高依次是：无锁状态、偏向锁状态、轻量级锁状态和重量级锁状态，这几个状态会随着竞争情况逐渐升级。锁可以升级但不能降级，意味着偏向
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="lock escalation" scheme="https://hunkier.cn/tags/lock-escalation/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 并发--Java对象头</title>
@@ -36,11 +67,11 @@
     
       <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-      <category term="object header" scheme="https://hunkier.cn/tags/object-header/"/>
-    
       <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
       <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="object header" scheme="https://hunkier.cn/tags/object-header/"/>
     
   </entry>
   
@@ -77,7 +108,7 @@
     <link href="https://hunkier.cn/Java-Concurrent-volatile/"/>
     <id>https://hunkier.cn/Java-Concurrent-volatile/</id>
     <published>2020-02-02T06:55:00.000Z</published>
-    <updated>2020-07-11T14:45:32.612Z</updated>
+    <updated>2020-07-11T23:21:22.841Z</updated>
     
     <summary type="html">
     
@@ -92,11 +123,11 @@
     
       <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
+      <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
+    
       <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
       <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-      <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
     
   </entry>
   
@@ -540,37 +571,6 @@
     
     
       <category term="wget" scheme="https://hunkier.cn/tags/wget/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>javascript正则表达式验证数字</title>
-    <link href="https://hunkier.cn/js-reg-exp/"/>
-    <id>https://hunkier.cn/js-reg-exp/</id>
-    <published>2019-07-01T11:36:56.000Z</published>
-    <updated>2019-07-16T14:09:12.899Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;javascript 验证输入的是否为正确的数组&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt; function validate(){
-       var reg = new RegExp(&amp;quot;^[0-9]*$&amp;quot;);
-       var obj = document.getElementById(&amp;quot;name&amp;quot;);
-    if(!reg.test(obj.value)){
-        alert(&amp;quot;请输入数字!&amp;quot;);
-    }
-    if(!/^[0-9]*$/.test(obj.value)){
-        alert(&amp;quot;请输入数字!&amp;quot;);
-    }
-  }
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="正则" scheme="https://hunkier.cn/categories/%E6%AD%A3%E5%88%99/"/>
-    
-    
-      <category term="正则" scheme="https://hunkier.cn/tags/%E6%AD%A3%E5%88%99/"/>
     
   </entry>
   

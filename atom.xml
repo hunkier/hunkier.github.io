@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-07-12T00:24:26.568Z</updated>
+  <updated>2020-07-13T02:52:21.134Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java并发--原子操作的实现原理</title>
+    <link href="https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/"/>
+    <id>https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/</id>
+    <published>2020-02-06T02:38:29.000Z</published>
+    <updated>2020-07-13T02:52:21.134Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原子（atomic）本意是“不能被进一步分割的最小粒子”，而原子操作（atomic operation）意为“不可被中断的一个或一系列操作”。在多处理器上实现原子操作就变得有点复杂。让我们一起来聊一聊在Intel处理器和Java里是如何实现原子操作的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="lock escalation" scheme="https://hunkier.cn/tags/lock-escalation/"/>
+    
+  </entry>
   
   <entry>
     <title>Java并发--锁的升级与对比</title>
@@ -546,28 +574,6 @@
       <category term="htpasswd" scheme="https://hunkier.cn/tags/htpasswd/"/>
     
       <category term="auth" scheme="https://hunkier.cn/tags/auth/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>wget参数使用参考</title>
-    <link href="https://hunkier.cn/wget-use/"/>
-    <id>https://hunkier.cn/wget-use/</id>
-    <published>2019-07-11T13:36:12.000Z</published>
-    <updated>2019-07-16T14:09:12.902Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;wget&lt;/code&gt;是一个从网络上自动下载文件的自由工具。它支持&lt;code&gt;HTTP&lt;/code&gt;，&lt;code&gt;HTTPS&lt;/code&gt;和&lt;code&gt;FTP&lt;/code&gt;协议，可以使用&lt;code&gt;HTTP&lt;/code&gt;代理. 所谓的自动下载是指，&lt;code&gt;wget&lt;/code&gt;可以在用户退出系统的之后在后台执行。这意味这你可以登录系统，启动一个&lt;code&gt;wget&lt;/code&gt;下载任务，然后退出系统，&lt;code&gt;wget&lt;/code&gt;将在后台执行直到任务完成，相对于其它大部分浏览器在下载大量数据时需要用户一直的参与，这省去了极大的麻烦。 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="wget" scheme="https://hunkier.cn/categories/wget/"/>
-    
-      <category term="linux" scheme="https://hunkier.cn/categories/wget/linux/"/>
-    
-    
-      <category term="wget" scheme="https://hunkier.cn/tags/wget/"/>
     
   </entry>
   

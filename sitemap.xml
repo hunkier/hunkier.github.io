@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/</loc>
+    
+    <lastmod>2020-07-13T02:52:21.134Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Java-Concurrent-lock-escalation-comparison/</loc>
     
     <lastmod>2020-07-12T00:24:26.568Z</lastmod>

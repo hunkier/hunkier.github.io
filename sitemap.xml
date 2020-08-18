@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Java-Concurrent-Lock-Interface/</loc>
+    
+    <lastmod>2020-08-18T02:21:07.011Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/</loc>
     
-    <lastmod>2020-07-13T02:52:21.134Z</lastmod>
+    <lastmod>2020-07-13T02:57:22.275Z</lastmod>
     
   </url>
   
@@ -303,7 +310,7 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/Java-Concurrent-Lock/</loc>
+    <loc>https://hunkier.cn/Java-Concurrent-Optimistic-And-Pessimistic-Locks/</loc>
     
     <lastmod>2019-01-05T03:53:30.512Z</lastmod>
     

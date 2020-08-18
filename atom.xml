@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-07-13T02:52:21.134Z</updated>
+  <updated>2020-08-18T02:21:07.011Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java并发-- Lock 接口</title>
+    <link href="https://hunkier.cn/Java-Concurrent-Lock-Interface/"/>
+    <id>https://hunkier.cn/Java-Concurrent-Lock-Interface/</id>
+    <published>2020-02-22T06:55:00.000Z</published>
+    <updated>2020-08-18T02:21:07.011Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​        锁是用来控制多个线程访问共享资源的方式，一般来说，一个锁能够防止多个线程同时访问共享资源（但是有些锁是可以允许多个线程并发的访问共享资源，比如读写锁）。在 Lock 接口出现之前，Java 程序是靠 synchronized 关键字实现锁的功能的，而 JavaSE 5 之后，并发包中新增了 Lock 接口（以及相关类），只是在使用时需要显式地获取和释放锁。虽然它缺少了 （通过 synchronized 块或者方法所提供的）隐式获取和释放锁的便捷性，但是却拥有了锁获取与释放的可操作性、可中断的获取锁以及超时获取锁等多种 synchronized 关键字所不具备的同步特性。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java并发--原子操作的实现原理</title>
     <link href="https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/"/>
     <id>https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/</id>
     <published>2020-02-06T02:38:29.000Z</published>
-    <updated>2020-07-13T02:52:21.134Z</updated>
+    <updated>2020-07-13T02:57:22.275Z</updated>
     
     <summary type="html">
     
@@ -40,7 +68,11 @@
     
       <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
     
-      <category term="lock escalation" scheme="https://hunkier.cn/tags/lock-escalation/"/>
+      <category term="atomic" scheme="https://hunkier.cn/tags/atomic/"/>
+    
+      <category term="CAS" scheme="https://hunkier.cn/tags/CAS/"/>
+    
+      <category term="LOCK" scheme="https://hunkier.cn/tags/LOCK/"/>
     
   </entry>
   
@@ -148,11 +180,11 @@
     
       <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-      <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
-    
       <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
       <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
     
   </entry>
   
@@ -541,39 +573,6 @@
       <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
     
       <category term="biSearch" scheme="https://hunkier.cn/tags/biSearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>kibana 认证登录</title>
-    <link href="https://hunkier.cn/kibana-auth/"/>
-    <id>https://hunkier.cn/kibana-auth/</id>
-    <published>2019-11-09T12:37:16.000Z</published>
-    <updated>2019-11-15T00:58:34.003Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;Kibana&lt;/code&gt;从5.5开始不提供认证功能，用官方的认证&lt;code&gt;X-Pack&lt;/code&gt;，则需购买授权许可。&lt;/p&gt;
-&lt;p&gt;为了安全访问，我们可以使用&lt;code&gt;Nginx&lt;/code&gt;的代理功能来认证登录&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="kibana" scheme="https://hunkier.cn/categories/kibana/"/>
-    
-      <category term="nginx" scheme="https://hunkier.cn/categories/kibana/nginx/"/>
-    
-      <category term="htpasswd" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/"/>
-    
-      <category term="auth" scheme="https://hunkier.cn/categories/kibana/nginx/htpasswd/auth/"/>
-    
-    
-      <category term="nginx" scheme="https://hunkier.cn/tags/nginx/"/>
-    
-      <category term="kibana" scheme="https://hunkier.cn/tags/kibana/"/>
-    
-      <category term="htpasswd" scheme="https://hunkier.cn/tags/htpasswd/"/>
-    
-      <category term="auth" scheme="https://hunkier.cn/tags/auth/"/>
     
   </entry>
   

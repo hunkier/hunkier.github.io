@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</loc>
+    
+    <lastmod>2020-08-19T08:50:20.325Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Java-Concurrent-Lock-Interface/</loc>
     
     <lastmod>2020-08-18T02:21:07.011Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
     
     <lastmod>2020-01-07T00:35:38.999Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</loc>
-    
-    <lastmod>2020-01-03T09:03:30.601Z</lastmod>
     
   </url>
   

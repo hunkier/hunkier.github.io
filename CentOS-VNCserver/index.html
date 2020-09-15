@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-28T03:31:55.722Z">
+<meta property="og:updated_time" content="2020-09-15T03:00:25.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7上部署vnc服务器并实现远程桌面">
 <meta name="twitter:description" content="一、安装X Window System注：若已经安装GUI则可跳过 1、切换到root用户，执行 yum groupinstall &amp;quot;X Window System&amp;quot;2、执行 yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono">
@@ -232,39 +232,63 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
-<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面<br><code>`</code>shell script<br>yum groupinstall -y “Fonts”</p>
-<pre><code>4、设置默认启动图形界面
-```shell
-# unlink /etc/systemd/system/default.target
+<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
+<pre><code class="bash">yum groupinstall -y &quot;Fonts&quot;
+</code></pre>
+<p>4、设置默认启动图形界面</p>
+<pre><code class="shell"># unlink /etc/systemd/system/default.target
 # ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
-</code></pre><p>5、重启系统生效</p>
+</code></pre>
+<p>5、重启系统生效</p>
 <pre><code class="shell"># reboot
 </code></pre>
 <a id="more"></a>
-<h2 id="二、安装vnc服务"><a href="#二、安装vnc服务" class="headerlink" title="二、安装vnc服务"></a>二、安装vnc服务</h2><h3 id="1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><a href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件" class="headerlink" title="1、执行yum install tigervnc-server -y安装VNC服务器软件"></a>1、执行yum install tigervnc-server -y安装VNC服务器软件</h3><p><code>`</code>shell script</p>
-<h1 id="yum-install-tigervnc-server-y"><a href="#yum-install-tigervnc-server-y" class="headerlink" title="yum install tigervnc-server -y"></a>yum install tigervnc-server -y</h1><p>Loaded plugins: fastestmirror, langpacks<br>Loading mirror speeds from cached hostfile</p>
-<ul>
-<li>base: mirrors.aliyun.com</li>
-<li>extras: mirrors.aliyun.com</li>
-<li>updates: mirror.lzu.edu.cn<br>base                                                                                                                                                                                        | 3.6 kB  00:00:00<br>extras                                                                                                                                                                                      | 3.4 kB  00:00:00<br>updates                                                                                                                                                                                     | 3.4 kB  00:00:00<br>Resolving Dependencies<br>–&gt; Running transaction check<br>—&gt; Package tigervnc-server.x86_64 0:1.8.0-13.el7 will be installed<br>–&gt; Finished Dependency Resolution</li>
-</ul>
-<p>Dependencies Resolved</p>
-<p>===================================================================================================================================================================================================================</p>
-<h1 id="Package-Arch-Version-Repository-Size"><a href="#Package-Arch-Version-Repository-Size" class="headerlink" title=" Package                                                 Arch                                           Version                                                 Repository                                    Size"></a> Package                                                 Arch                                           Version                                                 Repository                                    Size</h1><p>Installing:<br> tigervnc-server                                         x86_64                                         1.8.0-13.el7                                            base                                         215 k</p>
-<h1 id="Transaction-Summary"><a href="#Transaction-Summary" class="headerlink" title="Transaction Summary"></a>Transaction Summary</h1><p>Install  1 Package</p>
-<p>Total download size: 215 k<br>Installed size: 509 k<br>Downloading packages:<br>tigervnc-server-1.8.0-13.el7.x86_64.rpm                                                                                                                                                     | 215 kB  00:00:00<br>Running transaction check<br>Running transaction test<br>Transaction test succeeded<br>Running transaction<br>  Installing : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1<br>  Verifying  : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 </p>
-<p>Installed:<br>  tigervnc-server.x86_64 0:1.8.0-13.el7                                                                                                                                                                            </p>
-<p>Complete!</p>
-<pre><code>
+<h2 id="二、安装vnc服务"><a href="#二、安装vnc服务" class="headerlink" title="二、安装vnc服务"></a>二、安装vnc服务</h2><h3 id="1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><a href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件" class="headerlink" title="1、执行yum install tigervnc-server -y安装VNC服务器软件"></a>1、执行yum install tigervnc-server -y安装VNC服务器软件</h3><pre><code class="shell"># yum install tigervnc-server -y
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirror.lzu.edu.cn
+base                                                                                                                                                                                        | 3.6 kB  00:00:00     
+extras                                                                                                                                                                                      | 3.4 kB  00:00:00     
+updates                                                                                                                                                                                     | 3.4 kB  00:00:00     
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package tigervnc-server.x86_64 0:1.8.0-13.el7 will be installed
+--&gt; Finished Dependency Resolution
 
+Dependencies Resolved
 
-### 2、配置VNC
+===================================================================================================================================================================================================================
+ Package                                                 Arch                                           Version                                                 Repository                                    Size
+===================================================================================================================================================================================================================
+Installing:
+ tigervnc-server                                         x86_64                                         1.8.0-13.el7                                            base                                         215 k
 
-在/etc/systemd/system目录里创建一个配置文件（可以将/lib/systemd/system/vncserver@.service拷贝一份配置文件范例过来）
+Transaction Summary
+===================================================================================================================================================================================================================
+Install  1 Package
 
-```shell script
-cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
-</code></pre><p>使用文本编辑器打开 <code>/etc/systemd/system/vncserver@:1.service</code> ，找到下面这几行，用自己的用户名替换掉 <code>&lt;USER&gt;</code></p>
+Total download size: 215 k
+Installed size: 509 k
+Downloading packages:
+tigervnc-server-1.8.0-13.el7.x86_64.rpm                                                                                                                                                     | 215 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 
+  Verifying  : tigervnc-server-1.8.0-13.el7.x86_64                                                                                                                                                             1/1 
+
+Installed:
+  tigervnc-server.x86_64 0:1.8.0-13.el7                                                                                                                                                                            
+
+Complete!
+</code></pre>
+<h3 id="2、配置VNC"><a href="#2、配置VNC" class="headerlink" title="2、配置VNC"></a>2、配置VNC</h3><p>在/etc/systemd/system目录里创建一个配置文件（可以将/lib/systemd/system/vncserver@.service拷贝一份配置文件范例过来）</p>
+<pre><code class="shell">cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
+</code></pre>
+<p>使用文本编辑器打开 <code>/etc/systemd/system/vncserver@:1.service</code> ，找到下面这几行，用自己的用户名替换掉 <code>&lt;USER&gt;</code></p>
 <pre><code>User=&lt;USER&gt;
 PIDFile=/home/&lt;USER&gt;/.vnc/%H%i.pid
 替换成
@@ -277,16 +301,25 @@ PIDFile=/home/root/.vnc/%H%i.pid
 <pre><code class="shell">vncpasswd
 </code></pre>
 <p>执行vncserver开启一个VNC窗口</p>
-<p><code>`</code>shell script</p>
-<h1 id="vncserver"><a href="#vncserver" class="headerlink" title="vncserver"></a>vncserver</h1><p>You will require a password to access your desktops.</p>
-<p>Password:<br>Verify:<br>Would you like to enter a view-only password (y/n)? n<br>A view-only password is not used<br>xauth:  file /root/.Xauthority does not exist</p>
-<p>New ‘server:1 (root)’ desktop is server:1</p>
-<p>Creating default startup script /root/.vnc/xstartup<br>Creating default config /root/.vnc/config<br>Starting applications specified in /root/.vnc/xstartup<br>Log file is /root/.vnc/server:1.log</p>
-<pre><code>
-开启远程端口
+<pre><code class="shell"># vncserver
 
-```shell script
-# vncserver :1
+You will require a password to access your desktops.
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+A view-only password is not used
+xauth:  file /root/.Xauthority does not exist
+
+New &#39;server:1 (root)&#39; desktop is server:1
+
+Creating default startup script /root/.vnc/xstartup
+Creating default config /root/.vnc/config
+Starting applications specified in /root/.vnc/xstartup
+Log file is /root/.vnc/server:1.log
+</code></pre>
+<p>开启远程端口</p>
+<pre><code class="shell"># vncserver :1
 A VNC server is already running as :1
 
 New &#39;server:2 (root)&#39; desktop is server:2
@@ -294,9 +327,12 @@ New &#39;server:2 (root)&#39; desktop is server:2
 Starting applications specified in /root/.vnc/xstartup
 Log file is /root/.vnc/server:2.log
 
-</code></pre><p>设置防火墙规则，允许访问VNC-SERVER的流量通过，并重启firewall服务使之生效</p>
-<p><code>`</code>shell script</p>
-<h1 id="firewall-cmd-–permanent-–add-service-vnc-server"><a href="#firewall-cmd-–permanent-–add-service-vnc-server" class="headerlink" title="firewall-cmd –permanent –add-service vnc-server"></a>firewall-cmd –permanent –add-service vnc-server</h1><h1 id="systemctl-restart-firewalld-service"><a href="#systemctl-restart-firewalld-service" class="headerlink" title="systemctl restart firewalld.service"></a>systemctl restart firewalld.service</h1><p><code>`</code></p>
+</code></pre>
+<p>设置防火墙规则，允许访问VNC-SERVER的流量通过，并重启firewall服务使之生效</p>
+<pre><code class="shell"># firewall-cmd --permanent --add-service vnc-server
+
+# systemctl restart firewalld.service
+</code></pre>
 <h1 id="三、客户端连接-VNC-server"><a href="#三、客户端连接-VNC-server" class="headerlink" title="三、客户端连接 VNC server"></a>三、客户端连接 VNC server</h1><p>客户端可以使用官方，直接去 <a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">官网</a> 下载，推荐使用 <code>MobaXterm</code>，集成常用 ssh，sftp 等功能。</p>
 <p>地址栏填写：<code>ip::5901</code>。例如：<code>172.20.8.31::5901</code></p>
 <p>我们开启的是<code>vncserver :1</code>，而 vncserver 默认从5900开始，所以我们使用 <code>5900+1 = 5901</code>，注意需要两个 <code>::</code></p>
@@ -466,7 +502,7 @@ Log file is /root/.vnc/server:2.log
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装X-Window-System"><span class="toc-number">1.</span> <span class="toc-text">一、安装X Window System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装vnc服务"><span class="toc-number">2.</span> <span class="toc-text">二、安装vnc服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><span class="toc-number">2.1.</span> <span class="toc-text">1、执行yum install tigervnc-server -y安装VNC服务器软件</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#yum-install-tigervnc-server-y"><span class="toc-number"></span> <span class="toc-text">yum install tigervnc-server -y</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Package-Arch-Version-Repository-Size"><span class="toc-number"></span> <span class="toc-text"> Package                                                 Arch                                           Version                                                 Repository                                    Size</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transaction-Summary"><span class="toc-number"></span> <span class="toc-text">Transaction Summary</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vncserver"><span class="toc-number"></span> <span class="toc-text">vncserver</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#firewall-cmd-–permanent-–add-service-vnc-server"><span class="toc-number"></span> <span class="toc-text">firewall-cmd –permanent –add-service vnc-server</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemctl-restart-firewalld-service"><span class="toc-number"></span> <span class="toc-text">systemctl restart firewalld.service</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、客户端连接-VNC-server"><span class="toc-number"></span> <span class="toc-text">三、客户端连接 VNC server</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装X-Window-System"><span class="toc-number">1.</span> <span class="toc-text">一、安装X Window System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装vnc服务"><span class="toc-number">2.</span> <span class="toc-text">二、安装vnc服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、执行yum-install-tigervnc-server-y安装VNC服务器软件"><span class="toc-number">2.1.</span> <span class="toc-text">1、执行yum install tigervnc-server -y安装VNC服务器软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置VNC"><span class="toc-number">2.2.</span> <span class="toc-text">2、配置VNC</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#三、客户端连接-VNC-server"><span class="toc-number"></span> <span class="toc-text">三、客户端连接 VNC server</span></a>
                     </li></div>
                 </span>
             </div>

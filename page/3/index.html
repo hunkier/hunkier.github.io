@@ -732,12 +732,14 @@ Port 33378      //下面添加这一行
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
-<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面<br><code>`</code>shell script<br>yum groupinstall -y “Fonts”</p>
-<pre><code>4、设置默认启动图形界面
-```shell
-# unlink /etc/systemd/system/default.target
+<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
+<pre><code class="bash">yum groupinstall -y &quot;Fonts&quot;
+</code></pre>
+<p>4、设置默认启动图形界面</p>
+<pre><code class="shell"># unlink /etc/systemd/system/default.target
 # ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
-</code></pre><p>5、重启系统生效</p>
+</code></pre>
+<p>5、重启系统生效</p>
 <pre><code class="shell"># reboot
 </code></pre>
         

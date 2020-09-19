@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-08-18T02:21:07.011Z</updated>
+  <updated>2020-09-19T02:04:56.861Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java并发-- AbstractQueuedSynchronizer 队列同步器</title>
+    <link href="https://hunkier.cn/Java-Concurrent-AbstractQueuedSynchronizer/"/>
+    <id>https://hunkier.cn/Java-Concurrent-AbstractQueuedSynchronizer/</id>
+    <published>2020-03-12T00:55:09.000Z</published>
+    <updated>2020-09-19T02:04:56.861Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;队列同步器AbstractQueuedSynchronizer（以下简称同步器），是用来构建锁或者其他同步组件的基础框架，它使用了一个int成员变量表示同步状态，通过内置的FIFO队列来完成资源获取线程的排队工作，并发包的作者（Doug Lea）期望它能够成为实现大部分同步需求的基础。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+      <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/categories/java/concurrent/AbstractQueuedSynchronizer/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
+    
+  </entry>
   
   <entry>
     <title>Java并发-- Lock 接口</title>
@@ -545,34 +575,6 @@
     
       <category term="bubble sort" scheme="https://hunkier.cn/categories/java/algorithm/bubble-sort/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>二分查找</title>
-    <link href="https://hunkier.cn/algorithm-bi-search/"/>
-    <id>https://hunkier.cn/algorithm-bi-search/</id>
-    <published>2019-11-21T00:13:21.000Z</published>
-    <updated>2019-11-21T00:16:30.281Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;又叫折半查找，要求待查找的序列有序。每次取中间位置与待查关键字比较，如果中间位置的值比待查关键字大，则在前半部分循环这个查找的过程，如果中间位置的值比待查关键字小，则在后半部分循环这个查找的过程。直到查找到了为止。否则序列中没有待查的关键字。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="biSearch" scheme="https://hunkier.cn/categories/java/algorithm/biSearch/"/>
-    
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
-    
-      <category term="biSearch" scheme="https://hunkier.cn/tags/biSearch/"/>
     
   </entry>
   

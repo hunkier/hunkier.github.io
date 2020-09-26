@@ -13,6 +13,6 @@
 
 4.coding：[https://hunkier.coding.me](https://hunkier.coding.me)
 
-### 感谢![JetBrains](/assets/img/jetbrains.svg) [JetBrains](https://www.jetbrains.com/?from=hunkier.github.io) 提供 [Licenses for Open Source Development](https://www.jetbrains.com/community/opensource/#support)
+### 感谢 [JetBrains](https://www.jetbrains.com/?from=hunkier.github.io) 提供 [Licenses for Open Source Development](https://www.jetbrains.com/community/opensource/#support)
 
-
+[![JetBrains](/assets/img/jetbrains.svg)](https://www.jetbrains.com/?from=hunkier.github.io)

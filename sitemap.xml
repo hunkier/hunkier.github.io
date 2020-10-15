@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/iptable-forward/</loc>
+    
+    <lastmod>2020-10-15T13:25:13.678Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Java-Concurrent-AbstractQueuedSynchronizer/</loc>
     
     <lastmod>2020-10-10T00:44:01.529Z</lastmod>

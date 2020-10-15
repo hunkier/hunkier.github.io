@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-10-10T00:44:01.529Z</updated>
+  <updated>2020-10-15T13:25:13.678Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iptables 转发流量</title>
+    <link href="https://hunkier.cn/iptable-forward/"/>
+    <id>https://hunkier.cn/iptable-forward/</id>
+    <published>2020-10-15T13:24:21.000Z</published>
+    <updated>2020-10-15T13:25:13.678Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Iptables 转发流量&lt;br&gt;通过iptables实现IP端口数据包转发服务配置&lt;/p&gt;
+&lt;p&gt;VPS会经常使用到端口转发，以解决不同网络之间互联互通问题。例如我们的laxA-QN机房对联通更好，laxB-C3机房对电信更好。&lt;br&gt;这时如果有一台VPS用作中转，这样就
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
+    
+      <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/categories/java/concurrent/AbstractQueuedSynchronizer/"/>
+    
+    
+      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+    
+      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
+    
+      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+      <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
+    
+  </entry>
   
   <entry>
     <title>Java并发-- AbstractQueuedSynchronizer 队列同步器</title>
@@ -551,30 +585,6 @@
       <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
     
       <category term="insert sort" scheme="https://hunkier.cn/tags/insert-sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>冒泡排序</title>
-    <link href="https://hunkier.cn/algorithm-bubble-sort/"/>
-    <id>https://hunkier.cn/algorithm-bubble-sort/</id>
-    <published>2019-11-22T00:20:15.832Z</published>
-    <updated>2019-11-22T00:22:25.323Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;(1) 比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。&lt;/p&gt;
-&lt;p&gt;(2) 这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就 ”沉“ 到数组di N-1 个位置。&lt;/p&gt;
-&lt;p&gt;(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="bubble sort" scheme="https://hunkier.cn/categories/java/algorithm/bubble-sort/"/>
-    
     
   </entry>
   

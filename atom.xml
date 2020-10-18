@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-10-15T13:25:13.678Z</updated>
+  <updated>2020-10-18T00:41:34.611Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,32 +21,23 @@
     <link href="https://hunkier.cn/iptable-forward/"/>
     <id>https://hunkier.cn/iptable-forward/</id>
     <published>2020-10-15T13:24:21.000Z</published>
-    <updated>2020-10-15T13:25:13.678Z</updated>
+    <updated>2020-10-18T00:41:34.611Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;Iptables 转发流量&lt;br&gt;通过iptables实现IP端口数据包转发服务配置&lt;/p&gt;
-&lt;p&gt;VPS会经常使用到端口转发，以解决不同网络之间互联互通问题。例如我们的laxA-QN机房对联通更好，laxB-C3机房对电信更好。&lt;br&gt;这时如果有一台VPS用作中转，这样就
-      
+      &lt;p&gt;Iptables 转发流量&lt;br&gt;通过iptables实现IP端口数据包转发服务配置&lt;/p&gt;
+&lt;p&gt;VPS会经常使用到端口转发，以解决不同网络之间互联互通问题。例如我们的laxA-QN机房对联通更好，laxB-C3机房对电信更好。&lt;br&gt;这时如果有一台VPS用作中转，这样就能达到稳定且快速的效果。&lt;br&gt;这里，我们介绍一个使用iptables来进行中转的教程。使用iptables的好处就是不用额外装东西，且同时支持tcp及udp。&lt;br&gt;关于CentOS 7系统：需要删除firewalld装回iptables.&lt;/p&gt;
     
     </summary>
     
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
+      <category term="CentOS" scheme="https://hunkier.cn/categories/CentOS/"/>
     
-      <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
-    
-      <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/categories/java/concurrent/AbstractQueuedSynchronizer/"/>
+      <category term="iptables" scheme="https://hunkier.cn/categories/CentOS/iptables/"/>
     
     
-      <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
+      <category term="CentOS" scheme="https://hunkier.cn/tags/CentOS/"/>
     
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-      <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
+      <category term="iptables" scheme="https://hunkier.cn/tags/iptables/"/>
     
   </entry>
   

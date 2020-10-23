@@ -212,30 +212,34 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-iptable-forward" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CentOS-7-install-RqbbitMQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/iptable-forward/">iptables 转发流量</a>
+      <a class="article-title" href="/CentOS-7-install-RqbbitMQ/">CentOS 7 安装 RabbitMQ</a>
     </h1>
   
 
         
-        <a href="/iptable-forward/" class="archive-article-date">
-  	<time datetime="2020-10-15T13:24:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+        <a href="/CentOS-7-install-RqbbitMQ/" class="archive-article-date">
+  	<time datetime="2020-10-23T08:03:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Iptables 转发流量<br>通过iptables实现IP端口数据包转发服务配置</p>
-<p>VPS会经常使用到端口转发，以解决不同网络之间互联互通问题。例如我们的laxA-QN机房对联通更好，laxB-C3机房对电信更好。<br>这时如果有一台VPS用作中转，这样就能达到稳定且快速的效果。<br>这里，我们介绍一个使用iptables来进行中转的教程。使用iptables的好处就是不用额外装东西，且同时支持tcp及udp。<br>关于CentOS 7系统：需要删除firewalld装回iptables.</p>
+        <h1 id="一、系统环境"><a href="#一、系统环境" class="headerlink" title="一、系统环境"></a>一、系统环境</h1><p>1、Centos7-64位</p>
+<p><strong>二、配置Erlang安装环境</strong></p>
+<p>1）<a href="https://packagecloud.io/rabbitmq/erlang/install#bash-rpm" target="_blank" rel="noopener">完成erlang的前置条件配置</a></p>
+<pre><code class="bash">curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
+</code></pre>
+<p>没有报错则一切正常</p>
         
-          <a class="article-more-a" href="/iptable-forward/#more">more >></a>
+          <a class="article-more-a" href="/CentOS-7-install-RqbbitMQ/#more">more >></a>
         
       
 
@@ -249,11 +253,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CentOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iptables</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RabbitMq</a>
         		</li>
       		
 		</ul>
@@ -265,11 +269,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CentOS//" class="article-tag-list-link color2">CentOS</a>
+        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CentOS/iptables//" class="article-tag-list-link color4">iptables</a>
+        			<a href="/categories/centos/RabbitMq//" class="article-tag-list-link color4">RabbitMq</a>
         		</li>
       		
 		</ul>
@@ -278,7 +282,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/iptable-forward/">展开全文 >></a>
+          <a class="article-more-a" href="/CentOS-7-install-RqbbitMQ/">展开全文 >></a>
         </p>
       
 
@@ -1646,6 +1650,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iptables</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
             
             <div class="clearfix"></div>

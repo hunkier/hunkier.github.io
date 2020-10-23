@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-10-18T00:41:34.611Z</updated>
+  <updated>2020-10-23T08:31:56.226Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -17,27 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iptables 转发流量</title>
-    <link href="https://hunkier.cn/iptable-forward/"/>
-    <id>https://hunkier.cn/iptable-forward/</id>
-    <published>2020-10-15T13:24:21.000Z</published>
-    <updated>2020-10-18T00:41:34.611Z</updated>
+    <title>CentOS 7 安装 RabbitMQ</title>
+    <link href="https://hunkier.cn/CentOS-7-install-RqbbitMQ/"/>
+    <id>https://hunkier.cn/CentOS-7-install-RqbbitMQ/</id>
+    <published>2020-10-23T08:03:50.000Z</published>
+    <updated>2020-10-23T08:31:56.226Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Iptables 转发流量&lt;br&gt;通过iptables实现IP端口数据包转发服务配置&lt;/p&gt;
-&lt;p&gt;VPS会经常使用到端口转发，以解决不同网络之间互联互通问题。例如我们的laxA-QN机房对联通更好，laxB-C3机房对电信更好。&lt;br&gt;这时如果有一台VPS用作中转，这样就能达到稳定且快速的效果。&lt;br&gt;这里，我们介绍一个使用iptables来进行中转的教程。使用iptables的好处就是不用额外装东西，且同时支持tcp及udp。&lt;br&gt;关于CentOS 7系统：需要删除firewalld装回iptables.&lt;/p&gt;
+      &lt;h1 id=&quot;一、系统环境&quot;&gt;&lt;a href=&quot;#一、系统环境&quot; class=&quot;headerlink&quot; title=&quot;一、系统环境&quot;&gt;&lt;/a&gt;一、系统环境&lt;/h1&gt;&lt;p&gt;1、Centos7-64位&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、配置Erlang安装环境&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1）&lt;a href=&quot;https://packagecloud.io/rabbitmq/erlang/install#bash-rpm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;完成erlang的前置条件配置&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;没有报错则一切正常&lt;/p&gt;
     
     </summary>
     
-      <category term="CentOS" scheme="https://hunkier.cn/categories/CentOS/"/>
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
     
-      <category term="iptables" scheme="https://hunkier.cn/categories/CentOS/iptables/"/>
+      <category term="RabbitMq" scheme="https://hunkier.cn/categories/centos/RabbitMq/"/>
     
     
-      <category term="CentOS" scheme="https://hunkier.cn/tags/CentOS/"/>
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
-      <category term="iptables" scheme="https://hunkier.cn/tags/iptables/"/>
+      <category term="RabbitMq" scheme="https://hunkier.cn/tags/RabbitMq/"/>
     
   </entry>
   

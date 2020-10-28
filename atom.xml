@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-10-28T02:07:17.535Z</updated>
+  <updated>2020-10-28T02:08:16.500Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/"/>
     <id>https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/</id>
     <published>2020-10-27T14:36:57.000Z</published>
-    <updated>2020-10-28T02:07:17.535Z</updated>
+    <updated>2020-10-28T02:08:16.500Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;  PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;  &lt;a href=&quot;https://github.com/PaddlePaddle/PaddleOCR&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PaddleOCR&lt;/a&gt;旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。&lt;/p&gt;
     
     </summary>
     

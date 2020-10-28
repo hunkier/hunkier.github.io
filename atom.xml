@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-10-23T08:31:56.226Z</updated>
+  <updated>2020-10-28T02:07:17.535Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 安装 PaddleOCR HubServing</title>
+    <link href="https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/"/>
+    <id>https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/</id>
+    <published>2020-10-27T14:36:57.000Z</published>
+    <updated>2020-10-28T02:07:17.535Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;  PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="PaddleOCR" scheme="https://hunkier.cn/categories/centos/PaddleOCR/"/>
+    
+      <category term="Python" scheme="https://hunkier.cn/categories/centos/PaddleOCR/Python/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="PaddleOCR" scheme="https://hunkier.cn/tags/PaddleOCR/"/>
+    
+      <category term="Python" scheme="https://hunkier.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 7 安装 RabbitMQ</title>
@@ -552,34 +580,6 @@
       <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
     
       <category term="quick sort" scheme="https://hunkier.cn/tags/quick-sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>插入排序</title>
-    <link href="https://hunkier.cn/algorithm-insert-sort/"/>
-    <id>https://hunkier.cn/algorithm-insert-sort/</id>
-    <published>2019-11-23T02:43:53.000Z</published>
-    <updated>2019-11-23T02:46:27.565Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应的位置并插入。插入排序非常类似于整扑克。在开始摸牌时，左手是空的，牌面朝下放在桌面。接着，一次从桌上磨起一张牌，并将它插入到左手一把牌中的正确位置上。为了找到这张牌的正确位置，要将它与手中已有的牌从左到右地进行比较。无论什么时候，左手中的牌都是排好序的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="insert sort" scheme="https://hunkier.cn/categories/java/algorithm/insert-sort/"/>
-    
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
-    
-      <category term="insert sort" scheme="https://hunkier.cn/tags/insert-sort/"/>
     
   </entry>
   

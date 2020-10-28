@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/</loc>
+    
+    <lastmod>2020-10-28T02:07:17.535Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-RqbbitMQ/</loc>
     
     <lastmod>2020-10-23T08:31:56.226Z</lastmod>

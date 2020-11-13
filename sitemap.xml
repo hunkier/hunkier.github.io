@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/AiStudio-basic-use-two/</loc>
+    
+    <lastmod>2020-11-13T05:14:46.966Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/AiStudio-basic-use-one/</loc>
+    
+    <lastmod>2020-11-13T05:13:03.456Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/</loc>
     
     <lastmod>2020-11-13T04:56:50.688Z</lastmod>

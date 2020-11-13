@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-11-13T04:56:50.688Z</updated>
+  <updated>2020-11-13T05:14:46.966Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI Studio基本操作(二) Debug篇</title>
+    <link href="https://hunkier.cn/AiStudio-basic-use-two/"/>
+    <id>https://hunkier.cn/AiStudio-basic-use-two/</id>
+    <published>2020-10-29T14:36:57.000Z</published>
+    <updated>2020-11-13T05:14:46.966Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行&lt;/p&gt;
+&lt;p&gt;Python自带一个调试器, 在Python 3.7之后甚至成为内置调试器. 这就是PDB. 这是使用Python的用户需要掌握的基本技能.&lt;/p&gt;
+&lt;p&gt;下面我们看一下基本演示(GIF循环播
+      
+    
+    </summary>
+    
+      <category term="Debug" scheme="https://hunkier.cn/categories/Debug/"/>
+    
+      <category term="AiStudio" scheme="https://hunkier.cn/categories/Debug/AiStudio/"/>
+    
+      <category term="Python" scheme="https://hunkier.cn/categories/Debug/AiStudio/Python/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="PaddleOCR" scheme="https://hunkier.cn/tags/PaddleOCR/"/>
+    
+      <category term="Python" scheme="https://hunkier.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI Studio基本操作(一) Notebook篇</title>
+    <link href="https://hunkier.cn/AiStudio-basic-use-one/"/>
+    <id>https://hunkier.cn/AiStudio-basic-use-one/</id>
+    <published>2020-10-28T14:36:57.000Z</published>
+    <updated>2020-11-13T05:13:03.456Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于AI Studio使用了Notebook为主要编辑器, 因此也引入了一些iPython操作. 特别示例说明&lt;/p&gt;
+&lt;p&gt;AI Studio的Notebook项目的基本操作.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;项目启停
+执行和调试
+多文件代码编辑
+上传Notebook
+No
+      
+    
+    </summary>
+    
+      <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
+    
+      <category term="PaddleOCR" scheme="https://hunkier.cn/categories/centos/PaddleOCR/"/>
+    
+      <category term="Python" scheme="https://hunkier.cn/categories/centos/PaddleOCR/Python/"/>
+    
+    
+      <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
+    
+      <category term="PaddleOCR" scheme="https://hunkier.cn/tags/PaddleOCR/"/>
+    
+      <category term="Python" scheme="https://hunkier.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 7 安装 PaddleOCR HubServing</title>
@@ -524,62 +594,6 @@
       <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
     
       <category term="merge sort" scheme="https://hunkier.cn/tags/merge-sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>希尔排序</title>
-    <link href="https://hunkier.cn/algorithm-shell-sort/"/>
-    <id>https://hunkier.cn/algorithm-shell-sort/</id>
-    <published>2019-11-27T00:23:42.000Z</published>
-    <updated>2020-06-07T00:57:29.519Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;基本思想：先将整个待排序的记录分割成若干子序列分别进行插入排序，待整个序列中的记录 ”基本有序“ 时，再对全体记录进行依次直接插入排序。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="shell sort" scheme="https://hunkier.cn/categories/java/algorithm/shell-sort/"/>
-    
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
-    
-      <category term="shell sort" scheme="https://hunkier.cn/tags/shell-sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速排序</title>
-    <link href="https://hunkier.cn/algorithm-quick-sort/"/>
-    <id>https://hunkier.cn/algorithm-quick-sort/</id>
-    <published>2019-11-26T00:21:07.000Z</published>
-    <updated>2019-11-27T00:24:40.829Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;快速排序的原理：选择一个关键值作为基准值。比较基准值小的都放在左边序列(一般是无序的), 比基准值大的都在右边(一般是无序的)。一般选择序列的第一个元素。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="quick sort" scheme="https://hunkier.cn/categories/java/algorithm/quick-sort/"/>
-    
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
-    
-      <category term="quick sort" scheme="https://hunkier.cn/tags/quick-sort/"/>
     
   </entry>
   

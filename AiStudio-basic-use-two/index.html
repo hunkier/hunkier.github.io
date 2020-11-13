@@ -14,7 +14,7 @@
 <!--  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">-->
   <link rel="stylesheet" href="/plugins/prettify/default.min.css">
   <link rel="dns-prefetch" href="https://hunkier.cn">
-  <title>Archives | hunkier</title>
+  <title>AI Studio基本操作(二) Debug篇 | hunkier</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -23,17 +23,28 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习笔记，开源代码，技术分享">
-<meta name="keywords" content="hexo yilia blog java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hunkier">
-<meta property="og:url" content="https://hunkier.cn/archives/page/2/index.html">
+  <meta name="description" content="本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行 Python自带一个调试器, 在Python 3.7之后甚至成为内置调试器. 这就是PDB. 这是使用Python的用户需要掌握的基本技能. 下面我们看一下基本演示(GIF循环播放):  对应代码如下, 大家可以运行起来试一下. In [1] import pdb  class MyScrapy:     urls = []">
+<meta name="keywords" content="centos,PaddleOCR,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Studio基本操作(二) Debug篇">
+<meta property="og:url" content="https://hunkier.cn/AiStudio-basic-use-two/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="学习笔记，开源代码，技术分享">
+<meta property="og:description" content="本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行 Python自带一个调试器, 在Python 3.7之后甚至成为内置调试器. 这就是PDB. 这是使用Python的用户需要掌握的基本技能. 下面我们看一下基本演示(GIF循环播放):  对应代码如下, 大家可以运行起来试一下. In [1] import pdb  class MyScrapy:     urls = []">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://ai.bdstatic.com/file/368702F4ACC64CF59009A3EE348F9765">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/adb216d833604fff86cec8d7aa68b5b512e3a6b10d204198a2b37903bd29dcb1">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/6e50855df42e478898e8d34f8048d01d9d3c9b3a17e04ed4a432ec032130907d">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/08a9fb56feb44f41999fd9b7e1f42b02df264b48ccc4495e8a12d11da5a6c2db">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/545d1fd617c148b0afb5325c06a34fa00f945b06e5f54ae0aab144eed28e2ac8">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/684676cd8e5346e0bc7ba08004a47d882d6f134ab8d147628245f497e84bc0f5">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/2e950c54bdf149d89ad0f802261246186e0c652eeefa4b34b5ef801c4d60936e">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/fa65a33c9d4e49bc9e53d385dc04312ebbb2015698744ea8b0659d6da516edb1">
+<meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/ca3a74f79ae14aad87baee29a613307d4ce917c5bbb5404fb90ec2ecbde7dd3a">
+<meta property="og:updated_time" content="2020-11-13T05:14:46.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hunkier">
-<meta name="twitter:description" content="学习笔记，开源代码，技术分享">
+<meta name="twitter:title" content="AI Studio基本操作(二) Debug篇">
+<meta name="twitter:description" content="本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行 Python自带一个调试器, 在Python 3.7之后甚至成为内置调试器. 这就是PDB. 这是使用Python的用户需要掌握的基本技能. 下面我们看一下基本演示(GIF循环播放):  对应代码如下, 大家可以运行起来试一下. In [1] import pdb  class MyScrapy:     urls = []">
+<meta name="twitter:image" content="https://ai.bdstatic.com/file/368702F4ACC64CF59009A3EE348F9765">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -210,101 +221,215 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AiStudio-basic-use-two" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Java-Concurrent-volatile/" class="archive-article-date">
-  	<time datetime="2020-02-02T06:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Java-Concurrent-volatile/">Java并发--volatile 的应用</a>
+    <h1 class="article-title" itemprop="name">
+      AI Studio基本操作(二) Debug篇
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">concurrent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">volatile</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/concurrent//" class="article-tag-list-link color1">concurrent</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CentOS-7-install-google-chrome/" class="archive-article-date">
-  	<time datetime="2020-01-20T13:18:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
+        
+        <a href="/AiStudio-basic-use-two/" class="archive-article-date">
+  	<time datetime="2020-10-29T14:36:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CentOS-7-install-google-chrome/">CentOS 7 安装 google chrome</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行</p>
+<p>Python自带一个调试器, 在Python 3.7之后甚至成为内置调试器. 这就是PDB. 这是使用Python的用户需要掌握的基本技能.</p>
+<p>下面我们看一下基本演示(GIF循环播放):</p>
+<p><img src="https://ai.bdstatic.com/file/368702F4ACC64CF59009A3EE348F9765" alt="img"></p>
+<p>对应代码如下, 大家可以运行起来试一下.</p>
+<p>In [1]</p>
+<pre><code class="python">import pdb
 
-        <div class="article-info info-on-right">
-          
+class MyScrapy:
+    urls = []
+
+    def start_url(self, urls):
+        pdb.set_trace()
+        for url in urls:
+            print(url)
+            self.urls.append(url)
+
+    def parse(self):
+        pdb.set_trace()
+        for url in self.urls:
+            result = self.request_something(url)
+
+    def request_something(self, url):
+        print(&#39;requesting...&#39;)
+        data = &#39;&#39;&#39;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;&#39;&#39;&#39;
+        return data
+
+
+scrapy= MyScrapy()
+scrapy.start_url([&quot;http://www.zone7.cn&quot;, &quot;http://www.zone7.cn&quot;, &quot;http://www.zone7.cn&quot;, &quot;http://www.zone7.cn&quot;, ])
+scrapy.parse()
+</code></pre>
+<p>下面是详细使用说明, 主要内容参考 <a href="https://howchoo.com/g/zgi2y2iwyze/debugging-your-python-code" target="_blank" rel="noopener">howchoo</a></p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/adb216d833604fff86cec8d7aa68b5b512e3a6b10d204198a2b37903bd29dcb1" alt="img"></p>
+<p>Python具有一个整洁的调试功能（像大多数其他语言一样），在这种情况下非常方便。本指南是快速教程，希望能让您的生活更轻松</p>
+<h1 id="1-一个混乱的程序"><a href="#1-一个混乱的程序" class="headerlink" title="1. 一个混乱的程序"></a>1. 一个混乱的程序</h1><p>为了本教程的目的，让我们考虑下面的简单程序。</p>
+<p>该程序采用两个命令行参数并执行加法和减法操作。</p>
+<p>（让我们假设用户输入有效值，因此我们不是错误处理）。</p>
+<p>In [2]</p>
+<pre><code class="python">import sys
+
+def add(num1=0, num2=0):
+    return int(num1) + int(num2)
+
+def sub(num1=0, num2=0):
+    return int(num1) - int(num2)
+
+def main():
+    #Assuming our inputs are valid numbers
+    num1 = 0
+    num2 = 2
+
+    addition = add(num1, num2)
+    print (addition)
+
+    subtraction = sub(num1, num2)
+    print (subtraction)
+
+if __name__ == &#39;__main__&#39;:
+    main()
+2
+-2
+</code></pre>
+<h1 id="2-pdb来了"><a href="#2-pdb来了" class="headerlink" title="2. pdb来了"></a>2. pdb来了</h1><p>Python附带了一个名为pdb的有用模块，它基本上是一个交互式源代码调试器。</p>
+<p>您需要以下几行来实际使用此模块</p>
+<pre><code>import pdb
+pdb.set_trace()
+</code></pre><p>In [3]</p>
+<pre><code class="python">import pdb
+import sys
+
+def add(num1=0, num2=0):
+    return int(num1) + int(num2)
+
+def sub(num1=0, num2=0):
+    return int(num1) - int(num2)
+
+def main():
+    #Assuming our inputs are valid numbers
+    num1 = 33
+    num2 = 44
+    pdb.set_trace() # &lt;-- 这个表示添加断点
+    addition = add(num1, num2)
+    print (addition)
+    subtraction = sub(num1, num2)
+    print (subtraction)
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre>
+<p>一旦开始运行, 会出现交互框</p>
+<p>如下图所示:</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/6e50855df42e478898e8d34f8048d01d9d3c9b3a17e04ed4a432ec032130907d" alt="img"></p>
+<p>在这个输入框里敲入命令, 即可开始调试.</p>
+<p>通常这些命令都是一个字母, 因此毋庸担心.</p>
+<h1 id="3-下一行-gt-n"><a href="#3-下一行-gt-n" class="headerlink" title="3. 下一行 - &gt; n"></a>3. 下一行 - &gt; n</h1><p>在输入框里, 输入n, 可转到下一行</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/08a9fb56feb44f41999fd9b7e1f42b02df264b48ccc4495e8a12d11da5a6c2db" alt="img"></p>
+<p>这将执行当前代码行，现在可以执行下一行。</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/545d1fd617c148b0afb5325c06a34fa00f945b06e5f54ae0aab144eed28e2ac8" alt="img"></p>
+<p>我们可以使用n逐行遍历整个程序，但这不会非常有用。</p>
+<p>另外你可能已经注意到pdb实际上没有进入我们的add函数。让我们看看更多选项，使调试更有趣。</p>
+<p>注意： 另一个很酷的功能是点击’返回键’执行你以前的命令（在这种情况下只是n）。</p>
+<h1 id="4-打印-gt-p"><a href="#4-打印-gt-p" class="headerlink" title="4. 打印 - &gt; p"></a>4. 打印 - &gt; p</h1><p>让我们再次开始调试我们的程序。（你可以点击c使pdb跳到最后或直到下一个断点。由于我们没有任何程序将完成执行）。</p>
+<p>现在，如果我们想知道num1或num2包含什么，我们可以在输入框里输入：</p>
+<pre><code>p num1
+</code></pre><p>如截图所示:</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/684676cd8e5346e0bc7ba08004a47d882d6f134ab8d147628245f497e84bc0f5" alt="img"></p>
+<p>回车</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/2e950c54bdf149d89ad0f802261246186e0c652eeefa4b34b5ef801c4d60936e" alt="img"></p>
+<p>这非常方便查看我们的变量实际存储的值。</p>
+<p>现在让我们进入添加功能。</p>
+<h1 id="5-动态添加断点-gt-b"><a href="#5-动态添加断点-gt-b" class="headerlink" title="5. 动态添加断点 - &gt; b"></a>5. 动态添加断点 - &gt; b</h1><p>我们在运行程序之前使用了pdb.set_trace（）来设置断点。</p>
+<p>我们通常希望在调试会话开始后在程序的特定位置添加断点。</p>
+<p>这个时候可以考虑输入b. 可以亲自试一下.</p>
+<h1 id="6-动态分配变量"><a href="#6-动态分配变量" class="headerlink" title="6. 动态分配变量"></a>6. 动态分配变量</h1><p>知道在调试会话期间可以分配变量以帮助调试也很有用。考虑：</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/fa65a33c9d4e49bc9e53d385dc04312ebbb2015698744ea8b0659d6da516edb1" alt="img"></p>
+<p>输入后运行</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/ca3a74f79ae14aad87baee29a613307d4ce917c5bbb5404fb90ec2ecbde7dd3a" alt="img"></p>
+<h1 id="7-退出-gt-q"><a href="#7-退出-gt-q" class="headerlink" title="7. 退出 - &gt; q"></a>7. 退出 - &gt; q</h1><p>最后，如果你想在任何时候退出，你可以使用q。正在执行的程序被中止。</p>
+<h1 id="8-其他"><a href="#8-其他" class="headerlink" title="8. 其他"></a>8. 其他</h1><p>还有一种更好的方式, 叫ipdb. 用法和PDB很相似. 不过返回的输出是彩色的.</p>
+<ul>
+<li>ENTER (重复上次命令)</li>
+<li>c (继续)</li>
+<li>l (查找当前位于哪里)</li>
+<li>s (进入子程序,如果当前有一个函数调用，那么 s 会进入被调用的函数体)</li>
+<li>n(ext) 让程序运行下一行，如果当前语句有一个函数调用，用 n 是不会进入被调用的函数体中的</li>
+<li>r (运行直到子程序结束)</li>
+<li>!<python 命令></python></li>
+<li>h (帮助)</li>
+<li>a(rgs) 打印当前函数的参数</li>
+<li>j(ump) 让程序跳转到指定的行数</li>
+<li>l(ist) 可以列出当前将要运行的代码块</li>
+<li>p(rint) 最有用的命令之一，打印某个变量</li>
+<li>q(uit) 退出调试</li>
+<li>r(eturn) 继续执行，直到函数体返回</li>
+</ul>
+<p>In [14]</p>
+<pre><code class="bash">#如发现环境中未安装, 可以运行下方代码来安装ipdb
+
+!pip install ipdb -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<p>原文地址：<a href="https://aistudio.baidu.com/aistudio/projectdetail/69987" target="_blank" rel="noopener">https://aistudio.baidu.com/aistudio/projectdetail/69987</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -314,558 +439,167 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chrome</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PaddleOCR</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/centos/chrome//" class="article-tag-list-link color2">chrome</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Design-patter-7-principle/" class="archive-article-date">
-  	<time datetime="2020-01-10T13:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Design-patter-7-principle/">设计模式七大原则</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">七大原则</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计模式//" class="article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计模式/七大原则//" class="article-tag-list-link color5">七大原则</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Debug//" class="article-tag-list-link color1">Debug</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Debug/AiStudio//" class="article-tag-list-link color4">AiStudio</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Debug/AiStudio/Python//" class="article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/deploy-blog-with-https/" class="archive-article-date">
-  	<time datetime="2019-12-15T08:48:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/deploy-blog-with-https/">使用 https 协议部署博客</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caddy</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hunkier.cn/AiStudio-basic-use-two/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/https//" class="article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/https/blog//" class="article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/https/blog/caddy//" class="article-tag-list-link color1">caddy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CentOS-chanage-date-zone/" class="archive-article-date">
-  	<time datetime="2019-12-14T02:09:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/AiStudio-basic-use-one/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AI Studio基本操作(一) Notebook篇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CentOS-chanage-date-zone/">CentOS 修改时区、设置时间</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">date</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">timezone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/date//" class="article-tag-list-link color5">date</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/date/timezone//" class="article-tag-list-link color4">timezone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-一个混乱的程序"><span class="toc-number">1.</span> <span class="toc-text">1. 一个混乱的程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-pdb来了"><span class="toc-number">2.</span> <span class="toc-text">2. pdb来了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-下一行-gt-n"><span class="toc-number">3.</span> <span class="toc-text">3. 下一行 - &gt; n</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-打印-gt-p"><span class="toc-number">4.</span> <span class="toc-text">4. 打印 - &gt; p</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-动态添加断点-gt-b"><span class="toc-number">5.</span> <span class="toc-text">5. 动态添加断点 - &gt; b</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-动态分配变量"><span class="toc-number">6.</span> <span class="toc-text">6. 动态分配变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-退出-gt-q"><span class="toc-number">7.</span> <span class="toc-text">7. 退出 - &gt; q</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-其他"><span class="toc-number">8.</span> <span class="toc-text">8. 其他</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CentOS-install-mamager-cockpit/" class="archive-article-date">
-  	<time datetime="2019-12-13T11:51:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CentOS-install-mamager-cockpit/">CentOS 安装 cockpit 管理系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cockpit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/cockpit//" class="article-tag-list-link color3">cockpit</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/algorithm-radix-sort/" class="archive-article-date">
-  	<time datetime="2019-12-04T00:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/algorithm-radix-sort/">计数排序</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">radix sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/algorithm/radix-sort//" class="article-tag-list-link color1">radix sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/algorithm-bucket-sort/" class="archive-article-date">
-  	<time datetime="2019-12-03T00:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/algorithm-bucket-sort/">桶排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">bucket sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/algorithm/bucket-sort//" class="article-tag-list-link color2">bucket sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Percona-XtraBackup-MySQL5-7/" class="archive-article-date">
-  	<time datetime="2019-11-29T01:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Percona-XtraBackup-MySQL5-7/">CentOS 7 下使用 Percona XtraBackup 备份和恢复 MySQL5.7</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Percona XtraBackup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos//" class="article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/mysql//" class="article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/centos/mysql/Percona-XtraBackup//" class="article-tag-list-link color4">Percona XtraBackup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/algorithm-merge-sort/" class="archive-article-date">
-  	<time datetime="2019-11-28T00:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/algorithm-merge-sort/">归并排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">merge sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/algorithm//" class="article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/algorithm/merge-sort//" class="article-tag-list-link color1">merge sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
   
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'hunkier'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
+
+  
+
+  
+
 
 
           </div>
@@ -896,8 +630,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

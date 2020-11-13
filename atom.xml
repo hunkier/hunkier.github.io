@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-11-13T05:14:46.966Z</updated>
+  <updated>2020-11-13T05:18:25.808Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="https://hunkier.cn/AiStudio-basic-use-debug/"/>
     <id>https://hunkier.cn/AiStudio-basic-use-debug/</id>
     <published>2020-10-29T14:36:57.000Z</published>
-    <updated>2020-11-13T05:14:46.966Z</updated>
+    <updated>2020-11-13T05:18:25.808Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行&lt;/p&gt;
+      &lt;p&gt;本文主要介绍如何使用PDB来进行代码调试, 可以打印变量和单步执行&lt;/p&gt;
 &lt;p&gt;Python自带一个调试器, 在Python 3.7之后甚至成为内置调试器. 这就是PDB. 这是使用Python的用户需要掌握的基本技能.&lt;/p&gt;
-&lt;p&gt;下面我们看一下基本演示(GIF循环播
-      
+&lt;p&gt;下面我们看一下基本演示(GIF循环播放):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ai.bdstatic.com/file/368702F4ACC64CF59009A3EE348F9765&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -54,20 +52,35 @@
     <link href="https://hunkier.cn/AiStudio-basic-use-notebook/"/>
     <id>https://hunkier.cn/AiStudio-basic-use-notebook/</id>
     <published>2020-10-28T14:36:57.000Z</published>
-    <updated>2020-11-13T05:13:03.456Z</updated>
+    <updated>2020-11-13T05:18:07.796Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;由于AI Studio使用了Notebook为主要编辑器, 因此也引入了一些iPython操作. 特别示例说明&lt;/p&gt;
+      &lt;p&gt;由于AI Studio使用了Notebook为主要编辑器, 因此也引入了一些iPython操作. 特别示例说明&lt;/p&gt;
 &lt;p&gt;AI Studio的Notebook项目的基本操作.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;项目启停
 执行和调试
 多文件代码编辑
 上传Notebook
-No
-      
+Notebook快捷键
+暗黑模式
+字号调节
+Notebook中使用Shell命令
+    使用pip来安装自己需要的package (但不支持apt-get)
+    查看当前环境中安装的package
+    持久化安装
+        使用git命令来同步代码 (暂时需要Paddle 1.4.1以上)
+    文件下载
+Python代码执行与调试
+变量监控
+Magic命令
+     %env：设置环境变量
+     %run: 运行python代码
+     %%writefile and %pycat: 导出cell内容/显示外部脚本的内容
+关于快速查看某个对象/方法/接口的用法
+关于变量监控
+关于调试代码
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2020-11-13T05:18:25.808Z</updated>
+  <updated>2020-11-16T01:20:44.360Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 基础语法</title>
+    <link href="https://hunkier.cn/Python-basic-grammar/"/>
+    <id>https://hunkier.cn/Python-basic-grammar/</id>
+    <published>2020-11-01T14:36:57.000Z</published>
+    <updated>2020-11-16T01:20:44.360Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;python基础语法&quot;&gt;&lt;a href=&quot;#python基础语法&quot; class=&quot;headerlink&quot; title=&quot;python基础语法&quot;&gt;&lt;/a&gt;python基础语法&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;#1.基础操作
+age = 20          # 声明一个变量age 用来存储一个数字 20
+1+1                # 基础数学加法
+print(&amp;#39;Hello World!&amp;#39;)   # 打印Hello World!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;#2.条件判断if
+if 1 == 2: # 如果 if 跟随的条件为 假 那么不执行属于if 的语句,然后寻找 else
+    print(&amp;quot;假的&amp;quot;)
+else: # 寻找到 else 之后 执行属于else中的语句
+    print(&amp;quot;1==2是假的&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://hunkier.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://hunkier.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>AI Studio基本操作(二) Debug篇</title>
@@ -579,34 +609,6 @@ Magic命令
       <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
     
       <category term="Percona XtraBackup" scheme="https://hunkier.cn/tags/Percona-XtraBackup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>归并排序</title>
-    <link href="https://hunkier.cn/algorithm-merge-sort/"/>
-    <id>https://hunkier.cn/algorithm-merge-sort/</id>
-    <published>2019-11-28T00:50:08.000Z</published>
-    <updated>2019-11-28T01:16:12.515Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;归并 （Merge） 排序法是将两个 （或两个以上）有序表合并成一个新的有序表，即把待排序序列分为多干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="merge sort" scheme="https://hunkier.cn/categories/java/algorithm/merge-sort/"/>
-    
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
-    
-      <category term="merge sort" scheme="https://hunkier.cn/tags/merge-sort/"/>
     
   </entry>
   

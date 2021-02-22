@@ -56,6 +56,33 @@
   </entry>
   
   <entry>
+    <title>Springboot启动扩展点超详细总结，再也不怕面试官问了</title>
+    <link href="https://hunkier.cn/Spring-Boot-Extend/"/>
+    <id>https://hunkier.cn/Spring-Boot-Extend/</id>
+    <published>2020-12-02T14:25:28.000Z</published>
+    <updated>2021-02-22T13:23:27.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-背景&quot;&gt;&lt;a href=&quot;#1-背景&quot; class=&quot;headerlink&quot; title=&quot;1.背景&quot;&gt;&lt;/a&gt;1.背景&lt;/h2&gt;&lt;p&gt;Spring的核心思想就是容器，当容器refresh的时候，外部看上去风平浪静，其实内部则是一片惊涛骇浪，汪洋一片。Springboot更是封装了Spring，遵循约定大于配置，加上自动装配的机制。很多时候我们只要引用了一个依赖，几乎是零配置就能完成一个功能的装配。&lt;/p&gt;
+&lt;p&gt;我非常喜欢这种自动装配的机制，所以在自己开发中间件和公共依赖工具的时候也会用到这个特性。让使用者以最小的代价接入。想要把自动装配玩的转，就必须要了解spring对于bean的构造生命周期以及各个扩展接口。当然了解了bean的各个生命周期也能促进我们加深对spring的理解。业务代码也能合理利用这些扩展点写出更加漂亮的代码。&lt;/p&gt;
+&lt;p&gt;在网上搜索spring扩展点，发现很少有博文说的很全的，只有一些常用的扩展点的说明。&lt;/p&gt;
+&lt;p&gt;所以在这篇文章里，我总结了几乎Spring &amp;amp; Springboot所有的扩展接口，以及各个扩展点的使用场景。并且整理出了一个bean在spring内部从被加载到最后初始化完成所有可扩展点的顺序调用图。从而我们也能窥探到bean是如何一步步加载到spring容器中的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="https://hunkier.cn/categories/SpringBoot/"/>
+    
+      <category term="Extend" scheme="https://hunkier.cn/categories/SpringBoot/Extend/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hunkier.cn/tags/SpringBoot/"/>
+    
+      <category term="Extend" scheme="https://hunkier.cn/tags/Extend/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 进阶练习</title>
     <link href="https://hunkier.cn/Python-advance-practive/"/>
     <id>https://hunkier.cn/Python-advance-practive/</id>
@@ -592,34 +619,6 @@ Magic命令
       <category term="Linux" scheme="https://hunkier.cn/tags/Linux/"/>
     
       <category term="cockpit" scheme="https://hunkier.cn/tags/cockpit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计数排序</title>
-    <link href="https://hunkier.cn/algorithm-radix-sort/"/>
-    <id>https://hunkier.cn/algorithm-radix-sort/</id>
-    <published>2019-12-04T00:26:30.000Z</published>
-    <updated>2019-12-04T00:44:22.464Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将所有待比较数值 （正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/categories/java/algorithm/"/>
-    
-      <category term="radix sort" scheme="https://hunkier.cn/categories/java/algorithm/radix-sort/"/>
-    
-    
-      <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-      <category term="algorithm" scheme="https://hunkier.cn/tags/algorithm/"/>
-    
-      <category term="radix sort" scheme="https://hunkier.cn/tags/radix-sort/"/>
     
   </entry>
   

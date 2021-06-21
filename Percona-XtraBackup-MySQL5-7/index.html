@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="一、概述XtraBackup 是 Percona 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-24T02:03:04.308Z">
+<meta property="og:updated_time" content="2021-06-21T02:12:09.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 下使用 Percona XtraBackup 备份和恢复 MySQL5.7">
 <meta name="twitter:description" content="一、概述XtraBackup 是 Percona 开源的免费数据库热备份软件，它能对InnoDB数据库和XtraDB存储引擎的数据库非阻塞地备份（对于MyISAM的备份同样需要加表锁）；mysqldump备份方式是采用的逻辑备份，其最大的缺陷是备份和恢复速度较慢，如果数据库大于50G，mysqldump备份就不太适合。">
@@ -421,7 +421,7 @@ drwxr-x---. 5 root root 4.0K Nov 28 22:08 2019-11-28_22-02-20
 innobackupex --apply-log /data1/databases/backup/xfull/2019-11-28_22-02-20/
  rm /data1/databases/mysql/data -rf
 innobackupex --defaults-file=/etc/my.cnf --copy-back --rsync /data1/databases/backup/xfull/2019-11-28_22-02-20/
-chown -R mysql.mysql /data1/databases/mysql/
+chown -R mysql:mysql /data1/databases/mysql/
 service mysql  start
 </code></pre>
 <h2 id="增量备份与恢复"><a href="#增量备份与恢复" class="headerlink" title="增量备份与恢复"></a>增量备份与恢复</h2><p>innobackupex增量备份过程中的”增量”处理，其实主要是相对innodb而言，对myisam和其他存储引擎而言，它仍然是全拷贝(全备份)<br>增量备份从哪增量？<br>基于上一次的备份进行增量。<br>redo默认情况下是一组两个文件，并且有固定大小。其使用的文件是一种轮询使用方式，他不是永久的，文件随时可能被覆盖。</p>
@@ -445,7 +445,7 @@ innobackupex --apply-log /data1/databases/backup/xfull/2019-11-28_22-02-20/
 </code></pre>
 <p>3、合并完成进行恢复<br>使用innobackupex命令进行恢复(推荐)</p>
 <pre><code class="shell">innobackupex --defaults-file=/etc/my.cnf --copy-back --rsync /data1/databases/backup/xfull/2019-11-28_22-02-20/
-chown -R mysql.mysql /data1/databases/mysql/
+chown -R mysql:mysql /data1/databases/mysql/
 </code></pre>
 <p><strong>数据库备份策略</strong><br>每周的周日进行一次全备；周一到周六每天做上一天增量，每周轮询一次。<br>备份方案： xtrabackup全备+增量</p>
 <p>备份策略（crontab）：</p>
@@ -612,7 +612,7 @@ rm -rf *
 <p>恢复数据</p>
 <p>1．将全量备份的数据恢复到数据目录下</p>
 <pre><code class="shell">innobackupex --defaults-file=/etc/my.cnf --copy-back --rsync /backup/xbackup/full/
-chown -R mysql.mysql /application/mysql/data/
+chown -R mysql:mysql /application/mysql/data/
 /etc/init.d/mysqld start
 </code></pre>
 <p>2.恢复binlog记录</p>

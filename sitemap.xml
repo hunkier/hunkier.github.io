@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Hackintosh/</loc>
+    
+    <lastmod>2021-07-02T02:14:16.224Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Percona-XtraBackup-MySQL5-7/</loc>
     
     <lastmod>2021-06-21T02:12:09.378Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/</loc>
     
     <lastmod>2020-11-13T04:56:50.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Hackintosh/</loc>
-    
-    <lastmod>2020-11-02T04:50:43.700Z</lastmod>
     
   </url>
   

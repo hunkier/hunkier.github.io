@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/Mysql-45/</loc>
+    
+    <lastmod>2021-09-12T13:41:44.199Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/Mysql-Master-Slave/</loc>
+    
+    <lastmod>2021-09-12T13:34:40.505Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
     
     <lastmod>2021-08-31T09:16:44.351Z</lastmod>
@@ -313,13 +327,6 @@
     <loc>https://hunkier.cn/Common-shell-script/</loc>
     
     <lastmod>2019-05-21T13:45:17.144Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/Mysql-Master-Slave/</loc>
-    
-    <lastmod>2019-01-14T07:04:10.054Z</lastmod>
     
   </url>
   

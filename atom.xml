@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2021-02-17T02:14:50.373Z</updated>
+  <updated>2021-09-12T13:41:44.199Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL实战45讲笔记</title>
+    <link href="https://hunkier.cn/Mysql-45/"/>
+    <id>https://hunkier.cn/Mysql-45/</id>
+    <published>2021-09-12T06:31:13.000Z</published>
+    <updated>2021-09-12T13:41:44.199Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;极客时间《MySQL实战45讲笔记》学习笔记&lt;/p&gt;
+&lt;h1 id=&quot;基础篇&quot;&gt;&lt;a href=&quot;#基础篇&quot; class=&quot;headerlink&quot; title=&quot;基础篇&quot;&gt;&lt;/a&gt;基础篇&lt;/h1&gt;&lt;h2 id=&quot;大体来说，MySQL-可以分为-Server-层和存储引擎层两部分。&quot;&gt;&lt;a href=&quot;#大体来说，MySQL-可以分为-Server-层和存储引擎层两部分。&quot; class=&quot;headerlink&quot; title=&quot;大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。&quot;&gt;&lt;/a&gt;大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。&lt;/h2&gt;&lt;p&gt;Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。&lt;/p&gt;
+&lt;p&gt;而存储引擎层负责数据的存储和提取。其架构模式是插件式的，支持 InnoDB、MyISAM、Memory 等多个存储引擎。现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5.5 版本开始成为了默认存储引擎。&lt;/p&gt;
+&lt;h2 id=&quot;WAL-的全称是-Write-Ahead-Logging，它的关键点就是先写日志，再写磁盘&quot;&gt;&lt;a href=&quot;#WAL-的全称是-Write-Ahead-Logging，它的关键点就是先写日志，再写磁盘&quot; class=&quot;headerlink&quot; title=&quot;WAL 的全称是 Write-Ahead Logging，它的关键点就是先写日志，再写磁盘&quot;&gt;&lt;/a&gt;WAL 的全称是 Write-Ahead Logging，它的关键点就是先写日志，再写磁盘&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://hunkier.cn/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://hunkier.cn/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac的最大连接数限制和端口的相关参数的设置</title>
@@ -589,36 +612,6 @@ Magic命令
       <category term="date" scheme="https://hunkier.cn/tags/date/"/>
     
       <category term="timezone" scheme="https://hunkier.cn/tags/timezone/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 安装 cockpit 管理系统</title>
-    <link href="https://hunkier.cn/CentOS-install-mamager-cockpit/"/>
-    <id>https://hunkier.cn/CentOS-install-mamager-cockpit/</id>
-    <published>2019-12-13T11:51:03.000Z</published>
-    <updated>2020-01-14T02:15:00.476Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &lt;a href=&quot;https://cockpit-project.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Cockpit&lt;/a&gt; 是一个基于 Web 界面的应用，它提供了对系统的图形化管理。&lt;/p&gt;
-&lt;p&gt;拥有如下功能：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;监控系统活动（CPU、内存、磁盘 IO 和网络流量） —— 系统&lt;/li&gt;
-&lt;li&gt;查看系统日志条目 —— 日志&lt;/li&gt;
-&lt;li&gt;查看磁盘分区的容量 —— 存储&lt;/li&gt;
-&lt;li&gt;查看网络活动（发送和接收） —— 网络
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://hunkier.cn/categories/Linux/"/>
-    
-      <category term="cockpit" scheme="https://hunkier.cn/categories/Linux/cockpit/"/>
-    
-    
-      <category term="Linux" scheme="https://hunkier.cn/tags/Linux/"/>
-    
-      <category term="cockpit" scheme="https://hunkier.cn/tags/cockpit/"/>
     
   </entry>
   

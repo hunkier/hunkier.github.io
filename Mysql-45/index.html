@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-09-12T15:37:03.561Z">
+<meta property="og:updated_time" content="2021-09-12T15:39:37.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL实战45讲笔记">
 <meta name="twitter:description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
@@ -330,7 +330,7 @@ var _hmt = _hmt || [];
 <li>读锁之间不互斥，因此你可以有多个线程同时对一张表增删改查。</li>
 <li>读写锁之间、写锁之间是互斥的，用来保证变更表结构操作的安全性。因此，如果有两个线程要同时给一个表加字段，其中一个要等另一个执行完才能开始执行。</li>
 </ul>
-<p>虽然 MDL 锁是系统默认会加的，但却是你不能忽略的一个机制。比如下面这个例子，我经常看到有人掉到这个坑里：给一个小表加个字段，导致整个库挂了</p>
+<p>虽然 MDL 锁是系统默认会加的，但却是你不能忽略的一个机制。比如下面这个例子，我经常看到有人掉到这个坑里：给一个小表加个字段，导致整个库挂了。</p>
 
       
 

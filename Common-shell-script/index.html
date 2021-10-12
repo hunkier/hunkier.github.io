@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!--prettify代码高亮主题css引入-->
   <link href="/plugins/prettify/github-v2.min.css" rel="stylesheet">
   <!--<link href="/plugins/prettify/prettify.css" rel="stylesheet">-->
@@ -24,17 +24,18 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
-<meta name="keywords" content="linux,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用的Shell脚本和Linux命令">
 <meta property="og:url" content="https://hunkier.cn/Common-shell-script/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T13:45:17.144Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-07-10T05:11:00.000Z">
+<meta property="article:modified_time" content="2019-05-21T13:45:17.144Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用的Shell脚本和Linux命令">
-<meta name="twitter:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -75,8 +76,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -89,10 +90,8 @@ var _hmt = _hmt || [];
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">hunkier</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -157,10 +156,8 @@ var _hmt = _hmt || [];
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">hunkier</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -783,7 +780,7 @@ fi
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip-压缩和解压缩"><span class="toc-number">1.</span> <span class="toc-text">zip 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tar-压缩和解压缩"><span class="toc-number">2.</span> <span class="toc-text">tar 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail查看和过滤日志文件"><span class="toc-number">3.</span> <span class="toc-text">tail查看和过滤日志文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#netstat-查看监听端口的进程"><span class="toc-number">4.</span> <span class="toc-text">netstat 查看监听端口的进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#kill停止指定进程"><span class="toc-number">5.</span> <span class="toc-text">kill停止指定进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed替换文件内容"><span class="toc-number">6.</span> <span class="toc-text">sed替换文件内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shell-判断文件夹或文件是否存在"><span class="toc-number">7.</span> <span class="toc-text">shell 判断文件夹或文件是否存在</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#判断某个变量是否包含字符串-变量的方法"><span class="toc-number">8.</span> <span class="toc-text">判断某个变量是否包含字符串/变量的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#crontab定时任务"><span class="toc-number">9.</span> <span class="toc-text">crontab定时任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#databak-sh内容"><span class="toc-number">10.</span> <span class="toc-text">databak.sh内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控Tomcat是否正常启动"><span class="toc-number">11.</span> <span class="toc-text">监控Tomcat是否正常启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控netty服务是否正常开启端口"><span class="toc-number">12.</span> <span class="toc-text">监控netty服务是否正常开启端口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#部署war包到tomcat"><span class="toc-number">13.</span> <span class="toc-text">部署war包到tomcat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#部署springboot的jar包应用"><span class="toc-number">14.</span> <span class="toc-text">部署springboot的jar包应用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip-%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.</span> <span class="toc-text">zip 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tar-%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="toc-number">2.</span> <span class="toc-text">tar 压缩和解压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail%E6%9F%A5%E7%9C%8B%E5%92%8C%E8%BF%87%E6%BB%A4%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">tail查看和过滤日志文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#netstat-%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">netstat 查看监听端口的进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#kill%E5%81%9C%E6%AD%A2%E6%8C%87%E5%AE%9A%E8%BF%9B%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">kill停止指定进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-number">6.</span> <span class="toc-text">sed替换文件内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shell-%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E6%88%96%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-number">7.</span> <span class="toc-text">shell 判断文件夹或文件是否存在</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">判断某个变量是否包含字符串&#x2F;变量的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">9.</span> <span class="toc-text">crontab定时任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#databak-sh%E5%86%85%E5%AE%B9"><span class="toc-number">10.</span> <span class="toc-text">databak.sh内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7Tomcat%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8%E5%90%AF%E5%8A%A8"><span class="toc-number">11.</span> <span class="toc-text">监控Tomcat是否正常启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7netty%E6%9C%8D%E5%8A%A1%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8%E5%BC%80%E5%90%AF%E7%AB%AF%E5%8F%A3"><span class="toc-number">12.</span> <span class="toc-text">监控netty服务是否正常开启端口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2war%E5%8C%85%E5%88%B0tomcat"><span class="toc-number">13.</span> <span class="toc-text">部署war包到tomcat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2springboot%E7%9A%84jar%E5%8C%85%E5%BA%94%E7%94%A8"><span class="toc-number">14.</span> <span class="toc-text">部署springboot的jar包应用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -814,7 +811,7 @@ fi
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -945,6 +942,18 @@ fi
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -954,10 +963,6 @@ fi
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,7 +986,11 @@ fi
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -989,11 +998,15 @@ fi
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1002,10 +1015,6 @@ fi
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1033,15 +1042,15 @@ fi
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1077,15 +1086,7 @@ fi
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1101,27 +1102,31 @@ fi
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Port</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,11 +1142,31 @@ fi
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,19 +1182,19 @@ fi
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1193,6 +1218,10 @@ fi
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kibana</a>
               </li>
              
@@ -1202,10 +1231,6 @@ fi
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,54 +1248,14 @@ fi
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Port</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content
-            --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
        <!--     <pre  style="font-size: 12px;">
                 jsonContent:

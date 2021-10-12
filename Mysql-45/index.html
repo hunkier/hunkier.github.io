@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!--prettify代码高亮主题css引入-->
   <link href="/plugins/prettify/github-v2.min.css" rel="stylesheet">
   <!--<link href="/plugins/prettify/prettify.css" rel="stylesheet">-->
@@ -24,17 +24,17 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
-<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL实战45讲笔记">
 <meta property="og:url" content="https://hunkier.cn/Mysql-45/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-09-12T15:39:37.279Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-09-12T06:31:13.000Z">
+<meta property="article:modified_time" content="2021-09-12T15:39:37.279Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL实战45讲笔记">
-<meta name="twitter:description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -75,8 +75,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -89,10 +89,8 @@ var _hmt = _hmt || [];
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">hunkier</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -157,10 +155,8 @@ var _hmt = _hmt || [];
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">hunkier</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -485,7 +481,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础篇"><span class="toc-number">1.</span> <span class="toc-text">基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#大体来说，MySQL-可以分为-Server-层和存储引擎层两部分。"><span class="toc-number">1.1.</span> <span class="toc-text">大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WAL-的全称是-Write-Ahead-Logging，它的关键点就是先写日志，再写磁盘"><span class="toc-number">1.2.</span> <span class="toc-text">WAL 的全称是 Write-Ahead Logging，它的关键点就是先写日志，再写磁盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重要的日志模块：binlog"><span class="toc-number">1.3.</span> <span class="toc-text">重要的日志模块：binlog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隔离性与隔离级别"><span class="toc-number">1.4.</span> <span class="toc-text">隔离性与隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的启动方式"><span class="toc-number">1.5.</span> <span class="toc-text">事务的启动方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB-的索引模型"><span class="toc-number">1.6.</span> <span class="toc-text">InnoDB 的索引模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引维护"><span class="toc-number">1.7.</span> <span class="toc-text">索引维护</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何避免长事务对业务的影响？"><span class="toc-number">1.7.1.</span> <span class="toc-text">如何避免长事务对业务的影响？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先，从应用开发端来看："><span class="toc-number">1.7.1.1.</span> <span class="toc-text">首先，从应用开发端来看：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其次，从数据库端来看："><span class="toc-number">1.7.1.2.</span> <span class="toc-text">其次，从数据库端来看：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#覆盖索引"><span class="toc-number">1.8.</span> <span class="toc-text">覆盖索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最左前缀原则"><span class="toc-number">1.9.</span> <span class="toc-text">最左前缀原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引下推"><span class="toc-number">1.10.</span> <span class="toc-text">索引下推</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过两个-alter-语句重建索引-K，以及通过两个-alter-语句重建主键索引是否合理？"><span class="toc-number">1.11.</span> <span class="toc-text">通过两个 alter 语句重建索引 K，以及通过两个 alter 语句重建主键索引是否合理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局锁"><span class="toc-number">1.12.</span> <span class="toc-text">全局锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表级锁"><span class="toc-number">1.13.</span> <span class="toc-text">表级锁</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="toc-number">1.</span> <span class="toc-text">基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E4%BD%93%E6%9D%A5%E8%AF%B4%EF%BC%8CMySQL-%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA-Server-%E5%B1%82%E5%92%8C%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E5%B1%82%E4%B8%A4%E9%83%A8%E5%88%86%E3%80%82"><span class="toc-number">1.1.</span> <span class="toc-text">大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WAL-%E7%9A%84%E5%85%A8%E7%A7%B0%E6%98%AF-Write-Ahead-Logging%EF%BC%8C%E5%AE%83%E7%9A%84%E5%85%B3%E9%94%AE%E7%82%B9%E5%B0%B1%E6%98%AF%E5%85%88%E5%86%99%E6%97%A5%E5%BF%97%EF%BC%8C%E5%86%8D%E5%86%99%E7%A3%81%E7%9B%98"><span class="toc-number">1.2.</span> <span class="toc-text">WAL 的全称是 Write-Ahead Logging，它的关键点就是先写日志，再写磁盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Abinlog"><span class="toc-number">1.3.</span> <span class="toc-text">重要的日志模块：binlog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%E4%B8%8E%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">1.4.</span> <span class="toc-text">隔离性与隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">事务的启动方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB-%E7%9A%84%E7%B4%A2%E5%BC%95%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.6.</span> <span class="toc-text">InnoDB 的索引模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.7.</span> <span class="toc-text">索引维护</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E9%95%BF%E4%BA%8B%E5%8A%A1%E5%AF%B9%E4%B8%9A%E5%8A%A1%E7%9A%84%E5%BD%B1%E5%93%8D%EF%BC%9F"><span class="toc-number">1.7.1.</span> <span class="toc-text">如何避免长事务对业务的影响？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A6%96%E5%85%88%EF%BC%8C%E4%BB%8E%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%AB%AF%E6%9D%A5%E7%9C%8B%EF%BC%9A"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">首先，从应用开发端来看：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E6%AC%A1%EF%BC%8C%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AB%AF%E6%9D%A5%E7%9C%8B%EF%BC%9A"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">其次，从数据库端来看：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95"><span class="toc-number">1.8.</span> <span class="toc-text">覆盖索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8E%9F%E5%88%99"><span class="toc-number">1.9.</span> <span class="toc-text">最左前缀原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="toc-number">1.10.</span> <span class="toc-text">索引下推</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%A4%E4%B8%AA-alter-%E8%AF%AD%E5%8F%A5%E9%87%8D%E5%BB%BA%E7%B4%A2%E5%BC%95-K%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%80%9A%E8%BF%87%E4%B8%A4%E4%B8%AA-alter-%E8%AF%AD%E5%8F%A5%E9%87%8D%E5%BB%BA%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E6%98%AF%E5%90%A6%E5%90%88%E7%90%86%EF%BC%9F"><span class="toc-number">1.11.</span> <span class="toc-text">通过两个 alter 语句重建索引 K，以及通过两个 alter 语句重建主键索引是否合理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%94%81"><span class="toc-number">1.12.</span> <span class="toc-text">全局锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%BA%A7%E9%94%81"><span class="toc-number">1.13.</span> <span class="toc-text">表级锁</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -516,7 +512,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -647,6 +643,18 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -656,10 +664,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,7 +687,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,11 +699,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,10 +716,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,15 +743,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,15 +787,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -803,27 +803,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Port</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,11 +843,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -859,19 +883,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,6 +919,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kibana</a>
               </li>
              
@@ -904,10 +932,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,54 +949,14 @@ var _hmt = _hmt || [];
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Port</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content
-            --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
        <!--     <pre  style="font-size: 12px;">
                 jsonContent:

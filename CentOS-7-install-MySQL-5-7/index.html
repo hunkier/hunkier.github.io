@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!--prettify代码高亮主题css引入-->
   <link href="/plugins/prettify/github-v2.min.css" rel="stylesheet">
   <!--<link href="/plugins/prettify/prettify.css" rel="stylesheet">-->
@@ -23,18 +23,19 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
-<meta name="keywords" content="centos,mysql">
+  <meta name="description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https:&#x2F;&#x2F;dev.mysql.com&#x2F;downloads&#x2F;mysql&#x2F;5.6.html#downloads 国内可以使用163镜像加速下载：http:&#x2F;&#x2F;mirrors.163.com&#x2F;mysql&#x2F;Downloads&#x2F;MySQL-5.7&#x2F; 选择相应的平台和版本下载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 安装 MySQL 5.7">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-install-MySQL-5-7/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-09-23T15:54:12.625Z">
+<meta property="og:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https:&#x2F;&#x2F;dev.mysql.com&#x2F;downloads&#x2F;mysql&#x2F;5.6.html#downloads 国内可以使用163镜像加速下载：http:&#x2F;&#x2F;mirrors.163.com&#x2F;mysql&#x2F;Downloads&#x2F;MySQL-5.7&#x2F; 选择相应的平台和版本下载">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-02-26T14:19:55.000Z">
+<meta property="article:modified_time" content="2021-09-23T15:54:12.625Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7 安装 MySQL 5.7">
-<meta name="twitter:description" content="CentOS 7 安装MySQL5.7 一、安装包下载下载地址：https://dev.mysql.com/downloads/mysql/5.6.html#downloads 国内可以使用163镜像加速下载：http://mirrors.163.com/mysql/Downloads/MySQL-5.7/ 选择相应的平台和版本下载">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -75,8 +76,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -89,10 +90,8 @@ var _hmt = _hmt || [];
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">hunkier</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -157,10 +156,8 @@ var _hmt = _hmt || [];
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">hunkier</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -681,7 +678,7 @@ flush privileges;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、安装包下载"><span class="toc-number">1.</span> <span class="toc-text">一、安装包下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、安装"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-将下载好的安装到解压到-usr-local目录下"><span class="toc-number">2.1.</span> <span class="toc-text">1.将下载好的安装到解压到/usr/local目录下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进入-usr-local目录"><span class="toc-number">2.2.</span> <span class="toc-text">2.进入/usr/local目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-为mysql安装目录创建软链接"><span class="toc-number">2.3.</span> <span class="toc-text">3.为mysql安装目录创建软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-为centos添加mysql用户组和mysql用户-s-bin-false参数指定mysql用户仅拥有所有权，而没有登录权限"><span class="toc-number">2.4.</span> <span class="toc-text">4.为centos添加mysql用户组和mysql用户(-s /bin/false参数指定mysql用户仅拥有所有权，而没有登录权限)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-进入安装mysql软件的目录，命令如下"><span class="toc-number">2.5.</span> <span class="toc-text">5.进入安装mysql软件的目录，命令如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-修改当前目录拥有者为新建的mysql用户，命令如下："><span class="toc-number">2.6.</span> <span class="toc-text">6.修改当前目录拥有者为新建的mysql用户，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-安装mysql，命令如下："><span class="toc-number">2.7.</span> <span class="toc-text">7.安装mysql，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-开启mysql服务，命令如下："><span class="toc-number">2.8.</span> <span class="toc-text">8.开启mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-重新启开启mysql服务，如下所示则开启成功！"><span class="toc-number">2.9.</span> <span class="toc-text">9.重新启开启mysql服务，如下所示则开启成功！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-将mysql进程放入系统进程中，命令如下："><span class="toc-number">2.10.</span> <span class="toc-text">10.将mysql进程放入系统进程中，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-重新启动mysql服务，命令如下："><span class="toc-number">2.11.</span> <span class="toc-text">11.重新启动mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-配置mysql环境变量"><span class="toc-number">2.12.</span> <span class="toc-text">12.配置mysql环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-使用随机密码登录mysql数据库，命令如下："><span class="toc-number">2.13.</span> <span class="toc-text">13.使用随机密码登录mysql数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-进入mysql操作行，为root用户设置新密码（比如设为123456）："><span class="toc-number">2.14.</span> <span class="toc-text">14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-设置允许远程连接数据库，命令如下："><span class="toc-number">2.15.</span> <span class="toc-text">15.设置允许远程连接数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-刷新权限，命令如下："><span class="toc-number">2.16.</span> <span class="toc-text">16.刷新权限，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）"><span class="toc-number">2.17.</span> <span class="toc-text">17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、如果还是无法远程连接，查看-etc-my-cnf"><span class="toc-number">2.18.</span> <span class="toc-text">18、如果还是无法远程连接，查看/etc/my.cnf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、添加新的用户并授权"><span class="toc-number">2.19.</span> <span class="toc-text">19、添加新的用户并授权</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">一、安装包下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%B0%86%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%9A%84%E5%AE%89%E8%A3%85%E5%88%B0%E8%A7%A3%E5%8E%8B%E5%88%B0-usr-local%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1.将下载好的安装到解压到&#x2F;usr&#x2F;local目录下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BF%9B%E5%85%A5-usr-local%E7%9B%AE%E5%BD%95"><span class="toc-number">2.2.</span> <span class="toc-text">2.进入&#x2F;usr&#x2F;local目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%BAmysql%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BA%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">2.3.</span> <span class="toc-text">3.为mysql安装目录创建软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%BAcentos%E6%B7%BB%E5%8A%A0mysql%E7%94%A8%E6%88%B7%E7%BB%84%E5%92%8Cmysql%E7%94%A8%E6%88%B7-s-bin-false%E5%8F%82%E6%95%B0%E6%8C%87%E5%AE%9Amysql%E7%94%A8%E6%88%B7%E4%BB%85%E6%8B%A5%E6%9C%89%E6%89%80%E6%9C%89%E6%9D%83%EF%BC%8C%E8%80%8C%E6%B2%A1%E6%9C%89%E7%99%BB%E5%BD%95%E6%9D%83%E9%99%90"><span class="toc-number">2.4.</span> <span class="toc-text">4.为centos添加mysql用户组和mysql用户(-s &#x2F;bin&#x2F;false参数指定mysql用户仅拥有所有权，而没有登录权限)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BF%9B%E5%85%A5%E5%AE%89%E8%A3%85mysql%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-number">2.5.</span> <span class="toc-text">5.进入安装mysql软件的目录，命令如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BF%AE%E6%94%B9%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%8B%A5%E6%9C%89%E8%80%85%E4%B8%BA%E6%96%B0%E5%BB%BA%E7%9A%84mysql%E7%94%A8%E6%88%B7%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.6.</span> <span class="toc-text">6.修改当前目录拥有者为新建的mysql用户，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AE%89%E8%A3%85mysql%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.7.</span> <span class="toc-text">7.安装mysql，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%BC%80%E5%90%AFmysql%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.8.</span> <span class="toc-text">8.开启mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E9%87%8D%E6%96%B0%E5%90%AF%E5%BC%80%E5%90%AFmysql%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%89%80%E7%A4%BA%E5%88%99%E5%BC%80%E5%90%AF%E6%88%90%E5%8A%9F%EF%BC%81"><span class="toc-number">2.9.</span> <span class="toc-text">9.重新启开启mysql服务，如下所示则开启成功！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%B0%86mysql%E8%BF%9B%E7%A8%8B%E6%94%BE%E5%85%A5%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E4%B8%AD%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.10.</span> <span class="toc-text">10.将mysql进程放入系统进程中，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8mysql%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.11.</span> <span class="toc-text">11.重新启动mysql服务，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E9%85%8D%E7%BD%AEmysql%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.12.</span> <span class="toc-text">12.配置mysql环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E4%BD%BF%E7%94%A8%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95mysql%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.13.</span> <span class="toc-text">13.使用随机密码登录mysql数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E8%BF%9B%E5%85%A5mysql%E6%93%8D%E4%BD%9C%E8%A1%8C%EF%BC%8C%E4%B8%BAroot%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE%E6%96%B0%E5%AF%86%E7%A0%81%EF%BC%88%E6%AF%94%E5%A6%82%E8%AE%BE%E4%B8%BA123456%EF%BC%89%EF%BC%9A"><span class="toc-number">2.14.</span> <span class="toc-text">14.进入mysql操作行，为root用户设置新密码（比如设为123456）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E8%AE%BE%E7%BD%AE%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.15.</span> <span class="toc-text">15.设置允许远程连接数据库，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E5%88%B7%E6%96%B0%E6%9D%83%E9%99%90%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.16.</span> <span class="toc-text">16.刷新权限，命令如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17%E3%80%81%E5%BC%80%E5%90%AF3306%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%EF%BC%8C%E7%84%B6%E5%90%8E%E5%8D%B3%E5%8F%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5mysql%EF%BC%88%E5%9B%A0%E4%B8%BA%E6%88%91%E7%9A%84%E9%98%B2%E7%81%AB%E5%A2%99%E6%98%AF%E5%85%A8%E9%83%A8%E5%85%B3%E9%97%AD%EF%BC%8C%E6%89%80%E4%BB%A5%E7%9C%81%E7%95%A5%E4%BA%86%E8%BF%99%E6%AD%A5%EF%BC%89"><span class="toc-number">2.17.</span> <span class="toc-text">17、开启3306防火墙端口，然后即可远程连接mysql（因为我的防火墙是全部关闭，所以省略了这步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18%E3%80%81%E5%A6%82%E6%9E%9C%E8%BF%98%E6%98%AF%E6%97%A0%E6%B3%95%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%EF%BC%8C%E6%9F%A5%E7%9C%8B-etc-my-cnf"><span class="toc-number">2.18.</span> <span class="toc-text">18、如果还是无法远程连接，查看&#x2F;etc&#x2F;my.cnf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19%E3%80%81%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8E%88%E6%9D%83"><span class="toc-number">2.19.</span> <span class="toc-text">19、添加新的用户并授权</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -712,7 +709,7 @@ flush privileges;
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -843,6 +840,18 @@ flush privileges;
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -852,10 +861,6 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -879,7 +884,11 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -887,11 +896,15 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -900,10 +913,6 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,15 +940,15 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,15 +984,7 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,27 +1000,31 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Port</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1035,11 +1040,31 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1055,19 +1080,19 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,6 +1116,10 @@ flush privileges;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kibana</a>
               </li>
              
@@ -1100,10 +1129,6 @@ flush privileges;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1121,54 +1146,14 @@ flush privileges;
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Port</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content
-            --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
        <!--     <pre  style="font-size: 12px;">
                 jsonContent:

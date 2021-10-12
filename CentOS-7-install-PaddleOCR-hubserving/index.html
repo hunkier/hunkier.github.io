@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!--prettify代码高亮主题css引入-->
   <link href="/plugins/prettify/github-v2.min.css" rel="stylesheet">
   <!--<link href="/plugins/prettify/prettify.css" rel="stylesheet">-->
@@ -24,17 +24,19 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="简介  PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。">
-<meta name="keywords" content="centos,PaddleOCR,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 安装 PaddleOCR HubServing">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-install-PaddleOCR-hubserving/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="简介  PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-11-13T04:56:50.688Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-27T14:36:57.000Z">
+<meta property="article:modified_time" content="2020-11-13T05:00:58.383Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="PaddleOCR">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7 安装 PaddleOCR HubServing">
-<meta name="twitter:description" content="简介  PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -75,8 +77,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -89,10 +91,8 @@ var _hmt = _hmt || [];
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">hunkier</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -157,10 +157,8 @@ var _hmt = _hmt || [];
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">hunkier</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -490,7 +488,7 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看本机的操作系统和位数信息"><span class="toc-number">1.1.</span> <span class="toc-text">查看本机的操作系统和位数信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新-pip3"><span class="toc-number">1.2.</span> <span class="toc-text">更新 pip3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-paddlepaddle"><span class="toc-number">1.3.</span> <span class="toc-text">安装 paddlepaddle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-paddlehub"><span class="toc-number">1.4.</span> <span class="toc-text">安装 paddlehub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载源码"><span class="toc-number">1.5.</span> <span class="toc-text">下载源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装依赖"><span class="toc-number">1.6.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载模型"><span class="toc-number">1.7.</span> <span class="toc-text">下载模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装模型"><span class="toc-number">1.8.</span> <span class="toc-text">安装模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">1.9.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试服务"><span class="toc-number">1.10.</span> <span class="toc-text">测试服务</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BA%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8C%E4%BD%8D%E6%95%B0%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.</span> <span class="toc-text">查看本机的操作系统和位数信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-pip3"><span class="toc-number">1.2.</span> <span class="toc-text">更新 pip3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-paddlepaddle"><span class="toc-number">1.3.</span> <span class="toc-text">安装 paddlepaddle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-paddlehub"><span class="toc-number">1.4.</span> <span class="toc-text">安装 paddlehub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">下载源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">1.6.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">下载模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.8.</span> <span class="toc-text">安装模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.9.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.10.</span> <span class="toc-text">测试服务</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -521,7 +519,7 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -652,6 +650,18 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -661,10 +671,6 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,7 +694,11 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,11 +706,15 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,10 +723,6 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,15 +750,15 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,15 +794,7 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,27 +810,31 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Port</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -844,11 +850,31 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,19 +890,19 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -900,6 +926,10 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kibana</a>
               </li>
              
@@ -909,10 +939,6 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,54 +956,14 @@ nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Port</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content
-            --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
        <!--     <pre  style="font-size: 12px;">
                 jsonContent:

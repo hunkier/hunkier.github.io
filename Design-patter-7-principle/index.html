@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!--prettify代码高亮主题css引入-->
   <link href="/plugins/prettify/github-v2.min.css" rel="stylesheet">
   <!--<link href="/plugins/prettify/prettify.css" rel="stylesheet">-->
@@ -24,17 +24,18 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、设计模式的目的​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的">
-<meta name="keywords" content="设计模式,七大原则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式七大原则">
 <meta property="og:url" content="https://hunkier.cn/Design-patter-7-principle/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="一、设计模式的目的​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-28T09:17:08.273Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-01-10T13:34:00.000Z">
+<meta property="article:modified_time" content="2020-02-28T09:17:08.273Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="七大原则">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式七大原则">
-<meta name="twitter:description" content="一、设计模式的目的​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -75,8 +76,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -89,10 +90,8 @@ var _hmt = _hmt || [];
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">hunkier</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -157,10 +156,8 @@ var _hmt = _hmt || [];
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">hunkier</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -865,7 +862,7 @@ interface IOpenAndClose {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、设计模式的目的"><span class="toc-number">1.</span> <span class="toc-text">一、设计模式的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、设计模式七大原则"><span class="toc-number">2.</span> <span class="toc-text">二、设计模式七大原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、单一职责原则"><span class="toc-number">3.</span> <span class="toc-text">三、单一职责原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-基本介绍"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-应用实例"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 应用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）方案-1-【分析说明】"><span class="toc-number">3.2.1.</span> <span class="toc-text">1）方案 1 【分析说明】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-方案-2-【分析说明】"><span class="toc-number">3.2.2.</span> <span class="toc-text">2) 方案 2 【分析说明】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-方案-3-【分析说明】"><span class="toc-number">3.2.3.</span> <span class="toc-text">3) 方案 3 【分析说明】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-单一职责原则注意事项和细节"><span class="toc-number">3.2.4.</span> <span class="toc-text">3.3. 单一职责原则注意事项和细节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、-接口隔离原则"><span class="toc-number">4.</span> <span class="toc-text">四、 接口隔离原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-基本介绍"><span class="toc-number">4.1.</span> <span class="toc-text">4.1. 基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-应用实例"><span class="toc-number">4.2.</span> <span class="toc-text">4.2. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-使用传统方法的问题和使用接口隔离原则改进"><span class="toc-number">4.3.</span> <span class="toc-text">4.3.  使用传统方法的问题和使用接口隔离原则改进</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-依赖倒转原则"><span class="toc-number">5.</span> <span class="toc-text">5. 依赖倒转原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-基本介绍"><span class="toc-number">5.1.</span> <span class="toc-text">5.1.  基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-应用实例"><span class="toc-number">5.2.</span> <span class="toc-text">5.2. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-依赖关系传递的三种方式和应用案例"><span class="toc-number">5.3.</span> <span class="toc-text">5.3. 依赖关系传递的三种方式和应用案例</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">一、设计模式的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-number">2.</span> <span class="toc-text">二、设计模式七大原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99"><span class="toc-number">3.</span> <span class="toc-text">三、单一职责原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 应用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E6%96%B9%E6%A1%88-1-%E3%80%90%E5%88%86%E6%9E%90%E8%AF%B4%E6%98%8E%E3%80%91"><span class="toc-number">3.2.1.</span> <span class="toc-text">1）方案 1 【分析说明】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%96%B9%E6%A1%88-2-%E3%80%90%E5%88%86%E6%9E%90%E8%AF%B4%E6%98%8E%E3%80%91"><span class="toc-number">3.2.2.</span> <span class="toc-text">2) 方案 2 【分析说明】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%96%B9%E6%A1%88-3-%E3%80%90%E5%88%86%E6%9E%90%E8%AF%B4%E6%98%8E%E3%80%91"><span class="toc-number">3.2.3.</span> <span class="toc-text">3) 方案 3 【分析说明】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E7%BB%86%E8%8A%82"><span class="toc-number">3.2.4.</span> <span class="toc-text">3.3. 单一职责原则注意事项和细节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81-%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="toc-number">4.</span> <span class="toc-text">四、 接口隔离原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.1.</span> <span class="toc-text">4.1. 基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text">4.2. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E4%BD%BF%E7%94%A8%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99%E6%94%B9%E8%BF%9B"><span class="toc-number">4.3.</span> <span class="toc-text">4.3.  使用传统方法的问题和使用接口隔离原则改进</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC%E5%8E%9F%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">5. 依赖倒转原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.1.</span> <span class="toc-text">5.1.  基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.2.</span> <span class="toc-text">5.2. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E4%BC%A0%E9%80%92%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%92%8C%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">5.3.</span> <span class="toc-text">5.3. 依赖关系传递的三种方式和应用案例</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -896,7 +893,7 @@ interface IOpenAndClose {
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -1027,6 +1024,18 @@ interface IOpenAndClose {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -1036,10 +1045,6 @@ interface IOpenAndClose {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1063,7 +1068,11 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,11 +1080,15 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1084,10 +1097,6 @@ interface IOpenAndClose {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1115,15 +1124,15 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,15 +1168,7 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,27 +1184,31 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Port</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,11 +1224,31 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,19 +1264,19 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1275,6 +1300,10 @@ interface IOpenAndClose {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kibana</a>
               </li>
              
@@ -1284,10 +1313,6 @@ interface IOpenAndClose {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,54 +1330,14 @@ interface IOpenAndClose {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Port</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content
-            --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
        <!--     <pre  style="font-size: 12px;">
                 jsonContent:

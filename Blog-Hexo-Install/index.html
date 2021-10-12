@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <!--prettify代码高亮主题css引入-->
   <link href="/plugins/prettify/github-v2.min.css" rel="stylesheet">
   <!--<link href="/plugins/prettify/prettify.css" rel="stylesheet">-->
@@ -24,17 +24,19 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="写在开头  什么是Hexo？  Hexo是一个轻量级的Node.js博客框架，由一位台湾的在校大学生开发完成！   Hexo的配置文件_config.yml分为两种，一种是站点配置文件，也就是站点根目录下的_config.yml配置文件，另一个是主题配置文件，位于theme文件夹中对应主题的文件夹下的_config.yml。  在后续的网站配置中需要多次使用站点配置文件和主题配置文件，需要注意辨">
-<meta name="keywords" content="github,blog,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github安装hexo博客">
 <meta property="og:url" content="https://hunkier.cn/Blog-Hexo-Install/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="写在开头  什么是Hexo？  Hexo是一个轻量级的Node.js博客框架，由一位台湾的在校大学生开发完成！   Hexo的配置文件_config.yml分为两种，一种是站点配置文件，也就是站点根目录下的_config.yml配置文件，另一个是主题配置文件，位于theme文件夹中对应主题的文件夹下的_config.yml。  在后续的网站配置中需要多次使用站点配置文件和主题配置文件，需要注意辨">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-23T14:30:35.367Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-29T09:31:13.000Z">
+<meta property="article:modified_time" content="2020-05-23T14:30:35.367Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Github安装hexo博客">
-<meta name="twitter:description" content="写在开头  什么是Hexo？  Hexo是一个轻量级的Node.js博客框架，由一位台湾的在校大学生开发完成！   Hexo的配置文件_config.yml分为两种，一种是站点配置文件，也就是站点根目录下的_config.yml配置文件，另一个是主题配置文件，位于theme文件夹中对应主题的文件夹下的_config.yml。  在后续的网站配置中需要多次使用站点配置文件和主题配置文件，需要注意辨">
   
     <link rel="alternative" href="/atom.xml" title="hunkier" type="application/atom+xml">
   
@@ -75,8 +77,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -89,10 +91,8 @@ var _hmt = _hmt || [];
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">hunkier</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">学习笔记，开源代码，技术分享</p>
 		
 
 		<nav class="header-menu">
@@ -157,10 +157,8 @@ var _hmt = _hmt || [];
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">hunkier</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学习笔记，开源代码，技术分享<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -664,7 +662,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装node-js"><span class="toc-number">1.</span> <span class="toc-text">安装node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows下安装"><span class="toc-number">1.1.</span> <span class="toc-text">Windows下安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu下安装"><span class="toc-number">1.2.</span> <span class="toc-text">ubuntu下安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行方式安装："><span class="toc-number">1.2.1.</span> <span class="toc-text">命令行方式安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译源码方式安装："><span class="toc-number">1.2.2.</span> <span class="toc-text">编译源码方式安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装npm"><span class="toc-number">1.2.3.</span> <span class="toc-text">安装npm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo的安装与使用"><span class="toc-number">2.</span> <span class="toc-text">Hexo的安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo"><span class="toc-number">2.1.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Hexo"><span class="toc-number">2.2.</span> <span class="toc-text">使用Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo插件"><span class="toc-number">3.</span> <span class="toc-text">安装hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在hexo中实现可视化编辑博客（hexo-admin）"><span class="toc-number">3.1.</span> <span class="toc-text">在hexo中实现可视化编辑博客（hexo-admin）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装并使用hexo-admin"><span class="toc-number">3.1.1.</span> <span class="toc-text">安装并使用hexo-admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置后台密码"><span class="toc-number">3.1.2.</span> <span class="toc-text">设置后台密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在hexo中实现RRS功能（-hexo-generator-feed-）"><span class="toc-number">3.2.</span> <span class="toc-text">在hexo中实现RRS功能（ hexo-generator-feed ）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">3.2.2.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在hexo中实现本地搜索功能（hexo-generator-searchdb）"><span class="toc-number">3.3.</span> <span class="toc-text">在hexo中实现本地搜索功能（hexo-generator-searchdb）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更换hexo主题"><span class="toc-number">4.</span> <span class="toc-text">更换hexo主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传到github"><span class="toc-number">4.1.</span> <span class="toc-text">上传到github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用hexo命令"><span class="toc-number">4.2.</span> <span class="toc-text">常用hexo命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-config-yml"><span class="toc-number">4.3.</span> <span class="toc-text">4.11. _config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-12-写博客"><span class="toc-number">4.4.</span> <span class="toc-text">4.12. 写博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#写博客工具"><span class="toc-number">4.4.1.</span> <span class="toc-text">写博客工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让博文列表不显示全部内容"><span class="toc-number">4.4.2.</span> <span class="toc-text">如何让博文列表不显示全部内容</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85node-js"><span class="toc-number">1.</span> <span class="toc-text">安装node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">Windows下安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">ubuntu下安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">命令行方式安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%BA%90%E7%A0%81%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="toc-number">1.2.2.</span> <span class="toc-text">编译源码方式安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85npm"><span class="toc-number">1.2.3.</span> <span class="toc-text">安装npm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">Hexo的安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-number">2.1.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Hexo"><span class="toc-number">2.2.</span> <span class="toc-text">使用Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo%E6%8F%92%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">安装hexo插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8hexo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%8D%9A%E5%AE%A2%EF%BC%88hexo-admin%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">在hexo中实现可视化编辑博客（hexo-admin）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8hexo-admin"><span class="toc-number">3.1.1.</span> <span class="toc-text">安装并使用hexo-admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%8E%E5%8F%B0%E5%AF%86%E7%A0%81"><span class="toc-number">3.1.2.</span> <span class="toc-text">设置后台密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8hexo%E4%B8%AD%E5%AE%9E%E7%8E%B0RRS%E5%8A%9F%E8%83%BD%EF%BC%88-hexo-generator-feed-%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">在hexo中实现RRS功能（ hexo-generator-feed ）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.2.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8hexo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%88hexo-generator-searchdb%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">在hexo中实现本地搜索功能（hexo-generator-searchdb）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2hexo%E4%B8%BB%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">更换hexo主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0github"><span class="toc-number">4.1.</span> <span class="toc-text">上传到github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">常用hexo命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-config-yml"><span class="toc-number">4.3.</span> <span class="toc-text">4.11. _config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-12-%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="toc-number">4.4.</span> <span class="toc-text">4.12. 写博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7"><span class="toc-number">4.4.1.</span> <span class="toc-text">写博客工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E5%8D%9A%E6%96%87%E5%88%97%E8%A1%A8%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E5%86%85%E5%AE%B9"><span class="toc-number">4.4.2.</span> <span class="toc-text">如何让博文列表不显示全部内容</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -695,7 +693,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -826,6 +824,18 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -835,10 +845,6 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -862,7 +868,11 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,11 +880,15 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CentOS Linux Users</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,10 +897,6 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">centos vnc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,15 +924,15 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">七大原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,15 +968,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -982,27 +984,31 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AbstractQueuedSynchronizer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Synchronized</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Port</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lock escalation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">myql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1018,11 +1024,31 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reactor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1038,19 +1064,19 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">insert sort</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">merge sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">radix sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">quick sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,6 +1100,10 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kibana</a>
               </li>
              
@@ -1083,10 +1113,6 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">auth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1104,54 +1130,14 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wget</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PaddleOCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Connect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Port</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Extend</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content
-            --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+            --save<br/><br/>
             3、在根目录_config.yml里添加配置：
        <!--     <pre  style="font-size: 12px;">
                 jsonContent:

@@ -298,6 +298,28 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 设置DNS服务器</title>
+    <url>/CentOS-7-Seting-DNS-Server/</url>
+    <content><![CDATA[<p>CentOS 7需要使用全新的命令行工具 nmcli 来设置</p>
+<h5 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli connection show</span><br><span class="line">NAME     UUID                                  TYPE      DEVICE</span><br><span class="line">cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0</span><br><span class="line">docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0</span><br><span class="line">enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0</span><br><span class="line">virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h5 id="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"><a href="#修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识" class="headerlink" title="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"></a>修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con mod enp2s0  ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;</span><br><span class="line">[root@bogon ~]#</span><br></pre></td></tr></table></figure>
+
+<h5 id="将dns配置生效"><a href="#将dns配置生效" class="headerlink" title="将dns配置生效"></a>将dns配置生效</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con up enp2s0</span><br><span class="line">Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)</span><br></pre></td></tr></table></figure>
+
+<h5 id="测试网络"><a href="#测试网络" class="headerlink" title="测试网络"></a>测试网络</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# ping www.baidu.com</span><br><span class="line">PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data.</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms</span><br><span class="line">^C</span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 4005ms</span><br><span class="line">rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms</span><br><span class="line">[root@bogon ~]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>centos</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>DNS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS 7 修改ssh 端口</title>
     <url>/CentOS-7-Modify-sshd-port/</url>
     <content><![CDATA[<h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉</span><br><span class="line"></span><br><span class="line">Port 33378      //下面添加这一行</span><br></pre></td></tr></table></figure>
@@ -406,28 +428,6 @@
       </categories>
       <tags>
         <tag>centos firewall</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS 7 设置DNS服务器</title>
-    <url>/CentOS-7-Seting-DNS-Server/</url>
-    <content><![CDATA[<p>CentOS 7需要使用全新的命令行工具 nmcli 来设置</p>
-<h5 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli connection show</span><br><span class="line">NAME     UUID                                  TYPE      DEVICE</span><br><span class="line">cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0</span><br><span class="line">docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0</span><br><span class="line">enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0</span><br><span class="line">virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h5 id="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"><a href="#修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识" class="headerlink" title="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"></a>修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con mod enp2s0  ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;</span><br><span class="line">[root@bogon ~]#</span><br></pre></td></tr></table></figure>
-
-<h5 id="将dns配置生效"><a href="#将dns配置生效" class="headerlink" title="将dns配置生效"></a>将dns配置生效</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con up enp2s0</span><br><span class="line">Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)</span><br></pre></td></tr></table></figure>
-
-<h5 id="测试网络"><a href="#测试网络" class="headerlink" title="测试网络"></a>测试网络</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# ping www.baidu.com</span><br><span class="line">PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data.</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms</span><br><span class="line">^C</span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 4005ms</span><br><span class="line">rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms</span><br><span class="line">[root@bogon ~]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>centos</category>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>DNS</tag>
       </tags>
   </entry>
   <entry>
@@ -921,6 +921,38 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS 用户相关操作</title>
+    <url>/CentOS-Users/</url>
+    <content><![CDATA[<p>Centos 用户相关操作</p>
+<p>查看centos中的用户和用户组<br>1、用户列表文件：<code>/etc/passwd/</code></p>
+<p>2、用户组列表文件：<code>/etc/group</code></p>
+<p>3、查看系统中有哪些用户：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>4、查看可以登录系统的用户：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1</span><br></pre></td></tr></table></figure>
+
+<p>5、查看用户操作：<code>w命令(需要root权限)</code></p>
+<p>6、查看某一用户：<code>w 用户名</code></p>
+<p>7、查看登录用户：<code>who</code></p>
+<p>8、查看用户登录历史记录：<code>last</code></p>
+<p>9、修改root用户密码：</p>
+<p><code>passwd</code></p>
+<p>10、root用户修改其他用户密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd &lt;user_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>11、查看系统版本：<code>cat /etc/redhat-release</code></p>
+<p>12、删除用户 <code>userdel 用户名</code></p>
+<p>13、查看组 <code>cat /etc/group</code></p>
+<p>14、删除组 <code>groupdel 组名</code></p>
+]]></content>
+      <tags>
+        <tag>CentOS Linux Users</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS 7 安装 google chrome</title>
     <url>/CentOS-7-install-google-chrome/</url>
     <content><![CDATA[<p>第一步： 执行如下命令：</p>
@@ -953,35 +985,45 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS 用户相关操作</title>
-    <url>/CentOS-Users/</url>
-    <content><![CDATA[<p>Centos 用户相关操作</p>
-<p>查看centos中的用户和用户组<br>1、用户列表文件：<code>/etc/passwd/</code></p>
-<p>2、用户组列表文件：<code>/etc/group</code></p>
-<p>3、查看系统中有哪些用户：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
+    <title>CentOS 安装 cockpit 管理系统</title>
+    <url>/CentOS-install-mamager-cockpit/</url>
+    <content><![CDATA[<p> <a href="https://cockpit-project.org/">Cockpit</a> 是一个基于 Web 界面的应用，它提供了对系统的图形化管理。</p>
+<p>拥有如下功能：</p>
+<ol>
+<li>监控系统活动（CPU、内存、磁盘 IO 和网络流量） —— 系统</li>
+<li>查看系统日志条目 —— 日志</li>
+<li>查看磁盘分区的容量 —— 存储</li>
+<li>查看网络活动（发送和接收） —— 网络<span id="more"></span></li>
+<li>查看用户帐户 —— 帐户</li>
+<li>检查系统服务的状态 —— 服务</li>
+<li>提取已安装应用的信息 —— 应用</li>
+<li>查看和安装可用更新（如果以 root 身份登录）并在需要时重新启动系统 —— 软件更新</li>
+<li>打开并使用终端窗口 —— 终端</li>
+</ol>
+<p>安装cockpit</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install cockpit</span><br><span class="line">yum install cockpit* -y	#所有cockpit模块安装</span><br></pre></td></tr></table></figure>
 
-<span id="more"></span>
+<p>修改默认端口9090</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/cockpit.socket</span><br></pre></td></tr></table></figure>
 
-<p>4、查看可以登录系统的用户：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1</span><br></pre></td></tr></table></figure>
+<p>启动cockpit</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start cockpit</span><br></pre></td></tr></table></figure>
 
-<p>5、查看用户操作：<code>w命令(需要root权限)</code></p>
-<p>6、查看某一用户：<code>w 用户名</code></p>
-<p>7、查看登录用户：<code>who</code></p>
-<p>8、查看用户登录历史记录：<code>last</code></p>
-<p>9、修改root用户密码：</p>
-<p><code>passwd</code></p>
-<p>10、root用户修改其他用户密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd &lt;user_name&gt;</span><br></pre></td></tr></table></figure>
+<p>开机自启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/cockpit.service </span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后加上下面两行</span></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出编辑，加入系统启动</span></span><br><span class="line">systemctl enable cockpit</span><br></pre></td></tr></table></figure>
 
-<p>11、查看系统版本：<code>cat /etc/redhat-release</code></p>
-<p>12、删除用户 <code>userdel 用户名</code></p>
-<p>13、查看组 <code>cat /etc/group</code></p>
-<p>14、删除组 <code>groupdel 组名</code></p>
+<p>防火墙配置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --add-port=9090/tcp --permanent</span><br><span class="line">firewall-cmd --reload	</span><br></pre></td></tr></table></figure>
+
+<p>登录<br>在任意浏览器输入IP地址+端口号（<a href="https://ip:9090）">https://ip:9090）</a></p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>cockpit</category>
+      </categories>
       <tags>
-        <tag>CentOS Linux Users</tag>
+        <tag>Linux</tag>
+        <tag>cockpit</tag>
       </tags>
   </entry>
   <entry>
@@ -1087,90 +1129,6 @@ date -s  ‘2018-12-14 10:50:00’
       </tags>
   </entry>
   <entry>
-    <title>CentOS 安装 cockpit 管理系统</title>
-    <url>/CentOS-install-mamager-cockpit/</url>
-    <content><![CDATA[<p> <a href="https://cockpit-project.org/">Cockpit</a> 是一个基于 Web 界面的应用，它提供了对系统的图形化管理。</p>
-<p>拥有如下功能：</p>
-<ol>
-<li>监控系统活动（CPU、内存、磁盘 IO 和网络流量） —— 系统</li>
-<li>查看系统日志条目 —— 日志</li>
-<li>查看磁盘分区的容量 —— 存储</li>
-<li>查看网络活动（发送和接收） —— 网络<span id="more"></span></li>
-<li>查看用户帐户 —— 帐户</li>
-<li>检查系统服务的状态 —— 服务</li>
-<li>提取已安装应用的信息 —— 应用</li>
-<li>查看和安装可用更新（如果以 root 身份登录）并在需要时重新启动系统 —— 软件更新</li>
-<li>打开并使用终端窗口 —— 终端</li>
-</ol>
-<p>安装cockpit</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install cockpit</span><br><span class="line">yum install cockpit* -y	#所有cockpit模块安装</span><br></pre></td></tr></table></figure>
-
-<p>修改默认端口9090</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/cockpit.socket</span><br></pre></td></tr></table></figure>
-
-<p>启动cockpit</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start cockpit</span><br></pre></td></tr></table></figure>
-
-<p>开机自启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/cockpit.service </span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后加上下面两行</span></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出编辑，加入系统启动</span></span><br><span class="line">systemctl enable cockpit</span><br></pre></td></tr></table></figure>
-
-<p>防火墙配置</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --add-port=9090/tcp --permanent</span><br><span class="line">firewall-cmd --reload	</span><br></pre></td></tr></table></figure>
-
-<p>登录<br>在任意浏览器输入IP地址+端口号（<a href="https://ip:9090）">https://ip:9090）</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>cockpit</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>cockpit</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>清除Kubernetes环境</title>
-    <url>/Clean-Kubernetes-Environment/</url>
-    <content><![CDATA[<p>在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入</p>
-<h5 id="清理kubelet挂载的磁盘和设置"><a href="#清理kubelet挂载的磁盘和设置" class="headerlink" title="清理kubelet挂载的磁盘和设置"></a>清理kubelet挂载的磁盘和设置</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">df -h|grep kubelet |awk -F % &#x27;&#123;print $2&#125;&#x27;|xargs umount</span><br><span class="line">rm /var/lib/kubelet/* -rf</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-<h5 id="清理kubernetes设置"><a href="#清理kubernetes设置" class="headerlink" title="清理kubernetes设置"></a>清理kubernetes设置</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /etc/kubernetes/* -rf</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理rancher设置"><a href="#清理rancher设置" class="headerlink" title="清理rancher设置"></a>清理rancher设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /var/lib/rancher/* -rf</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理etc设置"><a href="#清理etc设置" class="headerlink" title="清理etc设置"></a>清理etc设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /var/lib/etcd/* -rf</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理cni设置"><a href="#清理cni设置" class="headerlink" title="清理cni设置"></a>清理cni设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /var/lib/cni/* -rf</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理iptable设置"><a href="#清理iptable设置" class="headerlink" title="清理iptable设置"></a>清理iptable设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">iptables -F &amp;&amp; iptables -t nat –F</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理flannel设置"><a href="#清理flannel设置" class="headerlink" title="清理flannel设置"></a>清理flannel设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ip link del flannel.1</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理docker-container"><a href="#清理docker-container" class="headerlink" title="清理docker container"></a>清理docker container</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker ps -a|awk &#x27;&#123;print $1&#125;&#x27;|xargs docker rm -f</span><br></pre></td></tr></table></figure>
-
-<h5 id="清理docker挂载的磁盘"><a href="#清理docker挂载的磁盘" class="headerlink" title="清理docker挂载的磁盘"></a>清理docker挂载的磁盘</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker volume ls|awk &#x27;&#123;print $2&#125;&#x27;|xargs docker volume rm</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="合并在一起"><a href="#合并在一起" class="headerlink" title="合并在一起"></a>合并在一起</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">df -h|grep kubelet |awk -F % &#x27;&#123;print $2&#125;&#x27;|xargs umount</span><br><span class="line">rm /var/lib/kubelet/* -rf</span><br><span class="line">rm /etc/kubernetes/* -rf</span><br><span class="line">rm /var/lib/rancher/* -rf</span><br><span class="line">rm /var/lib/etcd/* -rf</span><br><span class="line">rm /var/lib/cni/* -rf</span><br><span class="line">iptables -F &amp;&amp; iptables -t nat –F</span><br><span class="line">ip link del flannel.1</span><br><span class="line">docker ps -a|awk &#x27;&#123;print $1&#125;&#x27;|xargs docker rm -f</span><br><span class="line">docker volume ls|awk &#x27;&#123;print $2&#125;&#x27;|xargs docker volume rm</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>kubernetes</category>
-        <category>docker</category>
-        <category>rancher</category>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>kubernetes</tag>
-        <tag>docker</tag>
-        <tag>rancher</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用的Shell脚本和Linux命令</title>
     <url>/Common-shell-script/</url>
     <content><![CDATA[<p>收集工作中经常用的Linux命令和shell脚本</p>
@@ -1254,6 +1212,48 @@ date -s  ‘2018-12-14 10:50:00’
       <tags>
         <tag>linux</tag>
         <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>清除Kubernetes环境</title>
+    <url>/Clean-Kubernetes-Environment/</url>
+    <content><![CDATA[<p>在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入</p>
+<h5 id="清理kubelet挂载的磁盘和设置"><a href="#清理kubelet挂载的磁盘和设置" class="headerlink" title="清理kubelet挂载的磁盘和设置"></a>清理kubelet挂载的磁盘和设置</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">df -h|grep kubelet |awk -F % &#x27;&#123;print $2&#125;&#x27;|xargs umount</span><br><span class="line">rm /var/lib/kubelet/* -rf</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h5 id="清理kubernetes设置"><a href="#清理kubernetes设置" class="headerlink" title="清理kubernetes设置"></a>清理kubernetes设置</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /etc/kubernetes/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理rancher设置"><a href="#清理rancher设置" class="headerlink" title="清理rancher设置"></a>清理rancher设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /var/lib/rancher/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理etc设置"><a href="#清理etc设置" class="headerlink" title="清理etc设置"></a>清理etc设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /var/lib/etcd/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理cni设置"><a href="#清理cni设置" class="headerlink" title="清理cni设置"></a>清理cni设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /var/lib/cni/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理iptable设置"><a href="#清理iptable设置" class="headerlink" title="清理iptable设置"></a>清理iptable设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">iptables -F &amp;&amp; iptables -t nat –F</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理flannel设置"><a href="#清理flannel设置" class="headerlink" title="清理flannel设置"></a>清理flannel设置</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ip link del flannel.1</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理docker-container"><a href="#清理docker-container" class="headerlink" title="清理docker container"></a>清理docker container</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker ps -a|awk &#x27;&#123;print $1&#125;&#x27;|xargs docker rm -f</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理docker挂载的磁盘"><a href="#清理docker挂载的磁盘" class="headerlink" title="清理docker挂载的磁盘"></a>清理docker挂载的磁盘</h5> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker volume ls|awk &#x27;&#123;print $2&#125;&#x27;|xargs docker volume rm</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="合并在一起"><a href="#合并在一起" class="headerlink" title="合并在一起"></a>合并在一起</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">df -h|grep kubelet |awk -F % &#x27;&#123;print $2&#125;&#x27;|xargs umount</span><br><span class="line">rm /var/lib/kubelet/* -rf</span><br><span class="line">rm /etc/kubernetes/* -rf</span><br><span class="line">rm /var/lib/rancher/* -rf</span><br><span class="line">rm /var/lib/etcd/* -rf</span><br><span class="line">rm /var/lib/cni/* -rf</span><br><span class="line">iptables -F &amp;&amp; iptables -t nat –F</span><br><span class="line">ip link del flannel.1</span><br><span class="line">docker ps -a|awk &#x27;&#123;print $1&#125;&#x27;|xargs docker rm -f</span><br><span class="line">docker volume ls|awk &#x27;&#123;print $2&#125;&#x27;|xargs docker volume rm</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>kubernetes</category>
+        <category>docker</category>
+        <category>rancher</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>kubernetes</tag>
+        <tag>docker</tag>
+        <tag>rancher</tag>
       </tags>
   </entry>
   <entry>
@@ -1379,44 +1379,6 @@ date -s  ‘2018-12-14 10:50:00’
       </tags>
   </entry>
   <entry>
-    <title>解决NVIDIA驱动程序安装和加载问题</title>
-    <url>/Hackintosh-Nvidia-Driver/</url>
-    <content><![CDATA[<p>问题6：您在菜单栏或Nvidia驱动程序管理器首选项面板中选择了Nvidia Web Drivers，但是当您选择时重启OS X默认图形驱动程序已选中。</p>
-<p>当您的主板没有本机NVRAM支持（例如技嘉100系列主板）时会导致这种情况。</p>
-<span id="more"></span> 
-
-
-<p>修复：</p>
-<p>设置模拟NVRAM以在boot-args中存储nvda_drv = 1引导标志。</p>
-<p>在</p>
-<p>此处</p>
-<p>下载最新的Clover安装程序pkg ，启动安装程序并在此处选择自定义：</p>
-<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-17-27-20pm_zpsyyxgcist-png.268544/" alt="屏幕％20Shot％202016-06-17％20AT％204.17.27％20 PM_zpsyyxgcist.PNG"></p>
-<p>之后确保您选择了EmuVariableUefi-64：</p>
-<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-16-21-20pm_zpstrh5la5r-png.268545/" alt="屏幕％20Shot％202016-06-17％20AT％204.16.21％20 PM_zpstrh5la5r.PNG"></p>
-<p>继续完成Clover升级安装并重新启动。重新启动后打开系统首选项并转到Nvidia驱动程序管理器。确保您拥有最新的驱动程序是个好主意，因此请转到更新选项卡并单击立即检查按钮。如果有更新，请执行更新并在它告诉您时重新启动。你应该在这一点上完成。如果没有更新，请继续执行下一步。</p>
-<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-22-24-20pm_zpss1tshhyz-png.268546/" alt="屏幕％20Shot％202016-06-17％20AT％204.22.24％20 PM_zpss1tshhyz.PNG"></p>
-<p>如果没有升级，请单击“图形驱动程序”选项卡，然后选择NVIDIA Web Drive旁边的单选按钮。重启。</p>
-<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-21-54-20pm_zpstmrfmdvy-png.268547/" alt="屏幕％20Shot％202016-06-17％20AT％204.21.54％20 PM_zpstmrfmdvy.PNG"></p>
-<p>重新启动后，应该说您使用的是NVIDIA网络驱动程序。如果它仍然不起作用，那么您可能需要重新运行Clover安装程序并选择“在目标卷上安装RC脚本”。</p>
-<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-27-24-20pm_zpszwpp1ven-png.268548/" alt="屏幕％20Shot％202016-06-17％20AT％204.27.24％20 PM_zpszwpp1ven.PNG"></p>
-<p>-————————— </p>
-<p>如果您遇到任何其他错误，请告知我们，我将使用解决方案更新此帖子。</p>
-<p><strong>nvidia显卡驱动</strong> <a href="https://www.tonymacx86.com/nvidia-drivers/">https://www.tonymacx86.com/nvidia-drivers/</a><br><a href="https://www.tonymacx86.com/threads/nvidia-releases-alternate-graphics-drivers-for-macos-sierra-10-12-6-378-05-05-25.227494/">https://www.tonymacx86.com/threads/nvidia-releases-alternate-graphics-drivers-for-macos-sierra-10-12-6-378-05-05-25.227494/</a></p>
-<p>** 解决NVIDIA驱动程序安装和加载问题 ** <a href="https://www.tonymacx86.com/threads/solving-nvidia-driver-install-loading-problems.161256/">https://www.tonymacx86.com/threads/solving-nvidia-driver-install-loading-problems.161256/</a></p>
-]]></content>
-      <categories>
-        <category>Mac osx</category>
-        <category>Hackintosh</category>
-        <category>Nvidia</category>
-      </categories>
-      <tags>
-        <tag>Mac osx</tag>
-        <tag>Hackintosh</tag>
-        <tag>Nvidia</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>黑苹果</title>
     <url>/Hackintosh/</url>
     <content><![CDATA[<ul>
@@ -1460,6 +1422,44 @@ date -s  ‘2018-12-14 10:50:00’
       <tags>
         <tag>Mac osx</tag>
         <tag>Hackintosh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决NVIDIA驱动程序安装和加载问题</title>
+    <url>/Hackintosh-Nvidia-Driver/</url>
+    <content><![CDATA[<p>问题6：您在菜单栏或Nvidia驱动程序管理器首选项面板中选择了Nvidia Web Drivers，但是当您选择时重启OS X默认图形驱动程序已选中。</p>
+<p>当您的主板没有本机NVRAM支持（例如技嘉100系列主板）时会导致这种情况。</p>
+<span id="more"></span> 
+
+
+<p>修复：</p>
+<p>设置模拟NVRAM以在boot-args中存储nvda_drv = 1引导标志。</p>
+<p>在</p>
+<p>此处</p>
+<p>下载最新的Clover安装程序pkg ，启动安装程序并在此处选择自定义：</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-17-27-20pm_zpsyyxgcist-png.268544/" alt="屏幕％20Shot％202016-06-17％20AT％204.17.27％20 PM_zpsyyxgcist.PNG"></p>
+<p>之后确保您选择了EmuVariableUefi-64：</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-16-21-20pm_zpstrh5la5r-png.268545/" alt="屏幕％20Shot％202016-06-17％20AT％204.16.21％20 PM_zpstrh5la5r.PNG"></p>
+<p>继续完成Clover升级安装并重新启动。重新启动后打开系统首选项并转到Nvidia驱动程序管理器。确保您拥有最新的驱动程序是个好主意，因此请转到更新选项卡并单击立即检查按钮。如果有更新，请执行更新并在它告诉您时重新启动。你应该在这一点上完成。如果没有更新，请继续执行下一步。</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-22-24-20pm_zpss1tshhyz-png.268546/" alt="屏幕％20Shot％202016-06-17％20AT％204.22.24％20 PM_zpss1tshhyz.PNG"></p>
+<p>如果没有升级，请单击“图形驱动程序”选项卡，然后选择NVIDIA Web Drive旁边的单选按钮。重启。</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-21-54-20pm_zpstmrfmdvy-png.268547/" alt="屏幕％20Shot％202016-06-17％20AT％204.21.54％20 PM_zpstmrfmdvy.PNG"></p>
+<p>重新启动后，应该说您使用的是NVIDIA网络驱动程序。如果它仍然不起作用，那么您可能需要重新运行Clover安装程序并选择“在目标卷上安装RC脚本”。</p>
+<p><img src="https://www.tonymacx86.com/attachments/screen-20shot-202016-06-17-20at-204-27-24-20pm_zpszwpp1ven-png.268548/" alt="屏幕％20Shot％202016-06-17％20AT％204.27.24％20 PM_zpszwpp1ven.PNG"></p>
+<p>-————————— </p>
+<p>如果您遇到任何其他错误，请告知我们，我将使用解决方案更新此帖子。</p>
+<p><strong>nvidia显卡驱动</strong> <a href="https://www.tonymacx86.com/nvidia-drivers/">https://www.tonymacx86.com/nvidia-drivers/</a><br><a href="https://www.tonymacx86.com/threads/nvidia-releases-alternate-graphics-drivers-for-macos-sierra-10-12-6-378-05-05-25.227494/">https://www.tonymacx86.com/threads/nvidia-releases-alternate-graphics-drivers-for-macos-sierra-10-12-6-378-05-05-25.227494/</a></p>
+<p>** 解决NVIDIA驱动程序安装和加载问题 ** <a href="https://www.tonymacx86.com/threads/solving-nvidia-driver-install-loading-problems.161256/">https://www.tonymacx86.com/threads/solving-nvidia-driver-install-loading-problems.161256/</a></p>
+]]></content>
+      <categories>
+        <category>Mac osx</category>
+        <category>Hackintosh</category>
+        <category>Nvidia</category>
+      </categories>
+      <tags>
+        <tag>Mac osx</tag>
+        <tag>Hackintosh</tag>
+        <tag>Nvidia</tag>
       </tags>
   </entry>
   <entry>
@@ -1538,6 +1538,93 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>lock</tag>
         <tag>java</tag>
         <tag>concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java并发--原子操作的实现原理</title>
+    <url>/Java-Concurrent-realization-principle-of-atomic-operation/</url>
+    <content><![CDATA[<p>原子（atomic）本意是“不能被进一步分割的最小粒子”，而原子操作（atomic operation）意为“不可被中断的一个或一系列操作”。在多处理器上实现原子操作就变得有点复杂。让我们一起来聊一聊在Intel处理器和Java里是如何实现原子操作的。</p>
+<span id="more"></span> 
+
+<p>1.术语定义</p>
+<p>在了解原子操作的实现原理前，先要了解一下相关的术语，如表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">术语名称</th>
+<th align="center">英文</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">缓存行</td>
+<td align="center">Cache line</td>
+<td align="center">缓存的最小操作单位</td>
+</tr>
+<tr>
+<td align="center">比较并交换</td>
+<td align="center">Compare and Swap</td>
+<td align="center">CAS 操作需要输入两个值，一个旧值（期望操作前的值）和一个新值，在操作期间先比较旧值有没有发生变化，如果没有发生变化，才交换成新值，发生了变化则不变换</td>
+</tr>
+<tr>
+<td align="center">CPU   流水线</td>
+<td align="center">CPU pipeline</td>
+<td align="center">CPU 流水线的工作方式就像工业生产上装配流水线，在 CPU 中由 5<del>6 个不同功能的电路单元组成一条指令处理流水线，然后将一条 X86 指令分成 5</del>6 步后再由这些电路单元分别执行，这样就能实现一个 CPU 时钟周期完成一条指令，因此提高 CPU 的运算速度</td>
+</tr>
+<tr>
+<td align="center">内存顺序冲突</td>
+<td align="center">Memory order violation</td>
+<td align="center">内存顺序冲突一般是由假共享引起的，假共享是指多个 CPU 同时修改同一个缓存行的不同部分而引起其中一个 CPU 的操作无效，当出现这个内存顺序冲突时，CPU 必须清空流水线</td>
+</tr>
+</tbody></table>
+<p>2.处理器如何实现原子操作</p>
+<p>32位IA-32处理器使用基于对缓存加锁或总线加锁的方式来实现多处理器之间的原子操作。首先处理器会自动保证基本的内存操作的原子性。处理器保证从系统内存中读取或者写入一个字节是原子的，意思是当一个处理器读取一个字节时，其他处理器不能访问这个字节的内存地址。Pentium 6和最新的处理器能自动保证单处理器对同一个缓存行里进行16/32/64位的操作是原子的，但是复杂的内存操作处理器是不能自动保证其原子性的，比如跨总线宽度、跨多个缓存行和跨页表的访问。但是，处理器提供总线锁定和缓存锁定两个机制来保证复杂内存操作的原子性。</p>
+<p>（1）使用总线锁保证原子性</p>
+<p>第一个机制是通过总线锁保证原子性 。如果多个处理器同时对共享变量进行读改写操作（i++就是经典的读改写操作），那么共享变量就会被多个处理器同时进行操作，这样读改写操作就不是原子的，操作完之后共享变量的值会和期望的不一致。举个例子，如果i=1，我们进行两次i++操作，我们期望的结果是3，但是有可能结果是2，如图2-3所示。</p>
+<p><img src="Image00010.jpg" alt="img"></p>
+<p>图2-3　结果对比</p>
+<p>原因可能是多个处理器同时从各自的缓存中读取变量i，分别进行加1操作，然后分别写入系统内存中。那么，想要保证读改写共享变量的操作是原子的，就必须保证CPU1读改写共享变量的时候，CPU2不能操作缓存了该共享变量内存地址的缓存。</p>
+<p>处理器使用总线锁就是来解决这个问题的。所谓总线锁就是使用处理器提供的一个LOCK＃信号，当一个处理器在总线上输出此信号时，其他处理器的请求将被阻塞住，那么该处理器可以独占共享内存。</p>
+<p>（2）使用缓存锁保证原子性</p>
+<p>第二个机制是通过缓存锁定来保证原子性 。在同一时刻，我们只需保证对某个内存地址的操作是原子性即可，但总线锁定把CPU和内存之间的通信锁住了，这使得锁定期间，其他处理器不能操作其他内存地址的数据，所以总线锁定的开销比较大，目前处理器在某些场合下使用缓存锁定代替总线锁定来进行优化。</p>
+<p>频繁使用的内存会缓存在处理器的L1、L2和L3高速缓存里，那么原子操作就可以直接在处理器内部缓存中进行，并不需要声明总线锁，在Pentium 6和目前的处理器中可以使用“缓存锁定”的方式来实现复杂的原子性。所谓“缓存锁定”是指内存区域如果被缓存在处理器的缓存行中，并且在Lock操作期间被锁定，那么当它执行锁操作回写到内存时，处理器不在总线上声言LOCK＃信号，而是修改内部的内存地址，并允许它的缓存一致性机制来保证操作的原子性，因为缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域数据，当其他处理器回写已被锁定的缓存行的数据时，会使缓存行无效，在如图2-3所示的例子中，当CPU1修改缓存行中的i时使用了缓存锁定，那么CPU2就不能同时缓存i的缓存行。</p>
+<p>但是有两种情况下处理器不会使用缓存锁定。</p>
+<p>第一种情况是：当操作的数据不能被缓存在处理器内部，或操作的数据跨多个缓存行（cache line）时，则处理器会调用总线锁定。</p>
+<p>第二种情况是：有些处理器不支持缓存锁定。对于Intel 486和Pentium处理器，就算锁定的内存区域在处理器的缓存行中也会调用总线锁定。</p>
+<p>针对以上两个机制，我们通过Intel处理器提供了很多Lock前缀的指令来实现。例如，位测试和修改指令：BTS、BTR、BTC；交换指令XADD、CMPXCHG，以及其他一些操作数和逻辑指令（如ADD、OR）等，被这些指令操作的内存区域就会加锁，导致其他处理器不能同时访问它。</p>
+<p>3.Java如何实现原子操作</p>
+<p>在Java中可以通过锁和循环CAS的方式来实现原子操作。</p>
+<p>（1）使用循环CAS实现原子操作</p>
+<p>JVM中的CAS操作正是利用了处理器提供的CMPXCHG指令实现的。自旋CAS实现的基本思路就是循环进行CAS操作直到成功为止，以下代码实现了一个基于CAS线程安全的计数器方法safeCount和一个非线程安全的计数器count。</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> AtomicInteger atomicI = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Counter cas = <span class="keyword">new</span> Counter();</span><br><span class="line">        List&lt;Thread&gt; ts = <span class="keyword">new</span> ArrayList&lt;Thread&gt;(<span class="number">600</span>);</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++) &#123;</span><br><span class="line">            Thread t = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">                        cas.count();</span><br><span class="line">                        cas.safeCount();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            ts.add(t);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Thread t : ts) &#123;</span><br><span class="line">            t.start();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">// 等待所有线程执行完成</span></span><br><span class="line">        <span class="keyword">for</span> (Thread t : ts) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                t.join();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(cas.i);</span><br><span class="line">        System.out.println(cas.atomicI.get());</span><br><span class="line">        System.out.println(System.currentTimeMillis() - start);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**        * 使用CAS实现线程安全计数器        */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">safeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = atomicI.get();</span><br><span class="line">            <span class="keyword">boolean</span> suc = atomicI.compareAndSet(i, ++i);</span><br><span class="line">            <span class="keyword">if</span> (suc) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 非线程安全计数器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">count</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>从Java 1.5开始，JDK的并发包里提供了一些类来支持原子操作，如AtomicBoolean（用原子方式更新的boolean值）、AtomicInteger（用原子方式更新的int值）和AtomicLong（用原子方式更新的long值）。这些原子包装类还提供了有用的工具方法，比如以原子的方式将当前值自增1和自减1。</p>
+<p>（2）CAS实现原子操作的三大问题</p>
+<p>在Java并发包中有一些并发框架也使用了自旋CAS的方式来实现原子操作，比如LinkedTransferQueue类的Xfer方法。CAS虽然很高效地解决了原子操作，但是CAS仍然存在三大问题。ABA问题，循环时间长开销大，以及只能保证一个共享变量的原子操作。</p>
+<p>1）ABA问题 。因为CAS需要在操作值的时候，检查值有没有发生变化，如果没有发生变化则更新，但是如果一个值原来是A，变成了B，又变成了A，那么使用CAS进行检查时会发现它的值没有发生变化，但是实际上却变化了。ABA问题的解决思路就是使用版本号。在变量前面追加上版本号，每次变量更新的时候把版本号加1，那么A→B→A就会变成1A→2B→3A。从Java 1.5开始，JDK的Atomic包里提供了一个类AtomicStampedReference来解决ABA问题。这个类的compareAndSet方法的作用是首先检查当前引用是否等于预期引用，并且检查当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">           V          expectedReference,         // 预期引用</span></span></span><br><span class="line"><span class="params"><span class="function">           V          newReference,              // 更新后的引用</span></span></span><br><span class="line"><span class="params"><span class="function">           <span class="keyword">int</span>         expectedStamp,            // 预期标志</span></span></span><br><span class="line"><span class="params"><span class="function">           <span class="keyword">int</span>         newStamp                  // 更新后的标志</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>2）循环时间长开销大 。自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。如果JVM能支持处理器提供的pause指令，那么效率会有一定的提升。pause指令有两个作用：第一，它可以延迟流水线执行指令（de-pipeline），使CPU不会消耗过多的执行资源，延迟的时间取决于具体实现的版本，在一些处理器上延迟时间是零；第二，它可以避免在退出循环的时候因内存顺序冲突（Memory Order Violation）而引起CPU流水线被清空（CPU Pipeline Flush），从而提高CPU的执行效率。</p>
+<p>3）只能保证一个共享变量的原子操作 。当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无法保证操作的原子性，这个时候就可以用锁。还有一个取巧的办法，就是把多个共享变量合并成一个共享变量来操作。比如，有两个共享变量i＝2，j=a，合并一下ij=2a，然后用CAS来操作ij。从Java 1.5开始，JDK提供了AtomicReference类来保证引用对象之间的原子性，就可以把多个变量放在一个对象里来进行CAS操作。</p>
+<p>（3）使用锁机制实现原子操作</p>
+<p>锁机制保证了只有获得锁的线程才能够操作锁定的内存区域。JVM内部实现了很多种锁机制，有偏向锁、轻量级锁和互斥锁。有意思的是除了偏向锁，JVM实现锁的方式都用了循环CAS，即当一个线程想进入同步块的时候使用循环CAS的方式来获取锁，当它退出同步块的时候使用循环CAS释放锁。</p>
+<p>参考: 方腾飞,魏鹏,程晓明 著. 《Java并发编程的艺术 》(Java核心技术系列)</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>concurrent</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+        <tag>java</tag>
+        <tag>concurrent</tag>
+        <tag>atomic</tag>
+        <tag>CAS</tag>
+        <tag>LOCK</tag>
       </tags>
   </entry>
   <entry>
@@ -1697,6 +1784,29 @@ date -s  ‘2018-12-14 10:50:00’
       </tags>
   </entry>
   <entry>
+    <title>Java 并发--synchronized 的实现原理与应用</title>
+    <url>/Java-Concurrent-synchronized/</url>
+    <content><![CDATA[<p>在多线程并发编程中 synchronized 一直是元老级角色，很多人都会称呼它为重量级锁。但是，随着 Java SE 1.6 对 synchronized 进行了各种优化之后，有些情况下它就并不那么重了。本文详细介绍 Java SE 1.6 中为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁，以及锁的存储结构和升级过程。<br> <span id="more"></span><br>先来看下利用 synchronized 实现同步的基础：Java中的每一个对象都可以作为锁。具体表现为以下3种形式。</p>
+<p>·对于普通同步方法，锁是当前实例对象。</p>
+<p>·对于静态同步方法，锁是当前类的 Class 对象。</p>
+<p>·对于同步方法块，锁是 Synchonized 括号里配置的对象。</p>
+<p>当一个线程试图访问同步代码块时，它首先必须得到锁，退出或抛出异常时必须释放锁。那么锁到底存在哪里呢？锁里面会存储什么信息呢？</p>
+<p>从 JVM 规范中可以看到 Synchonized 在 JVM 里的实现原理，JVM 基于进入和退出 Monitor 对象来实现方法同步和代码块同步，但两者的实现细节不一样。代码块同步是使用 monitorenter 和 monitorexit 指令实现的，而方法同步是使用另外一种方式实现的，细节在 JVM 规范里并没有详细说明。但是，方法的同步同样可以使用这两个指令来实现。</p>
+<p>monitorenter 指令是在编译后插入到同步代码块的开始位置，而monitorexit是插入到方法结束处和异常处，JVM要保证每个monitorenter必须有对应的monitorexit与之配对。任何对象都有一个monitor与之关联，当且一个monitor被持有后，它将处于锁定状态。线程执行到monitorenter指令时，将会尝试获取对象所对应的monitor的所有权，即尝试获得对象的锁。</p>
+<p>参考: 方腾飞,魏鹏,程晓明 著. 《Java并发编程的艺术 》(Java核心技术系列)</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>concurrent</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+        <tag>java</tag>
+        <tag>concurrent</tag>
+        <tag>Synchronized</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java并发--锁的升级与对比</title>
     <url>/Java-Concurrent-lock-escalation-comparison/</url>
     <content><![CDATA[<p>Java SE 1.6为了减少获得锁和释放锁带来的性能消耗，引入了“偏向锁”和“轻量级锁”，在Java SE 1.6中，锁一共有4种状态，级别从低到高依次是：无锁状态、偏向锁状态、轻量级锁状态和重量级锁状态，这几个状态会随着竞争情况逐渐升级。锁可以升级但不能降级，意味着偏向锁升级成轻量级锁后不能降级成偏向锁。这种锁升级却不能降级的策略，目的是为了提高获得锁和释放锁的效率，下文会详细分析。<br> <span id="more"></span><br>1.偏向锁</p>
@@ -1755,171 +1865,6 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>java</tag>
         <tag>concurrent</tag>
         <tag>lock escalation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java并发--原子操作的实现原理</title>
-    <url>/Java-Concurrent-realization-principle-of-atomic-operation/</url>
-    <content><![CDATA[<p>原子（atomic）本意是“不能被进一步分割的最小粒子”，而原子操作（atomic operation）意为“不可被中断的一个或一系列操作”。在多处理器上实现原子操作就变得有点复杂。让我们一起来聊一聊在Intel处理器和Java里是如何实现原子操作的。</p>
-<span id="more"></span> 
-
-<p>1.术语定义</p>
-<p>在了解原子操作的实现原理前，先要了解一下相关的术语，如表所示。</p>
-<table>
-<thead>
-<tr>
-<th align="center">术语名称</th>
-<th align="center">英文</th>
-<th align="center">解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">缓存行</td>
-<td align="center">Cache line</td>
-<td align="center">缓存的最小操作单位</td>
-</tr>
-<tr>
-<td align="center">比较并交换</td>
-<td align="center">Compare and Swap</td>
-<td align="center">CAS 操作需要输入两个值，一个旧值（期望操作前的值）和一个新值，在操作期间先比较旧值有没有发生变化，如果没有发生变化，才交换成新值，发生了变化则不变换</td>
-</tr>
-<tr>
-<td align="center">CPU   流水线</td>
-<td align="center">CPU pipeline</td>
-<td align="center">CPU 流水线的工作方式就像工业生产上装配流水线，在 CPU 中由 5<del>6 个不同功能的电路单元组成一条指令处理流水线，然后将一条 X86 指令分成 5</del>6 步后再由这些电路单元分别执行，这样就能实现一个 CPU 时钟周期完成一条指令，因此提高 CPU 的运算速度</td>
-</tr>
-<tr>
-<td align="center">内存顺序冲突</td>
-<td align="center">Memory order violation</td>
-<td align="center">内存顺序冲突一般是由假共享引起的，假共享是指多个 CPU 同时修改同一个缓存行的不同部分而引起其中一个 CPU 的操作无效，当出现这个内存顺序冲突时，CPU 必须清空流水线</td>
-</tr>
-</tbody></table>
-<p>2.处理器如何实现原子操作</p>
-<p>32位IA-32处理器使用基于对缓存加锁或总线加锁的方式来实现多处理器之间的原子操作。首先处理器会自动保证基本的内存操作的原子性。处理器保证从系统内存中读取或者写入一个字节是原子的，意思是当一个处理器读取一个字节时，其他处理器不能访问这个字节的内存地址。Pentium 6和最新的处理器能自动保证单处理器对同一个缓存行里进行16/32/64位的操作是原子的，但是复杂的内存操作处理器是不能自动保证其原子性的，比如跨总线宽度、跨多个缓存行和跨页表的访问。但是，处理器提供总线锁定和缓存锁定两个机制来保证复杂内存操作的原子性。</p>
-<p>（1）使用总线锁保证原子性</p>
-<p>第一个机制是通过总线锁保证原子性 。如果多个处理器同时对共享变量进行读改写操作（i++就是经典的读改写操作），那么共享变量就会被多个处理器同时进行操作，这样读改写操作就不是原子的，操作完之后共享变量的值会和期望的不一致。举个例子，如果i=1，我们进行两次i++操作，我们期望的结果是3，但是有可能结果是2，如图2-3所示。</p>
-<p><img src="Image00010.jpg" alt="img"></p>
-<p>图2-3　结果对比</p>
-<p>原因可能是多个处理器同时从各自的缓存中读取变量i，分别进行加1操作，然后分别写入系统内存中。那么，想要保证读改写共享变量的操作是原子的，就必须保证CPU1读改写共享变量的时候，CPU2不能操作缓存了该共享变量内存地址的缓存。</p>
-<p>处理器使用总线锁就是来解决这个问题的。所谓总线锁就是使用处理器提供的一个LOCK＃信号，当一个处理器在总线上输出此信号时，其他处理器的请求将被阻塞住，那么该处理器可以独占共享内存。</p>
-<p>（2）使用缓存锁保证原子性</p>
-<p>第二个机制是通过缓存锁定来保证原子性 。在同一时刻，我们只需保证对某个内存地址的操作是原子性即可，但总线锁定把CPU和内存之间的通信锁住了，这使得锁定期间，其他处理器不能操作其他内存地址的数据，所以总线锁定的开销比较大，目前处理器在某些场合下使用缓存锁定代替总线锁定来进行优化。</p>
-<p>频繁使用的内存会缓存在处理器的L1、L2和L3高速缓存里，那么原子操作就可以直接在处理器内部缓存中进行，并不需要声明总线锁，在Pentium 6和目前的处理器中可以使用“缓存锁定”的方式来实现复杂的原子性。所谓“缓存锁定”是指内存区域如果被缓存在处理器的缓存行中，并且在Lock操作期间被锁定，那么当它执行锁操作回写到内存时，处理器不在总线上声言LOCK＃信号，而是修改内部的内存地址，并允许它的缓存一致性机制来保证操作的原子性，因为缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域数据，当其他处理器回写已被锁定的缓存行的数据时，会使缓存行无效，在如图2-3所示的例子中，当CPU1修改缓存行中的i时使用了缓存锁定，那么CPU2就不能同时缓存i的缓存行。</p>
-<p>但是有两种情况下处理器不会使用缓存锁定。</p>
-<p>第一种情况是：当操作的数据不能被缓存在处理器内部，或操作的数据跨多个缓存行（cache line）时，则处理器会调用总线锁定。</p>
-<p>第二种情况是：有些处理器不支持缓存锁定。对于Intel 486和Pentium处理器，就算锁定的内存区域在处理器的缓存行中也会调用总线锁定。</p>
-<p>针对以上两个机制，我们通过Intel处理器提供了很多Lock前缀的指令来实现。例如，位测试和修改指令：BTS、BTR、BTC；交换指令XADD、CMPXCHG，以及其他一些操作数和逻辑指令（如ADD、OR）等，被这些指令操作的内存区域就会加锁，导致其他处理器不能同时访问它。</p>
-<p>3.Java如何实现原子操作</p>
-<p>在Java中可以通过锁和循环CAS的方式来实现原子操作。</p>
-<p>（1）使用循环CAS实现原子操作</p>
-<p>JVM中的CAS操作正是利用了处理器提供的CMPXCHG指令实现的。自旋CAS实现的基本思路就是循环进行CAS操作直到成功为止，以下代码实现了一个基于CAS线程安全的计数器方法safeCount和一个非线程安全的计数器count。</p>
-<hr>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> AtomicInteger atomicI = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Counter cas = <span class="keyword">new</span> Counter();</span><br><span class="line">        List&lt;Thread&gt; ts = <span class="keyword">new</span> ArrayList&lt;Thread&gt;(<span class="number">600</span>);</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++) &#123;</span><br><span class="line">            Thread t = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">                        cas.count();</span><br><span class="line">                        cas.safeCount();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            ts.add(t);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Thread t : ts) &#123;</span><br><span class="line">            t.start();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">// 等待所有线程执行完成</span></span><br><span class="line">        <span class="keyword">for</span> (Thread t : ts) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                t.join();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(cas.i);</span><br><span class="line">        System.out.println(cas.atomicI.get());</span><br><span class="line">        System.out.println(System.currentTimeMillis() - start);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**        * 使用CAS实现线程安全计数器        */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">safeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = atomicI.get();</span><br><span class="line">            <span class="keyword">boolean</span> suc = atomicI.compareAndSet(i, ++i);</span><br><span class="line">            <span class="keyword">if</span> (suc) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 非线程安全计数器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">count</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>从Java 1.5开始，JDK的并发包里提供了一些类来支持原子操作，如AtomicBoolean（用原子方式更新的boolean值）、AtomicInteger（用原子方式更新的int值）和AtomicLong（用原子方式更新的long值）。这些原子包装类还提供了有用的工具方法，比如以原子的方式将当前值自增1和自减1。</p>
-<p>（2）CAS实现原子操作的三大问题</p>
-<p>在Java并发包中有一些并发框架也使用了自旋CAS的方式来实现原子操作，比如LinkedTransferQueue类的Xfer方法。CAS虽然很高效地解决了原子操作，但是CAS仍然存在三大问题。ABA问题，循环时间长开销大，以及只能保证一个共享变量的原子操作。</p>
-<p>1）ABA问题 。因为CAS需要在操作值的时候，检查值有没有发生变化，如果没有发生变化则更新，但是如果一个值原来是A，变成了B，又变成了A，那么使用CAS进行检查时会发现它的值没有发生变化，但是实际上却变化了。ABA问题的解决思路就是使用版本号。在变量前面追加上版本号，每次变量更新的时候把版本号加1，那么A→B→A就会变成1A→2B→3A。从Java 1.5开始，JDK的Atomic包里提供了一个类AtomicStampedReference来解决ABA问题。这个类的compareAndSet方法的作用是首先检查当前引用是否等于预期引用，并且检查当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。</p>
-<hr>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">           V          expectedReference,         // 预期引用</span></span></span><br><span class="line"><span class="params"><span class="function">           V          newReference,              // 更新后的引用</span></span></span><br><span class="line"><span class="params"><span class="function">           <span class="keyword">int</span>         expectedStamp,            // 预期标志</span></span></span><br><span class="line"><span class="params"><span class="function">           <span class="keyword">int</span>         newStamp                  // 更新后的标志</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>2）循环时间长开销大 。自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。如果JVM能支持处理器提供的pause指令，那么效率会有一定的提升。pause指令有两个作用：第一，它可以延迟流水线执行指令（de-pipeline），使CPU不会消耗过多的执行资源，延迟的时间取决于具体实现的版本，在一些处理器上延迟时间是零；第二，它可以避免在退出循环的时候因内存顺序冲突（Memory Order Violation）而引起CPU流水线被清空（CPU Pipeline Flush），从而提高CPU的执行效率。</p>
-<p>3）只能保证一个共享变量的原子操作 。当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无法保证操作的原子性，这个时候就可以用锁。还有一个取巧的办法，就是把多个共享变量合并成一个共享变量来操作。比如，有两个共享变量i＝2，j=a，合并一下ij=2a，然后用CAS来操作ij。从Java 1.5开始，JDK提供了AtomicReference类来保证引用对象之间的原子性，就可以把多个变量放在一个对象里来进行CAS操作。</p>
-<p>（3）使用锁机制实现原子操作</p>
-<p>锁机制保证了只有获得锁的线程才能够操作锁定的内存区域。JVM内部实现了很多种锁机制，有偏向锁、轻量级锁和互斥锁。有意思的是除了偏向锁，JVM实现锁的方式都用了循环CAS，即当一个线程想进入同步块的时候使用循环CAS的方式来获取锁，当它退出同步块的时候使用循环CAS释放锁。</p>
-<p>参考: 方腾飞,魏鹏,程晓明 著. 《Java并发编程的艺术 》(Java核心技术系列)</p>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>concurrent</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
-        <tag>java</tag>
-        <tag>concurrent</tag>
-        <tag>atomic</tag>
-        <tag>CAS</tag>
-        <tag>LOCK</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac的最大连接数限制和端口的相关参数的设置</title>
-    <url>/Mac-Max-Connet-Port/</url>
-    <content><![CDATA[<blockquote>
-<p>“</p>
-<p>使用jmeter压测服务器接口，出现连接超时或者无法找到路由之类的错误。发现实际瓶颈并非出现在服务器上，而是在本机。</p>
-<p>”</p>
-</blockquote>
-<h2 id="最大连接数限制"><a href="#最大连接数限制" class="headerlink" title="最大连接数限制"></a>最大连接数限制</h2><p>最大连接数限制就是系统所能打开的最大文件数（文件描述符）的限制，分全局和进程两种，相应的命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl kern.maxfiles</span></span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfiles: 12288</span><br></pre></td></tr></table></figure>
-
-<p>说明：全局限制，也就是系统默认的最大连接数限制是12288</p>
-<span id="more"></span>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl kern.maxfilesperproc</span></span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfilesperproc: 10240</span><br></pre></td></tr></table></figure>
-
-<p>说明：单个进程默认最大连接数限制是10240</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo sysctl -w kern.maxfiles=1048600</span></span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfiles: 12288 -&gt; 1048600</span><br></pre></td></tr></table></figure>
-
-<p>说明：设置系统最大连接数从12288到1048600</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo sysctl -w kern.maxfilesperproc=1048576</span></span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfilesperproc: 10240 -&gt; 1048576</span><br></pre></td></tr></table></figure>
-
-<p>说明：设置进程连接数限制，进程的最大连接数要小于等于全局连接数</p>
-<h2 id="ulimit命令"><a href="#ulimit命令" class="headerlink" title="ulimit命令"></a>ulimit命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">ulimit</span> -n</span></span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2560</span><br></pre></td></tr></table></figure>
-
-<p>说明：<code>ulimit －n</code> 命令显示当前shell能打开的最大文件数，默认值：<code>2560</code> ，该值总是小于 <code>kern.maxfilesperproc</code> 的值，因为一个shell就是一个进程。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">ulimit</span> -n 1048576</span></span><br></pre></td></tr></table></figure>
-
-<p>说明：设置当前shell能打开的最大文件数为1048576，该值不能大于 <code>kern.maxfilesperproc</code> ，否则会提示设置失败。</p>
-<h2 id="动态端口范围"><a href="#动态端口范围" class="headerlink" title="动态端口范围"></a>动态端口范围</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl net.inet.ip.portrange</span></span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">net.inet.ip.portrange.lowfirst: 1023</span><br><span class="line">net.inet.ip.portrange.lowlast: 600</span><br><span class="line">net.inet.ip.portrange.first: 49152</span><br><span class="line">net.inet.ip.portrange.last: 65535</span><br><span class="line">net.inet.ip.portrange.hifirst: 49152</span><br><span class="line">net.inet.ip.portrange.hilast: 65535</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>“</p>
-<p>Linux动态端口号默认范围是32768-65535，也就是说，作为客户端连接同一个IP和同一个端口号，最多只能建立30000多个连接，而Mac默认只能建立16000个左右的连接。</p>
-<p>”</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl -w net.inet.ip.portrange.first=32768</span></span><br></pre></td></tr></table></figure>
-
-<p>说明：设置动态分配起点端口号为32768，这样可以增大客户端可以建立的连接数。</p>
-<p>参考：The IANA list of port numbers includes the well-known and registered port numbers and specifies the dynamic port number range.</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>按以上的方式设置参数有个问题，当系统重启后，这些参数又恢复成了默认值，解决办法就是把参数写到 <code>/etc/sysctl.conf</code> 文件中，但是，默认这个文件是不存在的，所以首先就要创建它：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo touch /etc/sysctl.conf</span></span><br></pre></td></tr></table></figure>
-
-<p>然后把参数写到文件里</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">kern.maxfiles=1048600</span><br><span class="line">kern.maxfilesperproc=1048576</span><br><span class="line">net.inet.ip.portrange.first=32768   </span><br><span class="line">net.inet.ip.portrange.last=65535</span><br></pre></td></tr></table></figure>
-
-<p>重启系统，查看结果，显示成功。</p>
-<p>至于 <code>ulimit -n</code> 的值，可以把 <code>ulimit -n 1048576</code> 写到 <code>.bashrc</code> 中实现自动修改。</p>
-]]></content>
-      <categories>
-        <category>Mac</category>
-        <category>Connect</category>
-        <category>Port</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-        <tag>Connect</tag>
-        <tag>Port</tag>
       </tags>
   </entry>
   <entry>
@@ -2014,6 +1959,84 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>java</tag>
         <tag>concurrent</tag>
         <tag>volatile</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac的最大连接数限制和端口的相关参数的设置</title>
+    <url>/Mac-Max-Connet-Port/</url>
+    <content><![CDATA[<blockquote>
+<p>“</p>
+<p>使用jmeter压测服务器接口，出现连接超时或者无法找到路由之类的错误。发现实际瓶颈并非出现在服务器上，而是在本机。</p>
+<p>”</p>
+</blockquote>
+<h2 id="最大连接数限制"><a href="#最大连接数限制" class="headerlink" title="最大连接数限制"></a>最大连接数限制</h2><p>最大连接数限制就是系统所能打开的最大文件数（文件描述符）的限制，分全局和进程两种，相应的命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl kern.maxfiles</span></span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfiles: 12288</span><br></pre></td></tr></table></figure>
+
+<p>说明：全局限制，也就是系统默认的最大连接数限制是12288</p>
+<span id="more"></span>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl kern.maxfilesperproc</span></span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfilesperproc: 10240</span><br></pre></td></tr></table></figure>
+
+<p>说明：单个进程默认最大连接数限制是10240</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo sysctl -w kern.maxfiles=1048600</span></span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfiles: 12288 -&gt; 1048600</span><br></pre></td></tr></table></figure>
+
+<p>说明：设置系统最大连接数从12288到1048600</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo sysctl -w kern.maxfilesperproc=1048576</span></span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kern.maxfilesperproc: 10240 -&gt; 1048576</span><br></pre></td></tr></table></figure>
+
+<p>说明：设置进程连接数限制，进程的最大连接数要小于等于全局连接数</p>
+<h2 id="ulimit命令"><a href="#ulimit命令" class="headerlink" title="ulimit命令"></a>ulimit命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">ulimit</span> -n</span></span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2560</span><br></pre></td></tr></table></figure>
+
+<p>说明：<code>ulimit －n</code> 命令显示当前shell能打开的最大文件数，默认值：<code>2560</code> ，该值总是小于 <code>kern.maxfilesperproc</code> 的值，因为一个shell就是一个进程。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">ulimit</span> -n 1048576</span></span><br></pre></td></tr></table></figure>
+
+<p>说明：设置当前shell能打开的最大文件数为1048576，该值不能大于 <code>kern.maxfilesperproc</code> ，否则会提示设置失败。</p>
+<h2 id="动态端口范围"><a href="#动态端口范围" class="headerlink" title="动态端口范围"></a>动态端口范围</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl net.inet.ip.portrange</span></span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">net.inet.ip.portrange.lowfirst: 1023</span><br><span class="line">net.inet.ip.portrange.lowlast: 600</span><br><span class="line">net.inet.ip.portrange.first: 49152</span><br><span class="line">net.inet.ip.portrange.last: 65535</span><br><span class="line">net.inet.ip.portrange.hifirst: 49152</span><br><span class="line">net.inet.ip.portrange.hilast: 65535</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>“</p>
+<p>Linux动态端口号默认范围是32768-65535，也就是说，作为客户端连接同一个IP和同一个端口号，最多只能建立30000多个连接，而Mac默认只能建立16000个左右的连接。</p>
+<p>”</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sysctl -w net.inet.ip.portrange.first=32768</span></span><br></pre></td></tr></table></figure>
+
+<p>说明：设置动态分配起点端口号为32768，这样可以增大客户端可以建立的连接数。</p>
+<p>参考：The IANA list of port numbers includes the well-known and registered port numbers and specifies the dynamic port number range.</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>按以上的方式设置参数有个问题，当系统重启后，这些参数又恢复成了默认值，解决办法就是把参数写到 <code>/etc/sysctl.conf</code> 文件中，但是，默认这个文件是不存在的，所以首先就要创建它：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo touch /etc/sysctl.conf</span></span><br></pre></td></tr></table></figure>
+
+<p>然后把参数写到文件里</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">kern.maxfiles=1048600</span><br><span class="line">kern.maxfilesperproc=1048576</span><br><span class="line">net.inet.ip.portrange.first=32768   </span><br><span class="line">net.inet.ip.portrange.last=65535</span><br></pre></td></tr></table></figure>
+
+<p>重启系统，查看结果，显示成功。</p>
+<p>至于 <code>ulimit -n</code> 的值，可以把 <code>ulimit -n 1048576</code> 写到 <code>.bashrc</code> 中实现自动修改。</p>
+]]></content>
+      <categories>
+        <category>Mac</category>
+        <category>Connect</category>
+        <category>Port</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>Connect</tag>
+        <tag>Port</tag>
       </tags>
   </entry>
   <entry>
@@ -2145,29 +2168,6 @@ date -s  ‘2018-12-14 10:50:00’
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java 并发--synchronized 的实现原理与应用</title>
-    <url>/Java-Concurrent-synchronized/</url>
-    <content><![CDATA[<p>在多线程并发编程中 synchronized 一直是元老级角色，很多人都会称呼它为重量级锁。但是，随着 Java SE 1.6 对 synchronized 进行了各种优化之后，有些情况下它就并不那么重了。本文详细介绍 Java SE 1.6 中为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁，以及锁的存储结构和升级过程。<br> <span id="more"></span><br>先来看下利用 synchronized 实现同步的基础：Java中的每一个对象都可以作为锁。具体表现为以下3种形式。</p>
-<p>·对于普通同步方法，锁是当前实例对象。</p>
-<p>·对于静态同步方法，锁是当前类的 Class 对象。</p>
-<p>·对于同步方法块，锁是 Synchonized 括号里配置的对象。</p>
-<p>当一个线程试图访问同步代码块时，它首先必须得到锁，退出或抛出异常时必须释放锁。那么锁到底存在哪里呢？锁里面会存储什么信息呢？</p>
-<p>从 JVM 规范中可以看到 Synchonized 在 JVM 里的实现原理，JVM 基于进入和退出 Monitor 对象来实现方法同步和代码块同步，但两者的实现细节不一样。代码块同步是使用 monitorenter 和 monitorexit 指令实现的，而方法同步是使用另外一种方式实现的，细节在 JVM 规范里并没有详细说明。但是，方法的同步同样可以使用这两个指令来实现。</p>
-<p>monitorenter 指令是在编译后插入到同步代码块的开始位置，而monitorexit是插入到方法结束处和异常处，JVM要保证每个monitorenter必须有对应的monitorexit与之配对。任何对象都有一个monitor与之关联，当且一个monitor被持有后，它将处于锁定状态。线程执行到monitorenter指令时，将会尝试获取对象所对应的monitor的所有权，即尝试获得对象的锁。</p>
-<p>参考: 方腾飞,魏鹏,程晓明 著. 《Java并发编程的艺术 》(Java核心技术系列)</p>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>concurrent</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
-        <tag>java</tag>
-        <tag>concurrent</tag>
-        <tag>Synchronized</tag>
       </tags>
   </entry>
   <entry>
@@ -2557,25 +2557,6 @@ date -s  ‘2018-12-14 10:50:00’
       </tags>
   </entry>
   <entry>
-    <title>二分查找</title>
-    <url>/algorithm-bi-search/</url>
-    <content><![CDATA[<p>又叫折半查找，要求待查找的序列有序。每次取中间位置与待查关键字比较，如果中间位置的值比待查关键字大，则在前半部分循环这个查找的过程，如果中间位置的值比待查关键字小，则在后半部分循环这个查找的过程。直到查找到了为止。否则序列中没有待查的关键字。</p>
- <span id="more"></span>
-
-<p>Java 代码实现如下</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">biSearch</span><span class="params">(<span class="keyword">int</span> []array, <span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> hi = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> mid;</span><br><span class="line">  <span class="keyword">while</span>(lo&lt;=hi)&#123;</span><br><span class="line">    mid=(lo+li)/<span class="number">2</span>; <span class="comment">// 中间位置</span></span><br><span class="line">    <span class="keyword">if</span>(array[mid]==a)&#123;</span><br><span class="line">      <span class="keyword">return</span> mid + <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(array[mid]&lt;a)&#123; <span class="comment">// 向右查找</span></span><br><span class="line">      lo = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123; <span class="comment">// 向左查找</span></span><br><span class="line">    	hi = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>java</category>
-        <category>algorithm</category>
-        <category>biSearch</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>algorithm</tag>
-        <tag>biSearch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows环境下Vmware中Centos共享文件</title>
     <url>/Windows-Vmware-Centos-share-Folder/</url>
     <content><![CDATA[<h3 id="先安装包依赖："><a href="#先安装包依赖：" class="headerlink" title="先安装包依赖："></a>先安装包依赖：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++</span><br></pre></td></tr></table></figure>
@@ -2595,6 +2576,25 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>centos</tag>
         <tag>linux</tag>
         <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分查找</title>
+    <url>/algorithm-bi-search/</url>
+    <content><![CDATA[<p>又叫折半查找，要求待查找的序列有序。每次取中间位置与待查关键字比较，如果中间位置的值比待查关键字大，则在前半部分循环这个查找的过程，如果中间位置的值比待查关键字小，则在后半部分循环这个查找的过程。直到查找到了为止。否则序列中没有待查的关键字。</p>
+ <span id="more"></span>
+
+<p>Java 代码实现如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">biSearch</span><span class="params">(<span class="keyword">int</span> []array, <span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> hi = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> mid;</span><br><span class="line">  <span class="keyword">while</span>(lo&lt;=hi)&#123;</span><br><span class="line">    mid=(lo+li)/<span class="number">2</span>; <span class="comment">// 中间位置</span></span><br><span class="line">    <span class="keyword">if</span>(array[mid]==a)&#123;</span><br><span class="line">      <span class="keyword">return</span> mid + <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(array[mid]&lt;a)&#123; <span class="comment">// 向右查找</span></span><br><span class="line">      lo = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123; <span class="comment">// 向左查找</span></span><br><span class="line">    	hi = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+        <category>algorithm</category>
+        <category>biSearch</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+        <tag>biSearch</tag>
       </tags>
   </entry>
   <entry>
@@ -2705,6 +2705,26 @@ date -s  ‘2018-12-14 10:50:00’
       </tags>
   </entry>
   <entry>
+    <title>计数排序</title>
+    <url>/algorithm-radix-sort/</url>
+    <content><![CDATA[<p>将所有待比较数值 （正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。<br> <span id="more"></span></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RadixSort</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] a =&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">101</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">radixSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">    sort(a);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;a.length; i++)&#123;</span><br><span class="line">      System.out.println(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 首先确定排序的趟数；</span></span><br><span class="line">    <span class="keyword">int</span> max = array[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(array[i]&gt;max)&#123;</span><br><span class="line">        max = array[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> time = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 判断位数；</span></span><br><span class="line">    <span class="keyword">while</span>(max &gt;<span class="number">0</span>)&#123;</span><br><span class="line">      max/=<span class="number">10</span>;</span><br><span class="line">      time++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 建立 10 个队列</span></span><br><span class="line">    List&lt;ArrayList&gt; queue = <span class="keyword">new</span> ArrayList&lt;ArrayList&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">10</span> ; i++)&#123;</span><br><span class="line">      ArrayList&lt;Integer&gt; queue1 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">      queue.add(queue1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 进行 time 次分配和收集</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt; time; i++)&#123;</span><br><span class="line">      <span class="comment">// 分配数组元素</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;array.length; j++)&#123;</span><br><span class="line">        <span class="comment">// 得到数字的第 time+1 位数</span></span><br><span class="line">        <span class="keyword">int</span> x = array[j]%(<span class="keyword">int</span>)Math.pow(<span class="number">10</span>,i+<span class="number">1</span>)/(<span class="keyword">int</span>)Math.pow(<span class="number">10</span>,i);</span><br><span class="line">        ArrayList&lt;Integer&gt; queue2 = queue.get(x);</span><br><span class="line">        queue2.add(array[j]);</span><br><span class="line">        queue.set(x,queue2);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 元素计数器；</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)&#123;</span><br><span class="line">      <span class="keyword">while</span>(queue.get(k).size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; queue3 = queue.get(k);</span><br><span class="line">        array[count] = queue3.get(<span class="number">0</span>);</span><br><span class="line">        queue3.remove(<span class="number">0</span>);</span><br><span class="line">        count++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>algorithm</category>
+        <category>radix sort</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+        <tag>radix sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>希尔排序</title>
     <url>/algorithm-shell-sort/</url>
     <content><![CDATA[<p>基本思想：先将整个待排序的记录分割成若干子序列分别进行插入排序，待整个序列中的记录 ”基本有序“ 时，再对全体记录进行依次直接插入排序。<br> <span id="more"></span><br>1.操作方法：</p>
@@ -2723,26 +2743,6 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>java</tag>
         <tag>algorithm</tag>
         <tag>shell sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计数排序</title>
-    <url>/algorithm-radix-sort/</url>
-    <content><![CDATA[<p>将所有待比较数值 （正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。<br> <span id="more"></span></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RadixSort</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] a =&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">101</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">radixSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">    sort(a);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;a.length; i++)&#123;</span><br><span class="line">      System.out.println(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 首先确定排序的趟数；</span></span><br><span class="line">    <span class="keyword">int</span> max = array[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(array[i]&gt;max)&#123;</span><br><span class="line">        max = array[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> time = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 判断位数；</span></span><br><span class="line">    <span class="keyword">while</span>(max &gt;<span class="number">0</span>)&#123;</span><br><span class="line">      max/=<span class="number">10</span>;</span><br><span class="line">      time++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 建立 10 个队列</span></span><br><span class="line">    List&lt;ArrayList&gt; queue = <span class="keyword">new</span> ArrayList&lt;ArrayList&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">10</span> ; i++)&#123;</span><br><span class="line">      ArrayList&lt;Integer&gt; queue1 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">      queue.add(queue1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 进行 time 次分配和收集</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt; time; i++)&#123;</span><br><span class="line">      <span class="comment">// 分配数组元素</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;array.length; j++)&#123;</span><br><span class="line">        <span class="comment">// 得到数字的第 time+1 位数</span></span><br><span class="line">        <span class="keyword">int</span> x = array[j]%(<span class="keyword">int</span>)Math.pow(<span class="number">10</span>,i+<span class="number">1</span>)/(<span class="keyword">int</span>)Math.pow(<span class="number">10</span>,i);</span><br><span class="line">        ArrayList&lt;Integer&gt; queue2 = queue.get(x);</span><br><span class="line">        queue2.add(array[j]);</span><br><span class="line">        queue.set(x,queue2);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 元素计数器；</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)&#123;</span><br><span class="line">      <span class="keyword">while</span>(queue.get(k).size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; queue3 = queue.get(k);</span><br><span class="line">        array[count] = queue3.get(<span class="number">0</span>);</span><br><span class="line">        queue3.remove(<span class="number">0</span>);</span><br><span class="line">        count++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>algorithm</category>
-        <category>radix sort</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>algorithm</tag>
-        <tag>radix sort</tag>
       </tags>
   </entry>
   <entry>
@@ -2809,6 +2809,37 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>blog</tag>
         <tag>https</tag>
         <tag>caddy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS越狱</title>
+    <url>/iOS-Jailbreaking/</url>
+    <content><![CDATA[<ul>
+<li><strong>写在开头</strong></li>
+</ul>
+<p>什么是iOS越狱？</p>
+<blockquote>
+<p>iOS越狱（英语：iOS Jailbreaking）是获取iOS设备的Root权限的技术手段。iOS系统的Root用户对除Apple特定私有进程之外的其他进程不开放，使用Root用户运行的进程在进程树中的PID为0。程序员在iOS中挖掘出一些可以将进程提权至PID0的漏洞（例如Task For PID0）。利用Root用户运行的进程意味着可以任意读取设备其中的APFS分区表和内核缓存地址，拥有一个用户可以随意控制的PID0进程还不能称之为一个完整的越狱。之后还需要利用Bypass（旁路）手段绕过Apple在iOS系统中设置的其他安全防护措施，将APFS或HFS+文件系统中的ROOTFS分区重新挂载（Remount）为可读写（R/W），从而达到添加二进制文件和守护进程的目的。通常大众用户认为能够正常使用Cydia才能被称为越狱，但其实这种说法是不正确的。但通过此软件可以完成越狱前不可能进行的动作，例如安装App Store以外未经过签名的应用、修改SpringBoard、运行Shell程序、使有运营商锁的设备利用卡贴解锁后通过替换配置文件形式实现本地化（例如“去除+86”，解锁FaceTime功能）。[1]</p>
+</blockquote>
+<span id="more"></span> 
+
+<blockquote>
+<p>越狱软件分发商店Cydia的创始人Jay Freeman在2010年10月估计，全球大概有10%的iPhone曾进行过越狱[2]。 当一台iOS设备越狱之后，用户将能实践很多此前无能以得的各种功能，或是使用很多被Apple认为不安全的软件。比如：虚拟定位、修改iPhone的登录设备、翻越防火墙、修改设备界面字体和主题、快速转换自定义铃声、使用自己编程的软件或插件等。</p>
+</blockquote>
+<p>越狱工具：</p>
+<p>挂神团队越狱 <a href="https://app.nk8686.xin/ios/">https://app.nk8686.xin/ios/</a></p>
+<p>electra越狱 <a href="https://coolstar.org/electra/">https://coolstar.org/electra/</a></p>
+<p>pp助手越狱 <a href="https://pro.25pp.com/ppghost">https://pro.25pp.com/ppghost</a></p>
+<p>爱思越狱助手：<a href="https://www.i4.cn/">https://www.i4.cn/</a></p>
+<p>iOS9.2~iOS9.3.3越狱修复 <a href="http://jb92.i4.cn/">http://jb92.i4.cn/</a></p>
+]]></content>
+      <categories>
+        <category>ios</category>
+        <category>Jailbreaking</category>
+      </categories>
+      <tags>
+        <tag>ios</tag>
+        <tag>Jailbreaking</tag>
       </tags>
   </entry>
   <entry>
@@ -2884,34 +2915,50 @@ date -s  ‘2018-12-14 10:50:00’
       </tags>
   </entry>
   <entry>
-    <title>iOS越狱</title>
-    <url>/iOS-Jailbreaking/</url>
-    <content><![CDATA[<ul>
-<li><strong>写在开头</strong></li>
-</ul>
-<p>什么是iOS越狱？</p>
-<blockquote>
-<p>iOS越狱（英语：iOS Jailbreaking）是获取iOS设备的Root权限的技术手段。iOS系统的Root用户对除Apple特定私有进程之外的其他进程不开放，使用Root用户运行的进程在进程树中的PID为0。程序员在iOS中挖掘出一些可以将进程提权至PID0的漏洞（例如Task For PID0）。利用Root用户运行的进程意味着可以任意读取设备其中的APFS分区表和内核缓存地址，拥有一个用户可以随意控制的PID0进程还不能称之为一个完整的越狱。之后还需要利用Bypass（旁路）手段绕过Apple在iOS系统中设置的其他安全防护措施，将APFS或HFS+文件系统中的ROOTFS分区重新挂载（Remount）为可读写（R/W），从而达到添加二进制文件和守护进程的目的。通常大众用户认为能够正常使用Cydia才能被称为越狱，但其实这种说法是不正确的。但通过此软件可以完成越狱前不可能进行的动作，例如安装App Store以外未经过签名的应用、修改SpringBoard、运行Shell程序、使有运营商锁的设备利用卡贴解锁后通过替换配置文件形式实现本地化（例如“去除+86”，解锁FaceTime功能）。[1]</p>
-</blockquote>
-<span id="more"></span> 
+    <title>kibana 认证登录</title>
+    <url>/kibana-auth/</url>
+    <content><![CDATA[<p><code>Kibana</code>从5.5开始不提供认证功能，用官方的认证<code>X-Pack</code>，则需购买授权许可。</p>
+<p>为了安全访问，我们可以使用<code>Nginx</code>的代理功能来认证登录</p>
+<span id="more"></span>
 
-<blockquote>
-<p>越狱软件分发商店Cydia的创始人Jay Freeman在2010年10月估计，全球大概有10%的iPhone曾进行过越狱[2]。 当一台iOS设备越狱之后，用户将能实践很多此前无能以得的各种功能，或是使用很多被Apple认为不安全的软件。比如：虚拟定位、修改iPhone的登录设备、翻越防火墙、修改设备界面字体和主题、快速转换自定义铃声、使用自己编程的软件或插件等。</p>
-</blockquote>
-<p>越狱工具：</p>
-<p>挂神团队越狱 <a href="https://app.nk8686.xin/ios/">https://app.nk8686.xin/ios/</a></p>
-<p>electra越狱 <a href="https://coolstar.org/electra/">https://coolstar.org/electra/</a></p>
-<p>pp助手越狱 <a href="https://pro.25pp.com/ppghost">https://pro.25pp.com/ppghost</a></p>
-<p>爱思越狱助手：<a href="https://www.i4.cn/">https://www.i4.cn/</a></p>
-<p>iOS9.2~iOS9.3.3越狱修复 <a href="http://jb92.i4.cn/">http://jb92.i4.cn/</a></p>
+<p>安装<code>Nginx</code><br>安装<code>Apache</code>密码生产工具</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install httpd-tools</span><br></pre></td></tr></table></figure>
+
+<p>生成密码文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/nginx/passwd</span><br><span class="line"></span><br><span class="line">htpasswd -c -b /etc/nginx/passwd/kibana.passwd admin 123456</span><br></pre></td></tr></table></figure>
+
+<p>配置<code>Nginx</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">172.20.8.113:5601</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">auth_basic</span> <span class="string">&quot;Kibana Auth&quot;</span>;</span><br><span class="line">  <span class="attribute">auth_basic_user_file</span> /etc/nginx/passwd/kibana.passwd;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:5601;</span><br><span class="line">    <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>Kibana</code>配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/kibana/config/kibana.yml</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># The host to bind the server to.</span></span><br><span class="line"></span><br><span class="line">server.host: &quot;localhost&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>重启<code>Kibana</code>服务，配置文件生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart kibana</span><br></pre></td></tr></table></figure>
+
+<p>重载<code>Nginx</code>配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>登录<code>Kibana</code><br>URL: <a href="http://172.20.8.113:5601/">http://172.20.8.113:5601</a></p>
 ]]></content>
       <categories>
-        <category>ios</category>
-        <category>Jailbreaking</category>
+        <category>kibana</category>
+        <category>nginx</category>
+        <category>htpasswd</category>
+        <category>auth</category>
       </categories>
       <tags>
-        <tag>ios</tag>
-        <tag>Jailbreaking</tag>
+        <tag>nginx</tag>
+        <tag>kibana</tag>
+        <tag>htpasswd</tag>
+        <tag>auth</tag>
       </tags>
   </entry>
   <entry>
@@ -2993,53 +3040,6 @@ date -s  ‘2018-12-14 10:50:00’
         <tag>mycat</tag>
         <tag>subtable</tag>
         <tag>partbymonth</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kibana 认证登录</title>
-    <url>/kibana-auth/</url>
-    <content><![CDATA[<p><code>Kibana</code>从5.5开始不提供认证功能，用官方的认证<code>X-Pack</code>，则需购买授权许可。</p>
-<p>为了安全访问，我们可以使用<code>Nginx</code>的代理功能来认证登录</p>
-<span id="more"></span>
-
-<p>安装<code>Nginx</code><br>安装<code>Apache</code>密码生产工具</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install httpd-tools</span><br></pre></td></tr></table></figure>
-
-<p>生成密码文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/nginx/passwd</span><br><span class="line"></span><br><span class="line">htpasswd -c -b /etc/nginx/passwd/kibana.passwd admin 123456</span><br></pre></td></tr></table></figure>
-
-<p>配置<code>Nginx</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">172.20.8.113:5601</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">auth_basic</span> <span class="string">&quot;Kibana Auth&quot;</span>;</span><br><span class="line">  <span class="attribute">auth_basic_user_file</span> /etc/nginx/passwd/kibana.passwd;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:5601;</span><br><span class="line">    <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>Kibana</code>配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/kibana/config/kibana.yml</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># The host to bind the server to.</span></span><br><span class="line"></span><br><span class="line">server.host: &quot;localhost&quot;</span><br></pre></td></tr></table></figure>
-
-
-<p>重启<code>Kibana</code>服务，配置文件生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart kibana</span><br></pre></td></tr></table></figure>
-
-<p>重载<code>Nginx</code>配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
-
-<p>登录<code>Kibana</code><br>URL: <a href="http://172.20.8.113:5601/">http://172.20.8.113:5601</a></p>
-]]></content>
-      <categories>
-        <category>kibana</category>
-        <category>nginx</category>
-        <category>htpasswd</category>
-        <category>auth</category>
-      </categories>
-      <tags>
-        <tag>nginx</tag>
-        <tag>kibana</tag>
-        <tag>htpasswd</tag>
-        <tag>auth</tag>
       </tags>
   </entry>
   <entry>

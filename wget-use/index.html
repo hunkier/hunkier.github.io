@@ -307,32 +307,31 @@
 <p>基本的语法是：<code>wget [参数列表] &quot;URL&quot;</code> 用””引起来可以避免因<code>URL</code>中有特殊字符造成的下载出错。</p>
 <p>下面就结合具体的例子来说明一下<code>wget</code>的用法。</p>
 <p>​     1、下载整个<code>http</code>或者<code>ftp</code>站点。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://place.your.url/here</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">     wget http://place.your.url/here
+</code></pre>
 <p>  这个命令可以将<code>http://place.your.url/here</code>首页下载下来。使用-x会强制建立服务器上一模一样的目录，如果使用<code>-nd</code>参数，那么服务器上下载的所有内容都会加到本地当前目录。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -r http://place.your.url/here</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell"> wget -r http://place.your.url/here
+</code></pre>
 <p>​     这个命令会按照递归的方法，下载服务器上所有的目录和文件，实质就是下载整个网站。这个命令一定要小心使用，因为在下载的时候，被下载网站指向的所有地址 同样会被下载，因此，如果这个网站引用了其他网站，那么被引用的网站也会被下载下来！基于这个原因，这个参数不常用。可以用<code>-l number</code>参数来指定下载的层次。例如只下载两层，那么使用<code>-l 2</code>。</p>
 <p>​     要是您想制作镜像站点，那么可以使用－m参数，例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -m http://place.your.url/here</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">wget -m http://place.your.url/here
+</code></pre>
 <p>​     这时wget会自动判断合适的参数来制作镜像站点。此时，wget会登录到服务器上，读入<code>robots.txt</code>并按<code>robots.txt</code>的规定来执行。</p>
 <p>​     2、断点续传。<br>​     当文件特别大或者网络特别慢的时候，往往一个文件还没有下载完，连接就已经被切断，此时就需要断点续传。<code>wget</code>的断点续传是自动的，只需要使用<code>-c</code>参数，例如：<br>​    </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://the.url.of/incomplete/file</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"> wget -c http://the.url.of/incomplete/file
+</code></pre>
 <p>​     使用断点续传要求服务器支持断点续传。<code>-t</code>参数表示重试次数，例如需要重试100次，那么就写-<code>t 100</code>，如果设成<code>-t 0</code>，那么表示无穷次重试，直到连接成功。<code>-T</code>参数表示超时等待时间，例如<code>-T 120</code>，表示等待120秒连接不上就算超时。</p>
 <p>​     3、批量下载。<br>​     如果有多个文件需要下载，那么可以生成一个文件，把每个文件的URL写一行，例如生成文件<code>download.txt</code>，然后用命令：<code>wget -i download.txt</code><br>这样就会把<code>download.txt</code>里面列出的每个<code>URL</code>都下载下来。（如果列的是文件就下载文件，如果列的是网站，那么下载首页）</p>
 <p>​     4、选择性的下载。<br>​     可以指定让<code>wget</code>只下载一类文件，或者不下载什么文件。例如： </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -m --reject=gif http://target.web.site/subdirectory</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">   wget -m --reject=gif http://target.web.site/subdirectory
+</code></pre>
 <p>​     表示下载<code>http://target.web.site/subdirector</code>y，但是忽略gif文件。<code>--accept=LIST</code>可以接受的文件类型，<code>--reject=LIST</code>拒绝接受的文件类型。</p>
 <p>​     表示下载<code>http://target.web.site/subdirectory</code>，但是忽略gif文件。–accept=LIST 可以接受的文件类型，–reject=LIST拒绝接受的文件类型。</p>
 <p>​     5、密码和认证。<br>​     wget只能处理利用用户名/密码方式限制访问的网站，可以利用两个参数：<br>​    <code>--http-user=USER</code>设置HTTP用户<br>​    <code>--http-passwd=PASS</code>设置HTTP密码<br>​     对于需要证书做认证的网站，就只能利用其他下载工具了，例如<code>curl</code>。</p>
 <p>​     6、利用代理服务器进行下载。<br>​     如果用户的网络需要经过代理服务器，那么可以让<code>wget</code>通过代理服务器进行文件的下载。此时需要在当前用户的目录下创建一个<code>.wgetrc</code>文件。文件中可以设置代理服务器： </p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http-<span class="attribute">proxy</span> = <span class="number">111.111.111.111:8080</span> </span><br><span class="line">ftp-proxy = <span class="number">111.111.111.111:8080</span> </span><br></pre></td></tr></table></figure>
-
+<pre><code class="nginx">     http-proxy = 111.111.111.111:8080 
+     ftp-proxy = 111.111.111.111:8080 
+</code></pre>
 <p>​     分别表示<code>http</code>的代理服务器和<code>ftp</code>的代理服务器。如果代理服务器需要密码则使用：<br>​    <code>--proxy-user=USER</code>设置代理用户<br>​    <code>--proxy-passwd=PASS</code>设置代理密码<br>​     这两个参数。<br>​     使用参数<code>--proxy=on/off 使</code>用或者关闭代理。<br>​    <code>wget</code>还有很多有用的功能，需要用户去挖掘。</p>
 <p>​     分别表示<code>http</code>的代理服务器和<code>ftp</code>的代理服务器。如果代理服务器需要密码则使用：<br>​    <code>--proxy-user=USER</code>设置代理用户<br>​    <code>--proxy-passwd=PASS</code>设置代理密码<br>​     这两个参数。<br>​     使用参数–proxy=on/off 使用或者关闭代理。<br>​     wget还有很多有用的功能，需要用户去挖掘。</p>
 <p><code>wget</code>的使用格式</p>
@@ -340,14 +339,29 @@
 <ul>
 <li>用wget做站点镜像:</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wget -r -p -np -k http://dsec.pku.edu.cn/~usr_name/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">wget -m http://dsec.pku.edu.cn/~usr_name/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在不稳定的网络上下载一个部分下载的文件，以及在空闲时段下载</span></span><br><span class="line">wget -t 0 -w 31 -c http://dsec.pku.edu.cn/BBC.avi -o down.log &amp;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者从filelist读入要下载的文件列表</span></span><br><span class="line">wget -t 0 -w 31 -c -B ftp://dsec.pku.edu.cn/linuxsoft -i filelist.txt -o down.log &amp;</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">wget -r -p -np -k http://dsec.pku.edu.cn/~usr_name/
 
+# 或者
+wget -m http://dsec.pku.edu.cn/~usr_name/
+
+# 在不稳定的网络上下载一个部分下载的文件，以及在空闲时段下载
+wget -t 0 -w 31 -c http://dsec.pku.edu.cn/BBC.avi -o down.log &amp;
+
+# 或者从filelist读入要下载的文件列表
+wget -t 0 -w 31 -c -B ftp://dsec.pku.edu.cn/linuxsoft -i filelist.txt -o down.log &amp;
+</code></pre>
 <p>上面的代码还可以用来在网络比较空闲的时段进行下载。我的用法是:在<code>mozilla</code>中将不方便当时下载的<code>URL</code>链接拷贝到内存中然后粘贴到文件<code>filelist.txt</code>中，在晚上要出去系统前执行上面代码的第二条。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用代理下载</span></span><br><span class="line">wget -Y on -p -k https://sourceforge.net/projects/wvware/</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"># 使用代理下载
+wget -Y on -p -k https://sourceforge.net/projects/wvware/
+</code></pre>
 <p>代理可以在环境变量或<code>wgetrc</code>文件中设定</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在环境变量中设定代理</span></span><br><span class="line">export PROXY=http://211.90.168.94:8080/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在~/.wgetrc中设定代理</span></span><br><span class="line">http_proxy = http://proxy.yoyodyne.com:18023/</span><br><span class="line">ftp_proxy = http://proxy.yoyodyne.com:18023/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="shell"># 在环境变量中设定代理
+export PROXY=http://211.90.168.94:8080/
 
+# 在~/.wgetrc中设定代理
+http_proxy = http://proxy.yoyodyne.com:18023/
+ftp_proxy = http://proxy.yoyodyne.com:18023/
+</code></pre>
 <p><code>wget</code>各种选项分类列表</p>
 <ul>
 <li>启动</li>

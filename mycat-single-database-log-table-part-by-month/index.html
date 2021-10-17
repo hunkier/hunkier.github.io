@@ -312,28 +312,54 @@
         <p>什么是MYCAT<br>•  一个彻底开源的，面向企业应用开发的大数据库集群<br>•  支持事务、ACID、可以替代MySQL的加强版数据库<br>•  一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群<br>•  一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server<br>•  结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品<br>•  一个新颖的数据库中间件产品</p>
  <span id="more"></span>
 <p>Mycat关键特性<br>•  支持SQL92标准<br>•  支持MySQL、Oracle、DB2、SQL Server、PostgreSQL等DB的常见SQL语法<br>•  遵守Mysql原生协议，跨语言，跨平台，跨数据库的通用中间件代理。<br>•  基于心跳的自动故障切换，支持读写分离，支持MySQL主从，以及galera cluster集群。<br>•  支持Galera for MySQL集群，Percona Cluster或者MariaDB cluster<br>•  基于Nio实现，有效管理线程，解决高并发问题。<br>•  支持数据的多片自动路由与聚合，支持sum,count,max等常用的聚合函数,支持跨库分页。<br>•  支持单库内部任意join，支持跨库2表join，甚至基于caltlet的多表join。<br>•  支持通过全局表，ER关系的分片策略，实现了高效的多表join查询。<br>•  支持多租户方案。<br>•  支持分布式事务（弱xa）。<br>•  支持XA分布式事务（1.6.5）。<br>•  支持全局序列号，解决分布式下的主键生成问题。<br>•  分片规则丰富，插件化开发，易于扩展。<br>•  强大的web，命令行监控。<br>•  支持前端作为MySQL通用代理，后端JDBC方式支持Oracle、DB2、SQL Server 、 mongodb 、巨杉。<br>•  支持密码加密<br>•  支持服务降级<br>•  支持IP白名单<br>•  支持SQL黑名单、sql注入攻击拦截<br>•  支持prepare预编译指令（1.6）<br>•  支持非堆内存(Direct Memory)聚合计算（1.6）<br>•  支持PostgreSQL的native协议（1.6）<br>•  支持mysql和oracle存储过程，out参数、多结果集返回（1.6）<br>•  支持zookeeper协调主从切换、zk序列、配置zk化（1.6）<br>•  支持库内分表（1.6）<br>•  集群基于ZooKeeper管理，在线升级，扩容，智能优化，大数据处理（2.0开发版）。<br>一、分表规则<br><code>dm_log</code>和<code>dm_opendoor_record</code>表每年数据量两千万左右，平均每个月两百万左右，mysql单表数据量达到800万时性能出现明显下降，此时需要考虑优化。优先方案考虑优化程序以及sql语句，再优化表结构，最后才是分库分表。<br>自然月分表，每个月分一张表，分表规则定义在<code>MYCAT_HOME/conf/rule.xml</code>中具体如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tableRule</span> <span class="attr">name</span>=<span class="string">&quot;dm_log_sharding-by-date&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rule</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">columns</span>&gt;</span>logtime<span class="tag">&lt;/<span class="name">columns</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">algorithm</span>&gt;</span>partbymonth<span class="tag">&lt;/<span class="name">algorithm</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">rule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tableRule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tableRule</span> <span class="attr">name</span>=<span class="string">&quot;dm_opendoor_record_sharding-by-date&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rule</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">columns</span>&gt;</span>opertime<span class="tag">&lt;/<span class="name">columns</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">algorithm</span>&gt;</span>partbymonth<span class="tag">&lt;/<span class="name">algorithm</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">rule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tableRule</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">function</span> <span class="attr">name</span>=<span class="string">&quot;partbymonth&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">class</span>=<span class="string">&quot;io.mycat.route.function.PartitionByMonth&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dateFormat&quot;</span>&gt;</span>yyyy-MM-dd HH:mm:ss<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;sBeginDate&quot;</span>&gt;</span>2014-01-01 00:00:00<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;sEndDate&quot;</span>&gt;</span>2014-12-31 00:00:00<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">function</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">    &lt;tableRule name=&quot;dm_log_sharding-by-date&quot;&gt;
+        &lt;rule&gt;
+            &lt;columns&gt;logtime&lt;/columns&gt;
+            &lt;algorithm&gt;partbymonth&lt;/algorithm&gt;
+        &lt;/rule&gt;
+    &lt;/tableRule&gt;
+    &lt;tableRule name=&quot;dm_opendoor_record_sharding-by-date&quot;&gt;
+        &lt;rule&gt;
+            &lt;columns&gt;opertime&lt;/columns&gt;
+            &lt;algorithm&gt;partbymonth&lt;/algorithm&gt;
+        &lt;/rule&gt;
+    &lt;/tableRule&gt;
+</code></pre>
+<pre><code class="xml">&lt;function name=&quot;partbymonth&quot;
+    class=&quot;io.mycat.route.function.PartitionByMonth&quot;&gt;
+    &lt;property name=&quot;dateFormat&quot;&gt;yyyy-MM-dd HH:mm:ss&lt;/property&gt;
+    &lt;property name=&quot;sBeginDate&quot;&gt;2014-01-01 00:00:00&lt;/property&gt;
+    &lt;property name=&quot;sEndDate&quot;&gt;2014-12-31 00:00:00&lt;/property&gt;
+&lt;/function&gt;
+</code></pre>
 <p><code>dm_log</code>表按<code>logtime</code>字段根据<code>partbymonth</code>算法分表，<br><code>dm_opendoor_record</code>表按<code>opertime</code>字段根据<code>partbymonth</code>算法分表，<br>算法<code>partbymonth</code>中的<code>dateFormat</code>定义时间格式，在sql语句增删改查中时间需要按照定义格式传入，才能正常执行分表算法。<br>分表名称定义在<code>MYCAT_HOME/conf/schema.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">schema</span> <span class="attr">name</span>=<span class="string">&quot;mt_pm&quot;</span> <span class="attr">checkSQLschema</span>=<span class="string">&quot;false&quot;</span> <span class="attr">sqlMaxLimit</span>=<span class="string">&quot;100&quot;</span> <span class="attr">dataNode</span>=<span class="string">&quot;mt_pm_dn&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">&quot;dm_log&quot;</span> <span class="attr">primaryKey</span>=<span class="string">&quot;logid&quot;</span> <span class="attr">autoIncrement</span>=<span class="string">&quot;true&quot;</span> <span class="attr">subTables</span>=<span class="string">&quot;dm_log_$1-12&quot;</span> <span class="attr">dataNode</span>=<span class="string">&quot;mt_pm_dn&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">rule</span>=<span class="string">&quot;dm_log_sharding-by-month&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">&quot;dm_opendoor_record&quot;</span> <span class="attr">primaryKey</span>=<span class="string">&quot;id&quot;</span> <span class="attr">autoIncrement</span>=<span class="string">&quot;true&quot;</span> <span class="attr">subTables</span>=<span class="string">&quot;dm_opendoor_record_$1-12&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">dataNode</span>=<span class="string">&quot;mt_pm_dn&quot;</span> <span class="attr">rule</span>=<span class="string">&quot;dm_opendoor_record_sharding-by-month&quot;</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;schema name=&quot;mt_pm&quot; checkSQLschema=&quot;false&quot; sqlMaxLimit=&quot;100&quot; dataNode=&quot;mt_pm_dn&quot;&gt;
+      &lt;table name=&quot;dm_log&quot; primaryKey=&quot;logid&quot; autoIncrement=&quot;true&quot; subTables=&quot;dm_log_$1-12&quot; dataNode=&quot;mt_pm_dn&quot;
+             rule=&quot;dm_log_sharding-by-month&quot;/&gt;
+      &lt;table name=&quot;dm_opendoor_record&quot; primaryKey=&quot;id&quot; autoIncrement=&quot;true&quot; subTables=&quot;dm_opendoor_record_$1-12&quot;
+             dataNode=&quot;mt_pm_dn&quot; rule=&quot;dm_opendoor_record_sharding-by-month&quot;/&gt;
+     &lt;/schema&gt;
+</code></pre>
 <p><code>subTables</code>定义了分表的名称：<br>​         <code>dm_log</code>表定义了分表名为<code>dm_log_$1-12</code>，表示分为12张表，表名分别为：<code>dm_log_1、dm_log_2、dm_log_3、dm_log_4、dm_log_5、dm_log_6、dm_log_7、dm_log_8、dm_log_9、dm_log_10、dm_log_11、dm_log_12</code>。<code>logtime</code>为一月份时，根据算法会将数据分配到<code>dm_log_1</code>表，二月份数据插入表<code>dm_log_2</code>，以此类推，到十二月份后的一月份数据又循环插入<code>dm_log_1</code>表。<br>​         <code>dm_opendoor_record</code>表定义了分表名为<code>dm_opendoor_record _$1-12</code>，表示分为12张表，表名分别为：<code>dm_opendoor_record _1、dm_opendoor_record _2、dm_opendoor_record _3、dm_opendoor_record _4、dm_opendoor_record _5、dm_opendoor_record _6、dm_opendoor_record_7、dm_opendoor_record_8、dm_opendoor_record_9、dm_opendoor_record _10、dm_opendoor_record _11、dm_opendoor_record _12</code>。opertime为一月份时，根据算法会将数据分配到dm_opendoor_record _1表，二月份数据插入表<code>dm_opendoor_record_2</code>，以此类推，到十二月份后的一月份数据又循环插入<code>dm_opendoor_record _1</code>表。</p>
 <p>二、自增主键<br>原理:<br>​      在数据库中建立一张表，存放 sequence 名称(name)，sequence 当前值(current_value)，步长(increment) int 类型每次读取多少个 sequence，假设为 K)等信息；<br>Sequence 获取步骤：<br>​     1).当初次使用该 sequence 时，根据传入的 sequence 名称，从数据库这张表中读取 current_value，和 increment 到 MyCat 中，并将数据库中的 current_value 设置为原 current_value 值+increment 值；<br>​    2).MyCat 将读取到 current_value+increment 作为本次要使用的 sequence 值，下次使用时，自动加 1，当使用 increment 次后，执行步骤 1)相同的操作.<br>MyCat 负责维护这张表，用到哪些 sequence，只需要在这张表中插入一条记录即可。若某次读取的sequence 没有用完，系统就停掉了，则这次读取的 sequence 剩余值不会再使用。<br>配置方式：<br><code>MYCAT_HOME/conf/server.xml</code> 配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">system</span>&gt;</span><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;sequnceHandlerType&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">property</span>&gt;</span><span class="tag">&lt;/<span class="name">system</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;system&gt;&lt;property name=&quot;sequnceHandlerType&quot;&gt;1&lt;/property&gt;&lt;/system&gt;
+</code></pre>
 <p>注：sequnceHandlerType 需要配置为 1，表示使用数据库方式生成 sequence.<br><code>MYCAT_HOME/conf/schema.xml</code>配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">schema</span> <span class="attr">name</span>=<span class="string">&quot;mt_pm&quot;</span> <span class="attr">checkSQLschema</span>=<span class="string">&quot;false&quot;</span> <span class="attr">sqlMaxLimit</span>=<span class="string">&quot;100&quot;</span> <span class="attr">dataNode</span>=<span class="string">&quot;mt_pm_dn&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">&quot;dm_log&quot;</span> <span class="attr">primaryKey</span>=<span class="string">&quot;logid&quot;</span> <span class="attr">autoIncrement</span>=<span class="string">&quot;true&quot;</span> <span class="attr">subTables</span>=<span class="string">&quot;dm_log_$1-12&quot;</span> <span class="attr">dataNode</span>=<span class="string">&quot;mt_pm_dn&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">rule</span>=<span class="string">&quot;dm_log_sharding-by-month&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">&quot;dm_opendoor_record&quot;</span> <span class="attr">primaryKey</span>=<span class="string">&quot;id&quot;</span> <span class="attr">autoIncrement</span>=<span class="string">&quot;true&quot;</span> <span class="attr">subTables</span>=<span class="string">&quot;dm_opendoor_record_$1-12&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">dataNode</span>=<span class="string">&quot;mt_pm_dn&quot;</span> <span class="attr">rule</span>=<span class="string">&quot;dm_opendoor_record_sharding-by-month&quot;</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;schema name=&quot;mt_pm&quot; checkSQLschema=&quot;false&quot; sqlMaxLimit=&quot;100&quot; dataNode=&quot;mt_pm_dn&quot;&gt;
+      &lt;table name=&quot;dm_log&quot; primaryKey=&quot;logid&quot; autoIncrement=&quot;true&quot; subTables=&quot;dm_log_$1-12&quot; dataNode=&quot;mt_pm_dn&quot;
+             rule=&quot;dm_log_sharding-by-month&quot;/&gt;
+      &lt;table name=&quot;dm_opendoor_record&quot; primaryKey=&quot;id&quot; autoIncrement=&quot;true&quot; subTables=&quot;dm_opendoor_record_$1-12&quot;
+             dataNode=&quot;mt_pm_dn&quot; rule=&quot;dm_opendoor_record_sharding-by-month&quot;/&gt;
+     &lt;/schema&gt;
+</code></pre>
 <p>在table节点配置<code>primaryKey</code>和<code>autoIncrement</code>，<code>primaryKey</code>为自增主键，<code>autoIncrement</code>值为<code>ture</code>。</p>
 <p>数据库配置：</p>
 <ol>
 <li>创建 <code>MYCAT_SEQUENCE</code> 表<br>– 创建存放 <code>sequence</code> 的表</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> MYCAT_SEQUENCE;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> MYCAT_SEQUENCE (name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,current_value <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,increment <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">100</span>, <span class="keyword">PRIMARY</span> KEY(name)) ENGINE<span class="operator">=</span>InnoDB;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">DROP TABLE IF EXISTS MYCAT_SEQUENCE;
+CREATE TABLE MYCAT_SEQUENCE (name VARCHAR(50) NOT NULL,current_value INT NOT NULL,increment INT NOT NULL DEFAULT 100, PRIMARY KEY(name)) ENGINE=InnoDB;
+</code></pre>
 <ol>
 <li><p> <code>name</code> sequence 名称</p>
 </li>
@@ -343,34 +369,73 @@
 </li>
 </ol>
 <p>– 插入sequence</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `mycat_sequence` (`name`, `current_value`, `increment`) <span class="keyword">VALUES</span> (<span class="string">&#x27;dm_log&#x27;</span>, <span class="string">&#x27;152509809922444&#x27;</span>, <span class="string">&#x27;1000&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `mycat_sequence` (`name`, `current_value`, `increment`) <span class="keyword">VALUES</span> (<span class="string">&#x27;dm_opendoor_record&#x27;</span>, <span class="string">&#x27;58733280&#x27;</span>, <span class="string">&#x27;1000&#x27;</span>); </span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">INSERT INTO `mycat_sequence` (`name`, `current_value`, `increment`) VALUES (&#39;dm_log&#39;, &#39;152509809922444&#39;, &#39;1000&#39;);
+INSERT INTO `mycat_sequence` (`name`, `current_value`, `increment`) VALUES (&#39;dm_opendoor_record&#39;, &#39;58733280&#39;, &#39;1000&#39;); 
+</code></pre>
 <ol start="2">
 <li>创建相关 <code>function</code></li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">–<span class="operator">-</span> 获取当前 sequence 的值 (返回当前值,增量)</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> IF <span class="keyword">EXISTS</span> mycat_seq_currval;</span><br><span class="line">DELIMITER</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> mycat_seq_currval(seq_name <span class="type">VARCHAR</span>(<span class="number">50</span>)) <span class="keyword">RETURNS</span> <span class="type">varchar</span>(<span class="number">64</span>) CHARSET utf<span class="number">-8</span></span><br><span class="line"><span class="keyword">DETERMINISTIC</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> retval <span class="type">VARCHAR</span>(<span class="number">64</span>);</span><br><span class="line"><span class="keyword">SET</span> retval<span class="operator">=</span>“<span class="number">-999999999</span>,<span class="keyword">null</span>” ;</span><br><span class="line"><span class="keyword">SELECT</span> concat(<span class="built_in">CAST</span>(current_value <span class="keyword">AS</span> <span class="type">CHAR</span>),“,” ,<span class="built_in">CAST</span>(increment <span class="keyword">AS</span> <span class="type">CHAR</span>)) <span class="keyword">INTO</span> retval <span class="keyword">FROM</span></span><br><span class="line">MYCAT_SEQUENCE <span class="keyword">WHERE</span> name <span class="operator">=</span> seq_name;</span><br><span class="line"><span class="keyword">RETURN</span> retval;</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">DELIMITER;</span><br><span class="line">–<span class="operator">-</span> 设置 sequence 值</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> IF <span class="keyword">EXISTS</span> mycat_seq_setval;</span><br><span class="line">DELIMITER</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> mycat_seq_setval(seq_name <span class="type">VARCHAR</span>(<span class="number">50</span>),<span class="keyword">value</span> <span class="type">INTEGER</span>) <span class="keyword">RETURNS</span> <span class="type">varchar</span>(<span class="number">64</span>)</span><br><span class="line">CHARSET utf<span class="number">-8</span></span><br><span class="line"><span class="keyword">DETERMINISTIC</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">UPDATE MYCAT_SEQUENCE</span><br><span class="line"><span class="keyword">SET</span> current_value <span class="operator">=</span> <span class="keyword">value</span></span><br><span class="line"><span class="keyword">WHERE</span> name <span class="operator">=</span> seq_name;</span><br><span class="line"><span class="keyword">RETURN</span> mycat_seq_currval(seq_name);</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">DELIMITER;</span><br><span class="line">–<span class="operator">-</span> 获取下一个 sequence 值</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> IF <span class="keyword">EXISTS</span> mycat_seq_nextval;</span><br><span class="line">DELIMITER</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> mycat_seq_nextval(seq_name <span class="type">VARCHAR</span>(<span class="number">50</span>)) <span class="keyword">RETURNS</span> <span class="type">varchar</span>(<span class="number">64</span>) CHARSET utf<span class="number">-8</span></span><br><span class="line"><span class="keyword">DETERMINISTIC</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">UPDATE MYCAT_SEQUENCE <span class="keyword">SET</span> current_value <span class="operator">=</span> current_value <span class="operator">+</span> increment <span class="keyword">WHERE</span> name <span class="operator">=</span> seq_name;</span><br><span class="line"><span class="keyword">RETURN</span> mycat_seq_currval(seq_name);</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">DELIMITER;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">–- 获取当前 sequence 的值 (返回当前值,增量)
+DROP FUNCTION IF EXISTS mycat_seq_currval;
+DELIMITER
+CREATE FUNCTION mycat_seq_currval(seq_name VARCHAR(50)) RETURNS varchar(64) CHARSET utf-8
+DETERMINISTIC
+BEGIN
+DECLARE retval VARCHAR(64);
+SET retval=“-999999999,null” ;
+SELECT concat(CAST(current_value AS CHAR),“,” ,CAST(increment AS CHAR)) INTO retval FROM
+MYCAT_SEQUENCE WHERE name = seq_name;
+RETURN retval;
+END
+DELIMITER;
+–- 设置 sequence 值
+DROP FUNCTION IF EXISTS mycat_seq_setval;
+DELIMITER
+CREATE FUNCTION mycat_seq_setval(seq_name VARCHAR(50),value INTEGER) RETURNS varchar(64)
+CHARSET utf-8
+DETERMINISTIC
+BEGIN
+UPDATE MYCAT_SEQUENCE
+SET current_value = value
+WHERE name = seq_name;
+RETURN mycat_seq_currval(seq_name);
+END
+DELIMITER;
+–- 获取下一个 sequence 值
+DROP FUNCTION IF EXISTS mycat_seq_nextval;
+DELIMITER
+CREATE FUNCTION mycat_seq_nextval(seq_name VARCHAR(50)) RETURNS varchar(64) CHARSET utf-8
+DETERMINISTIC
+BEGIN
+UPDATE MYCAT_SEQUENCE SET current_value = current_value + increment WHERE name = seq_name;
+RETURN mycat_seq_currval(seq_name);
+END
+DELIMITER;
+</code></pre>
 <ol start="4">
 <li><code>sequence_db_conf.properties</code> 相关配置,指定 sequence 相关配置在哪个节点上：<br>例如：</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DM_LOG=mt_pm_dn</span><br><span class="line">DM_OPENDOOR_RECORD=mt_pm_dn</span><br></pre></td></tr></table></figure>
-
+<pre><code class="c#">DM_LOG=mt_pm_dn
+DM_OPENDOOR_RECORD=mt_pm_dn
+</code></pre>
 <p>注意：MYCAT_SEQUENCE 表和以上的 3 个 function，需要放在同一个节点上。 function 请直接在具体节<br>点的数据库上执行，如果执行的时候报：<br><code>you might want to use the less safe log_bin_trust_function_creators variable</code><br>需要对数据库做如下设置：<br>windows 下 <code>my.ini[mysqld]</code>加上 <code>log_bin_trust_function_creators=1</code><br>linux 下<code>/etc/my.cnf</code> 下 <code>my.ini[mysqld]</code>加上 <code>log_bin_trust_function_creators=1</code><br>修改完后，即可在 mysql 数据库中执行上面的函数.<br>使用示例：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `mt_pm`.`dm_log` (`logid`, `deviceid`, `logtype`, `logtime`, `content`, `picurl`, `id`, `positionid`, `position`, `comid`, `launchposition`, `status`) <span class="keyword">VALUES</span> (next <span class="keyword">value</span> <span class="keyword">for</span> MYCATSEQ_DM_LOG, <span class="string">&#x27;af0f69db62-4d31-d4e2-c041-793ed33931&#x27;</span>, <span class="string">&#x27;unlock&#x27;</span>, <span class="string">&#x27;2018-01-01 08:01:39&#x27;</span>, <span class="string">&#x27;3|0e3f6740|1&#x27;</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">INSERT INTO `mt_pm`.`dm_log` (`logid`, `deviceid`, `logtype`, `logtime`, `content`, `picurl`, `id`, `positionid`, `position`, `comid`, `launchposition`, `status`) VALUES (next value for MYCATSEQ_DM_LOG, &#39;af0f69db62-4d31-d4e2-c041-793ed33931&#39;, &#39;unlock&#39;, &#39;2018-01-01 08:01:39&#39;, &#39;3|0e3f6740|1&#39;, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+</code></pre>
 <p>或者不带主键</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `mt_pm`.`dm_log` (`deviceid`, `logtype`, `logtime`, `content`, `picurl`, `id`, `positionid`, `position`, `comid`, `launchposition`, `status`) <span class="keyword">VALUES</span> (<span class="string">&#x27;af0f69db62-4d31-d4e2-c041-793ed33931&#x27;</span>, <span class="string">&#x27;unlock&#x27;</span>, <span class="string">&#x27;2018-01-01 08:01:39&#x27;</span>, <span class="string">&#x27;3|0e3f6740|1&#x27;</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">INSERT INTO `mt_pm`.`dm_log` (`deviceid`, `logtype`, `logtime`, `content`, `picurl`, `id`, `positionid`, `position`, `comid`, `launchposition`, `status`) VALUES (&#39;af0f69db62-4d31-d4e2-c041-793ed33931&#39;, &#39;unlock&#39;, &#39;2018-01-01 08:01:39&#39;, &#39;3|0e3f6740|1&#39;, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+</code></pre>
 <p>三、定期备份表数据<br>​    分为12张表后，每年循环插入数据，最终数据量越来越大，需要定期将历史数据备份或迁移。这里采用修改表名，再新建和原表名结构一样的新表。例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span>  <span class="keyword">TABLE</span> dm_log_1 RENAME <span class="keyword">TO</span> dm_log201801;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> dm_log_1 <span class="keyword">LIKE</span> dm_log201801;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">    ALTER  TABLE dm_log_1 RENAME TO dm_log201801;
+    CREATE TABLE IF NOT EXISTS dm_log_1 LIKE dm_log201801;
+</code></pre>
 <p>​    备份dm_log_1的数据，假设dm_log_1存的都是2018年1月份数据，则把表名修改为dm_log201801，然后再吉安一张表名为dm_log_1的表。<br>​    上述操作在数据库中写成存储过程，通过数据库定时事件调用执行，详细请看附件中相关sql语句。</p>
 <p>定时事件调用策略：</p>
 <pre><code>    每月1日的凌晨3:30执行备份历史数据，例如:2018年7月1日凌晨3:30把表dm_log_1改为dm_log201801并新建表dm_log_1，2018年8月1日凌晨3:30把表dm_log_2改为dm_log201802并新建表dm_log_2，以此类推，保留最近半年的数据供物管系统页面查询，超过半年数据则需通过数据库查询历史数据。
     rename_dm_log_history为备份dm_log表数据的存储过程，Event_Rename_dm_log_history为定时事件每月调用rename_dm_log_history备份数据。
 </code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   每月1日的凌晨3:30执行备份历史数据，例如:2018年7月1日凌晨3:30把表`dm_opendoor_record_1`改为dm_opendoor_record201801并新建表dm_opendoor_record_1，2018年8月1日凌晨3:30把表dm_opendoor_record_2改为dm_opendoor_record201802并新建表dm_opendoor_record_2，以此类推，保留最近半年的数据供物管系统页面查询，超过半年数据则需通过数据库查询历史数据。</span><br><span class="line">rename_dm_opendoor_record_history为备份dm_opendoor_record表数据的存储过程，Event_Rename_dm_opendoor_record_history为定时事件每月调用rename_dm_log_history备份数据。</span><br></pre></td></tr></table></figure>
-
+<pre><code>    每月1日的凌晨3:30执行备份历史数据，例如:2018年7月1日凌晨3:30把表`dm_opendoor_record_1`改为dm_opendoor_record201801并新建表dm_opendoor_record_1，2018年8月1日凌晨3:30把表dm_opendoor_record_2改为dm_opendoor_record201802并新建表dm_opendoor_record_2，以此类推，保留最近半年的数据供物管系统页面查询，超过半年数据则需通过数据库查询历史数据。
+    rename_dm_opendoor_record_history为备份dm_opendoor_record表数据的存储过程，Event_Rename_dm_opendoor_record_history为定时事件每月调用rename_dm_log_history备份数据。
+</code></pre>
 <p>四、附件<br>1.相关sql语句</p>
 <p>2.mycat<br>​<br>五、参考资料<br>Mycat官网：<a href="http://www.mycat.io/">http://www.mycat.io/</a><br>Mycat权威指南：<a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf">http://www.mycat.io/document/Mycat_V1.6.0.pdf</a></p>
 

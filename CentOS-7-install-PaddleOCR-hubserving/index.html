@@ -307,70 +307,83 @@
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>  <a href="https://github.com/PaddlePaddle/PaddleOCR">PaddleOCR</a>旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。</p>
  <span id="more"></span>
 
-<h2 id="查看本机的操作系统和位数信息"><a href="#查看本机的操作系统和位数信息" class="headerlink" title="查看本机的操作系统和位数信息"></a>查看本机的操作系统和位数信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -m &amp;&amp; cat /etc/*release</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="查看本机的操作系统和位数信息"><a href="#查看本机的操作系统和位数信息" class="headerlink" title="查看本机的操作系统和位数信息"></a>查看本机的操作系统和位数信息</h2><pre><code class="bash">uname -m &amp;&amp; cat /etc/*release
+</code></pre>
 <p>确认需要安装 PaddlePaddle 的 Python 是您预期的位置，因为您计算机可能有多个 Python</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> python3</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">which python3
+</code></pre>
 <p>如果您是使用 Python 3，使用以下命令确认是 3.5.1+/3.6/3.7</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">python3 --version
+</code></pre>
 <p>需要确认pip的版本是否满足要求，要求pip版本为9.0.1+</p>
 <p>如果您是使用 Python 3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 -m ensurepip</span><br><span class="line"></span><br><span class="line">python3 -m pip --version</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">python3 -m ensurepip
 
-
+python3 -m pip --version
+</code></pre>
 <p>需要确认Python和pip是64bit，并且处理器架构是x86_64（或称作x64、Intel 64、AMD64）架构，目前PaddlePaddle不支持arm64架构。下面的第一行输出的是”64bit”，第二行输出的是”x86_64”、”x64”或”AMD64”即可：</p>
 <p>使用 Python 3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import platform;print(platform.architecture()[0]);print(platform.machine())&quot;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">python3 -c &quot;import platform;print(platform.architecture()[0]);print(platform.machine())&quot;
+</code></pre>
 <p>若没有安装 安装 python3 和 pip3 则使用下面命令安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python3 python3-pip -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新-pip3"><a href="#更新-pip3" class="headerlink" title="更新 pip3"></a>更新 pip3</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="comment"># 或者使用百度源</span></span><br><span class="line">pip3 install --upgrade pip -i https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-paddlepaddle"><a href="#安装-paddlepaddle" class="headerlink" title="安装 paddlepaddle"></a>安装 paddlepaddle</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install paddlepaddle==1.8.5 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-paddlehub"><a href="#安装-paddlehub" class="headerlink" title="安装 paddlehub"></a>安装 paddlehub</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install paddlehub --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">yum install python3 python3-pip -y
+</code></pre>
+<h2 id="更新-pip3"><a href="#更新-pip3" class="headerlink" title="更新 pip3"></a>更新 pip3</h2><pre><code class="bash">pip3 install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+# 或者使用百度源
+pip3 install --upgrade pip -i https://mirror.baidu.com/pypi/simple
+</code></pre>
+<h2 id="安装-paddlepaddle"><a href="#安装-paddlepaddle" class="headerlink" title="安装 paddlepaddle"></a>安装 paddlepaddle</h2><pre><code class="bash">python3 -m pip install paddlepaddle==1.8.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<h2 id="安装-paddlehub"><a href="#安装-paddlehub" class="headerlink" title="安装 paddlehub"></a>安装 paddlehub</h2><pre><code class="bash">pip3 install paddlehub --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
 <p>若安装过程没有报错，则安装成功。</p>
 <p>若提升 timeout 超时，重新运行安装命令，或者更换源后再次运行命令</p>
 <p>若出现版本不匹配错误，如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.</span><br><span class="line"></span><br><span class="line">We recommend you use --use-feature=2020-resolver to <span class="built_in">test</span> your packages with the new resolver before it becomes the default.</span><br><span class="line"></span><br><span class="line">paddlepaddle 1.7.2 requires matplotlib&lt;=2.2.4, but you<span class="string">&#x27;ll have matplotlib 3.3.2 which is incompatible.</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.
+
+We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.
+
+paddlepaddle 1.7.2 requires matplotlib&lt;=2.2.4, but you&#39;ll have matplotlib 3.3.2 which is incompatible.
+</code></pre>
 <p>手动安装指定版本依赖，命令如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install matplotlib==2.2.4 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">pip3 install matplotlib==2.2.4 -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
 <p>解决依赖错误后，重新运行响应安装命令则可安装成功</p>
-<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/PaddlePaddle/PaddleOCR</span><br></pre></td></tr></table></figure>
-
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><pre><code class="bash">git clone https://gitee.com/PaddlePaddle/PaddleOCR
+</code></pre>
 <p>移动到指定路径</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv PaddleOCR /PaddleOCR</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR </span><br><span class="line">pip3 install -r requirments.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /PaddleOCR/inference &amp;&amp;  <span class="built_in">cd</span> /PaddleOCR/inference &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/det/ch_ppocr_mobile_v1.1_det_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_det_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/cls/ch_ppocr_mobile_v1.1_cls_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_cls_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/rec/ch_ppocr_mobile_v1.1_rec_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_rec_infer.tar -C /PaddleOCR/inference </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="安装模型"><a href="#安装模型" class="headerlink" title="安装模型"></a>安装模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp;  <span class="built_in">export</span> PYTHONPATH=. &amp;&amp; \</span><br><span class="line">hub install deploy/hubserving/ocr_system/</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">mv PaddleOCR /PaddleOCR
+</code></pre>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code class="bash">cd /PaddleOCR 
+pip3 install -r requirments.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<h2 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h2><pre><code class="bash">mkdir -p /PaddleOCR/inference &amp;&amp;  cd /PaddleOCR/inference &amp;&amp;  \
+wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/det/ch_ppocr_mobile_v1.1_det_infer.tar &amp;&amp;  \
+tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_det_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \
+wget -c https://paddleocr.bj.bcebos.com/20-09-22/cls/ch_ppocr_mobile_v1.1_cls_infer.tar &amp;&amp;  \
+tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_cls_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \
+wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/rec/ch_ppocr_mobile_v1.1_rec_infer.tar &amp;&amp;  \
+tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_rec_infer.tar -C /PaddleOCR/inference 
+</code></pre>
+<h2 id="安装模型"><a href="#安装模型" class="headerlink" title="安装模型"></a>安装模型</h2><pre><code class="bash">cd /PaddleOCR &amp;&amp;  export PYTHONPATH=. &amp;&amp; \
+hub install deploy/hubserving/ocr_system/
+</code></pre>
 <p>出现：<code>Successfully installed ocr_system</code> 则安装成功</p>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp; <span class="built_in">export</span> PYTHONPATH=. &amp;&amp;  \</span><br><span class="line">hub serving start -m ocr_system</span><br></pre></td></tr></table></figure>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><pre><code class="bash">cd /PaddleOCR &amp;&amp; export PYTHONPATH=. &amp;&amp;  \
+hub serving start -m ocr_system
+</code></pre>
 <p>出现 <code>Running on http://0.0.0.0:8866/</code> 等信息，表示运行成功</p>
 <p>若要在后台一直运行，运行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp; <span class="built_in">export</span> PYTHONPATH=. &amp;&amp;  \</span><br><span class="line">nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">cd /PaddleOCR &amp;&amp; export PYTHONPATH=. &amp;&amp;  \
+nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &amp;
+</code></pre>
 <h2 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h2><p>a. 计算待识别图片的Base64编码</p>
 <p>b. 发送服务请求</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Content-Type:application/json&quot;</span> -X POST --data <span class="string">&quot;&#123;\&quot;images\&quot;: [\&quot;填入图片Base64编码(需要删除&#x27;data:image/jpg;base64,&#x27;）\&quot;]&#125;&quot;</span> http://localhost:8866/predict/ocr_system</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">curl -H &quot;Content-Type:application/json&quot; -X POST --data &quot;&#123;\&quot;images\&quot;: [\&quot;填入图片Base64编码(需要删除&#39;data:image/jpg;base64,&#39;）\&quot;]&#125;&quot; http://localhost:8866/predict/ocr_system
+</code></pre>
 <p>c. 返回结果（如果调用成功，会返回如下结果）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;msg&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;results&quot;</span>:[[&#123;<span class="string">&quot;confidence&quot;</span>:0.8403433561325073,<span class="string">&quot;text&quot;</span>:<span class="string">&quot;约定&quot;</span>,<span class="string">&quot;text_region&quot;</span>:[[345,377],[641,390],[634,540],[339,528]]&#125;,&#123;<span class="string">&quot;confidence&quot;</span>:0.8131805658340454,<span class="string">&quot;text&quot;</span>:<span class="string">&quot;最终相遇&quot;</span>,<span class="string">&quot;text_region&quot;</span>:[[356,532],[624,530],[624,596],[356,598]]&#125;]],<span class="string">&quot;status&quot;</span>:<span class="string">&quot;0&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
+<pre><code class="bash">&#123;&quot;msg&quot;:&quot;&quot;,&quot;results&quot;:[[&#123;&quot;confidence&quot;:0.8403433561325073,&quot;text&quot;:&quot;约定&quot;,&quot;text_region&quot;:[[345,377],[641,390],[634,540],[339,528]]&#125;,&#123;&quot;confidence&quot;:0.8131805658340454,&quot;text&quot;:&quot;最终相遇&quot;,&quot;text_region&quot;:[[356,532],[624,530],[624,596],[356,598]]&#125;]],&quot;status&quot;:&quot;0&quot;&#125;
+</code></pre>
 
     </div>
 

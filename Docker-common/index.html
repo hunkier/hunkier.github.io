@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Docker使用比较频繁的命令 查看docker 版本1234567891011121314151617181920# docker versionClient: Version:      18.03.1-ce API version:  1.37 Go version:   go1.9.5 Git commit:   9ee9f40 Built:        Thu Apr 26 07:12">
+  <meta name="description" content="Docker使用比较频繁的命令 查看docker 版本# docker version Client:  Version:      18.03.1-ce  API version:  1.37  Go version:   go1.9.5  Git commit:   9ee9f40  Built:        Thu Apr 26 07:12:48 2018  OS&#x2F;Arch:      w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker常用命令">
 <meta property="og:url" content="https://hunkier.cn/Docker-common/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="Docker使用比较频繁的命令 查看docker 版本1234567891011121314151617181920# docker versionClient: Version:      18.03.1-ce API version:  1.37 Go version:   go1.9.5 Git commit:   9ee9f40 Built:        Thu Apr 26 07:12">
+<meta property="og:description" content="Docker使用比较频繁的命令 查看docker 版本# docker version Client:  Version:      18.03.1-ce  API version:  1.37  Go version:   go1.9.5  Git commit:   9ee9f40  Built:        Thu Apr 26 07:12:48 2018  OS&#x2F;Arch:      w">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-08-01T11:01:32.000Z">
 <meta property="article:modified_time" content="2019-01-05T03:53:30.512Z">
@@ -295,27 +295,180 @@
 
       
         <p>Docker使用比较频繁的命令</p>
-<h5 id="查看docker-版本"><a href="#查看docker-版本" class="headerlink" title="查看docker 版本"></a>查看docker 版本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker version</span></span><br><span class="line">Client:</span><br><span class="line"> Version:      18.03.1-ce</span><br><span class="line"> API version:  1.37</span><br><span class="line"> Go version:   go1.9.5</span><br><span class="line"> Git commit:   9ee9f40</span><br><span class="line"> Built:        Thu Apr 26 07:12:48 2018</span><br><span class="line"> OS/Arch:      windows/amd64</span><br><span class="line"> Experimental: false</span><br><span class="line"> Orchestrator: swarm</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Engine:</span><br><span class="line">  Version:      18.06.1-ce</span><br><span class="line">  API version:  1.38 (minimum version 1.12)</span><br><span class="line">  Go version:   go1.10.3</span><br><span class="line">  Git commit:   e68fc7a</span><br><span class="line">  Built:        Tue Aug 21 17:25:29 2018</span><br><span class="line">  OS/Arch:      linux/amd64</span><br><span class="line">  Experimental: true</span><br></pre></td></tr></table></figure>
+<h5 id="查看docker-版本"><a href="#查看docker-版本" class="headerlink" title="查看docker 版本"></a>查看docker 版本</h5><pre><code class="shell"># docker version
+Client:
+ Version:      18.03.1-ce
+ API version:  1.37
+ Go version:   go1.9.5
+ Git commit:   9ee9f40
+ Built:        Thu Apr 26 07:12:48 2018
+ OS/Arch:      windows/amd64
+ Experimental: false
+ Orchestrator: swarm
 
+Server:
+ Engine:
+  Version:      18.06.1-ce
+  API version:  1.38 (minimum version 1.12)
+  Go version:   go1.10.3
+  Git commit:   e68fc7a
+  Built:        Tue Aug 21 17:25:29 2018
+  OS/Arch:      linux/amd64
+  Experimental: true
+</code></pre>
 <span id="more"></span>
-<h5 id="docker-配置信息"><a href="#docker-配置信息" class="headerlink" title="docker 配置信息"></a>docker 配置信息</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker info</span></span><br><span class="line">Containers: 128</span><br><span class="line"> Running: 62</span><br><span class="line"> Paused: 0</span><br><span class="line"> Stopped: 66</span><br><span class="line">Images: 256</span><br><span class="line">Server Version: 18.06.1-ce</span><br><span class="line">Storage Driver: overlay2</span><br><span class="line"> Backing Filesystem: xfs</span><br><span class="line"> Supports d_type: true</span><br><span class="line"> Native Overlay Diff: true</span><br><span class="line">Logging Driver: json-file</span><br><span class="line">Cgroup Driver: cgroupfs</span><br><span class="line">Plugins:</span><br><span class="line"> Volume: local</span><br><span class="line"> Network: bridge host ipvlan macvlan null overlay</span><br><span class="line"> Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog</span><br><span class="line">Swarm: inactive</span><br><span class="line">Runtimes: runc</span><br><span class="line">Default Runtime: runc</span><br><span class="line">Init Binary: docker-init</span><br><span class="line">containerd version: 468a545b9edcd5932818eb9de8e72413e616e86e</span><br><span class="line">runc version: 69663f0bd4b60df09991c08812a60108003fa340</span><br><span class="line">init version: fec3683</span><br><span class="line">Security Options:</span><br><span class="line"> seccomp</span><br><span class="line">  Profile: default</span><br><span class="line">Kernel Version: 3.10.0-862.el7.x86_64</span><br><span class="line">Operating System: CentOS Linux 7 (Core)</span><br><span class="line">OSType: linux</span><br><span class="line">Architecture: x86_64</span><br><span class="line">CPUs: 3</span><br><span class="line">Total Memory: 15.02GiB</span><br><span class="line">Name: bogon</span><br><span class="line">ID: CAI4:PHBY:FKFP:5BI6:LWUG:L3XF:OVU6:OGDF:IS5J:IPF4:3JKZ:KTUZ</span><br><span class="line">Docker Root Dir: /var/lib/docker</span><br><span class="line">Debug Mode (client): false</span><br><span class="line">Debug Mode (server): true</span><br><span class="line"> File Descriptors: 312</span><br><span class="line"> Goroutines: 273</span><br><span class="line"> System Time: 2018-12-19T11:26:00.704470694+08:00</span><br><span class="line"> EventsListeners: 0</span><br><span class="line">Registry: https://index.docker.io/v1/</span><br><span class="line">Labels:</span><br><span class="line"> name=docker</span><br><span class="line">Experimental: true</span><br><span class="line">Insecure Registries:</span><br><span class="line"> loclhost:5000</span><br><span class="line"> 172.20.8.5:5000</span><br><span class="line"> 172.20.8.5:8888</span><br><span class="line"> 127.0.0.0/8</span><br><span class="line">Registry Mirrors:</span><br><span class="line"> https://registry.docker-cn.com/</span><br><span class="line"> https://container-registry.oracle.com/</span><br><span class="line"> https://dhcl9iu5.mirror.aliyuncs.com/</span><br><span class="line"> https://docker.mirrors.ustc.edu.cn/</span><br><span class="line"> http://29bd46d3.m.daocloud.io/</span><br><span class="line"> http://hub-mirror.c.163.com/</span><br><span class="line">Live Restore Enabled: false</span><br></pre></td></tr></table></figure>
+<h5 id="docker-配置信息"><a href="#docker-配置信息" class="headerlink" title="docker 配置信息"></a>docker 配置信息</h5><pre><code class="shell"># docker info
+Containers: 128
+ Running: 62
+ Paused: 0
+ Stopped: 66
+Images: 256
+Server Version: 18.06.1-ce
+Storage Driver: overlay2
+ Backing Filesystem: xfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 468a545b9edcd5932818eb9de8e72413e616e86e
+runc version: 69663f0bd4b60df09991c08812a60108003fa340
+init version: fec3683
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 3.10.0-862.el7.x86_64
+Operating System: CentOS Linux 7 (Core)
+OSType: linux
+Architecture: x86_64
+CPUs: 3
+Total Memory: 15.02GiB
+Name: bogon
+ID: CAI4:PHBY:FKFP:5BI6:LWUG:L3XF:OVU6:OGDF:IS5J:IPF4:3JKZ:KTUZ
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): true
+ File Descriptors: 312
+ Goroutines: 273
+ System Time: 2018-12-19T11:26:00.704470694+08:00
+ EventsListeners: 0
+Registry: https://index.docker.io/v1/
+Labels:
+ name=docker
+Experimental: true
+Insecure Registries:
+ loclhost:5000
+ 172.20.8.5:5000
+ 172.20.8.5:8888
+ 127.0.0.0/8
+Registry Mirrors:
+ https://registry.docker-cn.com/
+ https://container-registry.oracle.com/
+ https://dhcl9iu5.mirror.aliyuncs.com/
+ https://docker.mirrors.ustc.edu.cn/
+ http://29bd46d3.m.daocloud.io/
+ http://hub-mirror.c.163.com/
+Live Restore Enabled: false
+</code></pre>
+<h5 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h5><pre><code class="shell"># docker pull tomcat
+Using default tag: latest
+latest: Pulling from library/tomcat
+54f7e8ac135a: Downloading [===========&gt;                                       ]   9.98MB/45.32MB
+d6341e30912f: Downloading [============================&gt;                      ]  6.038MB/10.74MB
+087a57faf949: Download complete
+95065f220961: Download complete
+0887630ce576: Download complete
+c375d1959fab: Download complete
+e00a5e6055cc: Waiting
+8319f5fb56cf: Waiting
+258c74eb25ab: Waiting
+5c135322994c: Waiting
+b2cc25ec4861: Waiting
+40140bebba00: Waiting
+d1786b40ed4f: Waiting
 
-<h5 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker pull tomcat</span></span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/tomcat</span><br><span class="line">54f7e8ac135a: Downloading [===========&gt;                                       ]   9.98MB/45.32MB</span><br><span class="line">d6341e30912f: Downloading [============================&gt;                      ]  6.038MB/10.74MB</span><br><span class="line">087a57faf949: Download complete</span><br><span class="line">95065f220961: Download complete</span><br><span class="line">0887630ce576: Download complete</span><br><span class="line">c375d1959fab: Download complete</span><br><span class="line">e00a5e6055cc: Waiting</span><br><span class="line">8319f5fb56cf: Waiting</span><br><span class="line">258c74eb25ab: Waiting</span><br><span class="line">5c135322994c: Waiting</span><br><span class="line">b2cc25ec4861: Waiting</span><br><span class="line">40140bebba00: Waiting</span><br><span class="line">d1786b40ed4f: Waiting</span><br><span class="line"></span><br><span class="line">Digest: sha256:d6f67aacce64010880a1e9ea6f0ace9fe9e20d39aae0489c8e88b4c14effe3a0</span><br><span class="line">Status: Downloaded newer image for tomcat:latest</span><br></pre></td></tr></table></figure>
-
-<h5 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker run --name tomcat -p 8080:8080 -v /data:/usr/<span class="built_in">local</span>/tomcat/webapps/data -idt tomcat</span></span><br><span class="line">bf0c6f766a2ceec0cdd06ae1b5556bf53bb14c7a0205d9531b259f72ca6698c1</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看运行中的容器"><a href="#查看运行中的容器" class="headerlink" title="查看运行中的容器"></a>查看运行中的容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker ps | grep tomcat</span></span><br><span class="line">CONTAINER ID        IMAGE                                                COMMAND                  CREATED              STATUS                 PORTS                                                                NAMES</span><br><span class="line">bf0c6f766a2c        tomcat                                               &quot;catalina.sh run&quot;        47 seconds ago      Up 45 seconds          0.0.0.0:8080-&gt;8080/tcp                                               tomcat</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看容器日志"><a href="#查看容器日志" class="headerlink" title="查看容器日志"></a>查看容器日志</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker logs tomcat</span></span><br><span class="line">Using CATALINA_BASE:   /usr/local/tomcat</span><br><span class="line">Using CATALINA_HOME:   /usr/local/tomcat</span><br><span class="line">Using CATALINA_TMPDIR: /usr/local/tomcat/temp</span><br><span class="line">Using JRE_HOME:        /docker-java-home/jre</span><br><span class="line">Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar</span><br><span class="line">21-Dec-2018 08:39:43.621 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.35</span><br><span class="line">21-Dec-2018 08:39:43.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 3 2018 17:39:20 UTC</span><br><span class="line">21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.35.0</span><br><span class="line">21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux</span><br><span class="line">21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.10.0-862.el7.x86_64</span><br><span class="line">21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64</span><br><span class="line">21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre</span><br><span class="line">21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_181-8u181-b13-2~deb9u1-b13</span><br><span class="line">21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation</span><br><span class="line">21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat</span><br><span class="line">21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat</span><br><span class="line">21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties</span><br><span class="line">21-Dec-2018 08:39:43.627 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager</span><br><span class="line">21-Dec-2018 08:39:43.627 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048</span><br><span class="line">21-Dec-2018 08:39:43.628 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources</span><br><span class="line">21-Dec-2018 08:39:43.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027</span><br><span class="line">21-Dec-2018 08:39:43.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=</span><br><span class="line">21-Dec-2018 08:39:43.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat</span><br><span class="line">21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat</span><br><span class="line">21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp</span><br><span class="line">21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.18] using APR version [1.5.2].</span><br><span class="line">21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].</span><br><span class="line">21-Dec-2018 08:39:43.632 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]</span><br><span class="line">21-Dec-2018 08:39:43.637 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0j  20 Nov 2018]</span><br><span class="line">21-Dec-2018 08:39:43.784 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler [&quot;http-nio-8080&quot;]</span><br><span class="line">21-Dec-2018 08:39:43.800 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read</span><br><span class="line">21-Dec-2018 08:39:43.819 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler [&quot;ajp-nio-8009&quot;]</span><br><span class="line">21-Dec-2018 08:39:43.821 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read</span><br><span class="line">21-Dec-2018 08:39:43.823 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 858 ms</span><br><span class="line">21-Dec-2018 08:39:43.861 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]</span><br><span class="line">21-Dec-2018 08:39:43.861 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.35</span><br><span class="line">21-Dec-2018 08:39:43.879 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]</span><br><span class="line">21-Dec-2018 08:39:44.378 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [499] ms</span><br><span class="line">21-Dec-2018 08:39:44.379 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]</span><br><span class="line">21-Dec-2018 08:39:44.436 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [57] ms</span><br><span class="line">21-Dec-2018 08:39:44.436 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]</span><br><span class="line">21-Dec-2018 08:39:45.443 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [1,006] ms</span><br><span class="line">21-Dec-2018 08:39:45.443 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]</span><br><span class="line">21-Dec-2018 08:39:46.070 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [626] ms</span><br><span class="line">21-Dec-2018 08:39:46.071 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]</span><br><span class="line">21-Dec-2018 08:39:46.204 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [133] ms</span><br><span class="line">21-Dec-2018 08:39:46.207 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/data]</span><br><span class="line">21-Dec-2018 08:39:46.282 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/data] has finished in [75] ms</span><br><span class="line">21-Dec-2018 08:39:46.289 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [&quot;http-nio-8080&quot;]</span><br><span class="line">21-Dec-2018 08:39:46.315 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [&quot;ajp-nio-8009&quot;]</span><br><span class="line">21-Dec-2018 08:39:46.345 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2520 ms</span><br></pre></td></tr></table></figure>
-
-<h5 id="停止运行中的容器"><a href="#停止运行中的容器" class="headerlink" title="停止运行中的容器"></a>停止运行中的容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker stop tomcat</span></span><br><span class="line">tomcat</span><br></pre></td></tr></table></figure>
-
-<h5 id="重新运行停止的容器"><a href="#重新运行停止的容器" class="headerlink" title="重新运行停止的容器"></a>重新运行停止的容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker start tomcat</span></span><br><span class="line">tomcat</span><br></pre></td></tr></table></figure>
-
-<h5 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker restart tomcat</span></span><br><span class="line">tomcat</span><br></pre></td></tr></table></figure>
-
-<h5 id="强制删除运行中的容器"><a href="#强制删除运行中的容器" class="headerlink" title="强制删除运行中的容器"></a>强制删除运行中的容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker rm tomcat -f</span></span><br><span class="line">tomcat</span><br></pre></td></tr></table></figure>
-
+Digest: sha256:d6f67aacce64010880a1e9ea6f0ace9fe9e20d39aae0489c8e88b4c14effe3a0
+Status: Downloaded newer image for tomcat:latest
+</code></pre>
+<h5 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h5><pre><code class="shell"># docker run --name tomcat -p 8080:8080 -v /data:/usr/local/tomcat/webapps/data -idt tomcat
+bf0c6f766a2ceec0cdd06ae1b5556bf53bb14c7a0205d9531b259f72ca6698c1
+</code></pre>
+<h5 id="查看运行中的容器"><a href="#查看运行中的容器" class="headerlink" title="查看运行中的容器"></a>查看运行中的容器</h5><pre><code class="shell"># docker ps | grep tomcat
+CONTAINER ID        IMAGE                                                COMMAND                  CREATED              STATUS                 PORTS                                                                NAMES
+bf0c6f766a2c        tomcat                                               &quot;catalina.sh run&quot;        47 seconds ago      Up 45 seconds          0.0.0.0:8080-&gt;8080/tcp                                               tomcat
+</code></pre>
+<h5 id="查看容器日志"><a href="#查看容器日志" class="headerlink" title="查看容器日志"></a>查看容器日志</h5><pre><code class="shell"># docker logs tomcat
+Using CATALINA_BASE:   /usr/local/tomcat
+Using CATALINA_HOME:   /usr/local/tomcat
+Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+Using JRE_HOME:        /docker-java-home/jre
+Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+21-Dec-2018 08:39:43.621 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.35
+21-Dec-2018 08:39:43.624 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 3 2018 17:39:20 UTC
+21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.35.0
+21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.10.0-862.el7.x86_64
+21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre
+21-Dec-2018 08:39:43.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_181-8u181-b13-2~deb9u1-b13
+21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+21-Dec-2018 08:39:43.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+21-Dec-2018 08:39:43.627 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Dec-2018 08:39:43.627 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+21-Dec-2018 08:39:43.628 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Dec-2018 08:39:43.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+21-Dec-2018 08:39:43.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+21-Dec-2018 08:39:43.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.18] using APR version [1.5.2].
+21-Dec-2018 08:39:43.631 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+21-Dec-2018 08:39:43.632 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21-Dec-2018 08:39:43.637 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0j  20 Nov 2018]
+21-Dec-2018 08:39:43.784 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler [&quot;http-nio-8080&quot;]
+21-Dec-2018 08:39:43.800 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+21-Dec-2018 08:39:43.819 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler [&quot;ajp-nio-8009&quot;]
+21-Dec-2018 08:39:43.821 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+21-Dec-2018 08:39:43.823 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 858 ms
+21-Dec-2018 08:39:43.861 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-Dec-2018 08:39:43.861 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.35
+21-Dec-2018 08:39:43.879 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
+21-Dec-2018 08:39:44.378 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [499] ms
+21-Dec-2018 08:39:44.379 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
+21-Dec-2018 08:39:44.436 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [57] ms
+21-Dec-2018 08:39:44.436 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
+21-Dec-2018 08:39:45.443 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [1,006] ms
+21-Dec-2018 08:39:45.443 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
+21-Dec-2018 08:39:46.070 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [626] ms
+21-Dec-2018 08:39:46.071 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
+21-Dec-2018 08:39:46.204 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [133] ms
+21-Dec-2018 08:39:46.207 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/data]
+21-Dec-2018 08:39:46.282 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/data] has finished in [75] ms
+21-Dec-2018 08:39:46.289 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [&quot;http-nio-8080&quot;]
+21-Dec-2018 08:39:46.315 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [&quot;ajp-nio-8009&quot;]
+21-Dec-2018 08:39:46.345 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2520 ms
+</code></pre>
+<h5 id="停止运行中的容器"><a href="#停止运行中的容器" class="headerlink" title="停止运行中的容器"></a>停止运行中的容器</h5><pre><code class="shell"># docker stop tomcat
+tomcat
+</code></pre>
+<h5 id="重新运行停止的容器"><a href="#重新运行停止的容器" class="headerlink" title="重新运行停止的容器"></a>重新运行停止的容器</h5><pre><code class="shell"># docker start tomcat
+tomcat
+</code></pre>
+<h5 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h5><pre><code class="shell"># docker restart tomcat
+tomcat
+</code></pre>
+<h5 id="强制删除运行中的容器"><a href="#强制删除运行中的容器" class="headerlink" title="强制删除运行中的容器"></a>强制删除运行中的容器</h5><pre><code class="shell"># docker rm tomcat -f
+tomcat
+</code></pre>
 
     </div>
 

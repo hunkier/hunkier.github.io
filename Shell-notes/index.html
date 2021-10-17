@@ -289,89 +289,177 @@
         <p>这里收藏工作中用到的脚本，也为了防止做重复的搜索工作，同时分享给大家。</p>
 <span id="more"></span>
 <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ul>
-<li>初始化数组<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = (value1 value2 ... valuen)</span><br><span class="line"><span class="meta">$</span><span class="bash"> A=(a b c d)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$&#123;A[@]&#125;</span> <span class="comment"># 输出所有元素</span></span></span><br></pre></td></tr></table></figure></li>
+<li>初始化数组<pre><code class="shell">name = (value1 value2 ... valuen)
+$ A=(a b c d)
+$ echo $&#123;A[@]&#125; # 输出所有元素
+</code></pre>
+</li>
 </ul>
 <ul>
 <li><p>数组去重</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> array=($(awk -vRS=<span class="string">&#x27; &#x27;</span> <span class="string">&#x27;!a[$1]++&#x27;</span> &lt;&lt;&lt; <span class="variable">$&#123;array[@]&#125;</span>))</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ array=($(awk -vRS=&#39; &#39; &#39;!a[$1]++&#39; &lt;&lt;&lt; $&#123;array[@]&#125;))
+</code></pre>
+</li>
 <li><p>取得数组元素的个数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$&#123;#A[@]&#125;</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ echo $&#123;#A[@]&#125;
+</code></pre>
+</li>
 <li><p>取下标</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$&#123;A[1]&#125;</span> <span class="comment"># 从1开始</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ echo $&#123;A[1]&#125; # 从1开始
+</code></pre>
+</li>
 <li><p>清除元素</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> A</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$&#123;A[@]&#125;</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ unset A
+$ echo $&#123;A[@]&#125;
+</code></pre>
+</li>
 <li><p>循环取元素</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="keyword">for</span> a <span class="keyword">in</span> <span class="variable">$&#123;A[@]&#125;</span>; <span class="keyword">do</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">   <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span>&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="keyword">done</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ for a in $&#123;A[@]&#125;; do
+$   echo &quot;$a&quot;
+$ done
+</code></pre>
+</li>
 <li><p>替换</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="variable">$&#123;A[@]/3/100&#125;</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ $&#123;A[@]/3/100&#125;
+</code></pre>
+</li>
 </ul>
 <h1 id="date"><a href="#date" class="headerlink" title="date"></a>date</h1><ul>
 <li><p>获取当前日期并格式化成指定格式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> NOW=$(date +<span class="string">&#x27;%Y-%m-%d_%H%M%S&#x27;</span>) <span class="comment"># 2016-09-07_184914</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ NOW=$(date +&#39;%Y-%m-%d_%H%M%S&#39;) # 2016-09-07_184914
+</code></pre>
+</li>
 <li><p>计算当前时间的时间戳</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> STAMP=$(($(date +%s -d &quot;$(date +&#x27;%Y-%m-%d %H:%M:%S&#x27;)&quot;))) <span class="comment"># 1473245414</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ STAMP=$(($(date +%s -d &quot;$(date +&#39;%Y-%m-%d %H:%M:%S&#39;)&quot;))) # 1473245414
+</code></pre>
+</li>
 <li><p>计算N天之前的时间</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 十天之前的日期</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> TEN_DAYS_AGO=$(($(date -d &#x27;-<span class="number">10</span> day&#x27; &quot;+%Y%m%d%H%M%S&quot;))) <span class="comment">#20160828185138</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell"># 十天之前的日期
+$ TEN_DAYS_AGO=$(($(date -d &#39;-10 day&#39; &quot;+%Y%m%d%H%M%S&quot;))) #20160828185138
+</code></pre>
+</li>
 <li><p>获取xxxx年xx月的天数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 获取 2016-10 的天数</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cal 10 2016 | awk <span class="string">&#x27;NF&#123;out=$NF;&#125;END&#123;print out&#125;&#x27;</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell"># 获取 2016-10 的天数
+$ cal 10 2016 | awk &#39;NF&#123;out=$NF;&#125;END&#123;print out&#125;&#39;
+</code></pre>
 <p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">31</span><br></pre></td></tr></table></figure></li>
+<pre><code>31
+</code></pre>
+</li>
 </ul>
 <h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><ul>
-<li>vi/vim修改只读(readonly)文件，使用sudo修改<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee % &gt; /dev/null</span><br></pre></td></tr></table></figure></li>
+<li>vi/vim修改只读(readonly)文件，使用sudo修改<pre><code class="shell">:w !sudo tee % &gt; /dev/null
+</code></pre>
+</li>
 </ul>
 <h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><ul>
 <li><p>过滤数字</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;123&quot;</span> |awk <span class="string">&#x27;&#123;if($0 ~ /^[0-9]+$/) print $0;&#125;&#x27;</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ echo &quot;123&quot; |awk &#39;&#123;if($0 ~ /^[0-9]+$/) print $0;&#125;&#39;
+</code></pre>
+</li>
 <li><p>数字求和</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat <span class="variable">$&#123;FILE&#125;</span> | awk <span class="string">&#x27;&#123;sum += $1&#125;;END &#123;printf (&quot;%d\n&quot;, sum)&#125;&#x27;</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ cat $&#123;FILE&#125; | awk &#39;&#123;sum += $1&#125;;END &#123;printf (&quot;%d\n&quot;, sum)&#125;&#39;
+</code></pre>
+</li>
 <li><p>截取字符串</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;123456&quot;</span> | awk <span class="string">&#x27;&#123;print substr($1,1,4)&#125;&#x27;</span> <span class="comment">#1234</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ echo &quot;123456&quot; | awk &#39;&#123;print substr($1,1,4)&#125;&#39; #1234
+</code></pre>
+</li>
 <li><p>获取月份所在季度</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="keyword">for</span> q <span class="keyword">in</span> `seq 1 12`; <span class="built_in">echo</span> <span class="variable">$q</span> | awk <span class="string">&#x27;&#123;season_least=$1%3&#125; &#123;season=$1/3&#125; &#123;if(season_least&gt;0) season+=1&#125; &#123;printf(&quot;%d\n&quot;,season)&#125;&#x27;</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell">$ for q in `seq 1 12`; echo $q | awk &#39;&#123;season_least=$1%3&#125; &#123;season=$1/3&#125; &#123;if(season_least&gt;0) season+=1&#125; &#123;printf(&quot;%d\n&quot;,season)&#125;&#39;
+</code></pre>
 <p>输出</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">4</span><br><span class="line">4</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">1
+1
+1
+2
+2
+2
+3
+3
+3
+4
+4
+4
+</code></pre>
+</li>
 <li><p>删除所有空格</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;1 2  3 4&quot;</span> | sed -e <span class="string">&#x27;s/[[:space:]]//g &#x27;</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell">$ echo &quot;1 2  3 4&quot; | sed -e &#39;s/[[:space:]]//g &#39;
+</code></pre>
 <p>输出</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1234</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">1234
+</code></pre>
+</li>
 <li><p>替换所有的.为/</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;com.xiongyingqi.Test&quot;</span> | awk <span class="string">&#x27;&#123;gsub(/\./,&quot;/&quot;); print $0&#125;&#x27;</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell">$ echo &quot;com.xiongyingqi.Test&quot; | awk &#39;&#123;gsub(/\./,&quot;/&quot;); print $0&#125;&#39;
+</code></pre>
 <p>输出</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com/xiongyingqi/Test</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">com/xiongyingqi/Test
+</code></pre>
+</li>
 </ul>
 <h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><ul>
 <li><p>去除首尾空格</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> FOO_NO_EXTERNAL_SPACE=<span class="string">&quot;<span class="subst">$(echo -e <span class="string">&quot;<span class="variable">$&#123;FOO&#125;</span>&quot;</span> | sed -e &#x27;s/^[[:space:]]*//&#x27; -e &#x27;s/[[:space:]]*$//&#x27;)</span>&quot;</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ FOO_NO_EXTERNAL_SPACE=&quot;$(echo -e &quot;$&#123;FOO&#125;&quot; | sed -e &#39;s/^[[:space:]]*//&#39; -e &#39;s/[[:space:]]*$//&#39;)&quot;
+</code></pre>
+</li>
 <li><p>删除空行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sed <span class="string">&#x27;/^$/d&#x27;</span> sources.list</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ sed &#39;/^$/d&#39; sources.list
+</code></pre>
+</li>
 </ul>
 <h1 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h1><ul>
-<li>统计重复数<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat file | uniq -c</span></span><br></pre></td></tr></table></figure></li>
+<li>统计重复数<pre><code class="shell">$ cat file | uniq -c
+</code></pre>
+</li>
 </ul>
 <h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
 <li><p>寻找有指定内容的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> FOUND=<span class="string">&quot;test&quot;</span> <span class="comment"># 需要查找的内容</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find . | <span class="keyword">while</span> <span class="built_in">read</span> file; <span class="keyword">do</span> <span class="keyword">if</span> [ -f <span class="variable">$file</span> ]; <span class="keyword">then</span> content=`cat <span class="variable">$&#123;file&#125;</span> | grep <span class="string">&quot;<span class="variable">$&#123;FOUND&#125;</span>&quot;</span>`; <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$content</span>&quot;</span> ]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="variable">$&#123;file&#125;</span> ; <span class="keyword">fi</span>; <span class="keyword">fi</span>; <span class="keyword">done</span></span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ FOUND=&quot;test&quot; # 需要查找的内容
+$ find . | while read file; do if [ -f $file ]; then content=`cat $&#123;file&#125; | grep &quot;$&#123;FOUND&#125;&quot;`; if [ -n &quot;$content&quot; ]; then echo $&#123;file&#125; ; fi; fi; done
+</code></pre>
+</li>
 <li><p>列举文件并用管道打包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find . -name <span class="string">&quot;*.class&quot;</span> | xargs tar cvf classes.tar</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">$ find . -name &quot;*.class&quot; | xargs tar cvf classes.tar
+</code></pre>
+</li>
 <li><p>批量重命名文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for file in `ls `;do mv $file `echo $file|sed &#x27;s/aaa/bbb/g&#x27;`;done;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">for file in `ls `;do mv $file `echo $file|sed &#39;s/aaa/bbb/g&#39;`;done;
+</code></pre>
+</li>
 </ul>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>我们先写一个简单的脚本，执行以后再解释各个变量的意义</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> touch variable</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi variable</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">$ touch variable
+$ vi variable
+</code></pre>
 <p>脚本内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">echo &quot;number:$#&quot;</span><br><span class="line">echo &quot;scname:$0&quot;</span><br><span class="line">echo &quot;first :$1&quot;</span><br><span class="line">echo &quot;second:$2&quot;</span><br><span class="line">echo &quot;argume:$@&quot;</span><br><span class="line">echo &quot;show parm list:$*&quot;</span><br><span class="line">echo &quot;show process id:$$&quot;</span><br><span class="line">echo &quot;show precomm stat: $?&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">#!/bin/sh
+echo &quot;number:$#&quot;
+echo &quot;scname:$0&quot;
+echo &quot;first :$1&quot;
+echo &quot;second:$2&quot;
+echo &quot;argume:$@&quot;
+echo &quot;show parm list:$*&quot;
+echo &quot;show process id:$$&quot;
+echo &quot;show precomm stat: $?&quot;
+</code></pre>
 <p>保存退出</p>
 <p>赋予脚本执行权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> chmod +x variable</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">$ chmod +x variable
+</code></pre>
 <p>执行脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./variable aa bb</span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell">$ ./variable aa bb
+</code></pre>
 <p>输出</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">number:2</span><br><span class="line">scname:./variable</span><br><span class="line">first:aa</span><br><span class="line">second:bb</span><br><span class="line">argume:aa bb</span><br><span class="line">show parm list:aa bb</span><br><span class="line">show process id:24544</span><br><span class="line">show precomm stat:0</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">number:2
+scname:./variable
+first:aa
+second:bb
+argume:aa bb
+show parm list:aa bb
+show process id:24544
+show precomm stat:0
+</code></pre>
 <p>通过显示结果可以看到：</p>
 <ul>
 <li>$# 是传给脚本的参数个数</li>
@@ -389,94 +477,236 @@
 </blockquote>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls *amount.txt | while read file; do cat $&#123;file&#125;; done | iconv -fgbk | awk -F &quot;\t&quot; &#x27;&#123;print $8&#125;&#x27; | awk &#x27;&#123;if($0 ~ /^[0-9]+$/) print $0;&#125;&#x27; | awk &#x27;&#123;sum += $1&#125;;END &#123;printf (&quot;%d\n&quot;, sum)&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ls *amount.txt | while read file; do cat $&#123;file&#125;; done | iconv -fgbk | awk -F &quot;\t&quot; &#39;&#123;print $8&#125;&#39; | awk &#39;&#123;if($0 ~ /^[0-9]+$/) print $0;&#125;&#39; | awk &#39;&#123;sum += $1&#125;;END &#123;printf (&quot;%d\n&quot;, sum)&#125;&#39;
+</code></pre>
 <ul>
 <li>将目录下的jar文件转换为maven格式的依赖</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">find . -name &quot;*.jar&quot; | while read jar; do</span><br><span class="line">    artifact=`echo $&#123;jar&#125; | awk &#x27;&#123;print substr($jar,1,length($jar)-4);&#125;&#x27;`</span><br><span class="line">    version=`echo &quot;$artifact&quot; | awk -F &#x27;-&#x27; &#x27; &#123; print $NF &#125; &#x27;`</span><br><span class="line">    if [ $version == $artifact ]; then</span><br><span class="line">        version=&quot;1.0&quot;</span><br><span class="line">    else</span><br><span class="line">        artifact=`echo &quot;$artifact&quot; | awk -v version=&quot;$version&quot; &#x27;&#123;print substr($1,1,index($1,version)-2)&#125;&#x27;`</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    # find group</span><br><span class="line">    groupDirectory=`jar -tf $jar | grep &quot;.class&quot; | head -n 1`</span><br><span class="line">    last=`echo &quot;$groupDirectory&quot; | awk -F &#x27;/&#x27; &#x27; &#123; print $NF &#125; &#x27;`</span><br><span class="line">    group=`echo &quot;$groupDirectory&quot; | awk -v last=&quot;$last&quot; &#x27;&#123;print substr($1,1,index($1,last)-2)&#125;&#x27;`</span><br><span class="line">    # replace / to .</span><br><span class="line">    group=`echo $group | awk &#x27;&#123;gsub(/\//,&quot;.&quot;); print $0&#125;&#x27;`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    echo &quot;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;$&#123;group&#125;&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;$&#123;artifact&#125;&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;system&lt;/scope&gt;</span><br><span class="line">            &lt;systemPath&gt;\$&#123;project.basedir&#125;/lib/$&#123;jar&#125;&lt;/systemPath&gt;</span><br><span class="line">        &lt;/dependency&gt;&quot; #&gt;&gt; &quot;dependencies.tmp&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">
+#!/bin/bash
+find . -name &quot;*.jar&quot; | while read jar; do
+    artifact=`echo $&#123;jar&#125; | awk &#39;&#123;print substr($jar,1,length($jar)-4);&#125;&#39;`
+    version=`echo &quot;$artifact&quot; | awk -F &#39;-&#39; &#39; &#123; print $NF &#125; &#39;`
+    if [ $version == $artifact ]; then
+        version=&quot;1.0&quot;
+    else
+        artifact=`echo &quot;$artifact&quot; | awk -v version=&quot;$version&quot; &#39;&#123;print substr($1,1,index($1,version)-2)&#125;&#39;`
+    fi
 
+    # find group
+    groupDirectory=`jar -tf $jar | grep &quot;.class&quot; | head -n 1`
+    last=`echo &quot;$groupDirectory&quot; | awk -F &#39;/&#39; &#39; &#123; print $NF &#125; &#39;`
+    group=`echo &quot;$groupDirectory&quot; | awk -v last=&quot;$last&quot; &#39;&#123;print substr($1,1,index($1,last)-2)&#125;&#39;`
+    # replace / to .
+    group=`echo $group | awk &#39;&#123;gsub(/\//,&quot;.&quot;); print $0&#125;&#39;`
+
+
+    echo &quot;
+        &lt;dependency&gt;
+            &lt;groupId&gt;$&#123;group&#125;&lt;/groupId&gt;
+            &lt;artifactId&gt;$&#123;artifact&#125;&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;version&#125;&lt;/version&gt;
+            &lt;scope&gt;system&lt;/scope&gt;
+            &lt;systemPath&gt;\$&#123;project.basedir&#125;/lib/$&#123;jar&#125;&lt;/systemPath&gt;
+        &lt;/dependency&gt;&quot; #&gt;&gt; &quot;dependencies.tmp&quot;
+done
+</code></pre>
 <ul>
 <li>查找java类所在当前目录内的jar包</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> FOUND=<span class="string">&quot;com.xiongyingqi.Test&quot;</span> &amp;&amp; ls *.jar | <span class="keyword">while</span> <span class="built_in">read</span> jar; <span class="keyword">do</span> jar tf <span class="variable">$jar</span> | grep `<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$&#123;FOUND&#125;</span>&quot;</span> | awk <span class="string">&#x27;&#123;gsub(/\./,&quot;/&quot;); print $0&#125;&#x27;</span>` | awk -v jar=<span class="string">&quot;<span class="variable">$jar</span>&quot;</span> <span class="string">&#x27;&#123;if (length($1) &gt; 0) print jar&#125;&#x27;</span>; <span class="keyword">done</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">$ FOUND=&quot;com.xiongyingqi.Test&quot; &amp;&amp; ls *.jar | while read jar; do jar tf $jar | grep `echo &quot;$&#123;FOUND&#125;&quot; | awk &#39;&#123;gsub(/\./,&quot;/&quot;); print $0&#125;&#39;` | awk -v jar=&quot;$jar&quot; &#39;&#123;if (length($1) &gt; 0) print jar&#125;&#39;; done
+</code></pre>
 <ul>
 <li><p>将目录内的文件转换为classpath需要的参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ls lib/*.jar | xargs | awk -v d=&quot;$&#123;delete&#125;&quot; &#x27;&#123;</span><br><span class="line">        str=&quot;&quot;;</span><br><span class="line">        is_in=0;</span><br><span class="line">        for(i=1;i&lt;=NF;i++)&#123;</span><br><span class="line">            if($i!=d)&#123;</span><br><span class="line">                if(is_in == 1)&#123;</span><br><span class="line">                    str=str&quot;:&quot;$i;</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    str=str&quot;&quot;$i;</span><br><span class="line">                    is_in=1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        print str</span><br><span class="line">    &#125;&#x27;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">ls lib/*.jar | xargs | awk -v d=&quot;$&#123;delete&#125;&quot; &#39;&#123;
+      str=&quot;&quot;;
+      is_in=0;
+      for(i=1;i&lt;=NF;i++)&#123;
+          if($i!=d)&#123;
+              if(is_in == 1)&#123;
+                  str=str&quot;:&quot;$i;
+              &#125;else&#123;
+                  str=str&quot;&quot;$i;
+                  is_in=1;
+              &#125;
+          &#125;
+      &#125;
+      print str
+  &#125;&#39;
+</code></pre>
+</li>
 <li><p>查找某个目录下所有的jar包里面有哪些class是冲突的shell脚本</p>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!bin/bash</span></span><br><span class="line">echo &quot;Find out conflict class in the given path&quot;;</span><br><span class="line">if [ $# != 1 ] ; then</span><br><span class="line"> echo &quot;Usage: sh findconflictclass.sh $1 ,first param means the path you want to find,eg: sh findconflictclass.sh lib&quot;;</span><br><span class="line">exit 1;</span><br><span class="line">fifindconflictclass.sh</span><br><span class="line">echo &quot;Please wait ...&quot;;</span><br><span class="line">jarpath=$1;</span><br><span class="line">function unjarclass()&#123;</span><br><span class="line"> for i in `find $jarpath -name *.jar`; do</span><br><span class="line"> jar -tvf &quot;$i&quot; |grep .class$ | awk &#x27;&#123;print $8&#125;&#x27; ;</span><br><span class="line"><span class="meta"> #</span><span class="bash"> <span class="keyword">if</span> [[ $? == 0 ]]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="variable">$i</span>; <span class="keyword">fi</span>;</span></span><br><span class="line"> done</span><br><span class="line">&#125;</span><br><span class="line">unjarclass 1&gt;temp.txt;</span><br><span class="line">echo &#x27;unjar class in the given path has done&#x27;;</span><br><span class="line">sleep 10s</span><br><span class="line">function findclassinjar()&#123;</span><br><span class="line">echo -e &quot;\033[47;31m &#x27;The class $1 exists in multi-place below:&#x27; \033[0m&quot; ;</span><br><span class="line"> for i in `find $2 -name *.jar`; do</span><br><span class="line"> jar -tvf &quot;$i&quot; | grep --color -i &quot;$1&quot; ;</span><br><span class="line"> if [[ $? == 0 ]]; then echo -e &quot;\033[33m &#x27;The jar path is: $i&#x27; \033[0m&quot; ; fi;</span><br><span class="line"> done</span><br><span class="line">&#125;</span><br><span class="line">sort temp.txt | uniq -d | cat | while read line; do a=$line; findclassinjar $a $jarpath;done</span><br><span class="line">rm -rf temp.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">#!bin/bash
+echo &quot;Find out conflict class in the given path&quot;;
+if [ $# != 1 ] ; then
+ echo &quot;Usage: sh findconflictclass.sh $1 ,first param means the path you want to find,eg: sh findconflictclass.sh lib&quot;;
+exit 1;
+fifindconflictclass.sh
+echo &quot;Please wait ...&quot;;
+jarpath=$1;
+function unjarclass()&#123;
+ for i in `find $jarpath -name *.jar`; do
+ jar -tvf &quot;$i&quot; |grep .class$ | awk &#39;&#123;print $8&#125;&#39; ;
+ # if [[ $? == 0 ]]; then echo $i; fi;
+ done
+&#125;
+unjarclass 1&gt;temp.txt;
+echo &#39;unjar class in the given path has done&#39;;
+sleep 10s
+function findclassinjar()&#123;
+echo -e &quot;\033[47;31m &#39;The class $1 exists in multi-place below:&#39; \033[0m&quot; ;
+ for i in `find $2 -name *.jar`; do
+ jar -tvf &quot;$i&quot; | grep --color -i &quot;$1&quot; ;
+ if [[ $? == 0 ]]; then echo -e &quot;\033[33m &#39;The jar path is: $i&#39; \033[0m&quot; ; fi;
+ done
+&#125;
+sort temp.txt | uniq -d | cat | while read line; do a=$line; findclassinjar $a $jarpath;done
+rm -rf temp.txt
+</code></pre>
 <ul>
 <li>替换字符串</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> data=<span class="string">&quot;a&quot;</span> &amp;&amp; newdata=<span class="string">&quot;c&quot;</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;aaabbba&quot;</span>|awk -v var=<span class="variable">$&#123;1&#125;</span> -v var1=<span class="variable">$&#123;data&#125;</span> -v var2=<span class="variable">$&#123;newdata&#125;</span> <span class="string">&#x27;$0 ~ var &#123;gsub(var1,var2); print&#125;&#x27;</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">$ data=&quot;a&quot; &amp;&amp; newdata=&quot;c&quot; &amp;&amp; echo &quot;aaabbba&quot;|awk -v var=$&#123;1&#125; -v var1=$&#123;data&#125; -v var2=$&#123;newdata&#125; &#39;$0 ~ var &#123;gsub(var1,var2); print&#125;&#39;
+</code></pre>
 <p>输出</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cccbbbc</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cccbbbc
+</code></pre>
 <ul>
 <li>文件内容替换<br>替换<code>当前目录下的所有文件</code>内容中的<code>hello</code>为<code>helloworld</code></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f | while read file; do sed -i &#x27;s/hello/helloworld/g&#x27; $file;done</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">find . -type f | while read file; do sed -i &#39;s/hello/helloworld/g&#39; $file;done
+</code></pre>
 <ul>
 <li>测试curl</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> size=1000;i=0; <span class="keyword">while</span> [ <span class="variable">$i</span> -lt <span class="variable">$size</span> ];<span class="keyword">do</span> i=$((i+<span class="number">1</span>)); curl <span class="string">&quot;http://baidu.com&quot;</span> &amp; <span class="keyword">done</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">$ size=1000;i=0; while [ $i -lt $size ];do i=$((i+1)); curl &quot;http://baidu.com&quot; &amp; done
+</code></pre>
 <ul>
 <li>获取从开始日期到结束日期所经历过的季度</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">FROM_DATE=&quot;$1&quot;</span><br><span class="line">TO_DATE=&quot;$2&quot;</span><br><span class="line"></span><br><span class="line">FROM_SEASON=`echo &quot;$&#123;FROM_DATE&#125;&quot; | awk -F &quot;-&quot; &#x27;&#123;print $2&#125;&#x27;| awk &#x27;&#123;season_least=$1%3&#125; &#123;season=$1/3&#125; &#123;if(season_least&gt;0) season+=1&#125; &#123;printf(&quot;%d\n&quot;,season)&#125;&#x27;`</span><br><span class="line">TO_SEASON=`echo &quot;$&#123;TO_DATE&#125;&quot; | awk -F &quot;-&quot; &#x27;&#123;print $2&#125;&#x27;| awk &#x27;&#123;season_least=$1%3&#125; &#123;season=$1/3&#125; &#123;if(season_least&gt;0) season+=1&#125; &#123;printf(&quot;%d\n&quot;,season)&#125;&#x27;`</span><br><span class="line">echo &quot;FROM_SEASON: $&#123;FROM_SEASON&#125;&quot;</span><br><span class="line">echo &quot;TO_SEASON: $&#123;TO_SEASON&#125;&quot;</span><br><span class="line"></span><br><span class="line">FROM_YEAR=`echo &quot;$&#123;FROM_DATE&#125;&quot; | awk -F &quot;-&quot; &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line">TO_YEAR=`echo &quot;$&#123;TO_DATE&#125;&quot; | awk -F &quot;-&quot; &#x27;&#123;print $1&#125;&#x27;`</span><br><span class="line"></span><br><span class="line">year_season_file=&quot;year_season.tmp&quot;</span><br><span class="line">if [ -f $&#123;year_season_file&#125; ];then</span><br><span class="line">    echo &quot;delete file: $&#123;year_season_file&#125;&quot;</span><br><span class="line">    rm -f $&#123;year_season_file&#125;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ $&#123;FROM_YEAR&#125; -eq $&#123;TO_YEAR&#125; ]; then</span><br><span class="line">    for season in `seq $&#123;FROM_SEASON&#125; $&#123;TO_SEASON&#125;`; do</span><br><span class="line">        echo &quot;$&#123;FROM_YEAR&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;</span><br><span class="line">    done</span><br><span class="line">else</span><br><span class="line">    for season in `seq $&#123;FROM_SEASON&#125; 4`; do</span><br><span class="line">        echo &quot;$&#123;FROM_YEAR&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;</span><br><span class="line">    done</span><br><span class="line"></span><br><span class="line">    #FROM_YEAR</span><br><span class="line">    if [ $((TO_YEAR-FROM_YEAR)) -ge 2 ]; then</span><br><span class="line">        for year in `seq $((FROM_YEAR+1)) $((TO_YEAR-1))`; do</span><br><span class="line">            for season in `seq 1 4`; do</span><br><span class="line">                echo &quot;$&#123;year&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;</span><br><span class="line">            done</span><br><span class="line">        done</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    for season in `seq 1 $&#123;TO_SEASON&#125;`; do</span><br><span class="line">        echo &quot;$&#123;TO_YEAR&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;</span><br><span class="line">    done</span><br><span class="line"></span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cat $&#123;year_season_file&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">FROM_DATE=&quot;$1&quot;
+TO_DATE=&quot;$2&quot;
 
+FROM_SEASON=`echo &quot;$&#123;FROM_DATE&#125;&quot; | awk -F &quot;-&quot; &#39;&#123;print $2&#125;&#39;| awk &#39;&#123;season_least=$1%3&#125; &#123;season=$1/3&#125; &#123;if(season_least&gt;0) season+=1&#125; &#123;printf(&quot;%d\n&quot;,season)&#125;&#39;`
+TO_SEASON=`echo &quot;$&#123;TO_DATE&#125;&quot; | awk -F &quot;-&quot; &#39;&#123;print $2&#125;&#39;| awk &#39;&#123;season_least=$1%3&#125; &#123;season=$1/3&#125; &#123;if(season_least&gt;0) season+=1&#125; &#123;printf(&quot;%d\n&quot;,season)&#125;&#39;`
+echo &quot;FROM_SEASON: $&#123;FROM_SEASON&#125;&quot;
+echo &quot;TO_SEASON: $&#123;TO_SEASON&#125;&quot;
+
+FROM_YEAR=`echo &quot;$&#123;FROM_DATE&#125;&quot; | awk -F &quot;-&quot; &#39;&#123;print $1&#125;&#39;`
+TO_YEAR=`echo &quot;$&#123;TO_DATE&#125;&quot; | awk -F &quot;-&quot; &#39;&#123;print $1&#125;&#39;`
+
+year_season_file=&quot;year_season.tmp&quot;
+if [ -f $&#123;year_season_file&#125; ];then
+    echo &quot;delete file: $&#123;year_season_file&#125;&quot;
+    rm -f $&#123;year_season_file&#125;
+fi
+
+if [ $&#123;FROM_YEAR&#125; -eq $&#123;TO_YEAR&#125; ]; then
+    for season in `seq $&#123;FROM_SEASON&#125; $&#123;TO_SEASON&#125;`; do
+        echo &quot;$&#123;FROM_YEAR&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;
+    done
+else
+    for season in `seq $&#123;FROM_SEASON&#125; 4`; do
+        echo &quot;$&#123;FROM_YEAR&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;
+    done
+
+    #FROM_YEAR
+    if [ $((TO_YEAR-FROM_YEAR)) -ge 2 ]; then
+        for year in `seq $((FROM_YEAR+1)) $((TO_YEAR-1))`; do
+            for season in `seq 1 4`; do
+                echo &quot;$&#123;year&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;
+            done
+        done
+    fi
+
+    for season in `seq 1 $&#123;TO_SEASON&#125;`; do
+        echo &quot;$&#123;TO_YEAR&#125;Q$&#123;season&#125;&quot; &gt;&gt; $&#123;year_season_file&#125;
+    done
+
+fi
+
+cat $&#123;year_season_file&#125;
+</code></pre>
 <ul>
 <li>多线程访问</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for ((i=0;i&lt;10;)); do</span><br><span class="line">	for j in `seq 1 100`; do</span><br><span class="line">    	curl &quot;http://baidu.com&quot; &amp;</span><br><span class="line">    done;</span><br><span class="line">    wait;</span><br><span class="line">    i=$((i+1));</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">for ((i=0;i&lt;10;)); do
+    for j in `seq 1 100`; do
+        curl &quot;http://baidu.com&quot; &amp;
+    done;
+    wait;
+    i=$((i+1));
+done
+</code></pre>
 <ul>
 <li>按列合并</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat filtsoort | awk &#x27;&#123;sum[$1]+=$2&#125;END&#123;for (i in sum) print i&quot; &quot;sum[i]&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cat filtsoort | awk &#39;&#123;sum[$1]+=$2&#125;END&#123;for (i in sum) print i&quot; &quot;sum[i]&#125;&#39;
+</code></pre>
 <ul>
 <li>转换编码</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*.java&quot; | while read file; do iconv -f gbk -t utf-8 $file &gt; $&#123;file&#125;.bak; mv -f $&#123;file&#125;.bak $file; done</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">find . -name &quot;*.java&quot; | while read file; do iconv -f gbk -t utf-8 $file &gt; $&#123;file&#125;.bak; mv -f $&#123;file&#125;.bak $file; done
+</code></pre>
 <ul>
 <li><p>word转换为markdown<br>需要先安装<code>w2m</code>: <a href="https://github.com/benbalter/word-to-markdown">benbalter/word-to-markdown</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">find doc -name &quot;*.doc&quot; | while read file; do</span><br><span class="line">    folder_tmp=&quot;markdown/$file&quot;;</span><br><span class="line">    folder=$&#123;folder_tmp%/*&#125;;</span><br><span class="line">    target_file=&quot;$&#123;folder_tmp%%.*&#125;&quot;.md</span><br><span class="line">    mkdir -p $folder;</span><br><span class="line">    w2m $file &gt; $target_file;</span><br><span class="line">done</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">find doc -name &quot;*.doc&quot; | while read file; do
+  folder_tmp=&quot;markdown/$file&quot;;
+  folder=$&#123;folder_tmp%/*&#125;;
+  target_file=&quot;$&#123;folder_tmp%%.*&#125;&quot;.md
+  mkdir -p $folder;
+  w2m $file &gt; $target_file;
+done
+</code></pre>
+</li>
 <li><p>移除base64图像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s-\!\[\](data:image\/\*;base64,.*)--g&#x27; $file</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">sed -i &#39;s-\!\[\](data:image\/\*;base64,.*)--g&#39; $file
+</code></pre>
+</li>
 <li><p>判断是否为asccii字符串（英文字符）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;呵呵&quot; | awk &#x27;&#123; print (length($0)&gt;NF)&#125;&#x27; #1</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">echo &quot;呵呵&quot; | awk &#39;&#123; print (length($0)&gt;NF)&#125;&#39; #1
+</code></pre>
+</li>
 <li><p>输出带颜色的字符<br>shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e<br>格式如下：</p>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;\033[字背景颜色；文字颜色m字符串\033[0m&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">echo -e &quot;\033[字背景颜色；文字颜色m字符串\033[0m&quot;
+</code></pre>
 <p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;\033[41;36m something here \033[0m&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">echo -e &quot;\033[41;36m something here \033[0m&quot;
+</code></pre>
 <p>其中41的位置代表底色， 36的位置是代表字的颜色</p>
 <blockquote>
 <p>注：<br>1、字背景颜色和文字颜色之间是英文的””<br>2、文字颜色后面有个m<br>3、字符串前后可以没有空格，如果有的话，输出也是同样有空格</p>
 </blockquote>
 <p>下面是相应的字和背景颜色，可以自己来尝试找出不同颜色搭配<br>例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;\033[31m 红色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[34m 黄色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[41;33m 红底黄字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[41;37m 红底白字 \033[0m&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">echo -e &quot;\033[31m 红色字 \033[0m&quot;
+echo -e &quot;\033[34m 黄色字 \033[0m&quot;
+echo -e &quot;\033[41;33m 红底黄字 \033[0m&quot;
+echo -e &quot;\033[41;37m 红底白字 \033[0m&quot;
+</code></pre>
 <p>字颜色：30—–37</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;\033[30m 黑色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[31m 红色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[32m 绿色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[33m 黄色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[34m 蓝色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[35m 紫色字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[36m 天蓝字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[37m 白色字 \033[0m&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">echo -e &quot;\033[30m 黑色字 \033[0m&quot;
+echo -e &quot;\033[31m 红色字 \033[0m&quot;
+echo -e &quot;\033[32m 绿色字 \033[0m&quot;
+echo -e &quot;\033[33m 黄色字 \033[0m&quot;
+echo -e &quot;\033[34m 蓝色字 \033[0m&quot;
+echo -e &quot;\033[35m 紫色字 \033[0m&quot;
+echo -e &quot;\033[36m 天蓝字 \033[0m&quot;
+echo -e &quot;\033[37m 白色字 \033[0m&quot;
+</code></pre>
 <p>字背景颜色范围：40—–47</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;\033[40;37m 黑底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[41;37m 红底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[42;37m 绿底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[43;37m 黄底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[44;37m 蓝底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[45;37m 紫底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[46;37m 天蓝底白字 \033[0m&quot;</span><br><span class="line">echo -e &quot;\033[47;30m 白底黑字 \033[0m&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">echo -e &quot;\033[40;37m 黑底白字 \033[0m&quot;
+echo -e &quot;\033[41;37m 红底白字 \033[0m&quot;
+echo -e &quot;\033[42;37m 绿底白字 \033[0m&quot;
+echo -e &quot;\033[43;37m 黄底白字 \033[0m&quot;
+echo -e &quot;\033[44;37m 蓝底白字 \033[0m&quot;
+echo -e &quot;\033[45;37m 紫底白字 \033[0m&quot;
+echo -e &quot;\033[46;37m 天蓝底白字 \033[0m&quot;
+echo -e &quot;\033[47;30m 白底黑字 \033[0m&quot;
+</code></pre>
 <p>最后面控制选项说明</p>
 <ul>
 <li>\33[0m 关闭所有属性</li>
@@ -499,10 +729,22 @@
 <li>\33[?25l 隐藏光标</li>
 <li>\33[?25h 显示光标</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function echoGreen()&#123;</span><br><span class="line">    echo -e &quot;\033[32m$1\033[0m&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function echoRed()&#123;</span><br><span class="line">    echo -e &quot;\033[31m$1\033[0m&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function echoYellow()&#123;</span><br><span class="line">    echo -e &quot;\033[33m$1\033[0m&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">function echoGreen()&#123;
+    echo -e &quot;\033[32m$1\033[0m&quot;
+&#125;
 
+function echoRed()&#123;
+    echo -e &quot;\033[31m$1\033[0m&quot;
+&#125;
+
+function echoYellow()&#123;
+    echo -e &quot;\033[33m$1\033[0m&quot;
+&#125;
+</code></pre>
 <ul>
-<li>从第二行开始显示<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | awk &#x27;NR&gt;2&#123;print p&#125;&#123;p=$0&#125;&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>从第二行开始显示<pre><code class="shell">cat file | awk &#39;NR&gt;2&#123;print p&#125;&#123;p=$0&#125;&#39;
+</code></pre>
+</li>
 </ul>
 
     </div>

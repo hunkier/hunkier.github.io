@@ -493,7 +493,17 @@
 
       
           <p>javascript 验证输入的是否为正确的数组</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;^[0-9]*$&quot;</span>);</span><br><span class="line">      <span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">   <span class="keyword">if</span>(!reg.test(obj.value))&#123;</span><br><span class="line">       alert(<span class="string">&quot;请输入数字!&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(!<span class="regexp">/^[0-9]*$/</span>.test(obj.value))&#123;</span><br><span class="line">       alert(<span class="string">&quot;请输入数字!&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript"> function validate()&#123;
+       var reg = new RegExp(&quot;^[0-9]*$&quot;);
+       var obj = document.getElementById(&quot;name&quot;);
+    if(!reg.test(obj.value))&#123;
+        alert(&quot;请输入数字!&quot;);
+    &#125;
+    if(!/^[0-9]*$/.test(obj.value))&#123;
+        alert(&quot;请输入数字!&quot;);
+    &#125;
+  &#125;
+</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/js-reg-exp/#more" rel="contents">
@@ -589,18 +599,18 @@
 
       
           <p>添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent  </span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">firewall-cmd --zone=public --add-port=80/tcp --permanent  
+</code></pre>
 <p>  （ <code>–permanent</code> 永久生效，没有此参数重启后失效）</p>
 <p>查看</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">firewall-cmd --zone=public --query-port=80/tcp
+</code></pre>
 <p>删除</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">firewall-cmd --zone=public --remove-port=80/tcp --permanent
+</code></pre>
 <p>重新载入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">firewall-cmd --reload
+</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/CentOS-7-firewall/#more" rel="contents">
@@ -699,7 +709,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉</span><br><span class="line"></span><br><span class="line">Port 33378      //下面添加这一行</span><br></pre></td></tr></table></figure>
+          <h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><pre><code class="shell">vi /etc/ssh/sshd_config
+Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉
+
+Port 33378      //下面添加这一行
+</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/CentOS-7-Modify-sshd-port/#more" rel="contents">
@@ -796,11 +810,15 @@
       
           <h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
 <p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y <span class="string">&quot;Fonts&quot;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">yum groupinstall -y &quot;Fonts&quot;
+</code></pre>
 <p>4、设置默认启动图形界面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> unlink /etc/systemd/system/default.target</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target</span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell"># unlink /etc/systemd/system/default.target
+# ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target
+</code></pre>
 <p>5、重启系统生效</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> reboot</span></span><br></pre></td></tr></table></figure>
+<pre><code class="shell"># reboot
+</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/CentOS-VNCserver/#more" rel="contents">
@@ -984,7 +1002,8 @@
 <p>查看centos中的用户和用户组<br>1、用户列表文件：<code>/etc/passwd/</code></p>
 <p>2、用户组列表文件：<code>/etc/group</code></p>
 <p>3、查看系统中有哪些用户：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">cut -d : -f 1 /etc/passwd
+</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/CentOS-Users/#more" rel="contents">

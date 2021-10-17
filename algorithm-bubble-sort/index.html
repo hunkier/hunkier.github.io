@@ -301,8 +301,22 @@
 <p>(3) N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。</p>
  <span id="more"></span>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> [] a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n = a.length;</span><br><span class="line">  <span class="keyword">int</span> i,j;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123; <span class="comment">// 表示 n 次排序过程</span></span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;n-i; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(a[j-<span class="number">1</span>] &gt; a[j])&#123; <span class="comment">// 前面的数字大于后面的数字就交换</span></span><br><span class="line">        <span class="comment">// 交换 a[j-i] 和 a[j]</span></span><br><span class="line">        <span class="keyword">int</span> temp ;</span><br><span class="line">        temp = a[j-<span class="number">1</span>];</span><br><span class="line">        a[j-<span class="number">1</span>] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public static void bubbleSort(int [] a)&#123;
+  int n = a.length;
+  int i,j;
+  for(i=0; i&lt;n; i++)&#123; // 表示 n 次排序过程
+    for(j=1; j&lt;n-i; j++)&#123;
+      if(a[j-1] &gt; a[j])&#123; // 前面的数字大于后面的数字就交换
+        // 交换 a[j-i] 和 a[j]
+        int temp ;
+        temp = a[j-1];
+        a[j-1] = a[j];
+        a[j] = temp;
+      &#125;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
 
     </div>
 

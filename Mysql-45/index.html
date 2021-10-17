@@ -326,11 +326,8 @@
 </ul>
 <p>在实现上，数据库里面会创建一个视图，访问的时候以视图的逻辑结果为准。在“可重复读”隔离级别下，这个视图是在事务启动时创建的，整个事务存在期间都用这个视图。在“读提交”隔离级别下，这个视图是在每个 SQL 语句开始执行的时候创建的。这里需要注意的是，“读未提交”隔离级别下直接返回记录上的最新值，没有视图概念；而“串行化”隔离级别下直接用加锁的方式来避免并行访问。</p>
 <p>配置的方式是，将启动参数 transaction-isolation 的值设置成 READ-COMMITTED。你可以用 show variables 来查看当前的值。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;transaction_isolation&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<pre><code class="sql">show variables like &#39;transaction_isolation&#39;;
+</code></pre>
 <h2 id="事务的启动方式"><a href="#事务的启动方式" class="headerlink" title="事务的启动方式"></a>事务的启动方式</h2><p>如前面所述，长事务有这些潜在风险，我当然是建议你尽量避免。其实很多时候业务开发同学并不是有意使用长事务，通常是由于误用所致。MySQL 的事务启动方式有以下几种：</p>
 <ol>
 <li>显式启动事务语句， begin 或 start transaction。配套的提交语句是 commit，回滚语句是 rollback。</li>
@@ -338,8 +335,8 @@
 </ol>
 <p>在 autocommit 为 1 的情况下，用 begin 显式启动的事务，如果执行 commit 则提交事务。如果执行 commit work and chain，则是提交事务并自动启动下一个事务，这样也省去了再次执行 begin 语句的开销。同时带来的好处是从程序开发的角度明确地知道每个语句是否处于事务中。</p>
 <p>你可以在 information_schema 库的 innodb_trx 这个表中查询长事务，比如下面这个语句，用于查找持续时间超过 60s 的事务。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> information_schema.innodb_trx <span class="keyword">where</span> TIME_TO_SEC(timediff(now(),trx_started))<span class="operator">&gt;</span><span class="number">60</span>;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))&gt;60;
+</code></pre>
 <h2 id="InnoDB-的索引模型"><a href="#InnoDB-的索引模型" class="headerlink" title="InnoDB 的索引模型"></a>InnoDB 的索引模型</h2><p>在 InnoDB 中，表都是根据主键顺序以索引的形式存放的，这种存储方式的表称为索引组织表。又因为前面我们提到的，InnoDB 使用了 B+ 树索引模型，所以数据都是存储在 B+ 树中的。</p>
 <p>每一个索引在 InnoDB 里面对应一棵 B+ 树。</p>
 <p>索引类型分为主键索引和非主键索引。</p>

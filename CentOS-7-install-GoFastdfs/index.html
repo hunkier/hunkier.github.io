@@ -297,40 +297,181 @@
 <p>参照官网描述（<a href="https://github.com/sjqzhang/go-fastdfs">https://github.com/sjqzhang/go-fastdfs</a>），linux下go-fastdfs安装步骤如下：</p>
  <span id="more"></span>
 
-<h1 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h1><h2 id="下载相关文件并赋予执行权限"><a href="#下载相关文件并赋予执行权限" class="headerlink" title="下载相关文件并赋予执行权限"></a>下载相关文件并赋予执行权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget https://github.com/sjqzhang/go-fastdfs/releases/download/v1.3.0/fileserver</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget  https://raw.githubusercontent.com/sjqzhang/go-fastdfs/master/control</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> chmod 755 fileserver</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> chmod 755 control</span></span><br></pre></td></tr></table></figure>
-
+<h1 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h1><h2 id="下载相关文件并赋予执行权限"><a href="#下载相关文件并赋予执行权限" class="headerlink" title="下载相关文件并赋予执行权限"></a>下载相关文件并赋予执行权限</h2><pre><code class="shell">$ wget https://github.com/sjqzhang/go-fastdfs/releases/download/v1.3.0/fileserver
+$ wget  https://raw.githubusercontent.com/sjqzhang/go-fastdfs/master/control
+$ chmod 755 fileserver
+$ chmod 755 control
+</code></pre>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>启动/停止/重启/查看状态/查看日志 <code>./control start|stop|restart|status|tail</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ./control start</span><br><span class="line">fileserver started..., pid=20599</span><br><span class="line">$ ./control status</span><br><span class="line">fileserver now is running, pid=1080</span><br><span class="line">$ ./control stop</span><br><span class="line">fileserver stoped...</span><br><span class="line">$ ./control tail</span><br><span class="line">Listen on :28088</span><br></pre></td></tr></table></figure>
-
-<h1 id="测试上传"><a href="#测试上传" class="headerlink" title="测试上传"></a>测试上传</h1><h2 id="启动后可以使用命令体验上传"><a href="#启动后可以使用命令体验上传" class="headerlink" title="启动后可以使用命令体验上传"></a>启动后可以使用命令体验上传</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -F file=@http-index-fs http://10.1.xx.60:8080/upload</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ ./control start
+fileserver started..., pid=20599
+$ ./control status
+fileserver now is running, pid=1080
+$ ./control stop
+fileserver stoped...
+$ ./control tail
+Listen on :28088
+</code></pre>
+<h1 id="测试上传"><a href="#测试上传" class="headerlink" title="测试上传"></a>测试上传</h1><h2 id="启动后可以使用命令体验上传"><a href="#启动后可以使用命令体验上传" class="headerlink" title="启动后可以使用命令体验上传"></a>启动后可以使用命令体验上传</h2><pre><code class="shell">curl -F file=@http-index-fs http://10.1.xx.60:8080/upload
+</code></pre>
 <h2 id="web上传"><a href="#web上传" class="headerlink" title="web上传"></a>web上传</h2><p>使用浏览器打开<code>http://yourserver ip:8080/upload.html</code>，注意不要使用<code>127.0.0.1</code>上传</p>
 <h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h1><p>在<code>fileserver</code>同目录下会自动生成配置文件，存放在 <code>conf/cfg.json</code>，需要修改几个参数，其他参数按需求修改。</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;绑定端号&quot;: &quot;端口&quot;,</span><br><span class="line">&quot;addr&quot;: &quot;:28088&quot;,</span><br><span class="line">&quot;本主机地址&quot;: &quot;本机http地址,默认自动生成(注意端口必须与addr中的端口一致），必段为内网，自动生成不为内网请自行修改，下同&quot;,</span><br><span class="line">&quot;host&quot;: &quot;http://172.20.8.31:28088&quot;,</span><br><span class="line">&quot;集群&quot;: &quot;集群列表,注意为了高可用，IP必须不能是同一个,同一不会自动备份，且不能为127.0.0.1,且必须为内网IP，默认自动生成&quot;,</span><br><span class="line">&quot;peers&quot;: <span class="section">[&quot;http://172.20.8.31:28088&quot;]</span>,</span><br><span class="line">&quot;是否自动重命名&quot;: &quot;默认不自动重命名,使用原文件名&quot;,</span><br><span class="line">&quot;rename_file&quot;: true,</span><br><span class="line">&quot;下载域名&quot;: &quot;用于外网下载文件的域名,不包含http://&quot;,</span><br><span class="line">&quot;download_domain&quot;: &quot;172.20.8.31:28088&quot;,</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ini">&quot;绑定端号&quot;: &quot;端口&quot;,
+&quot;addr&quot;: &quot;:28088&quot;,
+&quot;本主机地址&quot;: &quot;本机http地址,默认自动生成(注意端口必须与addr中的端口一致），必段为内网，自动生成不为内网请自行修改，下同&quot;,
+&quot;host&quot;: &quot;http://172.20.8.31:28088&quot;,
+&quot;集群&quot;: &quot;集群列表,注意为了高可用，IP必须不能是同一个,同一不会自动备份，且不能为127.0.0.1,且必须为内网IP，默认自动生成&quot;,
+&quot;peers&quot;: [&quot;http://172.20.8.31:28088&quot;],
+&quot;是否自动重命名&quot;: &quot;默认不自动重命名,使用原文件名&quot;,
+&quot;rename_file&quot;: true,
+&quot;下载域名&quot;: &quot;用于外网下载文件的域名,不包含http://&quot;,
+&quot;download_domain&quot;: &quot;172.20.8.31:28088&quot;,
+</code></pre>
 <p>修改完后需要重启服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./control restart</span></span><br><span class="line">fileserver stoped...</span><br><span class="line">fileserver started..., pid=21038</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">$ ./control restart
+fileserver stoped...
+fileserver started..., pid=21038
+</code></pre>
 <p>测试文件上传</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -F file=@test.jpeg http://172.20.8.31:28088/upload</span></span><br><span class="line">http://172.20.8.31:28088/group1/default/20190604/16/22/6/7d6ef01d71af04dc61cb388955478121.jpeg#   </span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">$ curl -F file=@test.jpeg http://172.20.8.31:28088/upload
+http://172.20.8.31:28088/group1/default/20190604/16/22/6/7d6ef01d71af04dc61cb388955478121.jpeg#   
+</code></pre>
 <h1 id="加入系统服务"><a href="#加入系统服务" class="headerlink" title="加入系统服务"></a>加入系统服务</h1><p>新建文件<code>gofastdfs</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  /etc/rc.d/init.d/gofastdfs</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">vi  /etc/rc.d/init.d/gofastdfs
+</code></pre>
 <p>文件内容为</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> chkconfig: 2345 80 90</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># Simple go-fastdfs init.d script conceived to work on Linux systems</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> as it does use of the /proc filesystem.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:     gofastdfs_28088</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:        2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:         0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description:    go-fastdfs file server</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:          go-fastdfs file  server. See https://github.com/sjqzhang/go-fastdfs</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> WORKSPACE=$(<span class="built_in">cd</span> $(dirname <span class="variable">$0</span>)/; <span class="built_in">pwd</span>)</span></span><br><span class="line">WORKSPACE=/data1/webserver/gofastdfs/</span><br><span class="line">cd $WORKSPACE</span><br><span class="line"></span><br><span class="line">mkdir -p log conf</span><br><span class="line"></span><br><span class="line">module=</span><br><span class="line">app=fileserver</span><br><span class="line">conf=conf/cfg.json</span><br><span class="line">pidfile=conf/app.pid</span><br><span class="line">logfile=log/app.log</span><br><span class="line"></span><br><span class="line">function check_pid() &#123;</span><br><span class="line">    if [ -f $pidfile ];then</span><br><span class="line">        pid=`cat $pidfile`</span><br><span class="line">        if [ -n $pid ]; then</span><br><span class="line">            running=`ps -p $pid|grep -v &quot;PID TTY&quot; |wc -l`</span><br><span class="line">            return $running</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function start() &#123;</span><br><span class="line">    check_pid</span><br><span class="line">    running=$?</span><br><span class="line">    if [ $running -gt 0 ];then</span><br><span class="line">        echo -n &quot;$app now is running already, pid=&quot;</span><br><span class="line">        cat $pidfile</span><br><span class="line">        return 1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    nohup ./$app   &amp;&gt; $logfile &amp;</span><br><span class="line">    echo $! &gt; $pidfile</span><br><span class="line">    echo &quot;$app started..., pid=$!&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function stop() &#123;</span><br><span class="line">    pid=`cat $pidfile`</span><br><span class="line">    kill $pid</span><br><span class="line">    echo &quot;$app stoped...&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function restart() &#123;</span><br><span class="line">    stop</span><br><span class="line">    sleep 1</span><br><span class="line">    start</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function status() &#123;</span><br><span class="line">    check_pid</span><br><span class="line">    running=$?</span><br><span class="line">    if [ $running -gt 0 ];then</span><br><span class="line">        echo -n &quot;$app now is running, pid=&quot;</span><br><span class="line">        cat $pidfile</span><br><span class="line">    else</span><br><span class="line">        echo &quot;$app is stoped&quot;</span><br><span class="line">    fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function tailf() &#123;</span><br><span class="line">    tail -f $logfile</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function build() &#123;</span><br><span class="line">    go build</span><br><span class="line">    if [ $? -ne 0 ]; then</span><br><span class="line">        exit $?</span><br><span class="line">    fi</span><br><span class="line">    mv $module $app</span><br><span class="line">    ./$app -v | grep -v &quot;config&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function pack() &#123;</span><br><span class="line">    build</span><br><span class="line">    git log -1 --pretty=%h &gt; gitversion</span><br><span class="line">    version=`./$app -v|grep -v config`</span><br><span class="line">    file_list=&quot;control cfg.example.json $app&quot;</span><br><span class="line">    tar zcf $app-$version.tar.gz gitversion $file_list</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function packbin() &#123;</span><br><span class="line">    build</span><br><span class="line">    git log -1 --pretty=%h &gt; gitversion</span><br><span class="line">    version=`./$app -v|grep -v config`</span><br><span class="line">    tar zcvf $app-bin-$version.tar.gz $app gitversion</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function help() &#123;</span><br><span class="line">    echo &quot;$0 start|stop|restart|status|tail&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [ &quot;$1&quot; == &quot;&quot; ]; then</span><br><span class="line">    help</span><br><span class="line">elif [ &quot;$1&quot; == &quot;stop&quot; ];then</span><br><span class="line">    stop</span><br><span class="line">elif [ &quot;$1&quot; == &quot;start&quot; ];then</span><br><span class="line">    start</span><br><span class="line">elif [ &quot;$1&quot; == &quot;restart&quot; ];then</span><br><span class="line">    restart</span><br><span class="line">elif [ &quot;$1&quot; == &quot;status&quot; ];then</span><br><span class="line">    status</span><br><span class="line">elif [ &quot;$1&quot; == &quot;tail&quot; ];then</span><br><span class="line">    tailf</span><br><span class="line">else</span><br><span class="line">    help</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="shell">#!/bin/sh
+# chkconfig: 2345 80 90  
+#
+# Simple go-fastdfs init.d script conceived to work on Linux systems
+# as it does use of the /proc filesystem.
 
+### BEGIN INIT INFO
+# Provides:     gofastdfs_28088
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    go-fastdfs file server
+# Description:          go-fastdfs file  server. See https://github.com/sjqzhang/go-fastdfs
+### END INIT INFO
+
+
+# WORKSPACE=$(cd $(dirname $0)/; pwd)
+WORKSPACE=/data1/webserver/gofastdfs/
+cd $WORKSPACE
+
+mkdir -p log conf
+
+module=
+app=fileserver
+conf=conf/cfg.json
+pidfile=conf/app.pid
+logfile=log/app.log
+
+function check_pid() &#123;
+    if [ -f $pidfile ];then
+        pid=`cat $pidfile`
+        if [ -n $pid ]; then
+            running=`ps -p $pid|grep -v &quot;PID TTY&quot; |wc -l`
+            return $running
+        fi
+    fi
+    return 0
+&#125;
+
+function start() &#123;
+    check_pid
+    running=$?
+    if [ $running -gt 0 ];then
+        echo -n &quot;$app now is running already, pid=&quot;
+        cat $pidfile
+        return 1
+    fi
+
+    nohup ./$app   &amp;&gt; $logfile &amp;
+    echo $! &gt; $pidfile
+    echo &quot;$app started..., pid=$!&quot;
+&#125;
+
+function stop() &#123;
+    pid=`cat $pidfile`
+    kill $pid
+    echo &quot;$app stoped...&quot;
+&#125;
+
+function restart() &#123;
+    stop
+    sleep 1
+    start
+&#125;
+
+function status() &#123;
+    check_pid
+    running=$?
+    if [ $running -gt 0 ];then
+        echo -n &quot;$app now is running, pid=&quot;
+        cat $pidfile
+    else
+        echo &quot;$app is stoped&quot;
+    fi
+&#125;
+
+function tailf() &#123;
+    tail -f $logfile
+&#125;
+
+function build() &#123;
+    go build
+    if [ $? -ne 0 ]; then
+        exit $?
+    fi
+    mv $module $app
+    ./$app -v | grep -v &quot;config&quot;
+&#125;
+
+function pack() &#123;
+    build
+    git log -1 --pretty=%h &gt; gitversion
+    version=`./$app -v|grep -v config`
+    file_list=&quot;control cfg.example.json $app&quot;
+    tar zcf $app-$version.tar.gz gitversion $file_list
+&#125;
+
+function packbin() &#123;
+    build
+    git log -1 --pretty=%h &gt; gitversion
+    version=`./$app -v|grep -v config`
+    tar zcvf $app-bin-$version.tar.gz $app gitversion
+&#125;
+
+function help() &#123;
+    echo &quot;$0 start|stop|restart|status|tail&quot;
+&#125;
+
+if [ &quot;$1&quot; == &quot;&quot; ]; then
+    help
+elif [ &quot;$1&quot; == &quot;stop&quot; ];then
+    stop
+elif [ &quot;$1&quot; == &quot;start&quot; ];then
+    start
+elif [ &quot;$1&quot; == &quot;restart&quot; ];then
+    restart
+elif [ &quot;$1&quot; == &quot;status&quot; ];then
+    status
+elif [ &quot;$1&quot; == &quot;tail&quot; ];then
+    tailf
+else
+    help
+fi
+</code></pre>
 <p>修改文件权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/rc.d/init.d/gofastdfs</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">chmod 755 /etc/rc.d/init.d/gofastdfs
+</code></pre>
 <p>设置开机启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig gofastdfs on</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">chkconfig gofastdfs on
+</code></pre>
 <p>启动、停止、重启、查看状态等命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service gofastdfs start/stop/restart/status/tail</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">service gofastdfs start/stop/restart/status/tail
+</code></pre>
 
     </div>
 

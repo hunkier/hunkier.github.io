@@ -309,52 +309,200 @@
 <span id="more"></span> 
 
 <p>博客源码托管在 GitHub，因此需要先安装 git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">yum install -y git
+</code></pre>
 <p>安装 caddy </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal  http.git,http.cors,http.forwardproxy,http.authz,hook.service,dns</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">curl https://getcaddy.com | bash -s personal  http.git,http.cors,http.forwardproxy,http.authz,hook.service,dns
+</code></pre>
 <p>添加 caddy 到系统服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/init.d/caddy</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">vi /etc/init.d/caddy
+</code></pre>
 <p>写入内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          Caddy</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$network</span> <span class="variable">$local_fs</span> <span class="variable">$remote_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$network</span> <span class="variable">$local_fs</span> <span class="variable">$remote_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: The HTTP/2 web server with automatic HTTPS</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       Start or stop the Caddy server</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line"></span><br><span class="line">NAME=&quot;Caddy&quot;</span><br><span class="line">NAME_BIN=&quot;caddy&quot;</span><br><span class="line">BIN=&quot;/usr/local/bin/caddy&quot;</span><br><span class="line"></span><br><span class="line">if [ -f &quot;/usr/local/caddy/Caddyfile&quot; ]; then</span><br><span class="line">	CONF=&quot;/usr/local/caddy/Caddyfile&quot;</span><br><span class="line">elif [ -f &quot;/etc/caddy/Caddyfile&quot; ]; then</span><br><span class="line">	CONF=&quot;/etc/caddy/Caddyfile&quot;</span><br><span class="line">fi</span><br><span class="line">Info_font_prefix=&quot;\033[32m&quot; &amp;&amp; Error_font_prefix=&quot;\033[31m&quot; &amp;&amp; Info_background_prefix=&quot;\033[42;37m&quot; &amp;&amp; Error_background_prefix=&quot;\033[41;37m&quot; &amp;&amp; Font_suffix=&quot;\033[0m&quot;</span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line">check_running()&#123;</span><br><span class="line">	PID=`ps -ef |grep &quot;$&#123;NAME_BIN&#125;&quot; |grep -v &quot;grep&quot; |grep -v &quot;init.d&quot; |grep -v &quot;service&quot; |awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">	if [[ ! -z $&#123;PID&#125; ]]; then</span><br><span class="line">		return 0</span><br><span class="line">	else</span><br><span class="line">		return 1</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_start()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	if [[ $? -eq 0 ]]; then</span><br><span class="line">		echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME (PID $&#123;PID&#125;) 正在运行...&quot; &amp;&amp; exit 0</span><br><span class="line">	else</span><br><span class="line">		ulimit -n 51200</span><br><span class="line">		nohup &quot;$BIN&quot; --conf=&quot;$CONF&quot; -agree &gt;&gt; /tmp/caddy.log 2&gt;&amp;1 &amp;</span><br><span class="line">		sleep 2s</span><br><span class="line">		check_running</span><br><span class="line">		if [[ $? -eq 0 ]]; then</span><br><span class="line">			echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 启动成功 !&quot;</span><br><span class="line">		else</span><br><span class="line">			echo -e &quot;$&#123;Error_font_prefix&#125;[错误]$&#123;Font_suffix&#125; $NAME 启动失败 !&quot;</span><br><span class="line">		fi</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_stop()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	if [[ $? -eq 0 ]]; then</span><br><span class="line">		kill -9 $&#123;PID&#125;</span><br><span class="line">		RETVAL=$?</span><br><span class="line">		if [[ $RETVAL -eq 0 ]]; then</span><br><span class="line">			echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 停止成功 !&quot;</span><br><span class="line">		else</span><br><span class="line">			echo -e &quot;$&#123;Error_font_prefix&#125;[错误]$&#123;Font_suffix&#125;$NAME 停止失败 !&quot;</span><br><span class="line">		fi</span><br><span class="line">	else</span><br><span class="line">		echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 未运行 !&quot;</span><br><span class="line">		RETVAL=1</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_status()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	if [[ $? -eq 0 ]]; then</span><br><span class="line">		echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME (PID $&#123;PID&#125;) 正在运行...&quot;</span><br><span class="line">	else</span><br><span class="line">		echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 未运行 !&quot;</span><br><span class="line">		RETVAL=1</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_tail()&#123;</span><br><span class="line">	tail -100f /tmp/caddy.log</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_restart()&#123;</span><br><span class="line">	do_stop</span><br><span class="line">	do_start</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do_console()&#123;</span><br><span class="line">	do_start</span><br><span class="line">	do_tail</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">	start|stop|restart|status|console|tail)</span><br><span class="line"><span class="meta">	do_$</span><span class="bash">1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	echo &quot;使用方法: $0 &#123; start | stop | restart | status | console | tail &#125;&quot;</span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line">esac</span><br><span class="line">exit $RETVAL</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">#!/bin/bash
 
+### BEGIN INIT INFO
+# Provides:          Caddy
+# Required-Start:    $network $local_fs $remote_fs
+# Required-Stop:     $network $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: The HTTP/2 web server with automatic HTTPS
+# Description:       Start or stop the Caddy server
+### END INIT INFO
+
+NAME=&quot;Caddy&quot;
+NAME_BIN=&quot;caddy&quot;
+BIN=&quot;/usr/local/bin/caddy&quot;
+
+if [ -f &quot;/usr/local/caddy/Caddyfile&quot; ]; then
+    CONF=&quot;/usr/local/caddy/Caddyfile&quot;
+elif [ -f &quot;/etc/caddy/Caddyfile&quot; ]; then
+    CONF=&quot;/etc/caddy/Caddyfile&quot;
+fi
+Info_font_prefix=&quot;\033[32m&quot; &amp;&amp; Error_font_prefix=&quot;\033[31m&quot; &amp;&amp; Info_background_prefix=&quot;\033[42;37m&quot; &amp;&amp; Error_background_prefix=&quot;\033[41;37m&quot; &amp;&amp; Font_suffix=&quot;\033[0m&quot;
+RETVAL=0
+
+check_running()&#123;
+    PID=`ps -ef |grep &quot;$&#123;NAME_BIN&#125;&quot; |grep -v &quot;grep&quot; |grep -v &quot;init.d&quot; |grep -v &quot;service&quot; |awk &#39;&#123;print $2&#125;&#39;`
+    if [[ ! -z $&#123;PID&#125; ]]; then
+        return 0
+    else
+        return 1
+    fi
+&#125;
+
+do_start()&#123;
+    check_running
+    if [[ $? -eq 0 ]]; then
+        echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME (PID $&#123;PID&#125;) 正在运行...&quot; &amp;&amp; exit 0
+    else
+        ulimit -n 51200
+        nohup &quot;$BIN&quot; --conf=&quot;$CONF&quot; -agree &gt;&gt; /tmp/caddy.log 2&gt;&amp;1 &amp;
+        sleep 2s
+        check_running
+        if [[ $? -eq 0 ]]; then
+            echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 启动成功 !&quot;
+        else
+            echo -e &quot;$&#123;Error_font_prefix&#125;[错误]$&#123;Font_suffix&#125; $NAME 启动失败 !&quot;
+        fi
+    fi
+&#125;
+
+do_stop()&#123;
+    check_running
+    if [[ $? -eq 0 ]]; then
+        kill -9 $&#123;PID&#125;
+        RETVAL=$?
+        if [[ $RETVAL -eq 0 ]]; then
+            echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 停止成功 !&quot;
+        else
+            echo -e &quot;$&#123;Error_font_prefix&#125;[错误]$&#123;Font_suffix&#125;$NAME 停止失败 !&quot;
+        fi
+    else
+        echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 未运行 !&quot;
+        RETVAL=1
+    fi
+&#125;
+
+do_status()&#123;
+    check_running
+    if [[ $? -eq 0 ]]; then
+        echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME (PID $&#123;PID&#125;) 正在运行...&quot;
+    else
+        echo -e &quot;$&#123;Info_font_prefix&#125;[信息]$&#123;Font_suffix&#125; $NAME 未运行 !&quot;
+        RETVAL=1
+    fi
+&#125;
+
+do_tail()&#123;
+    tail -100f /tmp/caddy.log
+&#125;
+
+do_restart()&#123;
+    do_stop
+    do_start
+&#125;
+
+do_console()&#123;
+    do_start
+    do_tail
+&#125;
+
+case &quot;$1&quot; in
+    start|stop|restart|status|console|tail)
+    do_$1
+    ;;
+    *)
+    echo &quot;使用方法: $0 &#123; start | stop | restart | status | console | tail &#125;&quot;
+    RETVAL=1
+    ;;
+esac
+exit $RETVAL
+</code></pre>
 <p>更改权限，加入开机自启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/init.d/caddy</span><br><span class="line">chkconfig caddy on</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">chmod 755 /etc/init.d/caddy
+chkconfig caddy on
+</code></pre>
 <p>编辑配置文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/caddy/vhosts</span><br><span class="line">vi /etc/caddy/Caddyfile</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">mkdir -p /etc/caddy/vhosts
+vi /etc/caddy/Caddyfile
+</code></pre>
 <p>caddyfile 文件内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置文件分开存放</span></span><br><span class="line">import vhosts/*.conf</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell"># 配置文件分开存放
+import vhosts/*.conf
+</code></pre>
 <p>具体配置文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/caddy/vhosts/hunkier.cn.conf</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">vi /etc/caddy/vhosts/hunkier.cn.conf
+</code></pre>
 <p>这里的代码仓库是开放的，若是私有项目，请自行查阅相关资料。</p>
 <p>文件内容</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hunkier.<span class="attribute">cn</span> www.hunkier.cn &#123;</span><br><span class="line">    <span class="comment"># web 页面存放路径</span></span><br><span class="line">    <span class="attribute">root</span> /var/www/hunkier/</span><br><span class="line">    <span class="comment"># 配置错误页面，所有错误都显示 404.html 页面</span></span><br><span class="line">    errors &#123;</span><br><span class="line">        * 404.<span class="attribute">html</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 启用压缩</span></span><br><span class="line">    gzip</span><br><span class="line">    <span class="comment"># 用来申请及更新 https 证书的邮箱，前提是 hunkier.cn 的域名能解析到 本机</span></span><br><span class="line">    tls huangkuier@gmail.com</span><br><span class="line">    git github.com/hunkier/hunkier.github.io &#123;</span><br><span class="line">    	<span class="comment"># git clone 的目标路径</span></span><br><span class="line">        <span class="attribute">path</span> /var/www/hunkier</span><br><span class="line">        <span class="comment"># 使用 webhook 触发自动部署，</span></span><br><span class="line">        <span class="comment"># GitHub 项目的 setting -&gt; Webhooks 页 Add webhook</span></span><br><span class="line">        <span class="comment"># Payload URL 为 https://hunkier.cn/webhook </span></span><br><span class="line">        <span class="comment"># Content type 为 application/json</span></span><br><span class="line">        <span class="comment"># Cecret 为 GitHubSecretKey</span></span><br><span class="line">        hook /webhook GitHubSecretKey</span><br><span class="line">        hook_type github</span><br><span class="line">        clone_args --recursive</span><br><span class="line">        pull_args --recurse-submodules</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<pre><code class="nginx">
+hunkier.cn www.hunkier.cn &#123;
+    # web 页面存放路径
+    root /var/www/hunkier/
+    # 配置错误页面，所有错误都显示 404.html 页面
+    errors &#123;
+        * 404.html
+    &#125;
+    # 启用压缩
+    gzip
+    # 用来申请及更新 https 证书的邮箱，前提是 hunkier.cn 的域名能解析到 本机
+    tls huangkuier@gmail.com
+    git github.com/hunkier/hunkier.github.io &#123;
+        # git clone 的目标路径
+        path /var/www/hunkier
+        # 使用 webhook 触发自动部署，
+        # GitHub 项目的 setting -&gt; Webhooks 页 Add webhook
+        # Payload URL 为 https://hunkier.cn/webhook 
+        # Content type 为 application/json
+        # Cecret 为 GitHubSecretKey
+        hook /webhook GitHubSecretKey
+        hook_type github
+        clone_args --recursive
+        pull_args --recurse-submodules
+    &#125;
+&#125;
+</code></pre>
 <p>创建目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/www/hunkier</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">mkdir -p /var/www/hunkier
+</code></pre>
 <p>解除链接文件限制</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -n 8192</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ulimit -n 8192
+</code></pre>
 <p>也可以使用 caddy 用作代理服务器用来科学上网（你懂得^_^）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/caddy/vhost/xxx.hunkier.cn.conf</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">vi /etc/caddy/vhost/xxx.hunkier.cn.conf
+</code></pre>
 <p>文件 xxx.hunkier.cn.conf 内容如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">xxx.hunkier.<span class="section">cn</span> &#123;</span><br><span class="line">    <span class="comment"># 伪装成正常的网站</span></span><br><span class="line">    <span class="attribute">root</span> /var/www/hunkier/</span><br><span class="line">    <span class="comment"># 配置错误页面，所有错误都显示 404.html 页面</span></span><br><span class="line">    errors &#123;</span><br><span class="line">        * 404.<span class="attribute">html</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 开启压缩</span></span><br><span class="line">    gzip</span><br><span class="line">    <span class="comment"># 使用邮箱申请和续期证书</span></span><br><span class="line">    tls huangkuier@gmail.com</span><br><span class="line">    <span class="comment"># http 代理设置</span></span><br><span class="line">    forwardproxy &#123;</span><br><span class="line">        <span class="attribute">hide_ip</span></span><br><span class="line">        hide_via</span><br><span class="line">        <span class="comment"># 使用 basic 认证</span></span><br><span class="line">        basicauth user1 passwd1</span><br><span class="line">        basicauth user2 passwd2</span><br><span class="line">        basicauth user3 passwd3</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="nginx">xxx.hunkier.cn &#123;
+    # 伪装成正常的网站
+    root /var/www/hunkier/
+    # 配置错误页面，所有错误都显示 404.html 页面
+    errors &#123;
+        * 404.html
+    &#125;
+    # 开启压缩
+    gzip
+    # 使用邮箱申请和续期证书
+    tls huangkuier@gmail.com
+    # http 代理设置
+    forwardproxy &#123;
+        hide_ip
+        hide_via
+        # 使用 basic 认证
+        basicauth user1 passwd1
+        basicauth user2 passwd2
+        basicauth user3 passwd3
+    &#125;
+&#125;
+</code></pre>
 <p>此时 caddy 被用作 web 服务器和代理服务器，协议转换推荐使用<a href="https://github.com/ginuerzh/gost/releases">gost</a> 。</p>
 <p> caddy 服务 启动/停止/重启/检查状态</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service caddy start/stop/restart/status</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">service caddy start/stop/restart/status
+</code></pre>
 <p>启动成功后可以在浏览器里面正常访问 <a href="https://hunkier.cn/">https://hunkier.cn</a></p>
 <p>若启动失败，查看日志</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -100f /tmp/caddy.log </span><br></pre></td></tr></table></figure>
+<pre><code class="shell">tail -100f /tmp/caddy.log 
+</code></pre>
 
     </div>
 

@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="CentOS 7需要使用全新的命令行工具 nmcli 来设置 显示当前网络连接123456[root@bogon ~]# nmcli connection showNAME     UUID                                  TYPE      DEVICEcni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge">
+  <meta name="description" content="CentOS 7需要使用全新的命令行工具 nmcli 来设置 显示当前网络连接[root@bogon ~]# nmcli connection show NAME     UUID                                  TYPE      DEVICE cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 设置DNS服务器">
 <meta property="og:url" content="https://hunkier.cn/CentOS-7-Seting-DNS-Server/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="CentOS 7需要使用全新的命令行工具 nmcli 来设置 显示当前网络连接123456[root@bogon ~]# nmcli connection showNAME     UUID                                  TYPE      DEVICEcni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge">
+<meta property="og:description" content="CentOS 7需要使用全新的命令行工具 nmcli 来设置 显示当前网络连接[root@bogon ~]# nmcli connection show NAME     UUID                                  TYPE      DEVICE cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cn">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-08-10T07:07:16.000Z">
 <meta property="article:modified_time" content="2019-06-18T08:42:11.598Z">
@@ -300,15 +300,35 @@
 
       
         <p>CentOS 7需要使用全新的命令行工具 nmcli 来设置</p>
-<h5 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# nmcli connection show</span><br><span class="line">NAME     UUID                                  TYPE      DEVICE</span><br><span class="line">cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0</span><br><span class="line">docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0</span><br><span class="line">enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0</span><br><span class="line">virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0</span><br></pre></td></tr></table></figure>
-
+<h5 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h5><pre><code class="shell">[root@bogon ~]# nmcli connection show
+NAME     UUID                                  TYPE      DEVICE
+cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0
+docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0
+enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0
+virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0
+</code></pre>
 <span id="more"></span>
 
-<h5 id="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"><a href="#修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识" class="headerlink" title="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"></a>修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con mod enp2s0  ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;</span><br><span class="line">[root@bogon ~]#</span><br></pre></td></tr></table></figure>
+<h5 id="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"><a href="#修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识" class="headerlink" title="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"></a>修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识</h5><pre><code class="shell">[root@bogon ~]# nmcli con mod enp2s0  ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;
+[root@bogon ~]#
+</code></pre>
+<h5 id="将dns配置生效"><a href="#将dns配置生效" class="headerlink" title="将dns配置生效"></a>将dns配置生效</h5><pre><code class="shell">[root@bogon ~]# nmcli con up enp2s0
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)
+</code></pre>
+<h5 id="测试网络"><a href="#测试网络" class="headerlink" title="测试网络"></a>测试网络</h5><pre><code class="shell">[root@bogon ~]# ping www.baidu.com
+PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data.
+64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms
+64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms
+64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms
+64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms
+64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms
+^C
+--- www.a.shifen.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms
+[root@bogon ~]#
+</code></pre>
 
-<h5 id="将dns配置生效"><a href="#将dns配置生效" class="headerlink" title="将dns配置生效"></a>将dns配置生效</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con up enp2s0</span><br><span class="line">Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)</span><br></pre></td></tr></table></figure>
-
-<h5 id="测试网络"><a href="#测试网络" class="headerlink" title="测试网络"></a>测试网络</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# ping www.baidu.com</span><br><span class="line">PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data.</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms</span><br><span class="line">^C</span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 4005ms</span><br><span class="line">rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms</span><br><span class="line">[root@bogon ~]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     

@@ -302,7 +302,24 @@
  <span id="more"></span>
 
 <p>Java 代码实现如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">biSearch</span><span class="params">(<span class="keyword">int</span> []array, <span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> hi = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> mid;</span><br><span class="line">  <span class="keyword">while</span>(lo&lt;=hi)&#123;</span><br><span class="line">    mid=(lo+li)/<span class="number">2</span>; <span class="comment">// 中间位置</span></span><br><span class="line">    <span class="keyword">if</span>(array[mid]==a)&#123;</span><br><span class="line">      <span class="keyword">return</span> mid + <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(array[mid]&lt;a)&#123; <span class="comment">// 向右查找</span></span><br><span class="line">      lo = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123; <span class="comment">// 向左查找</span></span><br><span class="line">    	hi = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public static int biSearch(int []array, int a)&#123;
+  int lo = 0;
+  int hi = array.length - 1;
+  int mid;
+  while(lo&lt;=hi)&#123;
+    mid=(lo+li)/2; // 中间位置
+    if(array[mid]==a)&#123;
+      return mid + 1;
+    &#125;else if(array[mid]&lt;a)&#123; // 向右查找
+      lo = mid + 1;
+    &#125;else &#123; // 向左查找
+        hi = mid - 1;
+    &#125;
+  &#125;
+  return -1;
+&#125;
+</code></pre>
+
     </div>
 
     

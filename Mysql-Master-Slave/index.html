@@ -324,11 +324,13 @@
 <h2 id="2、master配置"><a href="#2、master配置" class="headerlink" title="2、master配置"></a>2、master配置</h2><p>3311.cnf文件mysqld段：</p>
 <p>[mysqld]<br>server-id=1<br>log-bin=mysql-bin<br>说明：必需配置，server-id指定服务器唯一id，不可重复，log-bin开启binlog日志</p>
 <p>运行master</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql3311 -v $(PWD)/3311.cnf:/etc/mysql/conf.d/my.cnf -p 3311:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">docker run --name mysql3311 -v $(PWD)/3311.cnf:/etc/mysql/conf.d/my.cnf -p 3311:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6
+</code></pre>
 <p>通过mysql客户端连胜主库，设置复制账号：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> REPLICATION SLAVE <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;test&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"><span class="keyword">show</span> master status;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">GRANT REPLICATION SLAVE ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
+FLUSH PRIVILEGES;
+show master status;
+</code></pre>
 <p>说明：添加一个 test 账号在任何机器上使用 123456 这个密码对任何数据库行使 replication slave 权限</p>
 <p>查看Master状态：</p>
 <p>mysql &gt; show master status;</p>
@@ -336,13 +338,14 @@
 <h2 id="3、Slave配置"><a href="#3、Slave配置" class="headerlink" title="3、Slave配置"></a>3、Slave配置</h2><p>3312.cnf文件配置:</p>
 <p>[mysqld]<br>server-id=2<br>log-bin=mysql-bin</p>
 <p>运行slave</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql3312 -v $(PWD)/3312.cnf:/etc/mysql/conf.d/my.cnf -p 3312:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">docker run --name mysql3312 -v $(PWD)/3312.cnf:/etc/mysql/conf.d/my.cnf -p 3312:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6
+</code></pre>
 <p>使用mysql客户端连上从库，设置主从复制</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stop slave; </span><br><span class="line">CHANGE MASTER <span class="keyword">TO</span> MASTER_HOST <span class="operator">=</span> <span class="string">&#x27;172.20.8.113&#x27;</span>, MASTER_USER <span class="operator">=</span> <span class="string">&#x27;test&#x27;</span>, MASTER_PASSWORD <span class="operator">=</span> <span class="string">&#x27;123456&#x27;</span>, MASTER_PORT <span class="operator">=</span> <span class="number">3311</span>,  MASTER_RETRY_COUNT <span class="operator">=</span> <span class="number">0</span>, MASTER_LOG_POS <span class="operator">=</span> <span class="number">389</span>; </span><br><span class="line"><span class="keyword">START</span> SLAVE;</span><br><span class="line"><span class="keyword">SHOW</span> SLAVE STATUS ;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="sql">stop slave; 
+CHANGE MASTER TO MASTER_HOST = &#39;172.20.8.113&#39;, MASTER_USER = &#39;test&#39;, MASTER_PASSWORD = &#39;123456&#39;, MASTER_PORT = 3311,  MASTER_RETRY_COUNT = 0, MASTER_LOG_POS = 389; 
+START SLAVE;
+SHOW SLAVE STATUS ;
+</code></pre>
 <p>核对host、user、master_log_file是否正确，<br>Slave_IO_Running: Yes<br>Slave_SQL_Running: Yes<br>这两项yes，说明配置成功。</p>
 <p>最后别忘了，Master解除写锁定：</p>
 <p>mysql &gt; unlock tables;</p>

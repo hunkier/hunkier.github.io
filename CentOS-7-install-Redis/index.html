@@ -303,27 +303,30 @@
 <p>参照官网描述（<a href="https://redis.io/download">https://redis.io/download</a>），linux下redis安装步骤如下：</p>
  <span id="more"></span>
 <p>所有工具和依赖一起安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y tcl gcc-c++</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget http://download.redis.io/releases/redis-5.0.5.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf redis-5.0.5.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> redis-5.0.5</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir -p /data1/databases/redis  /var/<span class="built_in">log</span>/redis/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make &amp;&amp; make install PREFIX=/data1/databases/redis</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">yum install -y tcl gcc-c++
+</code></pre>
+<pre><code class="shell">$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz
+$ tar -zxvf redis-5.0.5.tar.gz
+$ cd redis-5.0.5
+$ mkdir -p /data1/databases/redis  /var/log/redis/
+$ make &amp;&amp; make install PREFIX=/data1/databases/redis
+</code></pre>
 <p>上述流程依次代表，下载redis –&gt; 解压 –&gt; 进入解压目录 –&gt; 编译源码</p>
 <p>多数情况下，执行make时，可能会出现如下错误：</p>
 <p>异常一：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make[2]: cc: Command not found</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">make[2]: cc: Command not found
+</code></pre>
 <p>异常原因：没有安装gcc</p>
 <p>解决方案：<code>yum install gcc-c++</code></p>
 <p>异常二：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zmalloc.h:<span class="number">51</span>:<span class="number">31</span>: error: jemalloc/jemalloc.h: No such file <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure>
-
+<pre><code class="c++">zmalloc.h:51:31: error: jemalloc/jemalloc.h: No such file or directory
+</code></pre>
 <p>异常原因：一些编译依赖或原来编译遗留出现的问题</p>
 <p>解决方案：<code>make distclean</code>。清理一下，然后再<code>make</code>。</p>
 <p>在make成功以后，需要make test。在make test出现异常。</p>
 <p>异常一：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">couldn&#x27;t execute &quot;tclsh8.5&quot;: no such file or directory</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">couldn&#39;t execute &quot;tclsh8.5&quot;: no such file or directory
+</code></pre>
 <p>异常原因：没有安装tcl</p>
 <p>解决方案：<code>yum install -y tcl</code>。</p>
 <p>到此，redis安装完成。</p>
@@ -341,8 +344,12 @@
 <p>4、<code>daemonize no</code>  redis是否后台运行，若为yes，客户端窗口将被锁定<br>重要配置项<br>5、<code>maxmemory</code> redis最大使用内存<br>6、<code>maxmemory-policy</code>  内存达到最大值时的驱逐策略</p>
 <p>redis数据持久化支持两种模式：RDB和AOF<br>RDB：rdb方式的持久化是通过快照完成的，当符合一定条件时redis会自动将内存中的所有数据执行快照操作并存储到硬盘上。默认存储在redis根目录的dump.rdb文件中。(文件名在配置文件中dbfilename)</p>
 <p>　redis进行快照的时机（在配置文件<strong>redis.conf</strong>中）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">save 900 1：表示900秒内至少一个键被更改则进行快照。</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line">dbfilename dump.rdb   快照保存文件名</span><br><span class="line">dir ./                快照保存地址</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">save 900 1：表示900秒内至少一个键被更改则进行快照。
+save 300 10
+save 60 10000
+dbfilename dump.rdb   快照保存文件名
+dir ./                快照保存地址
+</code></pre>
 <p>也可通过redis客服端执行命令save或者bgsave保存快照：</p>
 <p>　两个命令的区别在于，save是由主进程进行快照操作，会阻塞其它请求。bgsave是由redis执行fork函数复制出一个子进程来进行快照操作。</p>
 <p>文件修复<strong>：redis-check-dump</strong></p>
@@ -350,43 +357,160 @@
 <p>优点：由于存储的有数据快照文件，恢复数据很方便。</p>
 <p>缺点：会丢失最后一次快照以后更改的所有数据。</p>
 <p>AOF:aof方式的持久化是通过日志文件的方式，记录下redis服务器的每一条修改指令。默认情况下redis没有开启aof，可以通过参数appendonly参数开启。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">appendonly</span> <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="nginx">  appendonly yes
+</code></pre>
 <p>  aof文件的保存位置和rdb文件的位置相同，都是dir参数设置的，默认的文件名是<code>appendonly.aof</code>，可以通过      <code>appendfilename</code>参数修改</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendfilename appendonly.aof</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ini"> appendfilename appendonly.aof
+</code></pre>
 <p>  redis写命令同步的时机：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">appendfsync</span> always 每次都会执行</span><br><span class="line">appendfsync everysec 默认 每秒执行一次同步操作（推荐，默认）</span><br><span class="line">appendfsync <span class="literal">no</span>不主动进行同步，由操作系统来做，<span class="number">30</span>秒一次</span><br></pre></td></tr></table></figure>
-
+<pre><code class="nginx"> appendfsync always 每次都会执行
+ appendfsync everysec 默认 每秒执行一次同步操作（推荐，默认）
+ appendfsync no不主动进行同步，由操作系统来做，30秒一次
+</code></pre>
 <p>redis服务器启动时会读取appendonly.aof中的指令，进行执行，这样便保证了重启后数据不会丢失。</p>
 <p><strong>注意：当redis启动时，如果rdb持久化和aof持久化都打开了，那么程序会优先使用aof方式来恢复数据集，因为aof方式所保存的数据通常是最完整的。</strong></p>
 <p>最后记录下redis服务器的启动与关闭指令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]# ./redis-server ../redis.conf                启动redis</span><br><span class="line">[root@localhost src]# ./redis-cli shutdown                          关闭redis</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">[root@localhost src]# ./redis-server ../redis.conf                启动redis
+[root@localhost src]# ./redis-cli shutdown                          关闭redis
+</code></pre>
 <p>Redis 加入系统服务</p>
 <p>新建文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.d/init.d/redis </span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">vi /etc/rc.d/init.d/redis 
+</code></pre>
 <p>文件内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> chkconfig: 2345 80 90</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># Simple Redis init.d script conceived to work on Linux systems</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> as it does use of the /proc filesystem.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:     redis_6379</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:        2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:         0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description:    Redis data structure server</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:          Redis data structure server. See https://redis.io</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line"></span><br><span class="line">REDISPORT=6379</span><br><span class="line">EXEC=/data1/databases/redis/bin/redis-server</span><br><span class="line">CLIEXEC=/data1/databases/redis/bin/redis-cli</span><br><span class="line"></span><br><span class="line">PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid</span><br><span class="line">CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;</span><br><span class="line"></span><br><span class="line">function check_pid() &#123;</span><br><span class="line">    if [ -f $PIDFILE ];then</span><br><span class="line">        pid=`cat $PIDFILE`</span><br><span class="line">        if [ -n $pid ]; then</span><br><span class="line">            running=`ps -p $pid|grep -v &quot;PID TTY&quot; |wc -l`</span><br><span class="line">            return $running</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line">function start() &#123;</span><br><span class="line">    check_pid</span><br><span class="line">            running=$?</span><br><span class="line">            if [ $running -gt 0 ];then</span><br><span class="line">                echo -n &quot;Redis server now is running, pid=&quot;</span><br><span class="line">                cat $PIDFILE</span><br><span class="line">            else</span><br><span class="line">                 echo &quot;Starting Redis server...&quot;</span><br><span class="line">                 $EXEC $CONF &amp;</span><br><span class="line">                 echo $! &gt; $PIDFILE</span><br><span class="line">                 echo &quot;Redis started..., pid=$!&quot;</span><br><span class="line">            fi</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function stop() &#123;</span><br><span class="line">    check_pid</span><br><span class="line">            running=$?</span><br><span class="line">            if [ $running -gt 0 ];then</span><br><span class="line">                echo &quot;Stopping ...&quot;</span><br><span class="line">                PID=$(cat $PIDFILE)</span><br><span class="line">                $CLIEXEC -p $REDISPORT shutdown</span><br><span class="line">                while [ -x /proc/$&#123;PID&#125; ]</span><br><span class="line">                do</span><br><span class="line">                   echo &quot;Waiting for Redis to shutdown ...&quot;</span><br><span class="line">                   sleep 1</span><br><span class="line">                done</span><br><span class="line">            fi</span><br><span class="line">    echo &quot;Redis stopped&quot;</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function status() &#123;</span><br><span class="line">     check_pid</span><br><span class="line">                running=$?</span><br><span class="line">                if [ $running -gt 0 ];then</span><br><span class="line">                    echo -n &quot;Redis server now is running, pid=&quot;</span><br><span class="line">                    cat $PIDFILE</span><br><span class="line">                else</span><br><span class="line">                    echo &quot;Redis server is stoped&quot;</span><br><span class="line">                fi</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">    start)</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        stop</span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        status</span><br><span class="line">        ;;</span><br><span class="line">    restart)</span><br><span class="line">        stop</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        echo &quot;Please use start / stop / status / restart as first argument&quot;</span><br><span class="line">        ;;</span><br><span class="line">esac</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="shell">#!/bin/sh
+# chkconfig: 2345 80 90
+#
+# Simple Redis init.d script conceived to work on Linux systems
+# as it does use of the /proc filesystem.
 
+### BEGIN INIT INFO
+# Provides:     redis_6379
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Redis data structure server
+# Description:          Redis data structure server. See https://redis.io
+### END INIT INFO
+
+REDISPORT=6379
+EXEC=/data1/databases/redis/bin/redis-server
+CLIEXEC=/data1/databases/redis/bin/redis-cli
+
+PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid
+CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;
+
+function check_pid() &#123;
+    if [ -f $PIDFILE ];then
+        pid=`cat $PIDFILE`
+        if [ -n $pid ]; then
+            running=`ps -p $pid|grep -v &quot;PID TTY&quot; |wc -l`
+            return $running
+        fi
+    fi
+    return 0
+&#125;
+function start() &#123;
+    check_pid
+            running=$?
+            if [ $running -gt 0 ];then
+                echo -n &quot;Redis server now is running, pid=&quot;
+                cat $PIDFILE
+            else
+                 echo &quot;Starting Redis server...&quot;
+                 $EXEC $CONF &amp;
+                 echo $! &gt; $PIDFILE
+                 echo &quot;Redis started..., pid=$!&quot;
+            fi
+    return 0
+&#125;
+
+function stop() &#123;
+    check_pid
+            running=$?
+            if [ $running -gt 0 ];then
+                echo &quot;Stopping ...&quot;
+                PID=$(cat $PIDFILE)
+                $CLIEXEC -p $REDISPORT shutdown
+                while [ -x /proc/$&#123;PID&#125; ]
+                do
+                   echo &quot;Waiting for Redis to shutdown ...&quot;
+                   sleep 1
+                done
+            fi
+    echo &quot;Redis stopped&quot;
+    return 0
+&#125;
+
+
+function status() &#123;
+     check_pid
+                running=$?
+                if [ $running -gt 0 ];then
+                    echo -n &quot;Redis server now is running, pid=&quot;
+                    cat $PIDFILE
+                else
+                    echo &quot;Redis server is stoped&quot;
+                fi
+    return 0
+&#125;
+
+
+
+case &quot;$1&quot; in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo &quot;Please use start / stop / status / restart as first argument&quot;
+        ;;
+esac
+</code></pre>
 <p>修改文件权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/rc.d/init.d/redis</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">chmod 755 /etc/rc.d/init.d/redis
+</code></pre>
 <p>设置开机启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig redis on</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">chkconfig redis on
+</code></pre>
 <p>启动、停止命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis start/stop</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">service redis start/stop
+</code></pre>
 <p>centos 7 加入系统服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> cat /usr/lib/systemd/system/redis.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Redis persistent key-value database</span><br><span class="line">After=network.target</span><br><span class="line">After=network-online.target</span><br><span class="line">Wants=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/data/redis/bin/redis-server /etc/redis/6379.conf --supervised systemd</span><br><span class="line"><span class="meta">#</span><span class="bash">ExecStop=/usr/libexec/redis-shutdown</span></span><br><span class="line">ExecStop=kill -9 $(ps -ef|grep /data/redis/bin/redis-server | grep 6379 |awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line">Type=notify</span><br><span class="line"><span class="meta">#</span><span class="bash">User=redis</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Group=redis</span></span><br><span class="line">RuntimeDirectory=redis</span><br><span class="line">RuntimeDirectoryMode=0755</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="shell"># cat /usr/lib/systemd/system/redis.service
+[Unit]
+Description=Redis persistent key-value database
+After=network.target
+After=network-online.target
+Wants=network-online.target
 
+[Service]
+ExecStart=/data/redis/bin/redis-server /etc/redis/6379.conf --supervised systemd
+#ExecStop=/usr/libexec/redis-shutdown
+ExecStop=kill -9 $(ps -ef|grep /data/redis/bin/redis-server | grep 6379 |awk &#39;&#123;print $2&#125;&#39;)
+Type=notify
+#User=redis
+#Group=redis
+RuntimeDirectory=redis
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
 <p>设置开机启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable redis </span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">systemctl enable redis 
+</code></pre>
 <p>启动、停止、状态命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start/stop/status  redis </span><br></pre></td></tr></table></figure>
+<pre><code class="shell">systemctl start/stop/status  redis 
+</code></pre>
 
     </div>
 

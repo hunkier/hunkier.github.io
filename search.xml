@@ -3825,10 +3825,13 @@ net.inet.ip.portrange.last=65535
 <h1 id="二、数据备份还原"><a href="#二、数据备份还原" class="headerlink" title="二、数据备份还原"></a>二、数据备份还原</h1><p>在做主从同步之前首先需要对主库进行数据备份，恢复到所有的从数据库，数据库备份有冷备和热备，冷备即拷贝所有的数据文件及日志文件到从服务器，</p>
 <p>这里使用mysqldump工具做在线热备</p>
 <p>步骤:（这里需要备份的数据库为 db_test）</p>
-<h2 id="1、Master锁定库，使只能读取不能写入"><a href="#1、Master锁定库，使只能读取不能写入" class="headerlink" title="1、Master锁定库，使只能读取不能写入"></a>1、Master锁定库，使只能读取不能写入</h2><p>mysql &gt; flush tables with read lock;</p>
-<h2 id="2、Master导出备份"><a href="#2、Master导出备份" class="headerlink" title="2、Master导出备份"></a>2、Master导出备份</h2><p>~$ mysqldump –master-data -uroot -p db_test&gt;db_test.sql</p>
-<p>说明：–master-data参数在生成的dump 文件中产生一条 CHANGE MASTER TO 命令，查看可知master当前使用的binlog文件名</p>
-<h2 id="3、Slave导入备份"><a href="#3、Slave导入备份" class="headerlink" title="3、Slave导入备份"></a>3、Slave导入备份</h2><p>~$ mysql -uroot -p db_test&lt;db_test.sql</p>
+<h2 id="1、Master锁定库，使只能读取不能写入"><a href="#1、Master锁定库，使只能读取不能写入" class="headerlink" title="1、Master锁定库，使只能读取不能写入"></a>1、Master锁定库，使只能读取不能写入</h2><p>mysql &gt; flush tables with read lock;</p>
+<h2 id="2、Master导出备份"><a href="#2、Master导出备份" class="headerlink" title="2、Master导出备份"></a>2、Master导出备份</h2><p>~$ mysqldump –single-transaction –master-data=2 –routines –flush-logs -uroot -p db_test &gt; db_test.sql</p>
+<p>说明：–master-data 参数在生成的 dump 文件中产生一条 CHANGE MASTER TO 命令，查看可知master当前使用的binlog文件名</p>
+<p>–single-transaction 开启一个事务，是备份具有一致性</p>
+<p>–flush-logs 关闭当前 binlog，开启一个新的 binlog</p>
+<p>–routines 来备份存储过程和函数，触发器默认会备份</p>
+<h2 id="3、Slave导入备份"><a href="#3、Slave导入备份" class="headerlink" title="3、Slave导入备份"></a>3、Slave导入备份</h2><p>~$ mysql -uroot -p db_test &lt; db_test.sql</p>
 <h2 id="4、最后配置好同步以后，Master解除写锁定"><a href="#4、最后配置好同步以后，Master解除写锁定" class="headerlink" title="4、最后配置好同步以后，Master解除写锁定"></a>4、最后配置好同步以后，Master解除写锁定</h2><p>mysql &gt; unlock tables;</p>
 <h1 id="三、配置参考"><a href="#三、配置参考" class="headerlink" title="三、配置参考"></a>三、配置参考</h1><h2 id="1、网络配置"><a href="#1、网络配置" class="headerlink" title="1、网络配置"></a>1、网络配置</h2><p>1主1从，主从数据库处于同一装有CentOS机器上，使用docker运行，可互相访问。</p>
 <p>主数据库master端口：3311</p>
@@ -3836,28 +3839,25 @@ net.inet.ip.portrange.last=65535
 <h2 id="2、master配置"><a href="#2、master配置" class="headerlink" title="2、master配置"></a>2、master配置</h2><p>3311.cnf文件mysqld段：</p>
 <p>[mysqld]<br>server-id=1<br>log-bin=mysql-bin<br>说明：必需配置，server-id指定服务器唯一id，不可重复，log-bin开启binlog日志</p>
 <p>运行master</p>
-<pre><code class="shell">docker run --name mysql3311 -v $(PWD)/3311.cnf:/etc/mysql/conf.d/my.cnf -p 3311:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mysql3311 -v $(PWD)/3311.cnf:/etc/mysql/conf.d/my.cnf -p 3311:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6</span><br></pre></td></tr></table></figure>
+
 <p>通过mysql客户端连胜主库，设置复制账号：</p>
-<pre><code class="sql">GRANT REPLICATION SLAVE ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
-FLUSH PRIVILEGES;
-show master status;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> REPLICATION SLAVE <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;test&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"><span class="keyword">show</span> master status;</span><br></pre></td></tr></table></figure>
+
 <p>说明：添加一个 test 账号在任何机器上使用 123456 这个密码对任何数据库行使 replication slave 权限</p>
 <p>查看Master状态：</p>
-<p>mysql &gt; show master status;</p>
+<p>mysql &gt; show master status;</p>
 <p>mysql&gt; show master status;<br>+——————+———-+————–+——————+<br>| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |<br>+——————+———-+————–+——————+<br>| mysql-bin.000022 |     389 |              |                  |<br>+——————+———-+————–+——————+</p>
 <h2 id="3、Slave配置"><a href="#3、Slave配置" class="headerlink" title="3、Slave配置"></a>3、Slave配置</h2><p>3312.cnf文件配置:</p>
 <p>[mysqld]<br>server-id=2<br>log-bin=mysql-bin</p>
 <p>运行slave</p>
-<pre><code class="shell">docker run --name mysql3312 -v $(PWD)/3312.cnf:/etc/mysql/conf.d/my.cnf -p 3312:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mysql3312 -v $(PWD)/3312.cnf:/etc/mysql/conf.d/my.cnf -p 3312:3306 -e MYSQL_ROOT_PASSWORD=123456 -tid mysql:5.6</span><br></pre></td></tr></table></figure>
+
 <p>使用mysql客户端连上从库，设置主从复制</p>
-<pre><code class="sql">stop slave; 
-CHANGE MASTER TO MASTER_HOST = &#39;172.20.8.113&#39;, MASTER_USER = &#39;test&#39;, MASTER_PASSWORD = &#39;123456&#39;, MASTER_PORT = 3311,  MASTER_RETRY_COUNT = 0, MASTER_LOG_POS = 389; 
-START SLAVE;
-SHOW SLAVE STATUS ;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">stop slave; </span><br><span class="line">CHANGE MASTER <span class="keyword">TO</span> MASTER_HOST <span class="operator">=</span> <span class="string">&#x27;172.20.8.113&#x27;</span>, MASTER_USER <span class="operator">=</span> <span class="string">&#x27;test&#x27;</span>, MASTER_PASSWORD <span class="operator">=</span> <span class="string">&#x27;123456&#x27;</span>, MASTER_PORT <span class="operator">=</span> <span class="number">3311</span>,  MASTER_RETRY_COUNT <span class="operator">=</span> <span class="number">0</span>, MASTER_LOG_POS <span class="operator">=</span> <span class="number">389</span>; </span><br><span class="line"><span class="keyword">START</span> SLAVE;</span><br><span class="line"><span class="keyword">SHOW</span> SLAVE STATUS ;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 <p>核对host、user、master_log_file是否正确，<br>Slave_IO_Running: Yes<br>Slave_SQL_Running: Yes<br>这两项yes，说明配置成功。</p>
 <p>最后别忘了，Master解除写锁定：</p>
 <p>mysql &gt; unlock tables;</p>

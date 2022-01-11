@@ -24,17 +24,17 @@
   <meta name="description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL实战45讲笔记">
-<meta property="og:url" content="https://hunkier.cn/Mysql-45/index.html">
+<meta property="og:url" content="https://hunkier.cn/MySQL-45/index.html">
 <meta property="og:site_name" content="hunkier">
 <meta property="og:description" content="极客时间《MySQL实战45讲笔记》学习笔记 基础篇大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。 而存储引擎层负责数据的存储和提取。其架构模式是插件式的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-12T06:31:13.000Z">
-<meta property="article:modified_time" content="2021-09-12T15:39:37.279Z">
+<meta property="article:modified_time" content="2022-01-11T02:35:50.508Z">
 <meta property="article:author" content="hunkier">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hunkier.cn/Mysql-45/">
+<link rel="canonical" href="https://hunkier.cn/MySQL-45/">
 
 
 <script id="page-configurations">
@@ -147,12 +147,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">77</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">78</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">79</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">81</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -220,7 +220,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hunkier.cn/Mysql-45/">
+    <link itemprop="mainEntityOfPage" href="https://hunkier.cn/MySQL-45/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/img/avatar.jpg">
@@ -242,17 +242,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-12 14:31:13 / 修改时间：23:39:37" itemprop="dateCreated datePublished" datetime="2021-09-12T14:31:13+08:00">2021-09-12</time>
+              <time title="创建时间：2021-09-12 14:31:13" itemprop="dateCreated datePublished" datetime="2021-09-12T14:31:13+08:00">2021-09-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-11 10:35:50" itemprop="dateModified" datetime="2022-01-11T10:35:50+08:00">2022-01-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
                 </span>
             </span>
 
@@ -272,8 +278,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/Mysql-45/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Mysql-45/" itemprop="commentCount"></span>
+    <a title="disqus" href="/MySQL-45/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="MySQL-45/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -326,8 +332,11 @@
 </ul>
 <p>在实现上，数据库里面会创建一个视图，访问的时候以视图的逻辑结果为准。在“可重复读”隔离级别下，这个视图是在事务启动时创建的，整个事务存在期间都用这个视图。在“读提交”隔离级别下，这个视图是在每个 SQL 语句开始执行的时候创建的。这里需要注意的是，“读未提交”隔离级别下直接返回记录上的最新值，没有视图概念；而“串行化”隔离级别下直接用加锁的方式来避免并行访问。</p>
 <p>配置的方式是，将启动参数 transaction-isolation 的值设置成 READ-COMMITTED。你可以用 show variables 来查看当前的值。</p>
-<pre><code class="sql">show variables like &#39;transaction_isolation&#39;;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;transaction_isolation&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
 <h2 id="事务的启动方式"><a href="#事务的启动方式" class="headerlink" title="事务的启动方式"></a>事务的启动方式</h2><p>如前面所述，长事务有这些潜在风险，我当然是建议你尽量避免。其实很多时候业务开发同学并不是有意使用长事务，通常是由于误用所致。MySQL 的事务启动方式有以下几种：</p>
 <ol>
 <li>显式启动事务语句， begin 或 start transaction。配套的提交语句是 commit，回滚语句是 rollback。</li>
@@ -335,8 +344,8 @@
 </ol>
 <p>在 autocommit 为 1 的情况下，用 begin 显式启动的事务，如果执行 commit 则提交事务。如果执行 commit work and chain，则是提交事务并自动启动下一个事务，这样也省去了再次执行 begin 语句的开销。同时带来的好处是从程序开发的角度明确地知道每个语句是否处于事务中。</p>
 <p>你可以在 information_schema 库的 innodb_trx 这个表中查询长事务，比如下面这个语句，用于查找持续时间超过 60s 的事务。</p>
-<pre><code class="sql">select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))&gt;60;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> information_schema.innodb_trx <span class="keyword">where</span> TIME_TO_SEC(timediff(now(),trx_started))<span class="operator">&gt;</span><span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+
 <h2 id="InnoDB-的索引模型"><a href="#InnoDB-的索引模型" class="headerlink" title="InnoDB 的索引模型"></a>InnoDB 的索引模型</h2><p>在 InnoDB 中，表都是根据主键顺序以索引的形式存放的，这种存储方式的表称为索引组织表。又因为前面我们提到的，InnoDB 使用了 B+ 树索引模型，所以数据都是存储在 B+ 树中的。</p>
 <p>每一个索引在 InnoDB 里面对应一棵 B+ 树。</p>
 <p>索引类型分为主键索引和非主键索引。</p>
@@ -468,7 +477,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
           </div>
 
         
@@ -569,13 +578,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-count">81</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -622,7 +631,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -733,8 +742,8 @@ if (document.querySelectorAll('pre.mermaid').length) {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://hunkier.cn/Mysql-45/";
-    this.page.identifier = "Mysql-45/";
+    this.page.url = "https://hunkier.cn/MySQL-45/";
+    this.page.identifier = "MySQL-45/";
     this.page.title = "MySQL实战45讲笔记";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

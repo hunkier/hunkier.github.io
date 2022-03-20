@@ -5526,7 +5526,7 @@ ftp_proxy = http://proxy.yoyodyne.com:18023/
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">改为bind-address = 0.0.0.0即可</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="19、添加新的用户并授权"><a href="#19、添加新的用户并授权" class="headerlink" title="19、添加新的用户并授权"></a>19、添加新的用户并授权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE USER &#x27;developer&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;developer&#x27;@&#x27;%&#x27;  WITH GRANT OPTION ;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<h2 id="19、添加新的用户并授权"><a href="#19、添加新的用户并授权" class="headerlink" title="19、添加新的用户并授权"></a>19、添加新的用户并授权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE USER &#x27;developer&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;developer&#x27;@&#x27;%&#x27;  WITH GRANT OPTION ;</span><br><span class="line"># REVOKE ALL PRIVILEGES ON db1.* FROM &#x27;developer&#x27;@&#x27;%&#x27;  ;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>

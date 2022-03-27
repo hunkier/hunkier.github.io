@@ -7971,4 +7971,19 @@ Automatic pdb calling has been turned OFF
         <tag>MySQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>前端常用工具和知识</title>
+    <url>/Web-front/</url>
+    <content><![CDATA[<p> ESLint 代码检查工具：<a href="https://eslint.bootcss.com/docs/user-guide/configuring">https://eslint.bootcss.com/docs/user-guide/configuring</a></p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>front</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>front</tag>
+      </tags>
+  </entry>
 </search>

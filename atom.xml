@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2022-01-11T02:35:50.508Z</updated>
+  <updated>2022-03-27T03:49:42.143Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端常用工具和知识</title>
+    <link href="https://hunkier.cn/Web-front/"/>
+    <id>https://hunkier.cn/Web-front/</id>
+    <published>2022-03-27T03:46:12.000Z</published>
+    <updated>2022-03-27T03:49:42.143Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; ESLint 代码检查工具：&lt;a href=&quot;https://eslint.bootcss.com/docs/user-guide/configuring&quot;&gt;https://eslint.bootcss.com/docs/user-guide/configuring&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="web" scheme="https://hunkier.cn/categories/web/"/>
+    
+    <category term="front" scheme="https://hunkier.cn/categories/web/front/"/>
+    
+    
+    <category term="web" scheme="https://hunkier.cn/tags/web/"/>
+    
+    <category term="front" scheme="https://hunkier.cn/tags/front/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL实战45讲笔记</title>
@@ -562,36 +585,6 @@ Magic命令
     <category term="https" scheme="https://hunkier.cn/tags/https/"/>
     
     <category term="caddy" scheme="https://hunkier.cn/tags/caddy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 修改时区、设置时间</title>
-    <link href="https://hunkier.cn/CentOS-chanage-date-zone/"/>
-    <id>https://hunkier.cn/CentOS-chanage-date-zone/</id>
-    <published>2019-12-14T02:09:01.000Z</published>
-    <updated>2019-12-16T12:41:27.001Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一、修改时区：&lt;/p&gt;
-&lt;p&gt;  方法1:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
-&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
-    
-    <category term="date" scheme="https://hunkier.cn/categories/centos/date/"/>
-    
-    <category term="timezone" scheme="https://hunkier.cn/categories/centos/date/timezone/"/>
-    
-    
-    <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-    <category term="date" scheme="https://hunkier.cn/tags/date/"/>
-    
-    <category term="timezone" scheme="https://hunkier.cn/tags/timezone/"/>
     
   </entry>
   

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script language="javascript">
+
+        //1.js 调用 iOS 原生扫码
+        function qrcodeClick() {
+            // 扫码成功后回调函数名，与下面的 iOS 向 js 传值函数名保持一致
+            let qrCodeCallbackMeth = 'qrcodeCallback';
+            window.webkit.messageHandlers.QRCode.postMessage(qrCodeCallbackMeth);
+        }
+
+        //2. iOS 向 js 传值
+        function qrcodeCallback(result) {
+            document.getElementById('qrcodeResult').value = result;
+        }
+
+
+
+    </script>
+</head>
+<body>
+<h1>html5</h1>
+<h1>调用扫码</h1>
+<input type="button" value="扫码" onclick="qrcodeClick()"/>
+
+<h1>展示扫码结果</h1>
+<textarea id="qrcodeResult" type="value" rows="5" cols="40"> </textarea>
+
+
+
+</body>
+</html>

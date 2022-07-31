@@ -7975,7 +7975,11 @@ Automatic pdb calling has been turned OFF
     <title>前端常用工具和知识</title>
     <url>/Web-front/</url>
     <content><![CDATA[<p> ESLint 代码检查工具：<a href="https://eslint.bootcss.com/docs/user-guide/configuring">https://eslint.bootcss.com/docs/user-guide/configuring</a></p>
+<p>Prettier 代码格式化：<a href="https://www.prettier.cn/">https://www.prettier.cn/</a></p>
+<p>代码提交规范：<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83">https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83</a></p>
 <span id="more"></span>
+
+<p>日期时间处理 <a href="http://momentjs.cn/docs/">http://momentjs.cn/docs/</a></p>
 ]]></content>
       <categories>
         <category>web</category>

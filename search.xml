@@ -7980,6 +7980,10 @@ Automatic pdb calling has been turned OFF
 <span id="more"></span>
 
 <p>日期时间处理 <a href="http://momentjs.cn/docs/">http://momentjs.cn/docs/</a></p>
+<p>浏览器控制台引入 js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">script.src = <span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>].appendChild(script);</span><br><span class="line"><span class="keyword">var</span> now = moment();</span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
       <categories>
         <category>web</category>

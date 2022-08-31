@@ -303,301 +303,132 @@
  <span id="more"></span>
 
 <h2 id="一-gcc-安装"><a href="#一-gcc-安装" class="headerlink" title="一. gcc 安装"></a>一. gcc 安装</h2><p>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：</p>
-<pre><code class="shell">yum install gcc-c++
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure>
+
 <h2 id="二-PCRE-pcre-devel-安装"><a href="#二-PCRE-pcre-devel-安装" class="headerlink" title="二. PCRE pcre-devel 安装"></a>二. PCRE pcre-devel 安装</h2><p>PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。nginx也需要此库。命令：</p>
-<pre><code class="shell">yum install -y pcre pcre-devel
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
 <h2 id="三-zlib-安装"><a href="#三-zlib-安装" class="headerlink" title="三. zlib 安装"></a>三. zlib 安装</h2><p>zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip ，所以需要在 Centos 上安装 zlib 库。</p>
-<pre><code class="shell">yum install -y zlib zlib-devel
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure>
+
 <h2 id="四-OpenSSL-安装"><a href="#四-OpenSSL-安装" class="headerlink" title="四. OpenSSL 安装"></a>四. OpenSSL 安装</h2><p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。<br>nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。</p>
-<pre><code class="shell">yum install -y openssl openssl-devel
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
 <p>所有工具和依赖一起安装</p>
-<pre><code class="shell">yum install -y openssl openssl-devel zlib zlib-devel pcre pcre-devel gcc-c++
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel zlib zlib-devel pcre pcre-devel gcc-c++</span><br></pre></td></tr></table></figure>
+
 <h3 id="官网下载"><a href="#官网下载" class="headerlink" title="官网下载"></a>官网下载</h3><ol>
 <li><p>直接下载<code>.tar.gz</code>安装包，地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
 </li>
 <li><p>使用<code>wget</code>命令下载（推荐）。确保系统已经安装了wget，如果没有安装，执行 yum install wget 安装。</p>
 </li>
 </ol>
-<pre><code class="shell">wget -c https://nginx.org/download/nginx-1.15.12.tar.gz
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.15.12.tar.gz</span><br></pre></td></tr></table></figure>
+
 <p>我下载的是1.12.0版本，这个是目前的稳定版。</p>
 <h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>依然是直接命令：</p>
-<pre><code class="shell">tar -zxvf nginx-1.15.12.tar.gz
-cd nginx-1.15.12
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.15.12.tar.gz</span><br><span class="line">cd nginx-1.15.12</span><br></pre></td></tr></table></figure>
+
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>其实在 nginx-1.15.12 版本中你就不需要去配置相关东西，默认就可以了。当然，如果你要自己配置目录也是可以的。</p>
 <ol>
 <li>使用默认配置</li>
 </ol>
-<pre><code class="bash">./configure
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>自定义配置（不推荐）</li>
 </ol>
-<pre><code class="bash">./configure \
---prefix=/usr/local/nginx \
---conf-path=/usr/local/nginx/conf/nginx.conf \
---pid-path=/usr/local/nginx/conf/nginx.pid \
---lock-path=/var/lock/nginx.lock \
---error-log-path=/var/log/nginx/error.log \
---http-log-path=/var/log/nginx/access.log \
---with-http_gzip_static_module \
---with-http_ssl_module \
---with-stream \
---http-client-body-temp-path=/var/temp/nginx/client \
---http-proxy-temp-path=/var/temp/nginx/proxy \
---http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
---http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
---http-scgi-temp-path=/var/temp/nginx/scgi
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">--prefix=/usr/<span class="built_in">local</span>/nginx \</span><br><span class="line">--conf-path=/usr/<span class="built_in">local</span>/nginx/conf/nginx.conf \</span><br><span class="line">--pid-path=/usr/<span class="built_in">local</span>/nginx/conf/nginx.pid \</span><br><span class="line">--lock-path=/var/lock/nginx.lock \</span><br><span class="line">--error-log-path=/var/<span class="built_in">log</span>/nginx/error.log \</span><br><span class="line">--http-log-path=/var/<span class="built_in">log</span>/nginx/access.log \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--with-http_ssl_module \</span><br><span class="line">--with-stream \</span><br><span class="line">--http-client-body-temp-path=/var/temp/nginx/client \</span><br><span class="line">--http-proxy-temp-path=/var/temp/nginx/proxy \</span><br><span class="line">--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \</span><br><span class="line">--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \</span><br><span class="line">--http-scgi-temp-path=/var/temp/nginx/scgi</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>注：将临时文件目录指定为<code>/var/temp/nginx</code>，需要在/var下创建temp及nginx目录</p>
 </blockquote>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><pre><code class="bash">make
-make install
-</code></pre>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>查找安装路径：</p>
-<pre><code class="bash">whereis nginx
-</code></pre>
-<h3 id="启动、停止nginx"><a href="#启动、停止nginx" class="headerlink" title="启动、停止nginx"></a>启动、停止nginx</h3><pre><code class="bash">cd /usr/local/nginx/sbin/
-./nginx 
-./nginx -s stop
-./nginx -s quit
-./nginx -s reload
-启动时报80端口被占用:
-nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动、停止nginx"><a href="#启动、停止nginx" class="headerlink" title="启动、停止nginx"></a>启动、停止nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line">./nginx </span><br><span class="line">./nginx -s stop</span><br><span class="line">./nginx -s quit</span><br><span class="line">./nginx -s reload</span><br><span class="line">启动时报80端口被占用:</span><br><span class="line">nginx: [emerg] <span class="built_in">bind</span>() to 0.0.0.0:80 failed (98: Address already <span class="keyword">in</span> use)</span><br></pre></td></tr></table></figure>
+
 <p>解决办法，查看占用端口的进程</p>
-<pre><code class="shell">
-➜  ~ lsof -i:80
-COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-nginx   4214 root    6u  IPv4  46826      0t0  TCP *:http (LISTEN)
-nginx   4216 root    6u  IPv4  46826      0t0  TCP *:http (LISTEN)
-➜  ~ ps -ef|grep nginx
-root       4214      1  0 4月27 ?       00:00:00 nginx: master process /usr/bin/nginx
-root       4216   4214  0 4月27 ?       00:00:00 nginx: worker process
-root     122099 121530  0 22:06 pts/0    00:00:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn nginx
-➜  ~ 
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">➜  ~ lsof -i:80</span><br><span class="line">COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">nginx   4214 root    6u  IPv4  46826      0t0  TCP *:http (LISTEN)</span><br><span class="line">nginx   4216 root    6u  IPv4  46826      0t0  TCP *:http (LISTEN)</span><br><span class="line">➜  ~ ps -ef|grep nginx</span><br><span class="line">root       4214      1  0 4月27 ?       00:00:00 nginx: master process /usr/bin/nginx</span><br><span class="line">root       4216   4214  0 4月27 ?       00:00:00 nginx: worker process</span><br><span class="line">root     122099 121530  0 22:06 pts/0    00:00:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn nginx</span><br><span class="line">➜  ~ </span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>./nginx -s quit</code>:此方式停止步骤是待nginx进程处理任务完毕进行停止。<br><code>./nginx -s stop</code>:此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程。</p>
 </blockquote>
 <p>查询nginx进程：</p>
-<pre><code class="shell">ps aux|grep nginx
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep nginx</span><br></pre></td></tr></table></figure>
+
 <h3 id="重启-nginx"><a href="#重启-nginx" class="headerlink" title="重启 nginx"></a>重启 nginx</h3><p>1.先停止再启动（推荐）：<br>对 nginx 进行重启相当于先停止再启动，即先执行停止命令再执行启动命令。如下：</p>
-<pre><code class="shell">./nginx -s quit
-./nginx
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s quit</span><br><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+
 <p>2.重新加载配置文件：<br>当 ngin x的配置文件 nginx.conf 修改后，要想让配置生效需要重启 nginx，使用<code>-s reload</code>不用先停止 ngin x再启动 nginx 即可将配置信息在 nginx 中生效，如下：</p>
-<pre><code class="shell">./nginx -s reload
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
 <p>启动成功后，在浏览器可以打开页面了</p>
 <h3 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h3><p>即在<code>rc.local</code>增加启动代码就可以了。</p>
-<pre><code class="shell">vi /etc/rc.local
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure>
+
 <p>增加一行 <code>/usr/local/nginx/sbin/nginx</code><br>设置执行权限：</p>
-<pre><code class="shell">chmod 755 rc.local
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 rc.local</span><br></pre></td></tr></table></figure>
+
 <p>到这里，nginx就安装完毕了，启动、停止、重启操作也都完成了，当然，你也可以添加为系统服务。</p>
 <h1 id="添加系统服务"><a href="#添加系统服务" class="headerlink" title="添加系统服务"></a>添加系统服务</h1><h3 id="Centos-6-添加系统服务"><a href="#Centos-6-添加系统服务" class="headerlink" title="Centos 6 添加系统服务"></a>Centos 6 添加系统服务</h3><p>nginx源码安装完成后默认不会注册为系统服务，所以需要手工添加系统服务脚本。在/etc/init.d目录下新建nginx文件，并更改权限其即可。</p>
-<h3 id="新建nginx文件"><a href="#新建nginx文件" class="headerlink" title="新建nginx文件"></a>新建nginx文件</h3><pre><code class="shell">vim /etc/init.d/nginx 
-</code></pre>
+<h3 id="新建nginx文件"><a href="#新建nginx文件" class="headerlink" title="新建nginx文件"></a>新建nginx文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/init.d/nginx </span><br></pre></td></tr></table></figure>
+
+
 <p>填写以下内容(根据自己的实际目录修改):</p>
-<pre><code class="shell"># !/bin/bash
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> !/bin/bash</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> nginx Startup script <span class="keyword">for</span> the Nginx HTTP Server</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> this script create it by caffreyxin at 2007.10.15.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> it is v.0.0.1 version.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span> you find any errors on this scripts, please contact caffreyxin.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> and send mail to xinyflove at sina dot com.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"></span><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> chkconfig: - 85 15</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> description: Nginx is a high-performance web and proxy server.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> It has a lot of features, but it<span class="string">&#x27;s not for everyone.</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> processname: nginx</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> pidfile: /usr/local/nginx/logs/nginx.pid</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> config: /usr/local/nginx/conf/nginx.conf</span></span></span><br><span class="line"></span><br><span class="line">nginxd=/usr/local/nginx/sbin/nginx</span><br><span class="line">nginx_config=/usr/local/nginx/conf/nginx.conf</span><br><span class="line">nginx_pid=/usr/local/nginx/logs/nginx.pid</span><br><span class="line"></span><br><span class="line">RETVAL=0</span><br><span class="line">prog=&quot;nginx&quot;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> Source function library.</span></span></span><br><span class="line"></span><br><span class="line">. /etc/rc.d/init.d/functions</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> Source networking configuration.</span></span></span><br><span class="line"></span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> Check that networking is up.</span></span></span><br><span class="line"></span><br><span class="line">[ $&#123;NETWORKING&#125; = &quot;no&quot; ] &amp;&amp; exit 0</span><br><span class="line"></span><br><span class="line">[ -x $nginxd ] || exit 0</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> Start nginx daemons functions.</span></span></span><br><span class="line"></span><br><span class="line">start() &#123;</span><br><span class="line"></span><br><span class="line">if [ -e $nginx_pid ];then</span><br><span class="line">    echo &quot;nginx already running....&quot;</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">echo -n $&quot;Starting $prog: &quot;</span><br><span class="line">daemon $nginxd -c $&#123;nginx_config&#125;</span><br><span class="line">RETVAL=$?</span><br><span class="line">echo</span><br><span class="line">[ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/nginx</span><br><span class="line">return $RETVAL</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> Stop nginx daemons functions.</span></span></span><br><span class="line"></span><br><span class="line">stop() &#123;</span><br><span class="line">    echo -n $&quot;Stopping $prog: &quot;</span><br><span class="line">    killproc $nginxd</span><br><span class="line">    RETVAL=$?</span><br><span class="line">    echo</span><br><span class="line">    [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/nginx /var/run/nginx.pid</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> reload nginx service functions.</span></span></span><br><span class="line"></span><br><span class="line">reload() &#123;</span><br><span class="line"></span><br><span class="line">echo -n $&quot;Reloading $prog: &quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string">kill -HUP `cat $&#123;nginx_pid&#125;`</span></span></span><br><span class="line">killproc $nginxd -HUP</span><br><span class="line">RETVAL=$?</span><br><span class="line">echo</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> See how we were called.</span></span></span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">start)</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">stop)</span><br><span class="line">        stop</span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">reload)</span><br><span class="line">        reload</span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">restart)</span><br><span class="line">        stop</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">status)</span><br><span class="line">        status $prog</span><br><span class="line">        RETVAL=$?</span><br><span class="line">        ;;</span><br><span class="line">*)</span><br><span class="line">        echo $&quot;Usage: $prog &#123;start|stop|restart|reload|status|help&#125;&quot;</span><br><span class="line">        exit 1</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">exit $RETVAL</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-# nginx Startup script for the Nginx HTTP Server
 
-# this script create it by caffreyxin at 2007.10.15.
-
-# it is v.0.0.1 version.
-
-# if you find any errors on this scripts, please contact caffreyxin.
-
-# and send mail to xinyflove at sina dot com.
-
-#
-
-# chkconfig: - 85 15
-
-# description: Nginx is a high-performance web and proxy server.
-
-# It has a lot of features, but it&#39;s not for everyone.
-
-# processname: nginx
-
-# pidfile: /usr/local/nginx/logs/nginx.pid
-
-# config: /usr/local/nginx/conf/nginx.conf
-
-nginxd=/usr/local/nginx/sbin/nginx
-nginx_config=/usr/local/nginx/conf/nginx.conf
-nginx_pid=/usr/local/nginx/logs/nginx.pid
-
-RETVAL=0
-prog=&quot;nginx&quot;
-
-# Source function library.
-
-. /etc/rc.d/init.d/functions
-
-# Source networking configuration.
-
-. /etc/sysconfig/network
-
-# Check that networking is up.
-
-[ $&#123;NETWORKING&#125; = &quot;no&quot; ] &amp;&amp; exit 0
-
-[ -x $nginxd ] || exit 0
-
-# Start nginx daemons functions.
-
-start() &#123;
-
-if [ -e $nginx_pid ];then
-    echo &quot;nginx already running....&quot;
-    exit 1
-fi
-
-echo -n $&quot;Starting $prog: &quot;
-daemon $nginxd -c $&#123;nginx_config&#125;
-RETVAL=$?
-echo
-[ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/nginx
-return $RETVAL
-
-&#125;
-
-# Stop nginx daemons functions.
-
-stop() &#123;
-    echo -n $&quot;Stopping $prog: &quot;
-    killproc $nginxd
-    RETVAL=$?
-    echo
-    [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/nginx /var/run/nginx.pid
-&#125;
-
-# reload nginx service functions.
-
-reload() &#123;
-
-echo -n $&quot;Reloading $prog: &quot;
-#kill -HUP `cat $&#123;nginx_pid&#125;`
-killproc $nginxd -HUP
-RETVAL=$?
-echo
-
-&#125;
-
-# See how we were called.
-
-case &quot;$1&quot; in
-start)
-        start
-        ;;
-
-stop)
-        stop
-        ;;
-
-reload)
-        reload
-        ;;
-
-restart)
-        stop
-        start
-        ;;
-
-status)
-        status $prog
-        RETVAL=$?
-        ;;
-*)
-        echo $&quot;Usage: $prog &#123;start|stop|restart|reload|status|help&#125;&quot;
-        exit 1
-esac
-
-exit $RETVAL
-</code></pre>
 <p>或<a href="https://github.com/xinyflove/MyDocument/blob/master/Nginx/nginx">https://github.com/xinyflove/MyDocument/blob/master/Nginx/nginx</a><br>tip:<br>根据自己实际安装目录，修改这两行:</p>
-<pre><code class="nginx">nginxd=/usr/local/nginx/sbin/nginx
-nginx_config=/usr/local/nginx/conf/nginx.conf
-</code></pre>
-<h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3><pre><code class="shell">chmod 755 /etc/init.d/nginx
-</code></pre>
-<h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><pre><code class="shell">chkconfig nginx on
-</code></pre>
-<h3 id="查看开机启动的服务"><a href="#查看开机启动的服务" class="headerlink" title="查看开机启动的服务"></a>查看开机启动的服务</h3><pre><code class="shell">chkconfig --list
-</code></pre>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginxd=/usr/local/nginx/sbin/<span class="attribute">nginx</span></span><br><span class="line">nginx_config=/usr/local/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/init.d/nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig nginx on</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看开机启动的服务"><a href="#查看开机启动的服务" class="headerlink" title="查看开机启动的服务"></a>查看开机启动的服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>启动服务：<code>service nginx start</code></p>
 <p>停止服务：<code>service nginx stop</code></p>
 <p>重启服务：<code>service nginx reload</code></p>
 <p>CentOS 7 添加系统服务</p>
 <p>新建 nginx.server文件</p>
-<pre><code class="shell">vi /usr/lib/systemd/system/nginx.service
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/nginx.service</span><br></pre></td></tr></table></figure>
+
 <p>填写以下内容</p>
-<pre><code class="nginx">#nginx服务配置到该文件中
-# cat /usr/lib/systemd/system/nginx.service
-#服务描述性的配置
-[Unit]
-Description=nginx - high performance web server
-Documentation=http://nginx.org/en/docs/
-After=network.target remote-fs.target nss-lookup.target
-#服务关键配置
-[Service]
-Type=forking
-#pid文件位置
-#要与nginx配置文件中的pid配置路径一致，这个很重要，否则会服务启动失败
-PIDFile=/usr/local/nginx/logs/nginx.pid
-#启动前检测 nginx配置文件 是否正确
-ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
-#启动
-ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
-#重启
-ExecReload=/bin/kill -s HUP $MAINPID
-#关闭
-ExecStop=/bin/kill -s QUIT $MAINPID
-PrivateTmp=true
-[Install]
-WantedBy=multi-user.target
-</code></pre>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#nginx服务配置到该文件中</span></span><br><span class="line"><span class="comment"># cat /usr/lib/systemd/system/nginx.service</span></span><br><span class="line"><span class="comment">#服务描述性的配置</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=<span class="attribute">nginx</span> - high performance web server</span><br><span class="line">Documentation=http://nginx.org/en/docs/</span><br><span class="line">After=network.target remote-fs.target nss-lookup.target</span><br><span class="line"><span class="comment">#服务关键配置</span></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line"><span class="comment">#pid文件位置</span></span><br><span class="line"><span class="comment">#要与nginx配置文件中的pid配置路径一致，这个很重要，否则会服务启动失败</span></span><br><span class="line">PIDFile=/usr/local/nginx/logs/nginx.pid</span><br><span class="line"><span class="comment">#启动前检测 nginx配置文件 是否正确</span></span><br><span class="line">ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="comment">#重启</span></span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line"><span class="comment">#关闭</span></span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=<span class="literal">true</span></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
 <p>启动nginx服务</p>
-<pre><code class="shell">systemctl start nginx.service  
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx.service  </span><br></pre></td></tr></table></figure>
+
 <p>设置开机自启动</p>
-<pre><code class="shell">systemctl enable nginx.service  
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx.service  </span><br></pre></td></tr></table></figure>
+
 <p>停止开机自启动</p>
-<pre><code class="shell">systemctl disable nginx.service  
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable nginx.service  </span><br></pre></td></tr></table></figure>
+
 <p>查看服务当前状态 </p>
-<pre><code class="shell">systemctl status nginx.service
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nginx.service</span><br></pre></td></tr></table></figure>
+
 <p>重新启动服务</p>
-<pre><code class="shell">systemctl restart nginx.service 
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx.service </span><br></pre></td></tr></table></figure>
+
 <p>查看所有已启动的服务</p>
-<pre><code class="shell">systemctl list-units --type=service  
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-units --type=service  </span><br></pre></td></tr></table></figure>
+
 <p>如下出现<code>Failed to execute operation: Access denied</code>无权限错误，则需关闭<code>selinux</code>，操作如下：</p>
-<pre><code class="shell"># vi /etc/sysconfig/selinux
-…
-SELINUX=disabled
-…
-# setenforce 
-0
-# getenforce
-Permissive
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/sysconfig/selinux</span></span><br><span class="line">…</span><br><span class="line">SELINUX=disabled</span><br><span class="line">…</span><br><span class="line"><span class="meta">#</span><span class="bash"> setenforce</span> </span><br><span class="line">0</span><br><span class="line"><span class="meta">#</span><span class="bash"> getenforce</span></span><br><span class="line">Permissive</span><br></pre></td></tr></table></figure>
+
 <p>新旧系统服务命令对比</p>
 <table>
 <thead>

@@ -314,41 +314,30 @@
 <span id="more"></span>
 
 <p>安装<code>Nginx</code><br>安装<code>Apache</code>密码生产工具</p>
-<pre><code class="bash"> yum install httpd-tools
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd-tools</span><br></pre></td></tr></table></figure>
+
 <p>生成密码文件</p>
-<pre><code class="bash"> mkdir -p /etc/nginx/passwd
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/nginx/passwd</span><br><span class="line"></span><br><span class="line">htpasswd -c -b /etc/nginx/passwd/kibana.passwd admin 123456</span><br></pre></td></tr></table></figure>
 
- htpasswd -c -b /etc/nginx/passwd/kibana.passwd admin 123456
-</code></pre>
 <p>配置<code>Nginx</code></p>
-<pre><code class="bash">vim /usr/local/nginx/nginx.conf
-</code></pre>
-<pre><code class="nginx">server &#123;
-  listen 172.20.8.113:5601;
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
 
-  auth_basic &quot;Kibana Auth&quot;;
-  auth_basic_user_file /etc/nginx/passwd/kibana.passwd;
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">172.20.8.113:5601</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">auth_basic</span> <span class="string">&quot;Kibana Auth&quot;</span>;</span><br><span class="line">  <span class="attribute">auth_basic_user_file</span> /etc/nginx/passwd/kibana.passwd;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:5601;</span><br><span class="line">    <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  location / &#123;
-    proxy_pass http://127.0.0.1:5601;
-    proxy_redirect off;
-  &#125;
-&#125;
-</code></pre>
 <p>修改<code>Kibana</code>配置文件</p>
-<pre><code class="bash">vim /usr/local/kibana/config/kibana.yml
-</code></pre>
-<pre><code class="nginx"># The host to bind the server to.
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/kibana/config/kibana.yml</span><br></pre></td></tr></table></figure>
 
-server.host: &quot;localhost&quot;
-</code></pre>
+
+
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The host to bind the server to.</span></span><br><span class="line"></span><br><span class="line">server.host: &quot;localhost&quot;</span><br></pre></td></tr></table></figure>
+
+
 <p>重启<code>Kibana</code>服务，配置文件生效</p>
-<pre><code class="bash">systemctl restart kibana
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart kibana</span><br></pre></td></tr></table></figure>
+
 <p>重载<code>Nginx</code>配置</p>
-<pre><code>nginx -s reload
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
 <p>登录<code>Kibana</code><br>URL: <a href="http://172.20.8.113:5601/">http://172.20.8.113:5601</a></p>
 
     </div>

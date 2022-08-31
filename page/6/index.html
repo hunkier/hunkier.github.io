@@ -286,27 +286,7 @@
 
       
           <p>Docker使用比较频繁的命令</p>
-<h5 id="查看docker-版本"><a href="#查看docker-版本" class="headerlink" title="查看docker 版本"></a>查看docker 版本</h5><pre><code class="shell"># docker version
-Client:
- Version:      18.03.1-ce
- API version:  1.37
- Go version:   go1.9.5
- Git commit:   9ee9f40
- Built:        Thu Apr 26 07:12:48 2018
- OS/Arch:      windows/amd64
- Experimental: false
- Orchestrator: swarm
-
-Server:
- Engine:
-  Version:      18.06.1-ce
-  API version:  1.38 (minimum version 1.12)
-  Go version:   go1.10.3
-  Git commit:   e68fc7a
-  Built:        Tue Aug 21 17:25:29 2018
-  OS/Arch:      linux/amd64
-  Experimental: true
-</code></pre>
+<h5 id="查看docker-版本"><a href="#查看docker-版本" class="headerlink" title="查看docker 版本"></a>查看docker 版本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker version</span></span><br><span class="line">Client:</span><br><span class="line"> Version:      18.03.1-ce</span><br><span class="line"> API version:  1.37</span><br><span class="line"> Go version:   go1.9.5</span><br><span class="line"> Git commit:   9ee9f40</span><br><span class="line"> Built:        Thu Apr 26 07:12:48 2018</span><br><span class="line"> OS/Arch:      windows/amd64</span><br><span class="line"> Experimental: false</span><br><span class="line"> Orchestrator: swarm</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Engine:</span><br><span class="line">  Version:      18.06.1-ce</span><br><span class="line">  API version:  1.38 (minimum version 1.12)</span><br><span class="line">  Go version:   go1.10.3</span><br><span class="line">  Git commit:   e68fc7a</span><br><span class="line">  Built:        Tue Aug 21 17:25:29 2018</span><br><span class="line">  OS/Arch:      linux/amd64</span><br><span class="line">  Experimental: true</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Docker-common/#more" rel="contents">
@@ -406,15 +386,7 @@ Server:
 
       
           <p>收集工作中经常用的Linux命令和shell脚本</p>
-<h5 id="zip-压缩和解压缩"><a href="#zip-压缩和解压缩" class="headerlink" title="zip 压缩和解压缩"></a>zip 压缩和解压缩</h5><pre><code class="shell"># 压缩文件夹
-zip -r data.zip  data
-# 解压缩文件,默认解压到当前路径
-unzip data.zip
-# 解压到指定路径
-unzip data.zip -d destDir
-# 查看帮助
-unzip -h
-</code></pre>
+<h5 id="zip-压缩和解压缩"><a href="#zip-压缩和解压缩" class="headerlink" title="zip 压缩和解压缩"></a>zip 压缩和解压缩</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 压缩文件夹</span></span><br><span class="line">zip -r data.zip  data</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压缩文件,默认解压到当前路径</span></span><br><span class="line">unzip data.zip</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压到指定路径</span></span><br><span class="line">unzip data.zip -d destDir</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助</span></span><br><span class="line">unzip -h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Common-shell-script/#more" rel="contents">
@@ -509,8 +481,10 @@ unzip -h
     <div class="post-body" itemprop="articleBody">
 
       
-          <pre><code class="html">原文：https://www.cnblogs.com/qjjazry/p/6581568.html
-</code></pre>
+          <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原文：https://www.cnblogs.com/qjjazry/p/6581568.html</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>首先介绍一些乐观锁与悲观锁:</strong></p>
 <p>　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步原语synchronized关键字的实现也是悲观锁。</p>
 <p>　　乐观锁：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。在Java中java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。</p>
@@ -616,8 +590,7 @@ unzip -h
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="先安装包依赖："><a href="#先安装包依赖：" class="headerlink" title="先安装包依赖："></a>先安装包依赖：</h3><pre><code class="shell">yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++
-</code></pre>
+          <h3 id="先安装包依赖："><a href="#先安装包依赖：" class="headerlink" title="先安装包依赖："></a>先安装包依赖：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install kernel-devel-$(uname -r)  net-tools perl gcc gcc-c++</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Windows-Vmware-Centos-share-Folder/#more" rel="contents">

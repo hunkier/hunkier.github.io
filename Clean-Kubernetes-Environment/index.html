@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &#39;&amp;#123;print $2&amp;#125;&#39;|xargs umount rm &#x2F;var&#x2F;lib&#x2F;kubelet&#x2F;* -rf">
+  <meta name="description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置12df -h|grep kubelet |awk -F % &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;|xargs umountrm &#x2F;var&#x2F;lib&#x2F;kubelet&#x2F;* -rf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="清除Kubernetes环境">
 <meta property="og:url" content="https://hunkier.cn/Clean-Kubernetes-Environment/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置df -h|grep kubelet |awk -F % &#39;&amp;#123;print $2&amp;#125;&#39;|xargs umount rm &#x2F;var&#x2F;lib&#x2F;kubelet&#x2F;* -rf">
+<meta property="og:description" content="在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入 清理kubelet挂载的磁盘和设置12df -h|grep kubelet |awk -F % &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;|xargs umountrm &#x2F;var&#x2F;lib&#x2F;kubelet&#x2F;* -rf">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-08-13T11:07:16.000Z">
 <meta property="article:modified_time" content="2019-01-05T03:53:30.511Z">
@@ -310,37 +310,30 @@
 
       
         <p>在学习过程中可能有机器加入Kubernetes时设置出错，可以从Kubernetes集群中移除并清理，然后再重新加入</p>
-<h5 id="清理kubelet挂载的磁盘和设置"><a href="#清理kubelet挂载的磁盘和设置" class="headerlink" title="清理kubelet挂载的磁盘和设置"></a>清理kubelet挂载的磁盘和设置</h5><pre><code class="shell">df -h|grep kubelet |awk -F % &#39;&#123;print $2&#125;&#39;|xargs umount
-rm /var/lib/kubelet/* -rf
-</code></pre>
+<h5 id="清理kubelet挂载的磁盘和设置"><a href="#清理kubelet挂载的磁盘和设置" class="headerlink" title="清理kubelet挂载的磁盘和设置"></a>清理kubelet挂载的磁盘和设置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h|grep kubelet |awk -F % &#x27;&#123;print $2&#125;&#x27;|xargs umount</span><br><span class="line">rm /var/lib/kubelet/* -rf</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
-<h5 id="清理kubernetes设置"><a href="#清理kubernetes设置" class="headerlink" title="清理kubernetes设置"></a>清理kubernetes设置</h5><pre><code class="shell">rm /etc/kubernetes/* -rf
-</code></pre>
-<h5 id="清理rancher设置"><a href="#清理rancher设置" class="headerlink" title="清理rancher设置"></a>清理rancher设置</h5><pre><code class="shell">rm /var/lib/rancher/* -rf
-</code></pre>
-<h5 id="清理etc设置"><a href="#清理etc设置" class="headerlink" title="清理etc设置"></a>清理etc设置</h5><pre><code class="shell">rm /var/lib/etcd/* -rf
-</code></pre>
-<h5 id="清理cni设置"><a href="#清理cni设置" class="headerlink" title="清理cni设置"></a>清理cni设置</h5><pre><code class="shell">rm /var/lib/cni/* -rf
-</code></pre>
-<h5 id="清理iptable设置"><a href="#清理iptable设置" class="headerlink" title="清理iptable设置"></a>清理iptable设置</h5><pre><code class="shell">iptables -F &amp;&amp; iptables -t nat –F
-</code></pre>
-<h5 id="清理flannel设置"><a href="#清理flannel设置" class="headerlink" title="清理flannel设置"></a>清理flannel设置</h5><pre><code class="shell">ip link del flannel.1
-</code></pre>
-<h5 id="清理docker-container"><a href="#清理docker-container" class="headerlink" title="清理docker container"></a>清理docker container</h5><pre><code class="shell">docker ps -a|awk &#39;&#123;print $1&#125;&#39;|xargs docker rm -f
-</code></pre>
-<h5 id="清理docker挂载的磁盘"><a href="#清理docker挂载的磁盘" class="headerlink" title="清理docker挂载的磁盘"></a>清理docker挂载的磁盘</h5><pre><code class="shell">docker volume ls|awk &#39;&#123;print $2&#125;&#39;|xargs docker volume rm
-</code></pre>
-<h5 id="合并在一起"><a href="#合并在一起" class="headerlink" title="合并在一起"></a>合并在一起</h5><pre><code class="shell">df -h|grep kubelet |awk -F % &#39;&#123;print $2&#125;&#39;|xargs umount
-rm /var/lib/kubelet/* -rf
-rm /etc/kubernetes/* -rf
-rm /var/lib/rancher/* -rf
-rm /var/lib/etcd/* -rf
-rm /var/lib/cni/* -rf
-iptables -F &amp;&amp; iptables -t nat –F
-ip link del flannel.1
-docker ps -a|awk &#39;&#123;print $1&#125;&#39;|xargs docker rm -f
-docker volume ls|awk &#39;&#123;print $2&#125;&#39;|xargs docker volume rm
-</code></pre>
+<h5 id="清理kubernetes设置"><a href="#清理kubernetes设置" class="headerlink" title="清理kubernetes设置"></a>清理kubernetes设置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /etc/kubernetes/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理rancher设置"><a href="#清理rancher设置" class="headerlink" title="清理rancher设置"></a>清理rancher设置</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /var/lib/rancher/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理etc设置"><a href="#清理etc设置" class="headerlink" title="清理etc设置"></a>清理etc设置</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /var/lib/etcd/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理cni设置"><a href="#清理cni设置" class="headerlink" title="清理cni设置"></a>清理cni设置</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /var/lib/cni/* -rf</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理iptable设置"><a href="#清理iptable设置" class="headerlink" title="清理iptable设置"></a>清理iptable设置</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F &amp;&amp; iptables -t nat –F</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理flannel设置"><a href="#清理flannel设置" class="headerlink" title="清理flannel设置"></a>清理flannel设置</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link del flannel.1</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理docker-container"><a href="#清理docker-container" class="headerlink" title="清理docker container"></a>清理docker container</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a|awk &#x27;&#123;print $1&#125;&#x27;|xargs docker rm -f</span><br></pre></td></tr></table></figure>
+
+<h5 id="清理docker挂载的磁盘"><a href="#清理docker挂载的磁盘" class="headerlink" title="清理docker挂载的磁盘"></a>清理docker挂载的磁盘</h5> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume ls|awk &#x27;&#123;print $2&#125;&#x27;|xargs docker volume rm</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="合并在一起"><a href="#合并在一起" class="headerlink" title="合并在一起"></a>合并在一起</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df -h|grep kubelet |awk -F % &#x27;&#123;print $2&#125;&#x27;|xargs umount</span><br><span class="line">rm /var/lib/kubelet/* -rf</span><br><span class="line">rm /etc/kubernetes/* -rf</span><br><span class="line">rm /var/lib/rancher/* -rf</span><br><span class="line">rm /var/lib/etcd/* -rf</span><br><span class="line">rm /var/lib/cni/* -rf</span><br><span class="line">iptables -F &amp;&amp; iptables -t nat –F</span><br><span class="line">ip link del flannel.1</span><br><span class="line">docker ps -a|awk &#x27;&#123;print $1&#125;&#x27;|xargs docker rm -f</span><br><span class="line">docker volume ls|awk &#x27;&#123;print $2&#125;&#x27;|xargs docker volume rm</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 

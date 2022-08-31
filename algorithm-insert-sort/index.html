@@ -301,24 +301,11 @@
         <p>通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应的位置并插入。插入排序非常类似于整扑克。在开始摸牌时，左手是空的，牌面朝下放在桌面。接着，一次从桌上磨起一张牌，并将它插入到左手一把牌中的正确位置上。为了找到这张牌的正确位置，要将它与手中已有的牌从左到右地进行比较。无论什么时候，左手中的牌都是排好序的。</p>
  <span id="more"></span>
 <p>如果输入数组已经是排好序的话，插入排序出现最佳情况，其运行时间是输入规模的一个线性函数。如果输入数组是逆序排列的，将出现最坏情况。平均情况与最坏情况一样，其时间代价是($$n^2$$)。</p>
-<pre><code class="java">    public void sort(int arr[])&#123;
-    for(int i = 1; i&lt;arr.length; i++)&#123;
-      // 插入的数
-      int insertVal = arr[i];
-      // 被插入的位置(准备和前一个数比较)
-      int index = i-1;
-      // 如果插入的数比被插入的数小
-      while(index&gt;=0 &amp;&amp; insertVal&lt;arr[index])&#123;
-        // 将把 arr[index] 向后移动
-        arr[index+1] = arr[index];
-        // 让 index 向前移动
-        index--;
-      &#125;
-      // 把插入的数放入合适位置
-      arr[index+1]=insertVal;
-    &#125;
-  &#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> arr[])</span></span>&#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">     <span class="comment">// 插入的数</span></span><br><span class="line">     <span class="keyword">int</span> insertVal = arr[i];</span><br><span class="line">     <span class="comment">// 被插入的位置(准备和前一个数比较)</span></span><br><span class="line">     <span class="keyword">int</span> index = i-<span class="number">1</span>;</span><br><span class="line">     <span class="comment">// 如果插入的数比被插入的数小</span></span><br><span class="line">     <span class="keyword">while</span>(index&gt;=<span class="number">0</span> &amp;&amp; insertVal&lt;arr[index])&#123;</span><br><span class="line">       <span class="comment">// 将把 arr[index] 向后移动</span></span><br><span class="line">       arr[index+<span class="number">1</span>] = arr[index];</span><br><span class="line">       <span class="comment">// 让 index 向前移动</span></span><br><span class="line">       index--;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 把插入的数放入合适位置</span></span><br><span class="line">     arr[index+<span class="number">1</span>]=insertVal;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
     </div>
 

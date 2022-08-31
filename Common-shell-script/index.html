@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
+  <meta name="description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩123456789# 压缩文件夹zip -r data.zip  data# 解压缩文件,默认解压到当前路径unzip data.zip# 解压到指定路径unzip data.zip -d destDir# 查看帮助unzip -h">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用的Shell脚本和Linux命令">
 <meta property="og:url" content="https://hunkier.cn/Common-shell-script/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩# 压缩文件夹 zip -r data.zip  data # 解压缩文件,默认解压到当前路径 unzip data.zip # 解压到指定路径 unzip data.zip -d destDir # 查看帮助 unzip -h">
+<meta property="og:description" content="收集工作中经常用的Linux命令和shell脚本 zip 压缩和解压缩123456789# 压缩文件夹zip -r data.zip  data# 解压缩文件,默认解压到当前路径unzip data.zip# 解压到指定路径unzip data.zip -d destDir# 查看帮助unzip -h">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-07-10T05:11:00.000Z">
 <meta property="article:modified_time" content="2019-05-21T13:45:17.144Z">
@@ -300,382 +300,78 @@
 
       
         <p>收集工作中经常用的Linux命令和shell脚本</p>
-<h5 id="zip-压缩和解压缩"><a href="#zip-压缩和解压缩" class="headerlink" title="zip 压缩和解压缩"></a>zip 压缩和解压缩</h5><pre><code class="shell"># 压缩文件夹
-zip -r data.zip  data
-# 解压缩文件,默认解压到当前路径
-unzip data.zip
-# 解压到指定路径
-unzip data.zip -d destDir
-# 查看帮助
-unzip -h
-</code></pre>
+<h5 id="zip-压缩和解压缩"><a href="#zip-压缩和解压缩" class="headerlink" title="zip 压缩和解压缩"></a>zip 压缩和解压缩</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 压缩文件夹</span></span><br><span class="line">zip -r data.zip  data</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压缩文件,默认解压到当前路径</span></span><br><span class="line">unzip data.zip</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压到指定路径</span></span><br><span class="line">unzip data.zip -d destDir</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助</span></span><br><span class="line">unzip -h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
-<h5 id="tar-压缩和解压缩"><a href="#tar-压缩和解压缩" class="headerlink" title="tar 压缩和解压缩"></a>tar 压缩和解压缩</h5><pre><code class="shell"># 压缩文件夹
-tar -czf data.tar.gz data
-# 解压缩到当前路径
-tar -xzf data.tar.gz -C /destDir
-</code></pre>
-<h5 id="tail查看和过滤日志文件"><a href="#tail查看和过滤日志文件" class="headerlink" title="tail查看和过滤日志文件"></a>tail查看和过滤日志文件</h5><pre><code class="shell"># 动态输出Tomcat日志到控制台
-tail -1000f catalina.out
-# 按字段过滤日志
-tail -1000f catalina.out | grap -A 20 &#39;ERROR&#39;
-</code></pre>
-<h5 id="netstat-查看监听端口的进程"><a href="#netstat-查看监听端口的进程" class="headerlink" title="netstat 查看监听端口的进程"></a>netstat 查看监听端口的进程</h5><pre><code class="shell"># 查看监听端口为1600的进程
-netstat -tlpn | grep &quot;\b16000\b&quot;
-</code></pre>
-<h5 id="kill停止指定进程"><a href="#kill停止指定进程" class="headerlink" title="kill停止指定进程"></a>kill停止指定进程</h5><pre><code class="shell"># 停止当前路径下的应用进程
-kill -9 $(ps -ef|grep $(pwd)|grep -v grep|awk &#39;&#123;print $2&#125;&#39;)
-# 停止监听端口为1600的进程
-kill -9 $(netstat -tlpn | grep &quot;\b16000\b&quot; | awk &#39;&#123;print $7&#125;&#39; | cut -d &#39;/&#39; -f 1)
-</code></pre>
-<h5 id="sed替换文件内容"><a href="#sed替换文件内容" class="headerlink" title="sed替换文件内容"></a>sed替换文件内容</h5><pre><code class="shell"># 替换Tomcat默认端口
-sed -i &quot;s|&lt;Connector port=\&quot;8080\&quot;|&lt;Connector port=\&quot;51000\&quot;|g&quot; server.xml &amp;&amp; \
-sed -i &quot;s|&lt;Connector port=\&quot;8009\&quot;|&lt;Connector port=\&quot;51080\&quot;|g&quot; server.xml
-</code></pre>
+<h5 id="tar-压缩和解压缩"><a href="#tar-压缩和解压缩" class="headerlink" title="tar 压缩和解压缩"></a>tar 压缩和解压缩</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 压缩文件夹</span></span><br><span class="line">tar -czf data.tar.gz data</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压缩到当前路径</span></span><br><span class="line">tar -xzf data.tar.gz -C /destDir</span><br></pre></td></tr></table></figure>
+
+<h5 id="tail查看和过滤日志文件"><a href="#tail查看和过滤日志文件" class="headerlink" title="tail查看和过滤日志文件"></a>tail查看和过滤日志文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 动态输出Tomcat日志到控制台</span></span><br><span class="line">tail -1000f catalina.out</span><br><span class="line"><span class="meta">#</span><span class="bash"> 按字段过滤日志</span></span><br><span class="line">tail -1000f catalina.out | grap -A 20 &#x27;ERROR&#x27;</span><br></pre></td></tr></table></figure>
+
+<h5 id="netstat-查看监听端口的进程"><a href="#netstat-查看监听端口的进程" class="headerlink" title="netstat 查看监听端口的进程"></a>netstat 查看监听端口的进程</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看监听端口为1600的进程</span></span><br><span class="line">netstat -tlpn | grep &quot;\b16000\b&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="kill停止指定进程"><a href="#kill停止指定进程" class="headerlink" title="kill停止指定进程"></a>kill停止指定进程</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 停止当前路径下的应用进程</span></span><br><span class="line">kill -9 $(ps -ef|grep $(pwd)|grep -v grep|awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止监听端口为1600的进程</span></span><br><span class="line">kill -9 $(netstat -tlpn | grep &quot;\b16000\b&quot; | awk &#x27;&#123;print $7&#125;&#x27; | cut -d &#x27;/&#x27; -f 1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="sed替换文件内容"><a href="#sed替换文件内容" class="headerlink" title="sed替换文件内容"></a>sed替换文件内容</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 替换Tomcat默认端口</span></span><br><span class="line">sed -i &quot;s|&lt;Connector port=\&quot;8080\&quot;|&lt;Connector port=\&quot;51000\&quot;|g&quot; server.xml &amp;&amp; \</span><br><span class="line">sed -i &quot;s|&lt;Connector port=\&quot;8009\&quot;|&lt;Connector port=\&quot;51080\&quot;|g&quot; server.xml</span><br></pre></td></tr></table></figure>
+
 <h5 id="shell-判断文件夹或文件是否存在"><a href="#shell-判断文件夹或文件是否存在" class="headerlink" title="shell 判断文件夹或文件是否存在"></a>shell 判断文件夹或文件是否存在</h5><p>文件夹不存在则创建</p>
-<pre><code class="bash">if [ ! -d &quot;/data/&quot; ];then
-mkdir /data
-else
-echo &quot;文件夹已经存在&quot;
-fi
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;/data/&quot;</span> ];<span class="keyword">then</span></span><br><span class="line">mkdir /data</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;文件夹已经存在&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
 <p>文件存在则删除</p>
-<pre><code class="bash">if [ ! -f &quot;/data/filename&quot; ];then
-echo &quot;文件不存在&quot;
-else
-rm -f /data/filename
-fi
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ ! -f <span class="string">&quot;/data/filename&quot;</span> ];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;文件不存在&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">rm -f /data/filename</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
 <p>判断文件夹是否存在</p>
-<pre><code class="bash">if [ -d &quot;/data/&quot; ];then
-echo &quot;文件夹存在&quot;
-else
-echo &quot;文件夹不存在&quot;
-fi
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;/data/&quot;</span> ];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;文件夹存在&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;文件夹不存在&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
 <p>判断文件是否存在</p>
-<pre><code class="bash">if [ -f &quot;/data/filename&quot; ];then
-echo &quot;文件存在&quot;
-else
-echo &quot;文件不存在&quot;
-fi
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;/data/filename&quot;</span> ];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;文件存在&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;文件不存在&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
 <p>文件比较符</p>
-<pre><code class="bash">-e 判断对象是否存在
--d 判断对象是否存在，并且为目录
--f 判断对象是否存在，并且为常规文件
--L 判断对象是否存在，并且为符号链接
--h 判断对象是否存在，并且为软链接
--s 判断对象是否存在，并且长度不为0
--r 判断对象是否存在，并且可读
--w 判断对象是否存在，并且可写
--x 判断对象是否存在，并且可执行
--O 判断对象是否存在，并且属于当前用户
--G 判断对象是否存在，并且属于当前用户组
--nt 判断file1是否比file2新  [ &quot;/data/file1&quot; -nt &quot;/data/file2&quot; ]
--ot 判断file1是否比file2旧  [ &quot;/data/file1&quot; -ot &quot;/data/file2&quot; ]
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-e 判断对象是否存在</span><br><span class="line">-d 判断对象是否存在，并且为目录</span><br><span class="line">-f 判断对象是否存在，并且为常规文件</span><br><span class="line">-L 判断对象是否存在，并且为符号链接</span><br><span class="line">-h 判断对象是否存在，并且为软链接</span><br><span class="line">-s 判断对象是否存在，并且长度不为0</span><br><span class="line">-r 判断对象是否存在，并且可读</span><br><span class="line">-w 判断对象是否存在，并且可写</span><br><span class="line">-x 判断对象是否存在，并且可执行</span><br><span class="line">-O 判断对象是否存在，并且属于当前用户</span><br><span class="line">-G 判断对象是否存在，并且属于当前用户组</span><br><span class="line">-nt 判断file1是否比file2新  [ <span class="string">&quot;/data/file1&quot;</span> -nt <span class="string">&quot;/data/file2&quot;</span> ]</span><br><span class="line">-ot 判断file1是否比file2旧  [ <span class="string">&quot;/data/file1&quot;</span> -ot <span class="string">&quot;/data/file2&quot;</span> ]</span><br></pre></td></tr></table></figure>
+
 <h5 id="判断某个变量是否包含字符串-变量的方法"><a href="#判断某个变量是否包含字符串-变量的方法" class="headerlink" title="判断某个变量是否包含字符串/变量的方法"></a>判断某个变量是否包含字符串/变量的方法</h5><p>尝试了有3种方法：</p>
 <ol>
 <li>使用“=~”符号，注意前后必须要有空格！</li>
 </ol>
 <p><strong>可以输出正确结果,被匹配的字符串必须要有引号括起来！</strong></p>
-<pre><code class="bash">➜  ~ a1=&#39;hello.world&#39;
-➜  ~ a2=&#39;helloworld&#39;
-➜  ~ b=&#39;.&#39;
-➜  ~ if [[ $&#123;a1&#125; =~ &#39;.&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~ if [[ $&#123;a2&#125; =~ &#39;.&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~ if [[ $&#123;a1&#125; =~ &quot;.&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~ if [[ $&#123;a2&#125; =~ &quot;.&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~ if [[ $&#123;a1&#125; =~ &quot;$&#123;b&#125;&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~ if [[ $&#123;a2&#125; =~ &quot;$&#123;b&#125;&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~ 
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ a1=<span class="string">&#x27;hello.world&#x27;</span></span><br><span class="line">➜  ~ a2=<span class="string">&#x27;helloworld&#x27;</span></span><br><span class="line">➜  ~ b=<span class="string">&#x27;.&#x27;</span></span><br><span class="line">➜  ~ <span class="keyword">if</span> [[ <span class="variable">$&#123;a1&#125;</span> =~ <span class="string">&#x27;.&#x27;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span>;<span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span>;<span class="keyword">fi</span></span><br><span class="line">yes</span><br><span class="line">➜  ~ <span class="keyword">if</span> [[ <span class="variable">$&#123;a2&#125;</span> =~ <span class="string">&#x27;.&#x27;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span>;<span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span>;<span class="keyword">fi</span></span><br><span class="line">yes</span><br><span class="line">➜  ~ <span class="keyword">if</span> [[ <span class="variable">$&#123;a1&#125;</span> =~ <span class="string">&quot;.&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span>;<span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span>;<span class="keyword">fi</span></span><br><span class="line">yes</span><br><span class="line">➜  ~ <span class="keyword">if</span> [[ <span class="variable">$&#123;a2&#125;</span> =~ <span class="string">&quot;.&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span>;<span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span>;<span class="keyword">fi</span></span><br><span class="line">yes</span><br><span class="line">➜  ~ <span class="keyword">if</span> [[ <span class="variable">$&#123;a1&#125;</span> =~ <span class="string">&quot;<span class="variable">$&#123;b&#125;</span>&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span>;<span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span>;<span class="keyword">fi</span></span><br><span class="line">yes</span><br><span class="line">➜  ~ <span class="keyword">if</span> [[ <span class="variable">$&#123;a2&#125;</span> =~ <span class="string">&quot;<span class="variable">$&#123;b&#125;</span>&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span>;<span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span>;<span class="keyword">fi</span></span><br><span class="line">yes</span><br><span class="line">➜  ~ </span><br></pre></td></tr></table></figure>
+
 <p><strong>不能输出正确结果</strong> </p>
-<pre><code class="bash">➜  ~  a1=&#39;hello.world&#39;
-➜  ~ &#39;
-➜  ~  b=&#39;.&#39;
-➜  ~  if [[ $&#123;a1&#125; =~ . ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if [[ $&#123;a2&#125; =~ . ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if [[ $&#123;a1&#125; =~ $&#123;b&#125; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if [[ $&#123;a2&#125; =~ $&#123;b&#125; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if [[ $&#123;a1&#125; =~ &#39;$&#123;b&#125;&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if [[ $&#123;a2&#125; =~ &#39;$&#123;b&#125;&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  a1=<span class="string">&#x27;hello.world&#x27;</span></span><br><span class="line">➜  ~ <span class="string">&#x27;</span></span><br><span class="line"><span class="string">➜  ~  b=&#x27;</span>.<span class="string">&#x27;</span></span><br><span class="line"><span class="string">➜  ~  if [[ $&#123;a1&#125; =~ . ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span></span><br><span class="line"><span class="string">yes</span></span><br><span class="line"><span class="string">➜  ~  if [[ $&#123;a2&#125; =~ . ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span></span><br><span class="line"><span class="string">yes</span></span><br><span class="line"><span class="string">➜  ~  if [[ $&#123;a1&#125; =~ $&#123;b&#125; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span></span><br><span class="line"><span class="string">yes</span></span><br><span class="line"><span class="string">➜  ~  if [[ $&#123;a2&#125; =~ $&#123;b&#125; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span></span><br><span class="line"><span class="string">yes</span></span><br><span class="line"><span class="string">➜  ~  if [[ $&#123;a1&#125; =~ &#x27;</span><span class="variable">$&#123;b&#125;</span><span class="string">&#x27; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span></span><br><span class="line"><span class="string">no</span></span><br><span class="line"><span class="string">➜  ~  if [[ $&#123;a2&#125; =~ &#x27;</span><span class="variable">$&#123;b&#125;</span><span class="string">&#x27; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span></span><br><span class="line"><span class="string">no</span></span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>使用”==“加通配符wildcard，注意等号前后必须有空格，注意，通配符跟正则表达式有所区别，*表示匹配 0 或多个字符</li>
 </ol>
 <p> <strong>可以输出正确结果</strong></p>
-<pre><code class="shell">➜  ~  a1=&#39;hello.world&#39;
-➜  ~  a2=&#39;helloworld&#39;
-➜  ~  if [[ $&#123;a1&#125; == *.* ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if [[ $&#123;a2&#125; == *.* ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  a1=&#x27;hello.world&#x27;</span><br><span class="line">➜  ~  a2=&#x27;helloworld&#x27;</span><br><span class="line">➜  ~  if [[ $&#123;a1&#125; == *.* ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">yes</span><br><span class="line">➜  ~  if [[ $&#123;a2&#125; == *.* ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br></pre></td></tr></table></figure>
+
 <p><strong>不能输出正确结果 ，通配符不能用括号括起来！</strong></p>
-<pre><code class="shell">➜  ~  a1=&#39;hello.world&#39;
-➜  ~  a2=&#39;helloworld&#39;
-➜  ~  if [[ $&#123;a2&#125; == &quot;*.*&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if [[ $&#123;a1&#125; == &quot;*.*&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if [[ $&#123;a1&#125; == &#39;*.*&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if [[ $&#123;a2&#125; == &#39;*.*&#39; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  a1=&#x27;hello.world&#x27;</span><br><span class="line">➜  ~  a2=&#x27;helloworld&#x27;</span><br><span class="line">➜  ~  if [[ $&#123;a2&#125; == &quot;*.*&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if [[ $&#123;a1&#125; == &quot;*.*&quot; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if [[ $&#123;a1&#125; == &#x27;*.*&#x27; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if [[ $&#123;a2&#125; == &#x27;*.*&#x27; ]];then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>使用echo + grep -q 选项</li>
 </ol>
 <p><strong>使用这种方法时匹配是否有”.”会不正常，所以我们换成匹配普通字符，有没有括号都可以</strong> </p>
-<pre><code>➜  ~  a1=&#39;hello.world&#39;
-➜  ~  a2=&#39;helloworld&#39;
-➜  ~  a3=&quot;helloworlda&quot;
-➜  ~  if ( echo $&#123;a1&#125; |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if ( echo $&#123;a2&#125; |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if ( echo $&#123;a3&#125; |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if ( echo $&#123;a1&#125; |grep -q &#39;a&#39; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if ( echo $&#123;a2&#125; |grep -q &#39;a&#39; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if ( echo $&#123;a3&#125; |grep -q &#39;a&#39; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-➜  ~  if ( echo $&#123;a1&#125; |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if ( echo $&#123;a2&#125; |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-no
-➜  ~  if ( echo $&#123;a3&#125; |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi
-yes
-</code></pre>
-<h5 id="crontab定时任务"><a href="#crontab定时任务" class="headerlink" title="crontab定时任务"></a>crontab定时任务</h5><pre><code class="shell">crontab -e
-# 每分钟执行一次monitor.sh脚步
-*/1 * * * * /usr/java/monitor.sh
-# 数据库备份
-0 3 * * *  /bin/sh /data1/script/databak.sh &amp;
-0 4 * * * find /data1/databak -type f -mtime +3 -exec rm &#123;&#125; \;
-</code></pre>
-<h5 id="databak-sh内容"><a href="#databak-sh内容" class="headerlink" title="databak.sh内容"></a><code>databak.sh</code>内容</h5><pre><code class="shell">#!/bin/bash
-/usr/bin/mysqldump -uroot -p123456 test &gt;/data1/databak/`date +%Y%m%d`test.sql 2&gt;/dev/null
-</code></pre>
-<h5 id="监控Tomcat是否正常启动"><a href="#监控Tomcat是否正常启动" class="headerlink" title="监控Tomcat是否正常启动"></a>监控Tomcat是否正常启动</h5><pre><code class="shell">
-#!/bin/sh
-# 定义环境变量（要改成自己的jdk相关地址）
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_191-oraclejdk
-export CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
-export PATH=$PATH:$JAVA_HOME/bin
-TomcatHome=/opt/webserver/pf-platform
-
-#获取tomcat进程ID（这里注意tomcat7要改成自己的tomcat目录名）
-TomcatID=$(ps -ef |grep tomcat |grep -w $TomcatHome|grep -v &#39;grep&#39;|awk &#39;&#123;print $2&#125;&#39;)
-
-#tomcat启动程序(这里注意要改成自己tomcat实际安装的路径)
-
-StartTomcat=$TomcatHome/bin/startup.sh
-TomcatCache=$TomcatHome/work
-
-#自己定义要监控的页面地址，页面越简单越好，比如：页面上写个success即可
-WebUrl=http://172.20.8.5:41000/pf-platform/login/login
-
-#日志输出 （自己定义地址，用于输出监控日志和监控报错日志）
-#TomcatMonitorLog=$TomcatHome/TomcatMonitor-$(date &#39;+%Y%m%d%H%M%S&#39;).log
-TomcatMonitorLog=$TomcatHome/logs/TomcatMonitor-$(date &#39;+%Y-%m-%d&#39;).log
-GetPageInfo=$TomcatHome/logs/PageInfo-$(date &#39;+%Y-%m-%d&#39;).log
-if [ ! -d $TomcatHome/logs ]; then mkdir -p $TomcatHome/logs ; fi
-Monitor()
-&#123;
-echo &quot;[info]开始监控tomcat...[$(date +&#39;%F %H:%M:%S&#39;)]&quot;
-if [[ $TomcatID ]];then # 这里判断TOMCAT进程是否存在
-                echo &quot;[info]当前tomcat进程ID为:$TomcatID,继续检测页面...&quot;
-                # 检测是否启动成功(成功的话页面会返回状态&quot;302&quot;)
-                TomcatServiceCode=$(curl -s -o $GetPageInfo -m 10 --connect-timeout 10 $WebUrl -w %&#123;http_code&#125;)
-                if [ $TomcatServiceCode -eq 302 ];then
-                                echo &quot;[info]页面返回码为$TomcatServiceCode,tomcat启动成功,测试页面正常......&quot;
-                        else
-                                echo &quot;[error]tomcat页面出错,请注意......状态码为$TomcatServiceCode,错误日志已输出到$GetPageInfo&quot;
-                                echo &quot;[error]页面访问出错,开始重启tomcat&quot;
-                                kill -9 $TomcatID # 杀掉原tomcat进程
-                                sleep 3
-                                #rm -rf $TomcatCache # 清理tomcat缓存
-                                $StartTomcat
-                fi
-        else
-                echo &quot;[error]tomcat进程不存在!tomcat开始自动重启...&quot;
-                echo &quot;[info]$StartTomcat,请稍候......&quot;
-                #rm -rf $TomcatCache
-                $StartTomcat
-fi
-echo &quot;------------------------------&quot;
-&#125;
-
-Monitor&gt;&gt;$TomcatMonitorLog
-</code></pre>
-<h5 id="监控netty服务是否正常开启端口"><a href="#监控netty服务是否正常开启端口" class="headerlink" title="监控netty服务是否正常开启端口"></a>监控netty服务是否正常开启端口</h5><pre><code class="shell">#!/bin/sh
-# 定义环境变量（要改成自己的jdk相关地址）
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_191-oraclejdk
-export CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
-export PATH=$PATH:$JAVA_HOME/bin
-NettyServerHome=/opt/webserver/mtech-cloud-netty-server
-
-#获取netty-server进程ID（这里注意netty-server7要改成自己的netty-server目录名）
-NettyServerID=$(ps -ef |grep netty-server |grep -w $NettyServerHome |grep -w java |grep -v &#39;grep&#39;|awk &#39;&#123;print $2&#125;&#39;)
-
-#netty-server启动程序(这里注意要改成自己netty-server实际安装的路径)
-StartNettyServer=$NettyServerHome/bin/start.sh
-
-#netty监听端口
-NettyPort=16000
-
-#日志输出 （自己定义地址，用于输出监控日志和监控报错日志）
-NettyServerMonitorLog=$NettyServerHome/logs/NettyServerMonitor-$(date +&#39;%F&#39;).log
-GetPageInfo=$NettyServerHome/logs/PortInfo-$(date +&#39;%F&#39;).log
-if [ ! -d $NettyServerHome/logs ]; then mkdir -p $NettyServerHome/logs ; fi
-Monitor()
-&#123;
-echo &quot;[info]开始监控netty-server...[$(date +&#39;%F %H:%M:%S&#39;)]&quot;
-if [[ $NettyServerID ]];then # 这里判断netty-server进程是否存在
-    
-        echo &quot;[info]当前netty-server进程ID为:$NettyServerID,继续检测端口...&quot;
-        # 检测是否启动成功(成功的话会返回端口信息)
-        NettyServerPort=$(checkPort $NettyPort)
-        echo &quot;端口检测结果：$NettyServerPort &quot;
-        if [ $NettyServerPort -eq 0 ];then
-                echo &quot;[info]返回码为$NettyServerPort,netty-server启动成功,测试端口正常......&quot;
-            else
-                echo &quot;[error]netty-server启动出错,请注意......, 错误日志已输出到$GetPageInfo&quot;
-                echo &quot;[error]端口$NettyPort检测出错,开始重启netty-server&quot;
-                kill -9 $NettyServerID # 杀掉原netty-server进程
-                sleep 3
-                #rm -rf $netty-serverCache # 清理netty-server缓存
-                $StartNettyServer  &gt;&gt; $NettyServerHome/logs/nohub.out &amp; &gt;&gt; /dev/null
-        fi
-    else
-        echo &quot;[error]netty-server进程不存在!netty-server开始自动重启...&quot;
-        echo &quot;[info]$StartNettyServer,请稍候......&quot;
-        #rm -rf $netty-serverCache
-        # $StartNettyServer  &gt;&gt; /dev/null &amp;
-        $StartNettyServer  &gt;&gt; $NettyServerHome/logs/nohub.out &amp; &gt;&gt; /dev/null
-fi
-echo &quot;------------------------------&quot;
-&#125;
-checkPort() &#123;
-        echo &quot;------------------------------&quot; &gt;&gt; $GetPageInfo
-        echo &quot;$(date +&#39;%F %H:%M:%S&#39;)  &quot; &gt;&gt; $GetPageInfo
-        echo $(netstat -tlpn | grep &quot;\b$1\b&quot;) &gt;&gt; $GetPageInfo
-        netstat -tlpn | grep &quot;\b$1\b&quot; | awk &#39;&#123;print $2&#125;&#39;
-&#125;
-Monitor&gt;&gt;$NettyServerMonitorLog &amp;
-</code></pre>
-<h5 id="部署war包到tomcat"><a href="#部署war包到tomcat" class="headerlink" title="部署war包到tomcat"></a>部署war包到tomcat</h5><pre><code class="shell">➜  web cat start.sh 
-WORKDIR=/data1/webserver/mt_chs/web
-cd $WORKDIR
-kill -9 $(netstat -tlpn | grep &quot;\b18080\b&quot; | awk &#39;&#123;print $7&#125;&#39; | cut -d &#39;/&#39; -f 1)
-echo &#39;&#39; &gt; $WORKDIR/logs/catalina.out 
-$WORKDIR/bin/startup.sh 
-
-➜  web cat tailf.sh 
-WORKDIR=/data1/webserver/mt_chs/web
-tail -f $WORKDIR/logs/catalina.out
-
-➜  web cat stop.sh 
-WORKDIR=/data1/webserver/mt_chs/web
-cd $WORKDIR
-kill -9 $(netstat -tlpn | grep &quot;\b18080\b&quot; | awk &#39;&#123;print $7&#125;&#39; | cut -d &#39;/&#39; -f 1)
-
-➜  ~ cat deploy_web.sh 
-WEB_DIR=/data1/webserver/mt_chs/web
-APP_DIR=$WEB_DIR/webapps/chs_web
-HOME_DIR=/home/ledmon
-WAR_FILE=$HOME_DIR/$1
-
-
-function deploy()&#123;
-    echo &quot;停止tomcat...&quot;
-    $WEB_DIR/stop.sh
-    mkdir -p $APP_DIR
-    echo &quot;更新应用...&quot;
-    rm -rf $APP_DIR/*
-    unzip $WAR_FILE -d $APP_DIR &gt;&gt; /dev/null
-    echo &quot;启动tomcat...&quot;
-    $WEB_DIR/start.sh
-    echo &quot;查看启动日志&quot;
-    $WEB_DIR/tailf.sh
-&#125;
-
-if [ ! -f &quot;$WAR_FILE&quot; ];then
-    echo &quot;文件不存在，路径: $WAR_FILE&quot;
-elif (! echo $&#123;WAR_FILE&#125; |grep -q &quot;.war&quot; );then
-    echo &quot;文件不合法，路径：$WAR_FILE&quot;
-    echo &quot;请选择war文件&quot;
-elif (! echo $&#123;WAR_FILE&#125; |grep -q &quot;web_product&quot; );then
-    echo &quot;文件不合法，路径：$WAR_FILE&quot;
-    echo &quot;请选择web_proeuct*.war文件&quot;
-else
-    deploy
-fi
-</code></pre>
-<h5 id="部署springboot的jar包应用"><a href="#部署springboot的jar包应用" class="headerlink" title="部署springboot的jar包应用"></a>部署springboot的jar包应用</h5><pre><code class="shell">➜  appint cat start.sh 
-WORKDIR=/data1/webserver/mt_chs/appint
-cd $WORKDIR
-kill -9 $(netstat -tlpn | grep &quot;\b18083\b&quot; | awk &#39;&#123;print $7&#125;&#39; | cut -d &#39;/&#39; -f 1)
-echo &#39;&#39; &gt; $WORKDIR/out.log
-nohup java -jar $WORKDIR/appint_*.jar &gt; $WORKDIR/out.log &amp; 
-
-➜  appint cat tailf.sh 
-WORKDIR=/data1/webserver/mt_chs/appint
-tail -f $WORKDIR/out.log
-
-
-➜  ~ cat deploy_appint.sh 
-APP_DIR=/data1/webserver/mt_chs/appint
-HOME_DIR=/home/ledmon
-JAR_FILE=$HOME_DIR/$1
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  a1=&#x27;hello.world&#x27;</span><br><span class="line">➜  ~  a2=&#x27;helloworld&#x27;</span><br><span class="line">➜  ~  a3=&quot;helloworlda&quot;</span><br><span class="line">➜  ~  if ( echo $&#123;a1&#125; |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if ( echo $&#123;a2&#125; |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if ( echo $&#123;a3&#125; |grep -q a );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">yes</span><br><span class="line">➜  ~  if ( echo $&#123;a1&#125; |grep -q &#x27;a&#x27; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if ( echo $&#123;a2&#125; |grep -q &#x27;a&#x27; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if ( echo $&#123;a3&#125; |grep -q &#x27;a&#x27; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">yes</span><br><span class="line">➜  ~  if ( echo $&#123;a1&#125; |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if ( echo $&#123;a2&#125; |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">no</span><br><span class="line">➜  ~  if ( echo $&#123;a3&#125; |grep -q &quot;a&quot; );then echo &quot;yes&quot;;else echo &quot;no&quot;;fi</span><br><span class="line">yes</span><br></pre></td></tr></table></figure>
 
 
 
-function deploy()&#123;
-    echo &quot;停止应用...&quot;
-    kill -9 $(netstat -tlpn | grep &quot;\b18083\b&quot; | awk &#39;&#123;print $7&#125;&#39; | cut -d &#39;/&#39; -f 1)
-    mkdir -p $APP_DIR
-    echo &quot;更新应用...&quot;
-    rm -rf $APP_DIR/*.jar
-    cp $JAR_FILE $APP_DIR
-    echo &quot;启动应用...&quot;
-    $APP_DIR/start.sh
-    echo &quot;查看启动日志&quot;
-    $APP_DIR/tailf.sh
-&#125;
+<h5 id="crontab定时任务"><a href="#crontab定时任务" class="headerlink" title="crontab定时任务"></a>crontab定时任务</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line"><span class="meta">#</span><span class="bash"> 每分钟执行一次monitor.sh脚步</span></span><br><span class="line">*/1 * * * * /usr/java/monitor.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 数据库备份</span></span><br><span class="line">0 3 * * *  /bin/sh /data1/script/databak.sh &amp;</span><br><span class="line">0 4 * * * find /data1/databak -type f -mtime +3 -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
 
-if [ ! -f &quot;$JAR_FILE&quot; ];then
-    echo &quot;文件不存在，路径: $JAR_FILE&quot;
-elif (! echo $&#123;JAR_FILE&#125; |grep -q &quot;.jar&quot; );then
-    echo &quot;文件不合法，路径：$JAR_FILE&quot;
-    echo &quot;请选择*.jar文件&quot;
-elif (! echo $&#123;JAR_FILE&#125; |grep -q &quot;appint_product&quot; );then
-    echo &quot;文件不合法，路径：$JAR_FILE&quot;
-    echo &quot;请选择appint_product*.jar文件&quot;
-else
-    deploy
-fi
-</code></pre>
+<h5 id="databak-sh内容"><a href="#databak-sh内容" class="headerlink" title="databak.sh内容"></a><code>databak.sh</code>内容</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">/usr/bin/mysqldump -uroot -p123456 test &gt;/data1/databak/`date +%Y%m%d`test.sql 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<h5 id="监控Tomcat是否正常启动"><a href="#监控Tomcat是否正常启动" class="headerlink" title="监控Tomcat是否正常启动"></a>监控Tomcat是否正常启动</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义环境变量（要改成自己的jdk相关地址）</span></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_191-oraclejdk</span><br><span class="line">export CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">TomcatHome=/opt/webserver/pf-platform</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">获取tomcat进程ID（这里注意tomcat7要改成自己的tomcat目录名）</span></span><br><span class="line">TomcatID=$(ps -ef |grep tomcat |grep -w $TomcatHome|grep -v &#x27;grep&#x27;|awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">tomcat启动程序(这里注意要改成自己tomcat实际安装的路径)</span></span><br><span class="line"></span><br><span class="line">StartTomcat=$TomcatHome/bin/startup.sh</span><br><span class="line">TomcatCache=$TomcatHome/work</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">自己定义要监控的页面地址，页面越简单越好，比如：页面上写个success即可</span></span><br><span class="line">WebUrl=http://172.20.8.5:41000/pf-platform/login/login</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">日志输出 （自己定义地址，用于输出监控日志和监控报错日志）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">TomcatMonitorLog=<span class="variable">$TomcatHome</span>/TomcatMonitor-$(date <span class="string">&#x27;+%Y%m%d%H%M%S&#x27;</span>).<span class="built_in">log</span></span></span><br><span class="line">TomcatMonitorLog=$TomcatHome/logs/TomcatMonitor-$(date &#x27;+%Y-%m-%d&#x27;).log</span><br><span class="line">GetPageInfo=$TomcatHome/logs/PageInfo-$(date &#x27;+%Y-%m-%d&#x27;).log</span><br><span class="line">if [ ! -d $TomcatHome/logs ]; then mkdir -p $TomcatHome/logs ; fi</span><br><span class="line">Monitor()</span><br><span class="line">&#123;</span><br><span class="line">echo &quot;[info]开始监控tomcat...[$(date +&#x27;%F %H:%M:%S&#x27;)]&quot;</span><br><span class="line">if [[ $TomcatID ]];then # 这里判断TOMCAT进程是否存在</span><br><span class="line">                echo &quot;[info]当前tomcat进程ID为:$TomcatID,继续检测页面...&quot;</span><br><span class="line">                # 检测是否启动成功(成功的话页面会返回状态&quot;302&quot;)</span><br><span class="line">                TomcatServiceCode=$(curl -s -o $GetPageInfo -m 10 --connect-timeout 10 $WebUrl -w %&#123;http_code&#125;)</span><br><span class="line">                if [ $TomcatServiceCode -eq 302 ];then</span><br><span class="line">                                echo &quot;[info]页面返回码为$TomcatServiceCode,tomcat启动成功,测试页面正常......&quot;</span><br><span class="line">                        else</span><br><span class="line">                                echo &quot;[error]tomcat页面出错,请注意......状态码为$TomcatServiceCode,错误日志已输出到$GetPageInfo&quot;</span><br><span class="line">                                echo &quot;[error]页面访问出错,开始重启tomcat&quot;</span><br><span class="line">                                kill -9 $TomcatID # 杀掉原tomcat进程</span><br><span class="line">                                sleep 3</span><br><span class="line">                                #rm -rf $TomcatCache # 清理tomcat缓存</span><br><span class="line">                                $StartTomcat</span><br><span class="line">                fi</span><br><span class="line">        else</span><br><span class="line">                echo &quot;[error]tomcat进程不存在!tomcat开始自动重启...&quot;</span><br><span class="line">                echo &quot;[info]$StartTomcat,请稍候......&quot;</span><br><span class="line">                #rm -rf $TomcatCache</span><br><span class="line">                $StartTomcat</span><br><span class="line">fi</span><br><span class="line">echo &quot;------------------------------&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">Monitor&gt;</span><span class="bash">&gt;<span class="variable">$TomcatMonitorLog</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h5 id="监控netty服务是否正常开启端口"><a href="#监控netty服务是否正常开启端口" class="headerlink" title="监控netty服务是否正常开启端口"></a>监控netty服务是否正常开启端口</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义环境变量（要改成自己的jdk相关地址）</span></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_191-oraclejdk</span><br><span class="line">export CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">NettyServerHome=/opt/webserver/mtech-cloud-netty-server</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">获取netty-server进程ID（这里注意netty-server7要改成自己的netty-server目录名）</span></span><br><span class="line">NettyServerID=$(ps -ef |grep netty-server |grep -w $NettyServerHome |grep -w java |grep -v &#x27;grep&#x27;|awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">netty-server启动程序(这里注意要改成自己netty-server实际安装的路径)</span></span><br><span class="line">StartNettyServer=$NettyServerHome/bin/start.sh</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">netty监听端口</span></span><br><span class="line">NettyPort=16000</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">日志输出 （自己定义地址，用于输出监控日志和监控报错日志）</span></span><br><span class="line">NettyServerMonitorLog=$NettyServerHome/logs/NettyServerMonitor-$(date +&#x27;%F&#x27;).log</span><br><span class="line">GetPageInfo=$NettyServerHome/logs/PortInfo-$(date +&#x27;%F&#x27;).log</span><br><span class="line">if [ ! -d $NettyServerHome/logs ]; then mkdir -p $NettyServerHome/logs ; fi</span><br><span class="line">Monitor()</span><br><span class="line">&#123;</span><br><span class="line">echo &quot;[info]开始监控netty-server...[$(date +&#x27;%F %H:%M:%S&#x27;)]&quot;</span><br><span class="line">if [[ $NettyServerID ]];then # 这里判断netty-server进程是否存在</span><br><span class="line">	</span><br><span class="line">		echo &quot;[info]当前netty-server进程ID为:$NettyServerID,继续检测端口...&quot;</span><br><span class="line"><span class="meta">		#</span><span class="bash"> 检测是否启动成功(成功的话会返回端口信息)</span></span><br><span class="line">		NettyServerPort=$(checkPort $NettyPort)</span><br><span class="line">		echo &quot;端口检测结果：$NettyServerPort &quot;</span><br><span class="line">		if [ $NettyServerPort -eq 0 ];then</span><br><span class="line">				echo &quot;[info]返回码为$NettyServerPort,netty-server启动成功,测试端口正常......&quot;</span><br><span class="line">			else</span><br><span class="line">				echo &quot;[error]netty-server启动出错,请注意......, 错误日志已输出到$GetPageInfo&quot;</span><br><span class="line">				echo &quot;[error]端口$NettyPort检测出错,开始重启netty-server&quot;</span><br><span class="line">				kill -9 $NettyServerID # 杀掉原netty-server进程</span><br><span class="line">				sleep 3</span><br><span class="line">				#rm -rf $netty-serverCache # 清理netty-server缓存</span><br><span class="line">				$StartNettyServer  &gt;&gt; $NettyServerHome/logs/nohub.out &amp; &gt;&gt; /dev/null</span><br><span class="line">		fi</span><br><span class="line">	else</span><br><span class="line">		echo &quot;[error]netty-server进程不存在!netty-server开始自动重启...&quot;</span><br><span class="line">		echo &quot;[info]$StartNettyServer,请稍候......&quot;</span><br><span class="line"><span class="meta">		#</span><span class="bash">rm -rf <span class="variable">$netty</span>-serverCache</span></span><br><span class="line"><span class="meta">		#</span><span class="bash"> <span class="variable">$StartNettyServer</span>  &gt;&gt; /dev/null &amp;</span></span><br><span class="line"><span class="meta">		$</span><span class="bash">StartNettyServer  &gt;&gt; <span class="variable">$NettyServerHome</span>/logs/nohub.out &amp; &gt;&gt; /dev/null</span></span><br><span class="line">fi</span><br><span class="line">echo &quot;------------------------------&quot;</span><br><span class="line">&#125;</span><br><span class="line">checkPort() &#123;</span><br><span class="line">		echo &quot;------------------------------&quot; &gt;&gt; $GetPageInfo</span><br><span class="line">        echo &quot;$(date +&#x27;%F %H:%M:%S&#x27;)  &quot; &gt;&gt; $GetPageInfo</span><br><span class="line">        echo $(netstat -tlpn | grep &quot;\b$1\b&quot;) &gt;&gt; $GetPageInfo</span><br><span class="line">        netstat -tlpn | grep &quot;\b$1\b&quot; | awk &#x27;&#123;print $2&#125;&#x27;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">Monitor&gt;</span><span class="bash">&gt;<span class="variable">$NettyServerMonitorLog</span> &amp;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="部署war包到tomcat"><a href="#部署war包到tomcat" class="headerlink" title="部署war包到tomcat"></a>部署war包到tomcat</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">➜  web cat start.sh </span><br><span class="line">WORKDIR=/data1/webserver/mt_chs/web</span><br><span class="line">cd $WORKDIR</span><br><span class="line">kill -9 $(netstat -tlpn | grep &quot;\b18080\b&quot; | awk &#x27;&#123;print $7&#125;&#x27; | cut -d &#x27;/&#x27; -f 1)</span><br><span class="line">echo &#x27;&#x27; &gt; $WORKDIR/logs/catalina.out </span><br><span class="line"><span class="meta">$</span><span class="bash">WORKDIR/bin/startup.sh</span> </span><br><span class="line"></span><br><span class="line">➜  web cat tailf.sh </span><br><span class="line">WORKDIR=/data1/webserver/mt_chs/web</span><br><span class="line">tail -f $WORKDIR/logs/catalina.out</span><br><span class="line"></span><br><span class="line">➜  web cat stop.sh </span><br><span class="line">WORKDIR=/data1/webserver/mt_chs/web</span><br><span class="line">cd $WORKDIR</span><br><span class="line">kill -9 $(netstat -tlpn | grep &quot;\b18080\b&quot; | awk &#x27;&#123;print $7&#125;&#x27; | cut -d &#x27;/&#x27; -f 1)</span><br><span class="line"></span><br><span class="line">➜  ~ cat deploy_web.sh </span><br><span class="line">WEB_DIR=/data1/webserver/mt_chs/web</span><br><span class="line">APP_DIR=$WEB_DIR/webapps/chs_web</span><br><span class="line">HOME_DIR=/home/ledmon</span><br><span class="line">WAR_FILE=$HOME_DIR/$1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function deploy()&#123;</span><br><span class="line">    echo &quot;停止tomcat...&quot;</span><br><span class="line">    $WEB_DIR/stop.sh</span><br><span class="line">    mkdir -p $APP_DIR</span><br><span class="line">    echo &quot;更新应用...&quot;</span><br><span class="line">    rm -rf $APP_DIR/*</span><br><span class="line">    unzip $WAR_FILE -d $APP_DIR &gt;&gt; /dev/null</span><br><span class="line">    echo &quot;启动tomcat...&quot;</span><br><span class="line">    $WEB_DIR/start.sh</span><br><span class="line">    echo &quot;查看启动日志&quot;</span><br><span class="line">    $WEB_DIR/tailf.sh</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [ ! -f &quot;$WAR_FILE&quot; ];then</span><br><span class="line">    echo &quot;文件不存在，路径: $WAR_FILE&quot;</span><br><span class="line">elif (! echo $&#123;WAR_FILE&#125; |grep -q &quot;.war&quot; );then</span><br><span class="line">    echo &quot;文件不合法，路径：$WAR_FILE&quot;</span><br><span class="line">    echo &quot;请选择war文件&quot;</span><br><span class="line">elif (! echo $&#123;WAR_FILE&#125; |grep -q &quot;web_product&quot; );then</span><br><span class="line">    echo &quot;文件不合法，路径：$WAR_FILE&quot;</span><br><span class="line">    echo &quot;请选择web_proeuct*.war文件&quot;</span><br><span class="line">else</span><br><span class="line">    deploy</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h5 id="部署springboot的jar包应用"><a href="#部署springboot的jar包应用" class="headerlink" title="部署springboot的jar包应用"></a>部署springboot的jar包应用</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">➜  appint cat start.sh </span><br><span class="line">WORKDIR=/data1/webserver/mt_chs/appint</span><br><span class="line">cd $WORKDIR</span><br><span class="line">kill -9 $(netstat -tlpn | grep &quot;\b18083\b&quot; | awk &#x27;&#123;print $7&#125;&#x27; | cut -d &#x27;/&#x27; -f 1)</span><br><span class="line">echo &#x27;&#x27; &gt; $WORKDIR/out.log</span><br><span class="line">nohup java -jar $WORKDIR/appint_*.jar &gt; $WORKDIR/out.log &amp; </span><br><span class="line"></span><br><span class="line">➜  appint cat tailf.sh </span><br><span class="line">WORKDIR=/data1/webserver/mt_chs/appint</span><br><span class="line">tail -f $WORKDIR/out.log</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">➜  ~ cat deploy_appint.sh </span><br><span class="line">APP_DIR=/data1/webserver/mt_chs/appint</span><br><span class="line">HOME_DIR=/home/ledmon</span><br><span class="line">JAR_FILE=$HOME_DIR/$1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function deploy()&#123;</span><br><span class="line">    echo &quot;停止应用...&quot;</span><br><span class="line">    kill -9 $(netstat -tlpn | grep &quot;\b18083\b&quot; | awk &#x27;&#123;print $7&#125;&#x27; | cut -d &#x27;/&#x27; -f 1)</span><br><span class="line">    mkdir -p $APP_DIR</span><br><span class="line">    echo &quot;更新应用...&quot;</span><br><span class="line">    rm -rf $APP_DIR/*.jar</span><br><span class="line">    cp $JAR_FILE $APP_DIR</span><br><span class="line">    echo &quot;启动应用...&quot;</span><br><span class="line">    $APP_DIR/start.sh</span><br><span class="line">    echo &quot;查看启动日志&quot;</span><br><span class="line">    $APP_DIR/tailf.sh</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [ ! -f &quot;$JAR_FILE&quot; ];then</span><br><span class="line">    echo &quot;文件不存在，路径: $JAR_FILE&quot;</span><br><span class="line">elif (! echo $&#123;JAR_FILE&#125; |grep -q &quot;.jar&quot; );then</span><br><span class="line">    echo &quot;文件不合法，路径：$JAR_FILE&quot;</span><br><span class="line">    echo &quot;请选择*.jar文件&quot;</span><br><span class="line">elif (! echo $&#123;JAR_FILE&#125; |grep -q &quot;appint_product&quot; );then</span><br><span class="line">    echo &quot;文件不合法，路径：$JAR_FILE&quot;</span><br><span class="line">    echo &quot;请选择appint_product*.jar文件&quot;</span><br><span class="line">else</span><br><span class="line">    deploy</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
     </div>
 

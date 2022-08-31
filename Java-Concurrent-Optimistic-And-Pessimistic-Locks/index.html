@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="原文：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;qjjazry&#x2F;p&#x2F;6581568.html  首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步">
+  <meta name="description" content="1原文：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;qjjazry&#x2F;p&#x2F;6581568.html    首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发问题--乐观锁与悲观锁以及乐观锁的一种实现方式-CAS">
 <meta property="og:url" content="https://hunkier.cn/Java-Concurrent-Optimistic-And-Pessimistic-Locks/index.html">
 <meta property="og:site_name" content="hunkier">
-<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;qjjazry&#x2F;p&#x2F;6581568.html  首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步">
+<meta property="og:description" content="1原文：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;qjjazry&#x2F;p&#x2F;6581568.html    首先介绍一些乐观锁与悲观锁: 　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319183935713-1224322401.png">
 <meta property="og:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319184016838-1784274955.png">
@@ -36,9 +36,9 @@
 <meta property="article:modified_time" content="2019-01-05T03:53:30.512Z">
 <meta property="article:author" content="hunkier">
 <meta property="article:tag" content="jvm">
-<meta property="article:tag" content="lock">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="concurrent">
+<meta property="article:tag" content="lock">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hunkier.cn/assets/img/Java-Concurrent-Lock/1047941-20170319183935713-1224322401.png">
 
@@ -302,8 +302,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <pre><code class="html">原文：https://www.cnblogs.com/qjjazry/p/6581568.html
-</code></pre>
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原文：https://www.cnblogs.com/qjjazry/p/6581568.html</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>首先介绍一些乐观锁与悲观锁:</strong></p>
 <p>　　悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步原语synchronized关键字的实现也是悲观锁。</p>
 <p>　　乐观锁：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。在Java中java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。</p>
@@ -327,69 +329,28 @@
 <p>　　JAVA对CAS的支持：</p>
 <p>　　　　在JDK1.5 中新增 java.util.concurrent (J.U.C)就是建立在CAS之上的。相对于对于 synchronized 这种阻塞算法，CAS是非阻塞算法的一种常见实现。所以J.U.C在性能上有了很大的提升。</p>
 <p>　　　　以 java.util.concurrent 中的 AtomicInteger 为例，看一下在不使用锁的情况下是如何保证线程安全的。主要理解 getAndIncrement 方法，该方法的作用相当于 ++i 操作。</p>
-<pre><code class="java">   public class AtomicInteger extends Number implements java.io.Serializable &#123;
-       private volatile int value;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AtomicInteger</span> <span class="keyword">extends</span> <span class="title">Number</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndIncrement</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">            <span class="keyword">int</span> current = get();</span><br><span class="line">            <span class="keyword">int</span> next = current + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (compareAndSet(current, next))</span><br><span class="line">                <span class="keyword">return</span> current;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> unsafe.compareAndSwapInt(<span class="keyword">this</span>, valueOffset, expect, update);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-       public final int get() &#123;
-           return value;
-       &#125;
 
-       public final int getAndIncrement() &#123;
-           for (;;) &#123;
-               int current = get();
-               int next = current + 1;
-               if (compareAndSet(current, next))
-                   return current;
-           &#125;
-       &#125;
 
-       public final boolean compareAndSet(int expect, int update) &#123;
-           return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
-       &#125;
-   &#125;
-</code></pre>
 <p>　　　　在没有锁的机制下,字段value要借助volatile原语，保证线程间的数据是可见性。这样在获取变量的值的时候才能直接读取。然后来看看 ++i 是怎么做到的。</p>
 <p>　　　  getAndIncrement 采用了CAS操作，每次从内存中读取数据然后将此数据和 +1 后的结果进行CAS操作，如果成功就返回结果，否则重试直到成功为止。</p>
 <p>　　　  而 compareAndSet 利用JNI（Java Native Interface）来完成CPU指令的操作：</p>
-<pre><code class="java">  public final boolean compareAndSet(int expect, int update) &#123;
-      return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
-  &#125;　　　
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> unsafe.compareAndSwapInt(<span class="keyword">this</span>, valueOffset, expect, update);</span><br><span class="line">&#125;　　　</span><br></pre></td></tr></table></figure>
+
 <p>　　　　其中unsafe.compareAndSwapInt(this, valueOffset, expect, update);类似如下逻辑：</p>
-<pre><code class="java">   if (this == expect) &#123;
-      this = update
-      return true;
-  &#125; else &#123;
-      return false;
-  &#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="keyword">this</span> == expect) &#123;</span><br><span class="line">    <span class="keyword">this</span> = update</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>　　　　那么比较this == expect，替换this = update，compareAndSwapInt实现这两个步骤的原子性呢？ 参考CAS的原理</p>
 <p>　　CAS原理：</p>
 <p>　　　　CAS通过调用JNI的代码实现的。而compareAndSwapInt就是借助C来调用CPU底层指令实现的。</p>
 <p>　　　　  下面从分析比较常用的CPU（intel x86）来解释CAS的实现原理。</p>
 <p> 　　　  下面是sun.misc.Unsafe类的compareAndSwapInt()方法的源代码：</p>
-<pre><code class="java">  public final native boolean compareAndSwapInt(Object o, long offset,
-                                                int expected,
-                                                int x);
-</code></pre>
-<p>　　　　 可以看到这是个本地方法调用。这个本地方法在JDK中依次调用的C++代码为：</p>
-<pre><code class="c++">   #define LOCK_IF_MP(mp) __asm cmp mp, 0  \
-                          __asm je L0      \
-                          __asm _emit 0xF0 \
-                          __asm L0:
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">boolean</span> <span class="title">compareAndSwapInt</span><span class="params">(Object o, <span class="keyword">long</span> offset,</span></span></span><br><span class="line"><span class="params"><span class="function">                                              <span class="keyword">int</span> expected,</span></span></span><br><span class="line"><span class="params"><span class="function">                                              <span class="keyword">int</span> x)</span></span>;</span><br></pre></td></tr></table></figure>
 
-   inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     dest, jint     compare_value) &#123;
-     // alternative for InterlockedCompareExchange
-     int mp = os::is_MP();
-     __asm &#123;
-       mov edx, dest
-       mov ecx, exchange_value
-       mov eax, compare_value
-       LOCK_IF_MP(mp)
-       cmpxchg dword ptr [edx], ecx
-     &#125;
-   &#125;
-</code></pre>
+<p>　　　　 可以看到这是个本地方法调用。这个本地方法在JDK中依次调用的C++代码为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCK_IF_MP(mp) __asm cmp mp, 0  \</span></span><br><span class="line"><span class="meta">                       __asm je L0      \</span></span><br><span class="line"><span class="meta">                       __asm _emit 0xF0 \</span></span><br><span class="line"><span class="meta">                       __asm L0:</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> jint     <span class="title">Atomic::cmpxchg</span>    <span class="params">(jint     exchange_value, <span class="keyword">volatile</span> jint*     dest, jint     compare_value)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// alternative for InterlockedCompareExchange</span></span><br><span class="line">  <span class="keyword">int</span> mp = os::<span class="built_in">is_MP</span>();</span><br><span class="line">  __asm &#123;</span><br><span class="line">    mov edx, dest</span><br><span class="line">    mov ecx, exchange_value</span><br><span class="line">    mov eax, <span class="function">compare_value</span></span><br><span class="line"><span class="function">    <span class="title">LOCK_IF_MP</span><span class="params">(mp)</span></span></span><br><span class="line"><span class="function">    cmpxchg dword ptr [edx], ecx</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+
 <p>　　　　如上面源代码所示，程序会根据当前处理器的类型来决定是否为cmpxchg指令添加lock前缀。如果程序是在多处理器上运行，就为cmpxchg指令加上lock前缀（lock cmpxchg）。反之，如果程序是在单处理器上运行，就省略lock前缀（单处理器自身会维护单处理器内的顺序一致性，不需要lock前缀提供的内存屏障效果）。</p>
 <p>　　CAS缺点：</p>
 <p>　　　　　1. <strong>ABA问题：</strong></p>
@@ -403,23 +364,11 @@
 <p>　　　　　　　<img src="/assets/img/Java-Concurrent-Lock/1047941-20170319184054182-183582877.png" alt="img"></p>
 <p>　　　　　　　其中堆栈中只有B一个元素，C和D组成的链表不再存在于堆栈中，平白无故就把C、D丢掉了。</p>
 <p>　　　　　　　从Java1.5开始JDK的atomic包里提供了一个类AtomicStampedReference来解决ABA问题。这个类的compareAndSet方法作用是首先检查当前引用是否等于预期引用，并且当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。</p>
-<pre><code class="java">  public boolean compareAndSet(
-                 V      expectedReference,//预期引用
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">               V      expectedReference,//预期引用</span></span></span><br><span class="line"><span class="params"><span class="function"></span></span></span><br><span class="line"><span class="params"><span class="function">               V      newReference,//更新后的引用</span></span></span><br><span class="line"><span class="params"><span class="function"></span></span></span><br><span class="line"><span class="params"><span class="function">              <span class="keyword">int</span>    expectedStamp, //预期标志</span></span></span><br><span class="line"><span class="params"><span class="function"></span></span></span><br><span class="line"><span class="params"><span class="function">              <span class="keyword">int</span>    newStamp //更新后的标志</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span></span><br></pre></td></tr></table></figure>
 
-                 V      newReference,//更新后的引用
-
-                int    expectedStamp, //预期标志
-
-                int    newStamp //更新后的标志
-  )
-</code></pre>
 <p>　　　　　　　　实际应用代码：</p>
-<pre><code class="java">  private static AtomicStampedReference&lt;Integer&gt; atomicStampedRef = new AtomicStampedReference&lt;Integer&gt;(100, 0);
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> AtomicStampedReference&lt;Integer&gt; atomicStampedRef = <span class="keyword">new</span> AtomicStampedReference&lt;Integer&gt;(<span class="number">100</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">........</span><br><span class="line"></span><br><span class="line">atomicStampedRef.compareAndSet(<span class="number">100</span>, <span class="number">101</span>, stamp, stamp + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-  ........
-
-  atomicStampedRef.compareAndSet(100, 101, stamp, stamp + 1);
-</code></pre>
 <p> 　　　　2. <strong>循环时间长开销大：</strong></p>
 <p>　　　　　　自旋CAS（不成功，就一直循环执行，直到成功）如果长时间不成功，会给CPU带来非常大的执行开销。如果JVM能支持处理器提供的pause指令那么效率会有一定的提升，pause指令有两个作用，第一它可以延迟流水线执行指令（de-pipeline）,使CPU不会消耗过多的执行资源，延迟的时间取决于具体实现的版本，在一些处理器上延迟时间是零。第二它可以避免在退出循环的时候因内存顺序冲突（memory order violation）而引起CPU流水线被清空（CPU pipeline flush），从而提高CPU的执行效率。</p>
 <p>　　　　</p>
@@ -529,9 +478,9 @@
           
           <div class="post-tags">
               <a href="/tags/jvm/" rel="tag"><i class="fa fa-tag"></i> jvm</a>
-              <a href="/tags/lock/" rel="tag"><i class="fa fa-tag"></i> lock</a>
               <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
               <a href="/tags/concurrent/" rel="tag"><i class="fa fa-tag"></i> concurrent</a>
+              <a href="/tags/lock/" rel="tag"><i class="fa fa-tag"></i> lock</a>
           </div>
 
         

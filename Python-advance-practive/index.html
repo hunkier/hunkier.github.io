@@ -321,18 +321,8 @@
 <h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>Python Number 数据类型用于存储数值。</p>
 <p>Python Number 数据类型用于存储数值，包括整型、长整型、浮点型、复数。</p>
 <p><strong>（1）Python math 模块</strong>：Python 中数学运算常用的函数基本都在 math 模块</p>
-<pre><code class="python">import math
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(math.ceil(<span class="number">4.1</span>))   <span class="comment">#返回数字的上入整数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(math.floor(<span class="number">4.9</span>))  <span class="comment">#返回数字的下舍整数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(math.fabs(-<span class="number">10</span>))   <span class="comment">#返回数字的绝对值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(math.sqrt(<span class="number">9</span>))     <span class="comment">#返回数字的平方根</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(math.exp(<span class="number">1</span>))      <span class="comment">#返回e的x次幂</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-print(math.ceil(4.1))   #返回数字的上入整数
-
-print(math.floor(4.9))  #返回数字的下舍整数
-
-print(math.fabs(-10))   #返回数字的绝对值
-
-print(math.sqrt(9))     #返回数字的平方根
-
-print(math.exp(1))      #返回e的x次幂
-</code></pre>
 <pre><code>5
 4
 10.0
@@ -341,95 +331,68 @@ print(math.exp(1))      #返回e的x次幂
 </code></pre>
 <p><strong>（2）Python随机数</strong></p>
 <p>首先import random，使用random()方法即可随机生成一个[0,1)范围内的实数</p>
-<pre><code class="python">import random
-ran = random.random()
-print(ran)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">ran = random.random()</span><br><span class="line"><span class="built_in">print</span>(ran)</span><br></pre></td></tr></table></figure>
+
 <pre><code>0.8200670438985006
 </code></pre>
 <p>调用 random.random() 生成随机数时，每一次生成的数都是随机的。但是，当预先使用 random.seed(x) 设定好种子之后，其中的 x 可以是任意数字，此时使用 random() 生成的随机数将会是同一个。</p>
-<pre><code class="python">print (&quot;------- 设置种子 seed -------&quot;)
-random.seed(10)
-print (&quot;Random number with seed 10 : &quot;, random.random())
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="string">&quot;------- 设置种子 seed -------&quot;</span>)</span><br><span class="line">random.seed(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;Random number with seed 10 : &quot;</span>, random.random())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成同一个随机数</span></span><br><span class="line">random.seed(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;Random number with seed 10 : &quot;</span>, random.random())</span><br></pre></td></tr></table></figure>
 
-# 生成同一个随机数
-random.seed(10)
-print (&quot;Random number with seed 10 : &quot;, random.random())
-</code></pre>
 <pre><code>------- 设置种子 seed -------
 Random number with seed 10 :  0.5714025946899135
 Random number with seed 10 :  0.5714025946899135
 </code></pre>
 <p>randint()生成一个随机整数</p>
-<pre><code class="python">
-ran = random.randint(1,20)
-print(ran)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ran = random.randint(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(ran)</span><br></pre></td></tr></table></figure>
+
 <pre><code>14
 </code></pre>
 <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>字符串连接：+</p>
-<pre><code class="python">a = &quot;Hello &quot;
-b = &quot;World &quot;
-print(a + b)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello &quot;</span></span><br><span class="line">b = <span class="string">&quot;World &quot;</span></span><br><span class="line"><span class="built_in">print</span>(a + b)</span><br></pre></td></tr></table></figure>
+
 <pre><code>Hello World 
 </code></pre>
 <p>重复输出字符串：*</p>
-<pre><code class="python">print(a * 3)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(a * <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
 <pre><code>Hello Hello Hello 
 </code></pre>
 <p>通过索引获取字符串中字符[]</p>
-<pre><code class="python">print(a[0])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(a[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
 <pre><code>H
 </code></pre>
 <p>字符串截取[:]  牢记：左开右闭</p>
-<pre><code class="python">print(a[1:4])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(a[<span class="number">1</span>:<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
+
 <pre><code>ell
 </code></pre>
 <p>判断字符串中是否包含给定的字符: in, not in</p>
-<pre><code class="python">print(&#39;e&#39; in a)
-print(&#39;e&#39; not in a)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;e&#x27;</span> <span class="keyword">in</span> a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;e&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> a)</span><br></pre></td></tr></table></figure>
+
 <pre><code>True
 False
 </code></pre>
 <p>join():以字符作为分隔符，将字符串中所有的元素合并为一个新的字符串</p>
-<pre><code class="python">new_str = &#39;-&#39;.join(&#39;Hello&#39;)
-print(new_str)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_str = <span class="string">&#x27;-&#x27;</span>.join(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(new_str)</span><br></pre></td></tr></table></figure>
+
 <pre><code>H-e-l-l-o
 </code></pre>
 <p>字符串单引号、双引号、三引号</p>
-<pre><code class="python">print(&#39;Hello World!&#39;)
-print(&quot;Hello World!&quot;)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
 <pre><code>Hello World!
 Hello World!
 </code></pre>
 <p>转义字符 \</p>
-<pre><code class="python">print(&quot;The \t is a tab&quot;)
-print(&#39;I\&#39;m going to the movies&#39;)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The \t is a tab&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;I\&#x27;m going to the movies&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <pre><code>The      is a tab
 I&#39;m going to the movies
 </code></pre>
 <p>三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（<strong>所见即所得</strong>）格式的。</p>
-<pre><code class="python">print(&#39;&#39;&#39;I&#39;m going to the movies&#39;&#39;&#39;)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#x27;&#x27;I&#x27;m going to the movies&#x27;&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">html = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;</span></span><br><span class="line"><span class="string">Friends CGI Demo&lt;/TITLE&gt;&lt;/HEAD&gt;</span></span><br><span class="line"><span class="string">&lt;BODY&gt;&lt;H3&gt;ERROR&lt;/H3&gt;</span></span><br><span class="line"><span class="string">&lt;B&gt;%s&lt;/B&gt;&lt;P&gt;</span></span><br><span class="line"><span class="string">&lt;FORM&gt;&lt;INPUT TYPE=button VALUE=Back</span></span><br><span class="line"><span class="string">ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;</span></span><br><span class="line"><span class="string">&lt;/BODY&gt;&lt;/HTML&gt;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(html)</span><br></pre></td></tr></table></figure>
 
-html = &#39;&#39;&#39;
-&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;
-Friends CGI Demo&lt;/TITLE&gt;&lt;/HEAD&gt;
-&lt;BODY&gt;&lt;H3&gt;ERROR&lt;/H3&gt;
-&lt;B&gt;%s&lt;/B&gt;&lt;P&gt;
-&lt;FORM&gt;&lt;INPUT TYPE=button VALUE=Back
-ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;
-&lt;/BODY&gt;&lt;/HTML&gt;
-&#39;&#39;&#39;
-print(html)
-</code></pre>
 <pre><code>I&#39;m going to the movies
 
 &lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;
@@ -445,132 +408,73 @@ ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;
 
 <p>声明一个列表，并通过下标或索引获取元素</p>
 <p><img src="https://ai-studio-static-online.cdn.bcebos.com/41840090b1c14c4daa704f9565fd5ba663d08a7d383444fa98c5c3d31f7e4c1d"></p>
-<pre><code class="python">
-#声明一个列表
-names = [&#39;jack&#39;,&#39;tom&#39;,&#39;tonney&#39;,&#39;superman&#39;,&#39;jay&#39;]
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#声明一个列表</span></span><br><span class="line">names = [<span class="string">&#x27;jack&#x27;</span>,<span class="string">&#x27;tom&#x27;</span>,<span class="string">&#x27;tonney&#x27;</span>,<span class="string">&#x27;superman&#x27;</span>,<span class="string">&#x27;jay&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#通过下标或索引获取元素</span></span><br><span class="line"><span class="built_in">print</span>(names[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(names[<span class="number">1</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-#通过下标或索引获取元素
-print(names[0])
-print(names[1])
-</code></pre>
 <pre><code>jack
 tom
 </code></pre>
-<pre><code class="python">#获取最后一个元素
-print(names[-1])
-print(names[len(names)-1])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取最后一个元素</span></span><br><span class="line"><span class="built_in">print</span>(names[-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(names[<span class="built_in">len</span>(names)-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
 <pre><code>jay
 jay
 </code></pre>
-<pre><code class="python">#获取第一个元素
-print(names[-5])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取第一个元素</span></span><br><span class="line"><span class="built_in">print</span>(names[-<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
 <pre><code>jack
 </code></pre>
-<pre><code class="python">#遍历列表，获取元素
-for name in names:
-    print(name)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#遍历列表，获取元素</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
 <pre><code>jack
 tom
 tonney
 superman
 jay
 </code></pre>
-<pre><code class="python">
-#查询names里面有没有superman
-for name in names:
-    if name == &#39;superman&#39;:
-        print(&#39;有超人&#39;)
-        break
-else:
-    print(&#39;有超人&#39;)
-    
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#查询names里面有没有superman</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&#x27;superman&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;有超人&#x27;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;有超人&#x27;</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
 <pre><code>有超人
 </code></pre>
-<pre><code class="python">#更简单的方法,来查询names里有没有superman
-if &#39;superman&#39; in names:
-    print(&#39;有超人&#39;)
-else:
-    print(&#39;有超人&#39;)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更简单的方法,来查询names里有没有superman</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;superman&#x27;</span> <span class="keyword">in</span> names:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;有超人&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;有超人&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</code></pre>
 <pre><code>有超人
 </code></pre>
 <p>列表元素添加</p>
-<pre><code class="python">#声明一个空列表
-girls = []
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#声明一个空列表</span></span><br><span class="line">girls = []</span><br><span class="line"></span><br><span class="line"><span class="comment">#append(),末尾追加</span></span><br><span class="line">girls.append(<span class="string">&#x27;杨超越&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(girls)</span><br></pre></td></tr></table></figure>
 
-#append(),末尾追加
-girls.append(&#39;杨超越&#39;)
-print(girls)
-</code></pre>
 <pre><code>[&#39;杨超越&#39;]
 </code></pre>
-<pre><code class="python">#extend(),一次添加多个。把一个列表添加到另一个列表 ，列表合并。
-models = [&#39;刘雯&#39;,&#39;奚梦瑶&#39;]
-girls.extend(models)
-#girls = girls + models
-print(girls)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#extend(),一次添加多个。把一个列表添加到另一个列表 ，列表合并。</span></span><br><span class="line">models = [<span class="string">&#x27;刘雯&#x27;</span>,<span class="string">&#x27;奚梦瑶&#x27;</span>]</span><br><span class="line">girls.extend(models)</span><br><span class="line"><span class="comment">#girls = girls + models</span></span><br><span class="line"><span class="built_in">print</span>(girls)</span><br></pre></td></tr></table></figure>
+
 <pre><code>[&#39;杨超越&#39;, &#39;刘雯&#39;, &#39;奚梦瑶&#39;]
 </code></pre>
-<pre><code class="python">#insert():指定位置添加
-girls.insert(1,&#39;虞书欣&#39;)
-print(girls)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#insert():指定位置添加</span></span><br><span class="line">girls.insert(<span class="number">1</span>,<span class="string">&#x27;虞书欣&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(girls)</span><br></pre></td></tr></table></figure>
+
 <pre><code>[&#39;杨超越&#39;, &#39;虞书欣&#39;, &#39;刘雯&#39;, &#39;奚梦瑶&#39;]
 </code></pre>
 <p>列表元素修改,通过下标找到元素，然后用=赋值</p>
-<pre><code class="python">fruits = [&#39;apple&#39;,&#39;pear&#39;,&#39;香蕉&#39;,&#39;pineapple&#39;,&#39;草莓&#39;]
-print(fruits)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&#x27;apple&#x27;</span>,<span class="string">&#x27;pear&#x27;</span>,<span class="string">&#x27;香蕉&#x27;</span>,<span class="string">&#x27;pineapple&#x27;</span>,<span class="string">&#x27;草莓&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(fruits)</span><br><span class="line"></span><br><span class="line">fruits[-<span class="number">1</span>] = <span class="string">&#x27;strawberry&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(fruits)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-fruits[-1] = &#39;strawberry&#39;
-print(fruits)
-</code></pre>
 <pre><code>[&#39;apple&#39;, &#39;pear&#39;, &#39;香蕉&#39;, &#39;pineapple&#39;, &#39;草莓&#39;]
 [&#39;apple&#39;, &#39;pear&#39;, &#39;香蕉&#39;, &#39;pineapple&#39;, &#39;strawberry&#39;]
 </code></pre>
-<pre><code class="python">
-&#39;&#39;&#39;
-将fruits列表中的‘香蕉’替换为‘banana’
-&#39;&#39;&#39;
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">将fruits列表中的‘香蕉’替换为‘banana’</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;香蕉&#x27;</span> <span class="keyword">in</span> fruit:</span><br><span class="line">        fruit = <span class="string">&#x27;banana&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(fruits)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(fruits)):</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;香蕉&#x27;</span> <span class="keyword">in</span> fruits[i]:</span><br><span class="line">        fruits[i] = <span class="string">&#x27;banana&#x27;</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(fruits)</span><br></pre></td></tr></table></figure>
 
-for fruit in fruits:
-    if &#39;香蕉&#39; in fruit:
-        fruit = &#39;banana&#39;
-print(fruits)
-
-for i in range(len(fruits)):
-    if &#39;香蕉&#39; in fruits[i]:
-        fruits[i] = &#39;banana&#39;
-        break
-print(fruits)
-</code></pre>
 <pre><code>[&#39;apple&#39;, &#39;pear&#39;, &#39;香蕉&#39;, &#39;pineapple&#39;, &#39;strawberry&#39;]
 [&#39;apple&#39;, &#39;pear&#39;, &#39;banana&#39;, &#39;pineapple&#39;, &#39;strawberry&#39;]
 </code></pre>
 <br/>
 
 <p>列表元素删除</p>
-<pre><code class="python">words = [&#39;cat&#39;,&#39;hello&#39;,&#39;pen&#39;,&#39;pencil&#39;,&#39;ruler&#39;]
-del words[1]
-print(words)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;pen&#x27;</span>,<span class="string">&#x27;pencil&#x27;</span>,<span class="string">&#x27;ruler&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> words[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(words)</span><br></pre></td></tr></table></figure>
+
 <pre><code>[&#39;cat&#39;, &#39;pen&#39;, &#39;pencil&#39;, &#39;ruler&#39;]
 </code></pre>
-<pre><code class="python">words = [&#39;cat&#39;,&#39;hello&#39;,&#39;pen&#39;,&#39;pencil&#39;,&#39;ruler&#39;]
-words.remove(&#39;cat&#39;)
-print(words)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;pen&#x27;</span>,<span class="string">&#x27;pencil&#x27;</span>,<span class="string">&#x27;ruler&#x27;</span>]</span><br><span class="line">words.remove(<span class="string">&#x27;cat&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(words)</span><br></pre></td></tr></table></figure>
+
 <pre><code>[&#39;hello&#39;, &#39;pen&#39;, &#39;pencil&#39;, &#39;ruler&#39;]
 </code></pre>
-<pre><code class="python">words = [&#39;cat&#39;,&#39;hello&#39;,&#39;pen&#39;,&#39;pencil&#39;,&#39;ruler&#39;]
-words.pop(1)
-print(words)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;pen&#x27;</span>,<span class="string">&#x27;pencil&#x27;</span>,<span class="string">&#x27;ruler&#x27;</span>]</span><br><span class="line">words.pop(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(words)</span><br></pre></td></tr></table></figure>
+
 <pre><code>[&#39;cat&#39;, &#39;pen&#39;, &#39;pencil&#39;, &#39;ruler&#39;]
 </code></pre>
 <br/>
@@ -585,23 +489,8 @@ print(words)
 </li>
 </ul>
 <p><img src="https://ai-studio-static-online.cdn.bcebos.com/3e1286d72f144f378afd29d8fc720e1430919c5b0c0d413b9ca1539f3ae087a0"></p>
-<pre><code class="python">
-animals = [&#39;cat&#39;,&#39;dog&#39;,&#39;tiger&#39;,&#39;snake&#39;,&#39;mouse&#39;,&#39;bird&#39;]
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">animals = [<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;dog&#x27;</span>,<span class="string">&#x27;tiger&#x27;</span>,<span class="string">&#x27;snake&#x27;</span>,<span class="string">&#x27;mouse&#x27;</span>,<span class="string">&#x27;bird&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(animals[<span class="number">2</span>:<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(animals[-<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(animals[-<span class="number">3</span>:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(animals[-<span class="number">5</span>:-<span class="number">1</span>:<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(animals[::<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-print(animals[2:5])
-
-print(animals[-1:])
-
-print(animals[-3:-1])
-
-print(animals[-5:-1:2])
-
-print(animals[::2])
-
-
-
-
-</code></pre>
 <pre><code>[&#39;tiger&#39;, &#39;snake&#39;, &#39;mouse&#39;]
 [&#39;bird&#39;]
 [&#39;snake&#39;, &#39;mouse&#39;]
@@ -614,93 +503,50 @@ print(animals[::2])
 <ul>
 <li>随机生成10个不同的整数，并进行排序</li>
 </ul>
-<pre><code class="python">&#39;&#39;&#39;
-生成10个不同的随机整数，并存至列表中
-&#39;&#39;&#39;
-import  random
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">生成10个不同的随机整数，并存至列表中</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span>  random</span><br><span class="line"></span><br><span class="line">random_list = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    ran = random.randint(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line">    <span class="keyword">if</span> ran <span class="keyword">not</span> <span class="keyword">in</span>  random_list:</span><br><span class="line">        random_list.append(ran)</span><br><span class="line"><span class="built_in">print</span>(random_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-random_list = []
-for i in range(10):
-    ran = random.randint(1,20)
-    if ran not in  random_list:
-        random_list.append(ran)
-print(random_list)
-</code></pre>
 <pre><code>[16, 19, 1, 7, 15, 9, 6, 2, 17]
 </code></pre>
 <br/>
 
 <p>上述代码存在什么问题吗？</p>
-<pre><code class="python">import  random
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  random</span><br><span class="line"></span><br><span class="line">random_list = []</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line">    ran = random.randint(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line">    <span class="keyword">if</span> ran <span class="keyword">not</span> <span class="keyword">in</span>  random_list:</span><br><span class="line">        random_list.append(ran)</span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(random_list)</span><br></pre></td></tr></table></figure>
 
-random_list = []
-i = 0
-while i &lt; 10:
-    ran = random.randint(1,20)
-    if ran not in  random_list:
-        random_list.append(ran)
-        i+=1
-print(random_list)
-</code></pre>
 <pre><code>[16, 11, 3, 8, 12, 2, 14, 5, 20, 13]
 </code></pre>
-<pre><code class="python">#默认升序
-new_list = sorted(random_list)
-print(new_list)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#默认升序</span></span><br><span class="line">new_list = <span class="built_in">sorted</span>(random_list)</span><br><span class="line"><span class="built_in">print</span>(new_list)</span><br><span class="line"></span><br><span class="line"><span class="comment">#降序</span></span><br><span class="line">new_list = <span class="built_in">sorted</span>(random_list,reverse =<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(new_list)</span><br></pre></td></tr></table></figure>
 
-#降序
-new_list = sorted(random_list,reverse =True)
-print(new_list)
-</code></pre>
 <pre><code>[2, 3, 5, 8, 11, 12, 13, 14, 16, 20]
 [20, 16, 14, 13, 12, 11, 8, 5, 3, 2]
 </code></pre>
 <h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p>与列表类似，元祖中的内容不可修改</p>
-<pre><code class="python">tuple1 = ()
-print(type(tuple1))
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = ()</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(tuple1))</span><br></pre></td></tr></table></figure>
+
 <pre><code>&lt;class &#39;tuple&#39;&gt;
 </code></pre>
-<pre><code class="python">tuple2 = (&#39;hello&#39;)
-print(type(tuple2))
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tuple2 = (<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(tuple2))</span><br></pre></td></tr></table></figure>
+
 <pre><code>&lt;class &#39;str&#39;&gt;
 </code></pre>
 <br/>
 
 <p>注意：元组中只有一个元素时，需要在后面加逗号！</p>
-<pre><code class="python">
-tuple3 = (&#39;hello&#39;,)
-print(type(tuple3))
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tuple3 = (<span class="string">&#x27;hello&#x27;</span>,)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(tuple3))</span><br></pre></td></tr></table></figure>
+
 <pre><code>&lt;class &#39;tuple&#39;&gt;
 </code></pre>
 <p>元组不能修改，所以不存在往元组里加入元素。</p>
 <p>那作为容器的元组，如何存放元素？</p>
-<pre><code class="python">import random
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">random_list = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    ran = random.randint(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line">    random_list.append(ran)</span><br><span class="line"><span class="built_in">print</span>(random_list)</span><br><span class="line"></span><br><span class="line">random_tuple = <span class="built_in">tuple</span>(random_list)</span><br><span class="line"><span class="built_in">print</span>(random_tuple)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-random_list = []
-for i in range(10):
-    ran = random.randint(1,20)
-    random_list.append(ran)
-print(random_list)
-
-random_tuple = tuple(random_list)
-print(random_tuple)
-</code></pre>
 <pre><code>[14, 10, 9, 15, 6, 10, 12, 5, 15, 8]
 (14, 10, 9, 15, 6, 10, 12, 5, 15, 8)
 </code></pre>
 <br/>
 
 <p>元组访问</p>
-<pre><code class="python">
-print(random_tuple)
-print(random_tuple[0])
-print(random_tuple[-1])
-print(random_tuple[1:-3])
-print(random_tuple[::-1])
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(random_tuple)</span><br><span class="line"><span class="built_in">print</span>(random_tuple[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(random_tuple[-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(random_tuple[<span class="number">1</span>:-<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(random_tuple[::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
 <pre><code>(14, 10, 9, 15, 6, 10, 12, 5, 15, 8)
 14
 8
@@ -708,35 +554,29 @@ print(random_tuple[::-1])
 (8, 15, 5, 12, 10, 6, 15, 9, 10, 14)
 </code></pre>
 <p>元组的修改：</p>
-<pre><code class="python">t1 = (1,2,3)+(4,5)
-print(t1)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)+(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(t1)</span><br></pre></td></tr></table></figure>
+
 <pre><code>(1, 2, 3, 4, 5)
 </code></pre>
-<pre><code class="python">t2 = (1,2) * 2
-print(t2)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t2 = (<span class="number">1</span>,<span class="number">2</span>) * <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(t2)</span><br></pre></td></tr></table></figure>
+
 <pre><code>(1, 2, 1, 2)
 </code></pre>
 <p>元组的一些函数：</p>
-<pre><code class="python">print(max(random_tuple))
-print(min(random_tuple))
-print(sum(random_tuple))
-print(len(random_tuple))
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(random_tuple))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">min</span>(random_tuple))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>(random_tuple))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(random_tuple))</span><br></pre></td></tr></table></figure>
+
 <pre><code>15
 5
 104
 10
 </code></pre>
-<pre><code class="python">#统计元组中4的个数
-print(random_tuple.count(4))
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#统计元组中4的个数</span></span><br><span class="line"><span class="built_in">print</span>(random_tuple.count(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+
 <pre><code>0
 </code></pre>
-<pre><code class="python">#元组中4所对应的下标，如果不存在，则会报错
-print(random_tuple.index(4))
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#元组中4所对应的下标，如果不存在，则会报错</span></span><br><span class="line"><span class="built_in">print</span>(random_tuple.index(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+
+
 <pre><code>---------------------------------------------------------------------------
 
 ValueError                                Traceback (most recent call last)
@@ -748,190 +588,96 @@ ValueError                                Traceback (most recent call last)
 
 ValueError: tuple.index(x): x not in tuple
 </code></pre>
-<pre><code class="python">#判断元组中是否存在1这个元素
-print(4 in random_tuple)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#判断元组中是否存在1这个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">4</span> <span class="keyword">in</span> random_tuple)</span><br><span class="line"></span><br><span class="line"><span class="comment">#返回元组中4所对应的下标,不会报错</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">4</span> <span class="keyword">in</span> random_tuple):</span><br><span class="line">    <span class="built_in">print</span>(random_tuple.index(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
 
-#返回元组中4所对应的下标,不会报错
-if(4 in random_tuple):
-    print(random_tuple.index(4))
-</code></pre>
 <p>元组的拆包与装包</p>
-<pre><code class="python">#定义一个元组
-t3 = (1,2,3)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义一个元组</span></span><br><span class="line">t3 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将元组赋值给变量a,b,c</span></span><br><span class="line">a,b,c = t3</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印a,b,c</span></span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br></pre></td></tr></table></figure>
 
-#将元组赋值给变量a,b,c
-a,b,c = t3
 
-#打印a,b,c
-print(a,b,c)
-</code></pre>
-<pre><code class="python">
-#当元组中元素个数与变量个数不一致时
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#当元组中元素个数与变量个数不一致时</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个元组，包含5个元素</span></span><br><span class="line">t4 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将t4[0],t4[1]分别赋值给a,b;其余的元素装包后赋值给c</span></span><br><span class="line">a,b,*c = t4</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="built_in">print</span>(*c)</span><br></pre></td></tr></table></figure>
 
-#定义一个元组，包含5个元素
-t4 = (1,2,3,4,5)
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义一个空字典</span></span><br><span class="line"></span><br><span class="line">dict1 = &#123;&#125;</span><br><span class="line"></span><br><span class="line">dict2 = &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;杨超越&#x27;</span>,<span class="string">&#x27;weight&#x27;</span>:<span class="number">45</span>,<span class="string">&#x27;age&#x27;</span>:<span class="number">25</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dict2[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-#将t4[0],t4[1]分别赋值给a,b;其余的元素装包后赋值给c
-a,b,*c = t4
 
-print(a,b,c)
-print(c)
-print(*c)
-</code></pre>
-<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><pre><code class="python">#定义一个空字典
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#list可以转成字典，但前提是列表中元素都要成对出现</span></span><br><span class="line">dict3 = <span class="built_in">dict</span>([(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;杨超越&#x27;</span>),(<span class="string">&#x27;weight&#x27;</span>,<span class="number">45</span>)])</span><br><span class="line"><span class="built_in">print</span>(dict3)</span><br></pre></td></tr></table></figure>
 
-dict1 = &#123;&#125;
 
-dict2 = &#123;&#39;name&#39;:&#39;杨超越&#39;,&#39;weight&#39;:45,&#39;age&#39;:25&#125;
-print(dict2[&#39;name&#39;])
-</code></pre>
-<pre><code class="python">#list可以转成字典，但前提是列表中元素都要成对出现
-dict3 = dict([(&#39;name&#39;,&#39;杨超越&#39;),(&#39;weight&#39;,45)])
-print(dict3)
-</code></pre>
-<pre><code class="python">dict4 = &#123;&#125;
-dict4[&#39;name&#39;] = &#39;虞书欣&#39;
-dict4[&#39;weight&#39;] = 43
-print(dict4)
-</code></pre>
-<pre><code class="python">dict4[&#39;weight&#39;] = 44
-print(dict4)
-</code></pre>
-<pre><code class="python">#字典里的函数 items()  keys() values()
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict4 = &#123;&#125;</span><br><span class="line">dict4[<span class="string">&#x27;name&#x27;</span>] = <span class="string">&#x27;虞书欣&#x27;</span></span><br><span class="line">dict4[<span class="string">&#x27;weight&#x27;</span>] = <span class="number">43</span></span><br><span class="line"><span class="built_in">print</span>(dict4)</span><br></pre></td></tr></table></figure>
 
-dict5 = &#123;&#39;杨超越&#39;:165,&#39;虞书欣&#39;:166,&#39;上官喜爱&#39;:164&#125;
-print(dict5.items())
-for key,value in dict5.items():
-    if value &gt; 165:
-        print(key)
-</code></pre>
-<pre><code class="python">#values() 取出字典中所有的值,保存到列表中
 
-results = dict5.values()
-print(results)
-</code></pre>
-<pre><code class="python">#求小姐姐的平均身高
-heights = dict5.values()
-print(heights)
-total = sum(heights)
-avg = total/len(heights)
-print(avg)
-</code></pre>
-<pre><code class="python">names = dict5.keys()
-print(names)
-</code></pre>
-<pre><code class="python">
-#print(dict5[&#39;赵小棠&#39;])       
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict4[<span class="string">&#x27;weight&#x27;</span>] = <span class="number">44</span></span><br><span class="line"><span class="built_in">print</span>(dict4)</span><br></pre></td></tr></table></figure>
 
-print(dict5.get(&#39;赵小棠&#39;))
 
-print(dict5.get(&#39;赵小棠&#39;,170)) #如果能够取到值，则返回字典中的值，否则返回默认值170
-</code></pre>
-<pre><code class="python">dict6 = &#123;&#39;杨超越&#39;:165,&#39;虞书欣&#39;:166,&#39;上官喜爱&#39;:164&#125;
-del dict6[&#39;杨超越&#39;]
-print(dict6)
-</code></pre>
-<pre><code class="python">result = dict6.pop(&#39;虞书欣&#39;)
-print(result)
-print(dict6)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#字典里的函数 items()  keys() values()</span></span><br><span class="line"></span><br><span class="line">dict5 = &#123;<span class="string">&#x27;杨超越&#x27;</span>:<span class="number">165</span>,<span class="string">&#x27;虞书欣&#x27;</span>:<span class="number">166</span>,<span class="string">&#x27;上官喜爱&#x27;</span>:<span class="number">164</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dict5.items())</span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> dict5.items():</span><br><span class="line">    <span class="keyword">if</span> value &gt; <span class="number">165</span>:</span><br><span class="line">        <span class="built_in">print</span>(key)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#values() 取出字典中所有的值,保存到列表中</span></span><br><span class="line"></span><br><span class="line">results = dict5.values()</span><br><span class="line"><span class="built_in">print</span>(results)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#求小姐姐的平均身高</span></span><br><span class="line">heights = dict5.values()</span><br><span class="line"><span class="built_in">print</span>(heights)</span><br><span class="line">total = <span class="built_in">sum</span>(heights)</span><br><span class="line">avg = total/<span class="built_in">len</span>(heights)</span><br><span class="line"><span class="built_in">print</span>(avg)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">names = dict5.keys()</span><br><span class="line"><span class="built_in">print</span>(names)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#print(dict5[&#x27;赵小棠&#x27;])       </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dict5.get(<span class="string">&#x27;赵小棠&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dict5.get(<span class="string">&#x27;赵小棠&#x27;</span>,<span class="number">170</span>)) <span class="comment">#如果能够取到值，则返回字典中的值，否则返回默认值170</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict6 = &#123;<span class="string">&#x27;杨超越&#x27;</span>:<span class="number">165</span>,<span class="string">&#x27;虞书欣&#x27;</span>:<span class="number">166</span>,<span class="string">&#x27;上官喜爱&#x27;</span>:<span class="number">164</span>&#125;</span><br><span class="line"><span class="keyword">del</span> dict6[<span class="string">&#x27;杨超越&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(dict6)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result = dict6.pop(<span class="string">&#x27;虞书欣&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="built_in">print</span>(dict6)</span><br></pre></td></tr></table></figure>
+
 <h1 id="Python面向对象"><a href="#Python面向对象" class="headerlink" title="Python面向对象"></a>Python面向对象</h1><p>定义一个类Animals:</p>
 <p>(1)<strong>init</strong>()定义构造函数，与其他面向对象语言不同的是，Python语言中，会明确地把代表自身实例的self作为第一个参数传入</p>
 <p>(2)创建一个实例化对象 cat，<strong>init</strong>()方法接收参数</p>
 <p>(3)使用点号 . 来访问对象的属性。</p>
-<pre><code class="python">class Animal:
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,name</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;动物名称实例化&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(self.name +<span class="string">&#x27;要吃东西啦！&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(self.name +<span class="string">&#x27;要喝水啦！&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cat =  Animal(<span class="string">&#x27;miaomiao&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(cat.name)</span><br><span class="line">cat.eat()</span><br><span class="line">cat.drink()</span><br></pre></td></tr></table></figure>
 
-    def __init__(self,name):
-        self.name = name
-        print(&#39;动物名称实例化&#39;)
-    def eat(self):
-        print(self.name +&#39;要吃东西啦！&#39;)
-    def drink(self):
-        print(self.name +&#39;要喝水啦！&#39;)
 
-cat =  Animal(&#39;miaomiao&#39;)
-print(cat.name)
-cat.eat()
-cat.drink()
-</code></pre>
-<pre><code class="python">class Person:        
-    def __init__(self,name):
-        self.name = name
-        print (&#39;调用父类构造函数&#39;)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span>        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,name</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&#x27;调用父类构造函数&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;调用父类方法&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">Person</span>):</span>  <span class="comment"># 定义子类</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">      <span class="built_in">print</span> (<span class="string">&#x27;调用子类构造方法&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">study</span>(<span class="params">self</span>):</span></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&#x27;调用子类方法&#x27;</span>)</span><br><span class="line"></span><br><span class="line">s = Student()          <span class="comment"># 实例化子类</span></span><br><span class="line">s.study()              <span class="comment"># 调用子类的方法</span></span><br><span class="line">s.eat()                <span class="comment"># 调用父类方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-    def eat(self):
-        print(&#39;调用父类方法&#39;)
- 
-class Student(Person):  # 定义子类
-   def __init__(self):
-      print (&#39;调用子类构造方法&#39;)
- 
-   def study(self):
-      print(&#39;调用子类方法&#39;)
-
-s = Student()          # 实例化子类
-s.study()              # 调用子类的方法
-s.eat()                # 调用父类方法
-</code></pre>
 <h1 id="Python-JSON"><a href="#Python-JSON" class="headerlink" title="Python JSON"></a>Python JSON</h1><p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，易于人阅读和编写。</p>
 <p>json.dumps 用于将 Python 对象编码成 JSON 字符串。</p>
-<pre><code class="python">import json
-data = [ &#123; &#39;b&#39; : 2, &#39;d&#39; : 4, &#39;a&#39; : 1, &#39;c&#39; : 3, &#39;e&#39; : 5 &#125; ]
-json = json.dumps(data)
-print(json)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">data = [ &#123; <span class="string">&#x27;b&#x27;</span> : <span class="number">2</span>, <span class="string">&#x27;d&#x27;</span> : <span class="number">4</span>, <span class="string">&#x27;a&#x27;</span> : <span class="number">1</span>, <span class="string">&#x27;c&#x27;</span> : <span class="number">3</span>, <span class="string">&#x27;e&#x27;</span> : <span class="number">5</span> &#125; ]</span><br><span class="line">json = json.dumps(data)</span><br><span class="line"><span class="built_in">print</span>(json)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>为了提高可读性，dumps方法提供了一些可选的参数。</p>
 <p>sort_keys=True表示按照字典排序(a到z)输出。</p>
 <p>indent参数，代表缩进的位数</p>
 <p>separators参数的作用是去掉,和:后面的空格，传输过程中数据越精简越好</p>
-<pre><code class="python">import json
-data = [ &#123; &#39;b&#39; : 2, &#39;d&#39; : 4, &#39;a&#39; : 1, &#39;c&#39; : 3, &#39;e&#39; : 5 &#125; ]
-json = json.dumps(data, sort_keys=True, indent=4,separators=(&#39;,&#39;, &#39;:&#39;))
-print(json)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">data = [ &#123; <span class="string">&#x27;b&#x27;</span> : <span class="number">2</span>, <span class="string">&#x27;d&#x27;</span> : <span class="number">4</span>, <span class="string">&#x27;a&#x27;</span> : <span class="number">1</span>, <span class="string">&#x27;c&#x27;</span> : <span class="number">3</span>, <span class="string">&#x27;e&#x27;</span> : <span class="number">5</span> &#125; ]</span><br><span class="line">json = json.dumps(data, sort_keys=<span class="literal">True</span>, indent=<span class="number">4</span>,separators=(<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;:&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(json)</span><br></pre></td></tr></table></figure>
+
 <p>json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
-<pre><code class="python">import json
-jsonData = &#39;&#123;&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5&#125;&#39;
-text = json.loads(jsonData)  #将string转换为dict
-print(text)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">jsonData = <span class="string">&#x27;&#123;&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5&#125;&#x27;</span></span><br><span class="line">text = json.loads(jsonData)  <span class="comment">#将string转换为dict</span></span><br><span class="line"><span class="built_in">print</span>(text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h1 id="Python异常处理"><a href="#Python异常处理" class="headerlink" title="Python异常处理"></a>Python异常处理</h1><p>当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
 <p>捕捉异常可以使用try/except语句。</p>
 <p>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
-<pre><code class="python">try:
-    fh = open(&quot;/home/aistudio/data/testfile01.txt&quot;, &quot;w&quot;)
-    fh.write(&quot;这是一个测试文件，用于测试异常!!&quot;)
-except IOError:
-    print(&#39;Error: 没有找到文件或读取文件失败&#39;)
-else:
-    print (&#39;内容写入文件成功&#39;)
-    fh.close()
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    fh = <span class="built_in">open</span>(<span class="string">&quot;/home/aistudio/data/testfile01.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">    fh.write(<span class="string">&quot;这是一个测试文件，用于测试异常!!&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> IOError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Error: 没有找到文件或读取文件失败&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&#x27;内容写入文件成功&#x27;</span>)</span><br><span class="line">    fh.close()</span><br></pre></td></tr></table></figure>
+
 <p>finally中的内容，退出try时总会执行</p>
-<pre><code class="python">try:
-    f = open(&quot;/home/aistudio/data/testfile02.txt&quot;, &quot;w&quot;)
-    f.write(&quot;这是一个测试文件，用于测试异常!!&quot;)
-finally:
-    print(&#39;关闭文件&#39;)
-    f.close()
-</code></pre>
-<h1 id="常见Linux命令"><a href="#常见Linux命令" class="headerlink" title="常见Linux命令"></a>常见Linux命令</h1><pre><code class="python">!ls /home
-</code></pre>
-<pre><code class="python">!ls ./
-</code></pre>
-<pre><code class="python">ls  -l
-</code></pre>
-<pre><code class="python">!pwd
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = <span class="built_in">open</span>(<span class="string">&quot;/home/aistudio/data/testfile02.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">    f.write(<span class="string">&quot;这是一个测试文件，用于测试异常!!&quot;</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;关闭文件&#x27;</span>)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="常见Linux命令"><a href="#常见Linux命令" class="headerlink" title="常见Linux命令"></a>常见Linux命令</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!ls /home</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!ls ./</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls  -l</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pwd</span><br></pre></td></tr></table></figure>
+
 <p>cp ：复制文件或目录</p>
-<pre><code class="python">!cp test.txt ./test_copy.txt
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!cp test.txt ./test_copy.txt</span><br></pre></td></tr></table></figure>
+
 <p>mv:移动文件与目录，或修改文件与目录的名称</p>
-<pre><code class="python">!mv /home/aistudio/work/test_copy.txt /home/aistudio/data/
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!mv /home/aistudio/work/test_copy.txt /home/aistudio/data/</span><br></pre></td></tr></table></figure>
+
 <p>rm :移除文件或目录</p>
-<pre><code class="python">!rm /home/aistudio/data/test_copy.txt
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!rm /home/aistudio/data/test_copy.txt</span><br></pre></td></tr></table></figure>
+
 <p>很多大型文件或者数据从服务器上传或者下载的时候都需要打包和压缩解压，这时候知道压缩和解压的各种命令是很有必要的。</p>
 <p>常见的压缩文件后缀名有.tar.gz，.gz，和.zip，下面来看看在Linux上它们分别的解压和压缩命令。</p>
 <h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip:"></a>gzip:</h2><p>linux压缩文件中最常见的后缀名即为.gz，gzip是用来压缩和解压.gz文件的命令。</p>
@@ -941,11 +687,11 @@ finally:
 -v或--verbose：显示指令执行过程。
 注：gzip命令只能压缩单个文件，而不能把一个文件夹压缩成一个文件（与打包命令的区别）。
 </code></pre>
-<pre><code class="python">#会将文件压缩为文件 test.txt.gz，原来的文件则没有了，解压缩也一样
-!gzip /home/aistudio/work/test.txt
-</code></pre>
-<pre><code class="python">!gzip -d /home/aistudio/test.gz
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#会将文件压缩为文件 test.txt.gz，原来的文件则没有了，解压缩也一样</span></span><br><span class="line">!gzip /home/aistudio/work/test.txt</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!gzip -d /home/aistudio/test.gz</span><br></pre></td></tr></table></figure>
+
 <h2 id="tar"><a href="#tar" class="headerlink" title="tar:"></a>tar:</h2><p>tar本身是一个打包命令，用来打包或者解包后缀名为.tar。配合参数可同时实现打包和压缩。</p>
 <p>常用参数:</p>
 <pre><code>-c或--create：建立新的备份文件；
@@ -957,10 +703,11 @@ finally:
 -j：通过bzip2指令处理备份文件。
 </code></pre>
 <p>最常用的是将tar命令与gzip命令组合起来，直接对文件夹先打包后压缩：</p>
-<pre><code class="python">!tar -zcvf /home/aistudio/work/test.tar.gz /home/aistudio/work/test.txt
-</code></pre>
-<pre><code class="python">!tar -zxvf /home/aistudio/work/test.tar.gz
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!tar -zcvf /home/aistudio/work/test.tar.gz /home/aistudio/work/test.txt</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!tar -zxvf /home/aistudio/work/test.tar.gz</span><br></pre></td></tr></table></figure>
+
 <h2 id="zip和unzip"><a href="#zip和unzip" class="headerlink" title="zip和unzip"></a>zip和unzip</h2><p>zip命令和unzip命令用在在Linux上处理.zip的压缩文件。</p>
 <p>常用参数</p>
 <p>zip:</p>
@@ -972,10 +719,14 @@ finally:
 <pre><code>-v：显示指令执行过程；
 -d：解压到指定目录。
 </code></pre>
-<pre><code class="python">!zip -r /home/aistudio/work/test.zip /home/aistudio/work/test.txt
-</code></pre>
-<pre><code class="python">!unzip  /home/aistudio/work/test.zip 
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="built_in">zip</span> -r /home/aistudio/work/test.<span class="built_in">zip</span> /home/aistudio/work/test.txt</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!unzip  /home/aistudio/work/test.<span class="built_in">zip</span> </span><br></pre></td></tr></table></figure>
+
+
+
+
 <p>原文地址：<a href="https://aistudio.baidu.com/aistudio/projectdetail/420385?pV=77924">https://aistudio.baidu.com/aistudio/projectdetail/420385?pV=77924</a></p>
 
     </div>

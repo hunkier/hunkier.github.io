@@ -313,28 +313,20 @@
 <li>打开并使用终端窗口 —— 终端</li>
 </ol>
 <p>安装cockpit</p>
-<pre><code class="shell">yum -y install cockpit
-yum install cockpit* -y    #所有cockpit模块安装
-</code></pre>
-<p>修改默认端口9090</p>
-<pre><code class="shell">vi /usr/lib/systemd/system/cockpit.socket
-</code></pre>
-<p>启动cockpit</p>
-<pre><code class="shell">systemctl start cockpit
-</code></pre>
-<p>开机自启动</p>
-<pre><code class="shell">vi /usr/lib/systemd/system/cockpit.service 
-# 在最后加上下面两行
-[Install]
-WantedBy=multi-user.target
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install cockpit</span><br><span class="line">yum install cockpit* -y	#所有cockpit模块安装</span><br></pre></td></tr></table></figure>
 
-# 退出编辑，加入系统启动
-systemctl enable cockpit
-</code></pre>
+<p>修改默认端口9090</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/cockpit.socket</span><br></pre></td></tr></table></figure>
+
+<p>启动cockpit</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start cockpit</span><br></pre></td></tr></table></figure>
+
+<p>开机自启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/cockpit.service </span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后加上下面两行</span></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出编辑，加入系统启动</span></span><br><span class="line">systemctl enable cockpit</span><br></pre></td></tr></table></figure>
+
 <p>防火墙配置</p>
-<pre><code class="shell">firewall-cmd --add-port=9090/tcp --permanent
-firewall-cmd --reload    
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-port=9090/tcp --permanent</span><br><span class="line">firewall-cmd --reload	</span><br></pre></td></tr></table></figure>
+
 <p>登录<br>在任意浏览器输入IP地址+端口号（<a href="https://ip:9090）">https://ip:9090）</a></p>
 
     </div>

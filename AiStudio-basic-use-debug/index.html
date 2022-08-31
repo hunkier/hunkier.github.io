@@ -322,40 +322,8 @@
 
 <p>对应代码如下, 大家可以运行起来试一下.</p>
 <p>In [1]</p>
-<pre><code class="python">import pdb
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyScrapy</span>:</span></span><br><span class="line">    urls = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_url</span>(<span class="params">self, urls</span>):</span></span><br><span class="line">        pdb.set_trace()</span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">            <span class="built_in">print</span>(url)</span><br><span class="line">            self.urls.append(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span>(<span class="params">self</span>):</span></span><br><span class="line">        pdb.set_trace()</span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> self.urls:</span><br><span class="line">            result = self.request_something(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">request_something</span>(<span class="params">self, url</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;requesting...&#x27;</span>)</span><br><span class="line">        data = <span class="string">&#x27;&#x27;&#x27;&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="string">&lt;html lang=&quot;en&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;head&gt;</span></span><br><span class="line"><span class="string">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;title&gt;Title&lt;/title&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scrapy= MyScrapy()</span><br><span class="line">scrapy.start_url([<span class="string">&quot;http://www.zone7.cn&quot;</span>, <span class="string">&quot;http://www.zone7.cn&quot;</span>, <span class="string">&quot;http://www.zone7.cn&quot;</span>, <span class="string">&quot;http://www.zone7.cn&quot;</span>, ])</span><br><span class="line">scrapy.parse()</span><br></pre></td></tr></table></figure>
 
-class MyScrapy:
-    urls = []
-
-    def start_url(self, urls):
-        pdb.set_trace()
-        for url in urls:
-            print(url)
-            self.urls.append(url)
-
-    def parse(self):
-        pdb.set_trace()
-        for url in self.urls:
-            result = self.request_something(url)
-
-    def request_something(self, url):
-        print(&#39;requesting...&#39;)
-        data = &#39;&#39;&#39;&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;/body&gt;
-&lt;/html&gt;&#39;&#39;&#39;
-        return data
-
-
-scrapy= MyScrapy()
-scrapy.start_url([&quot;http://www.zone7.cn&quot;, &quot;http://www.zone7.cn&quot;, &quot;http://www.zone7.cn&quot;, &quot;http://www.zone7.cn&quot;, ])
-scrapy.parse()
-</code></pre>
 <p>下面是详细使用说明, 主要内容参考 <a href="https://howchoo.com/g/zgi2y2iwyze/debugging-your-python-code">howchoo</a></p>
 <p><img src="https://ai-studio-static-online.cdn.bcebos.com/adb216d833604fff86cec8d7aa68b5b512e3a6b10d204198a2b37903bd29dcb1" alt="img"></p>
 <p>Python具有一个整洁的调试功能（像大多数其他语言一样），在这种情况下非常方便。本指南是快速教程，希望能让您的生活更轻松</p>
@@ -363,58 +331,15 @@ scrapy.parse()
 <p>该程序采用两个命令行参数并执行加法和减法操作。</p>
 <p>（让我们假设用户输入有效值，因此我们不是错误处理）。</p>
 <p>In [2]</p>
-<pre><code class="python">import sys
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">num1=<span class="number">0</span>, num2=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(num1) + <span class="built_in">int</span>(num2)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span>(<span class="params">num1=<span class="number">0</span>, num2=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(num1) - <span class="built_in">int</span>(num2)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment">#Assuming our inputs are valid numbers</span></span><br><span class="line">    num1 = <span class="number">0</span></span><br><span class="line">    num2 = <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    addition = add(num1, num2)</span><br><span class="line">    <span class="built_in">print</span> (addition)</span><br><span class="line">    </span><br><span class="line">    subtraction = sub(num1, num2)</span><br><span class="line">    <span class="built_in">print</span> (subtraction)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"><span class="number">2</span></span><br><span class="line">-<span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-def add(num1=0, num2=0):
-    return int(num1) + int(num2)
-
-def sub(num1=0, num2=0):
-    return int(num1) - int(num2)
-
-def main():
-    #Assuming our inputs are valid numbers
-    num1 = 0
-    num2 = 2
-    
-    addition = add(num1, num2)
-    print (addition)
-    
-    subtraction = sub(num1, num2)
-    print (subtraction)
-
-if __name__ == &#39;__main__&#39;:
-    main()
-2
--2
-</code></pre>
 <h1 id="2-pdb来了"><a href="#2-pdb来了" class="headerlink" title="2. pdb来了"></a>2. pdb来了</h1><p>Python附带了一个名为pdb的有用模块，它基本上是一个交互式源代码调试器。</p>
 <p>您需要以下几行来实际使用此模块</p>
-<pre><code>import pdb
-pdb.set_trace()
-</code></pre>
-<p>In [3]</p>
-<pre><code class="python">import pdb
-import sys
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import pdb</span><br><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure>
 
-def add(num1=0, num2=0):
-    return int(num1) + int(num2)
-    
-def sub(num1=0, num2=0):
-    return int(num1) - int(num2)
-    
-def main():
-    #Assuming our inputs are valid numbers
-    num1 = 33
-    num2 = 44
-    pdb.set_trace() # &lt;-- 这个表示添加断点
-    addition = add(num1, num2)
-    print (addition)
-    subtraction = sub(num1, num2)
-    print (subtraction)
-    
-if __name__ == &#39;__main__&#39;:
-    main()
-</code></pre>
+<p>In [3]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">num1=<span class="number">0</span>, num2=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(num1) + <span class="built_in">int</span>(num2)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span>(<span class="params">num1=<span class="number">0</span>, num2=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(num1) - <span class="built_in">int</span>(num2)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment">#Assuming our inputs are valid numbers</span></span><br><span class="line">    num1 = <span class="number">33</span></span><br><span class="line">    num2 = <span class="number">44</span></span><br><span class="line">    pdb.set_trace() <span class="comment"># &lt;-- 这个表示添加断点</span></span><br><span class="line">    addition = add(num1, num2)</span><br><span class="line">    <span class="built_in">print</span> (addition)</span><br><span class="line">    subtraction = sub(num1, num2)</span><br><span class="line">    <span class="built_in">print</span> (subtraction)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
 <p>一旦开始运行, 会出现交互框</p>
 <p>如下图所示:</p>
 <p><img src="https://ai-studio-static-online.cdn.bcebos.com/6e50855df42e478898e8d34f8048d01d9d3c9b3a17e04ed4a432ec032130907d" alt="img"></p>
@@ -429,8 +354,8 @@ if __name__ == &#39;__main__&#39;:
 <p>注意： 另一个很酷的功能是点击’返回键’执行你以前的命令（在这种情况下只是n）。</p>
 <h1 id="4-打印-gt-p"><a href="#4-打印-gt-p" class="headerlink" title="4. 打印 - &gt; p"></a>4. 打印 - &gt; p</h1><p>让我们再次开始调试我们的程序。（你可以点击c使pdb跳到最后或直到下一个断点。由于我们没有任何程序将完成执行）。</p>
 <p>现在，如果我们想知道num1或num2包含什么，我们可以在输入框里输入：</p>
-<pre><code>p num1
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p num1</span><br></pre></td></tr></table></figure>
+
 <p>如截图所示:</p>
 <p><img src="https://ai-studio-static-online.cdn.bcebos.com/684676cd8e5346e0bc7ba08004a47d882d6f134ab8d147628245f497e84bc0f5" alt="img"></p>
 <p>回车</p>
@@ -463,10 +388,10 @@ if __name__ == &#39;__main__&#39;:
 <li>r(eturn) 继续执行，直到函数体返回</li>
 </ul>
 <p>In [14]</p>
-<pre><code class="bash">#如发现环境中未安装, 可以运行下方代码来安装ipdb
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如发现环境中未安装, 可以运行下方代码来安装ipdb</span></span><br><span class="line"></span><br><span class="line">!pip install ipdb -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 
-!pip install ipdb -i https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
+
+
 <p>原文地址：<a href="https://aistudio.baidu.com/aistudio/projectdetail/69987">https://aistudio.baidu.com/aistudio/projectdetail/69987</a></p>
 
     </div>

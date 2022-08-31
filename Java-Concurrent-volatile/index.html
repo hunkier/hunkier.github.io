@@ -352,13 +352,13 @@
 <p>volatile是如何来保证可见性的呢？让我们在X86处理器下通过工具获取JIT编译器生成的汇编指令来查看对volatile进行写操作时，CPU会做什么事情。</p>
 <p>Java代码如下。</p>
 <hr>
-<pre><code class="java">instance = new Singleton();                 // instance是volatile变量
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">instance = <span class="keyword">new</span> Singleton();                 <span class="comment">// instance是volatile变量</span></span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>转变成汇编代码，如下。</p>
 <hr>
-<pre><code class="basic">0x01a3de1d: movb $0×0,0×1104800(%esi);0x01a3de24: lock addl $0×0,(%esp);
-</code></pre>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>x01a3de1d: movb $<span class="number">0</span>×<span class="number">0</span>,<span class="number">0</span>×<span class="number">1104800</span>(%esi);<span class="number">0</span>x01a3de24: lock addl $<span class="number">0</span>×<span class="number">0</span>,(%esp);</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>有volatile变量修饰的共享变量进行写操作的时候会多出第二行汇编代码，通过查IA-32架构软件开发者手册可知，Lock前缀的指令在多核处理器下会引发了两件事情 。</p>
 <p>1）将当前处理器缓存行的数据写回到系统内存。</p>
@@ -370,22 +370,8 @@
 <p>2.volatile的使用优化</p>
 <p>著名的Java并发编程大师Doug lea在JDK 7的并发包里新增一个队列集合类LinkedTransferQueue，它在使用volatile变量时，用一种追加字节的方式来优化队列出队和入队的性能。LinkedTransferQueue的代码如下。</p>
 <hr>
-<pre><code class="java">/** 队列中的头部节点 */
-private transient f?inal PaddedAtomicReference&lt;QNode&gt; head;
-/** 队列中的尾部节点 */
-private transient f?inal PaddedAtomicReference&lt;QNode&gt; tail;
-static f?inal class PaddedAtomicReference &lt;T&gt; extends AtomicReference T&gt; &#123;
-     // 使用很多4个字节的引用追加到64个字节
-     Object p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, pa, pb, pc, pd, pe;
-     PaddedAtomicReference(T r) &#123;
-        super(r);
-     &#125;
-&#125;
-public class AtomicReference &lt;V&gt; implements java.io.Serializable &#123;
-     private volatile V value;
-     // 省略其他代码
-｝
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 队列中的头部节点 */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> f?inal PaddedAtomicReference&lt;QNode&gt; head;</span><br><span class="line"><span class="comment">/** 队列中的尾部节点 */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> f?inal PaddedAtomicReference&lt;QNode&gt; tail;</span><br><span class="line"><span class="keyword">static</span> f?inal <span class="class"><span class="keyword">class</span> <span class="title">PaddedAtomicReference</span> &lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">AtomicReference</span> <span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">     <span class="comment">// 使用很多4个字节的引用追加到64个字节</span></span><br><span class="line">     Object p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, pa, pb, pc, pd, pe;</span><br><span class="line">     PaddedAtomicReference(T r) &#123;</span><br><span class="line">        <span class="keyword">super</span>(r);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AtomicReference</span> &lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">volatile</span> V value;</span><br><span class="line">     <span class="comment">// 省略其他代码</span></span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>追加字节能优化性能 ？这种方式看起来很神奇，但如果深入理解处理器架构就能理解其中的奥秘。让我们先来看看LinkedTransferQueue这个类，它使用一个内部类类型来定义队列的头节点（head）和尾节点（tail），而这个内部类PaddedAtomicReference相对于父类AtomicReference只做了一件事情，就是将共享变量追加到64字节。我们可以来计算下，一个对象的引用占4个字节，它追加了15个变量（共占60个字节），再加上父类的value变量，一共64个字节。</p>
 <p>为什么追加64字节能够提高并发编程的效率呢 ？因为对于英特尔酷睿i7、酷睿、Atom和NetBurst，以及Core Solo和Pentium M处理器的L1、L2或L3缓存的高速缓存行是64个字节宽，不支持部分填充缓存行，这意味着，如果队列的头节点和尾节点都不足64字节的话，处理器会将它们都读到同一个高速缓存行中，在多处理器下每个处理器都会缓存同样的头、尾节点，当一个处理器试图修改头节点时，会将整个缓存行锁定，那么在缓存一致性机制的作用下，会导致其他处理器不能访问自己高速缓存中的尾节点，而队列的入队和出队操作则需要不停修改头节点和尾节点，所以在多处理器的情况下将会严重影响到队列的入队和出队效率。Doug lea使用追加到64字节的方式来填满高速缓冲区的缓存行，避免头节点和尾节点加载到同一个缓存行，使头、尾节点在修改时不会互相锁定。</p>

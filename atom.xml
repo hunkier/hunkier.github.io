@@ -77,11 +77,11 @@
 &lt;p&gt;”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;最大连接数限制&quot;&gt;&lt;a href=&quot;#最大连接数限制&quot; class=&quot;headerlink&quot; title=&quot;最大连接数限制&quot;&gt;&lt;/a&gt;最大连接数限制&lt;/h2&gt;&lt;p&gt;最大连接数限制就是系统所能打开的最大文件数（文件描述符）的限制，分全局和进程两种，相应的命令如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;$ sysctl kern.maxfiles
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; sysctl kern.maxfiles&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;输出&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;kern.maxfiles: 12288
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;kern.maxfiles: 12288&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;说明：全局限制，也就是系统默认的最大连接数限制是12288&lt;/p&gt;</summary>
     
     
@@ -162,17 +162,11 @@
     <updated>2020-11-16T01:20:44.360Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;python基础语法&quot;&gt;&lt;a href=&quot;#python基础语法&quot; class=&quot;headerlink&quot; title=&quot;python基础语法&quot;&gt;&lt;/a&gt;python基础语法&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;#1.基础操作
-age = 20          # 声明一个变量age 用来存储一个数字 20
-1+1                # 基础数学加法
-print(&amp;#39;Hello World!&amp;#39;)   # 打印Hello World!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;#2.条件判断if
-if 1 == 2: # 如果 if 跟随的条件为 假 那么不执行属于if 的语句,然后寻找 else
-    print(&amp;quot;假的&amp;quot;)
-else: # 寻找到 else 之后 执行属于else中的语句
-    print(&amp;quot;1==2是假的&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;python基础语法&quot;&gt;&lt;a href=&quot;#python基础语法&quot; class=&quot;headerlink&quot; title=&quot;python基础语法&quot;&gt;&lt;/a&gt;python基础语法&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#1.基础操作&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;age = &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;  		&lt;span class=&quot;comment&quot;&gt;# 声明一个变量age 用来存储一个数字 20&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;		        &lt;span class=&quot;comment&quot;&gt;# 基础数学加法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;Hello World!&amp;#x27;&lt;/span&gt;)   &lt;span class=&quot;comment&quot;&gt;# 打印Hello World!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#2.条件判断if&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; == &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;: &lt;span class=&quot;comment&quot;&gt;# 如果 if 跟随的条件为 假 那么不执行属于if 的语句,然后寻找 else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;假的&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;: &lt;span class=&quot;comment&quot;&gt;# 寻找到 else 之后 执行属于else中的语句&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;1==2是假的&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -223,29 +217,7 @@ else: # 寻找到 else 之后 执行属于else中的语句
     
     <summary type="html">&lt;p&gt;由于AI Studio使用了Notebook为主要编辑器, 因此也引入了一些iPython操作. 特别示例说明&lt;/p&gt;
 &lt;p&gt;AI Studio的Notebook项目的基本操作.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;项目启停
-执行和调试
-多文件代码编辑
-上传Notebook
-Notebook快捷键
-暗黑模式
-字号调节
-Notebook中使用Shell命令
-    使用pip来安装自己需要的package (但不支持apt-get)
-    查看当前环境中安装的package
-    持久化安装
-        使用git命令来同步代码 (暂时需要Paddle 1.4.1以上)
-    文件下载
-Python代码执行与调试
-变量监控
-Magic命令
-     %env：设置环境变量
-     %run: 运行python代码
-     %%writefile and %pycat: 导出cell内容/显示外部脚本的内容
-关于快速查看某个对象/方法/接口的用法
-关于变量监控
-关于调试代码
-&lt;/code&gt;&lt;/pre&gt;</summary>
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;项目启停&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;执行和调试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;多文件代码编辑&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;上传Notebook&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Notebook快捷键&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;暗黑模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;字号调节&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Notebook中使用Shell命令&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    使用pip来安装自己需要的package (但不支持apt-get)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    查看当前环境中安装的package&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    持久化安装&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        使用git命令来同步代码 (暂时需要Paddle 1.4.1以上)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    文件下载&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Python代码执行与调试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;变量监控&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Magic命令&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     %env：设置环境变量&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     %run: 运行python代码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     %%writefile and %pycat: 导出cell内容/显示外部脚本的内容&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;关于快速查看某个对象/方法/接口的用法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;关于变量监控&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;关于调试代码&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -302,8 +274,8 @@ Magic命令
     <summary type="html">&lt;h1 id=&quot;一、系统环境&quot;&gt;&lt;a href=&quot;#一、系统环境&quot; class=&quot;headerlink&quot; title=&quot;一、系统环境&quot;&gt;&lt;/a&gt;一、系统环境&lt;/h1&gt;&lt;p&gt;1、Centos7-64位&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;二、配置Erlang安装环境&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;1）&lt;a href=&quot;https://packagecloud.io/rabbitmq/erlang/install#bash-rpm&quot;&gt;完成erlang的前置条件配置&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;没有报错则一切正常&lt;/p&gt;</summary>
     
     
@@ -340,11 +312,11 @@ Magic命令
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
+    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
+    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
     
   </entry>
   
@@ -367,11 +339,11 @@ Magic命令
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
-    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
     
   </entry>
   
@@ -523,8 +495,7 @@ Magic命令
     
     
     <summary type="html">&lt;p&gt;第一步： 执行如下命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;cd /etc/yum.repos.d/
-&lt;/code&gt;&lt;/pre&gt;</summary>
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd /etc/yum.repos.d/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

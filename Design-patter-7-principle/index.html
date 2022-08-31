@@ -319,94 +319,14 @@
 <p>7）合成复用原则</p>
 <h1 id="三、单一职责原则"><a href="#三、单一职责原则" class="headerlink" title="三、单一职责原则"></a>三、单一职责原则</h1><h2 id="3-1-基本介绍"><a href="#3-1-基本介绍" class="headerlink" title="3.1. 基本介绍"></a>3.1. 基本介绍</h2><p>​        对类来说，即一个类应该只负责一项职责。如果类 A 负责两个不同的职责：职责 1，职责 2 。当职责 1 需要变更改变 A 时，可能造成职责 2 执行错误，所以需要将类 A 的粒度分解为 A1，A2 。</p>
 <h2 id="3-2-应用实例"><a href="#3-2-应用实例" class="headerlink" title="3.2. 应用实例"></a>3.2. 应用实例</h2><p>​        以交通工具案例讲解</p>
-<h3 id="1）方案-1-【分析说明】"><a href="#1）方案-1-【分析说明】" class="headerlink" title="1）方案 1 【分析说明】"></a>1）方案 1 【分析说明】</h3><pre><code class="java">package cn.hunkier.principle.singleresponsibility;
+<h3 id="1）方案-1-【分析说明】"><a href="#1）方案-1-【分析说明】" class="headerlink" title="1）方案 1 【分析说明】"></a>1）方案 1 【分析说明】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.singleresponsibility;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleResponsibility1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Vehicle vehicle = <span class="keyword">new</span> Vehicle();</span><br><span class="line">    vehicle.run(<span class="string">&quot;摩托车&quot;</span>);</span><br><span class="line">    vehicle.run(<span class="string">&quot;汽车&quot;</span>);</span><br><span class="line">    vehicle.run(<span class="string">&quot;飞机&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交通工具类</span></span><br><span class="line"><span class="comment">// 方式 1</span></span><br><span class="line"><span class="comment">// 1. 在方式 1 的 run 方法中，违反了单一职责原则</span></span><br><span class="line"><span class="comment">// 2. 解决的方案非常的简单，根据交通工具运行方法不同，分解成不同类即可</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot;在公路上运行...&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class SingleResponsibility1 &#123;
-  public static void main(String[] args) &#123;
-    Vehicle vehicle = new Vehicle();
-    vehicle.run(&quot;摩托车&quot;);
-    vehicle.run(&quot;汽车&quot;);
-    vehicle.run(&quot;飞机&quot;);
-  &#125;
-&#125;
+<h3 id="2-方案-2-【分析说明】"><a href="#2-方案-2-【分析说明】" class="headerlink" title="2) 方案 2 【分析说明】"></a>2) 方案 2 【分析说明】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.singleresponsibility;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleResponsibility2</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    RoadVehicle roadVehicle = <span class="keyword">new</span> RoadVehicle();</span><br><span class="line">    roadVehicle.run(<span class="string">&quot;摩托车&quot;</span>);</span><br><span class="line">    roadVehicle.run(<span class="string">&quot;汽车&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    AirVehicle airVehicle = <span class="keyword">new</span> AirVehicle();</span><br><span class="line">    airVehicle.run(<span class="string">&quot;飞机&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案 2 的分析</span></span><br><span class="line"><span class="comment">// 1. 遵守单一职责原则</span></span><br><span class="line"><span class="comment">// 2. 但是这样做的改动很大，即将类分解，同时修改客户端</span></span><br><span class="line"><span class="comment">// 3. 改进：直接修改 Vehicle 类，改动的代码会比较少 =&gt; 方案3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RoadVehicle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot;公路运行&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AirVehicle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot;天空运行&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaterVehicle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span></span>&#123;</span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot;水中运行&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// 交通工具类
-// 方式 1
-// 1. 在方式 1 的 run 方法中，违反了单一职责原则
-// 2. 解决的方案非常的简单，根据交通工具运行方法不同，分解成不同类即可
-class Vehicle &#123;
-  public void run(String vehicle) &#123;
-    System.out.println(vehicle + &quot;在公路上运行...&quot;);
-  &#125;
-&#125;
-</code></pre>
-<h3 id="2-方案-2-【分析说明】"><a href="#2-方案-2-【分析说明】" class="headerlink" title="2) 方案 2 【分析说明】"></a>2) 方案 2 【分析说明】</h3><pre><code class="java">package cn.hunkier.principle.singleresponsibility;
-
-public class SingleResponsibility2 &#123;
-  public static void main(String[] args) &#123;
-    RoadVehicle roadVehicle = new RoadVehicle();
-    roadVehicle.run(&quot;摩托车&quot;);
-    roadVehicle.run(&quot;汽车&quot;);
-    
-    AirVehicle airVehicle = new AirVehicle();
-    airVehicle.run(&quot;飞机&quot;);
-  &#125;
-&#125;
+<h3 id="3-方案-3-【分析说明】"><a href="#3-方案-3-【分析说明】" class="headerlink" title="3) 方案 3 【分析说明】"></a>3) 方案 3 【分析说明】</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.singleresponsibility;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleResponsibility3</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Vehicle2 vehicle2 = <span class="keyword">new</span> Vehicle2();</span><br><span class="line">    vehicle2.run(<span class="string">&quot;汽车&quot;</span>);</span><br><span class="line">    vehicle2.runWater(<span class="string">&quot;轮船&quot;</span>);</span><br><span class="line">    vehicle2.runAir(<span class="string">&quot;飞机&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案 3 的分析</span></span><br><span class="line"><span class="comment">// 1. 这种修改方法没有对原来的类做大的修改，只是增加方法</span></span><br><span class="line"><span class="comment">// 2. 这里虽然没有在类这个级别上遵守单一职责原则，但是在方法级别上，仍然是遵守单一职责</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle2</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理</span></span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot; 在公路上运行...&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runAir</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理</span></span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot; 在天空上运行...&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runWater</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理</span></span><br><span class="line">    System.out.println(vehicle + <span class="string">&quot; 在水中运行...&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-// 方案 2 的分析
-// 1. 遵守单一职责原则
-// 2. 但是这样做的改动很大，即将类分解，同时修改客户端
-// 3. 改进：直接修改 Vehicle 类，改动的代码会比较少 =&gt; 方案3
 
-class RoadVehicle &#123;
-  public void run(String vehicle) &#123;
-    System.out.println(vehicle + &quot;公路运行&quot;);
-  &#125;
-&#125;
-
-class AirVehicle &#123;
-  public void run(String vehicle) &#123;
-    System.out.println(vehicle + &quot;天空运行&quot;);
-  &#125;
-&#125;
-
-class WaterVehicle &#123;
-  public void run(String vehicle)&#123;
-    System.out.println(vehicle + &quot;水中运行&quot;);
-  &#125;
-&#125;
-</code></pre>
-<h3 id="3-方案-3-【分析说明】"><a href="#3-方案-3-【分析说明】" class="headerlink" title="3) 方案 3 【分析说明】"></a>3) 方案 3 【分析说明】</h3><pre><code class="java">package cn.hunkier.principle.singleresponsibility;
-
-public class SingleResponsibility3 &#123;
-  public static void main(String[] args) &#123;
-    Vehicle2 vehicle2 = new Vehicle2();
-    vehicle2.run(&quot;汽车&quot;);
-    vehicle2.runWater(&quot;轮船&quot;);
-    vehicle2.runAir(&quot;飞机&quot;);
-  &#125;
-&#125;
-
-
-// 方案 3 的分析
-// 1. 这种修改方法没有对原来的类做大的修改，只是增加方法
-// 2. 这里虽然没有在类这个级别上遵守单一职责原则，但是在方法级别上，仍然是遵守单一职责
-class Vehicle2 &#123;
-  public void run(String vehicle) &#123;
-    // 处理
-    System.out.println(vehicle + &quot; 在公路上运行...&quot;);
-  &#125;
-  public void runAir(String vehicle) &#123;
-    // 处理
-    System.out.println(vehicle + &quot; 在天空上运行...&quot;);
-  &#125;
-  public void runWater(String vehicle) &#123;
-    // 处理
-    System.out.println(vehicle + &quot; 在水中运行...&quot;);
-  &#125;
-&#125;
-</code></pre>
 <h3 id="3-3-单一职责原则注意事项和细节"><a href="#3-3-单一职责原则注意事项和细节" class="headerlink" title="3.3. 单一职责原则注意事项和细节"></a>3.3. 单一职责原则注意事项和细节</h3><ol>
 <li>降低类的复杂度，一个类只负责一项职责。</li>
 <li>提高类的可读性，可维护性</li>
@@ -419,195 +339,18 @@ class Vehicle2 &#123;
 <p>将接口 Interface1 拆分为独立的几个接口（这里我们拆分为 3 个接口），类 A 和 类 C 分别与他们需要的接口建立依赖关系。也就是采用接口隔离原则</p>
 <h2 id="4-2-应用实例"><a href="#4-2-应用实例" class="headerlink" title="4.2. 应用实例"></a>4.2. 应用实例</h2><p>1）类 A 通过接口 Interface1 依赖类 B，类 C 通过接口 Interface1 依赖类 D，请编写代码完成此应用实例。</p>
 <p>2）没有使用接口隔离原则代码</p>
-<pre><code class="java">package cn.hunkier.principle.segregation;
-
-public class Segregation1 &#123;
-  public static void main(String[] args)&#123;
-    
-  &#125;
-&#125;
-
-// 接口
-Interface Interface1&#123;
-  void operation1();
-  void operation2();
-  void operation3();
-  void operation4();
-  void operation5();
-&#125;
-
-class B implements Interface1 &#123;
-  public void operation1() &#123;
-    System.out.println(&quot;B 实现了 operation1&quot;);
-  &#125;
-  
-  public void operation2() &#123;
-    System.out.println(&quot;B 实现了 operation2 &quot;);
-  &#125;
-  
-  public void operation3() &#123;
-    System.out.println(&quot;B 实现了 operation3 &quot;);
-  &#125;
-  
-  public void operation4() &#123;
-    System.out.println(&quot;B 实现了 operation4 &quot;);
-  &#125;
-  
-  public void operation5() &#123;
-    System.out.println(&quot;B 实现了 operation5 &quot;);
-  &#125;
-&#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.segregation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Segregation1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口</span></span><br><span class="line">Interface Interface1&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation1&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation2 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation3 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation4 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation5 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation1&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation2 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation3 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation4 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation5 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123; <span class="comment">// A 类通过接口 Interface1 依赖（使用）B 类，但是只会用到 1，2，3 方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation1();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend2</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation2();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend3</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation3();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123; <span class="comment">// C 类通过接口 Interface1 依赖（使用）D 类，但是只会用到 1，4，5 方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation1();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend4</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation5();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend5</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation5();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-class D implements Interface1 &#123;
-  public void operation1() &#123;
-    System.out.println(&quot;D 实现了 operation1&quot;);
-  &#125;
-  
-  public void operation2() &#123;
-    System.out.println(&quot;D 实现了 operation2 &quot;);
-  &#125;
-  
-  public void operation3() &#123;
-    System.out.println(&quot;D 实现了 operation3 &quot;);
-  &#125;
-  
-  public void operation4() &#123;
-    System.out.println(&quot;D 实现了 operation4 &quot;);
-  &#125;
-  
-  public void operation5() &#123;
-    System.out.println(&quot;D 实现了 operation5 &quot;);
-  &#125;
-&#125;
 
-
-class A&#123; // A 类通过接口 Interface1 依赖（使用）B 类，但是只会用到 1，2，3 方法
-  public void depend1(Interface1 i)&#123;
-    i.operation1();
-  &#125;
-  
-  public void depend2(Interface1 i)&#123;
-    i.operation2();
-  &#125;
-  
-  public void depend3(Interface1 i)&#123;
-    i.operation3();
-  &#125;
-  
-&#125;
-
-class C &#123; // C 类通过接口 Interface1 依赖（使用）D 类，但是只会用到 1，4，5 方法
-  public void depend1(Interface1 i)&#123;
-    i.operation1();
-  &#125;
-  
-  public void depend4(Interface1 i)&#123;
-    i.operation5();
-  &#125;
-  
-  public void depend5(Interface1 i)&#123;
-    i.operation5();
-  &#125;
-  
-&#125;
-</code></pre>
 <h2 id="4-3-使用传统方法的问题和使用接口隔离原则改进"><a href="#4-3-使用传统方法的问题和使用接口隔离原则改进" class="headerlink" title="4.3.  使用传统方法的问题和使用接口隔离原则改进"></a>4.3.  使用传统方法的问题和使用接口隔离原则改进</h2><p>1）类 A 通过接口 Ingerface1 依赖类 B，类 C 通过接口 Interface1 依赖类 D，如果接口 Interface1 对于类 A 和 类 C来说不是最小接口，那么类 B 和类 D 必须去实现他们不需要的方法</p>
 <p>2）将接口 Interface1 拆分为独立的几个接口，类 A 和类 C 分别与他们需要的接口建立依赖关系。也就是采用接口隔离原则</p>
 <p>3）接口 Interface1 中出现的方法，根据实际情况拆分为三个接口：接口 Interface1 包含方法 operation1，Interface2 包含方法 operation2、operation3，接口 Interface3 包含方法 operation4、operation5</p>
 <p>4）代码实现</p>
-<pre><code class="java">package cn.hunkier.principle.segregation.improve;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.segregation.improve;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Segregation1</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  	<span class="comment">// 使用</span></span><br><span class="line">  	A a = <span class="keyword">new</span> A();</span><br><span class="line">  	a.depend1(<span class="keyword">new</span> B()); <span class="comment">// A 类通过接口去依赖 B 类</span></span><br><span class="line">  	a.depend2(<span class="keyword">new</span> B());</span><br><span class="line">  	a.depend3(<span class="keyword">new</span> B());</span><br><span class="line">  </span><br><span class="line">  	C c = <span class="keyword">new</span> C();</span><br><span class="line">  </span><br><span class="line">  	c.depend1(<span class="keyword">new</span> D()); <span class="comment">// C 类通过接口去依赖（使用）D 类</span></span><br><span class="line">  	c.depend4(<span class="keyword">new</span> D());</span><br><span class="line">  	c.depend5(<span class="keyword">new</span> D());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口 1</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口 2</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface2</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口 3</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface3</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Interface1</span>, <span class="title">Interface2</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation1 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation2 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;B 实现了 operation3 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">Interface1</span>, <span class="title">Interface2</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation1 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation4 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;D 实现了 operation5 &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; <span class="comment">// A 类通过接口 Interface1、Interface2 依赖（使用）B 类，但是只会用到 1，2，3 方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation1();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend2</span><span class="params">(Interface2 i)</span></span>&#123;</span><br><span class="line">    i.operation2();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend3</span><span class="params">(Interface2 i)</span></span>&#123;</span><br><span class="line">    i.operation3();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123; <span class="comment">// C 类通过接口 Interface1，Interface3 依赖（使用）D 类，但是只会用到方法 1，4，5 </span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span></span>&#123;</span><br><span class="line">    i.operation1();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend4</span><span class="params">(Interface3 i)</span></span>&#123;</span><br><span class="line">    i.operation4();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend5</span><span class="params">(Interface3 i)</span></span>&#123;</span><br><span class="line">    i.operation5();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class Segregation1 &#123;
-  
-  public static void main(String[] args)&#123;
-      // 使用
-      A a = new A();
-      a.depend1(new B()); // A 类通过接口去依赖 B 类
-      a.depend2(new B());
-      a.depend3(new B());
-  
-      C c = new C();
-  
-      c.depend1(new D()); // C 类通过接口去依赖（使用）D 类
-      c.depend4(new D());
-      c.depend5(new D());
-  &#125;
-&#125;
 
-// 接口 1
-interface Interface1 &#123;
-  void operation1();
-&#125;
 
-// 接口 2
-interface Interface2 &#123;
-  void operation2();
-  void operation3();
-&#125;
-
-// 接口 3
-interface Interface3 &#123;
-  void operation4();
-  void operation5();
-&#125;
-
-class B implements Interface1, Interface2 &#123;
-  public void operation1() &#123;
-    System.out.println(&quot;B 实现了 operation1 &quot;);
-  &#125;
-  
-  public void operation2()&#123;
-    System.out.println(&quot;B 实现了 operation2 &quot;);
-  &#125;
-  
-  public void operation3()&#123;
-    System.out.println(&quot;B 实现了 operation3 &quot;);
-  &#125;
-&#125;
-
-class D implements Interface1, Interface2 &#123;
-  public void operation1() &#123;
-    System.out.println(&quot;D 实现了 operation1 &quot;);
-  &#125;
-  
-  public void operation4()&#123;
-    System.out.println(&quot;D 实现了 operation4 &quot;);
-  &#125;
-  
-  public void operation5()&#123;
-    System.out.println(&quot;D 实现了 operation5 &quot;);
-  &#125;
-&#125;
-
-class A &#123; // A 类通过接口 Interface1、Interface2 依赖（使用）B 类，但是只会用到 1，2，3 方法
-  public void depend1(Interface1 i)&#123;
-    i.operation1();
-  &#125;
-  
-  public void depend2(Interface2 i)&#123;
-    i.operation2();
-  &#125;
-  
-  public void depend3(Interface2 i)&#123;
-    i.operation3();
-  &#125;
-&#125;
-
-class C &#123; // C 类通过接口 Interface1，Interface3 依赖（使用）D 类，但是只会用到方法 1，4，5 
-    public void depend1(Interface1 i)&#123;
-    i.operation1();
-  &#125;
-  
-  public void depend4(Interface3 i)&#123;
-    i.operation4();
-  &#125;
-  
-  public void depend5(Interface3 i)&#123;
-    i.operation5();
-  &#125;
-&#125;
-</code></pre>
 <h1 id="5-依赖倒转原则"><a href="#5-依赖倒转原则" class="headerlink" title="5. 依赖倒转原则"></a>5. 依赖倒转原则</h1><h2 id="5-1-基本介绍"><a href="#5-1-基本介绍" class="headerlink" title="5.1.  基本介绍"></a>5.1.  基本介绍</h2><p>依赖倒转原则（Dependence Inversion Principle）是指：</p>
 <p>1）高层模块不应该依赖底层模块，二者都应该依赖器抽象</p>
 <p>2）抽象不应该依赖细节，细节应该依赖抽象</p>
@@ -616,76 +359,13 @@ class C &#123; // C 类通过接口 Interface1，Interface3 依赖（使用）D 
 <p>5）使用接口或者抽象类的目的是制定好规范，而不涉及任何具体的操作，把展现细节的任务交给实现类去完成</p>
 <h2 id="5-2-应用实例"><a href="#5-2-应用实例" class="headerlink" title="5.2. 应用实例"></a>5.2. 应用实例</h2><p>请编程完成 Person 接收消息的功能。</p>
 <p>1）实现方案 1 + 分析说明</p>
-<pre><code class="java">package cn.hunkier.principle.inversion;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.inversion;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DependecyInversion</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> stativ <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Person person = <span class="keyword">new</span> Person();</span><br><span class="line">    person.receive(<span class="keyword">new</span> Email());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Email</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;电子邮件信息：hello，world&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  完成 Person 接收消息的功能</span></span><br><span class="line"><span class="comment">// 方式 1 分析</span></span><br><span class="line"><span class="comment">// 1. 简单，比较容易想到</span></span><br><span class="line"><span class="comment">// 2. 如果我们获取的对象是 微信、短信 等，则新增类，同时 Person 也要增加相应的接收方法</span></span><br><span class="line"><span class="comment">// 3. 解决思路：引入一个抽象的接口 IReceiver，表示接收者，这样 Person 类与接口 IReceiver 发生依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 因为 Emaill，WeiXin 等属于接收的范围，他们各自实现 IReceiver 接口就 ok，这样我们就符合依赖倒转原则</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(Email email)</span> </span>&#123;</span><br><span class="line">    System.out.println(email.getInfo());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class DependecyInversion &#123;
-  public stativ void main(String[] args) &#123;
-    Person person = new Person();
-    person.receive(new Email());
-  &#125;
-&#125;
-
-class Email &#123;
-  public String getInfo()&#123;
-    return &quot;电子邮件信息：hello，world&quot;;
-  &#125;
-&#125;
-
-//  完成 Person 接收消息的功能
-// 方式 1 分析
-// 1. 简单，比较容易想到
-// 2. 如果我们获取的对象是 微信、短信 等，则新增类，同时 Person 也要增加相应的接收方法
-// 3. 解决思路：引入一个抽象的接口 IReceiver，表示接收者，这样 Person 类与接口 IReceiver 发生依赖
-
-// 因为 Emaill，WeiXin 等属于接收的范围，他们各自实现 IReceiver 接口就 ok，这样我们就符合依赖倒转原则
-
-class Person &#123;
-  public void receive(Email email) &#123;
-    System.out.println(email.getInfo());
-  &#125;
-&#125;
-</code></pre>
 <ol start="2">
 <li>实现方案 2 （依赖倒转）+ 分析说明</li>
 </ol>
-<pre><code class="java">package cn.hunkier.principle.inversion.improve;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.inversion.improve;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DependecyInversion</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 客户端无需改变</span></span><br><span class="line">    Person person = <span class="keyword">new</span> Person();</span><br><span class="line">    person.receive(<span class="keyword">new</span> Email());</span><br><span class="line">    person.receive(<span class="keyword">new</span> Weixin());</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IReceiver</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Email</span> <span class="keyword">implements</span> <span class="title">IReceiver</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;电子邮件信息：hello，world&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加微信</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Weixin</span> <span class="keyword">implements</span> <span class="title">IReceiver</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;微信消息：hello，ok&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式 2</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 这里我们是对接口的依赖</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(IReceiver receiver)</span></span>&#123;</span><br><span class="line">    System.out.println(receiver.getInfo());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class DependecyInversion &#123;
-  public static void main(String[] args)&#123;
-    // 客户端无需改变
-    Person person = new Person();
-    person.receive(new Email());
-    person.receive(new Weixin());
-    
-  &#125;
-&#125;
-
-// 定义接口
-interface IReceiver &#123;
-  public String getInfo();
-&#125;
-
-class Email implements IReceiver &#123;
-  public String getInfo() &#123;
-    return &quot;电子邮件信息：hello，world&quot;;
-  &#125;
-&#125;
-
-// 增加微信
-class Weixin implements IReceiver &#123;
-  public String getInfo()&#123;
-    return &quot;微信消息：hello，ok&quot;;
-  &#125;
-&#125;
-
-// 方式 2
-class Person &#123;
-  // 这里我们是对接口的依赖
-  public void receive(IReceiver receiver)&#123;
-    System.out.println(receiver.getInfo());
-  &#125;
-&#125;
-</code></pre>
 <h2 id="5-3-依赖关系传递的三种方式和应用案例"><a href="#5-3-依赖关系传递的三种方式和应用案例" class="headerlink" title="5.3. 依赖关系传递的三种方式和应用案例"></a>5.3. 依赖关系传递的三种方式和应用案例</h2><p>1）接口传递</p>
 <p>​    应用案例代码</p>
 <p>2）构造方法传递</p>
@@ -693,78 +373,8 @@ class Person &#123;
 <p>3） setter 方式传递</p>
 <p>​    应用案例代码</p>
 <p>4）代码演示</p>
-<pre><code class="java">package cn.hunkier.principle.inversion.improve;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hunkier.principle.inversion.improve;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DependencyPass</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ChangHong changhong = <span class="keyword">new</span> ChangHong();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 接口传递</span></span><br><span class="line">    <span class="comment">// OpenAndClose openAndClose = new OpenAndClose();</span></span><br><span class="line">    <span class="comment">// openAndClose.open(changHong);</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过构造器进行依赖传递</span></span><br><span class="line">    <span class="comment">// OpenAndClose openAndClose = new OpenAndClose(changHong);</span></span><br><span class="line">    <span class="comment">// openAndClose.open();</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过 setter 方法进行依赖传递</span></span><br><span class="line">    OpenAndClose openAndClose = <span class="keyword">new</span> OpenAndClose();</span><br><span class="line">    openAndClose.setTv(changHong);</span><br><span class="line">    openAndClose.open();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式 1：通过接口传递实现依赖</span></span><br><span class="line"><span class="comment">// 开关的接口</span></span><br><span class="line"><span class="comment">// interface IOpenAndClose &#123;</span></span><br><span class="line"><span class="comment">//    public void open(ITV tv);// 抽象方法，接收接口	</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// interface ITV &#123; // ITV 接口</span></span><br><span class="line"><span class="comment">//  public void play();</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// class ChongHong implements ITV &#123;</span></span><br><span class="line"><span class="comment">//   @Override</span></span><br><span class="line"><span class="comment">//   public void play() &#123;</span></span><br><span class="line"><span class="comment">//     System.out.println(&quot;长虹电视机，打开&quot;);</span></span><br><span class="line"><span class="comment">//  &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口</span></span><br><span class="line"><span class="comment">// class OpenAndClose implements IOpenAndClose &#123;</span></span><br><span class="line"><span class="comment">//     public void open(ITV tv)&#123;</span></span><br><span class="line"><span class="comment">//        tv.play();</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式 2：通过构造方法依赖传递</span></span><br><span class="line"><span class="comment">// interface IOpenAndClose &#123;</span></span><br><span class="line"><span class="comment">//  	public void open(); // 抽象方法</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// interface ITV &#123; // ITV 接口</span></span><br><span class="line"><span class="comment">//     public void play();</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// class OpenAndClose Implements IOpenAndClose &#123;</span></span><br><span class="line"><span class="comment">//    public ITV iv; // 成员</span></span><br><span class="line"><span class="comment">//  	public OpenAndClose(ITV tv) &#123;</span></span><br><span class="line"><span class="comment">//     		this.tv = tv ;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   public void open() &#123;</span></span><br><span class="line"><span class="comment">//      this.tv.play();</span></span><br><span class="line"><span class="comment">// 		&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//  方法 3，通过 setter 方法传递</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class DependencyPass &#123;
-  public static void main(String[] args) &#123;
-    ChangHong changhong = new ChangHong();
-    
-    // 接口传递
-    // OpenAndClose openAndClose = new OpenAndClose();
-    // openAndClose.open(changHong);
-    
-    // 通过构造器进行依赖传递
-    // OpenAndClose openAndClose = new OpenAndClose(changHong);
-    // openAndClose.open();
-    
-    // 通过 setter 方法进行依赖传递
-    OpenAndClose openAndClose = new OpenAndClose();
-    openAndClose.setTv(changHong);
-    openAndClose.open();
-  &#125;
-&#125;
-
-// 方式 1：通过接口传递实现依赖
-// 开关的接口
-// interface IOpenAndClose &#123;
-//    public void open(ITV tv);// 抽象方法，接收接口    
-//&#125;
-
-// interface ITV &#123; // ITV 接口
-//  public void play();
-//&#125;
-
-// class ChongHong implements ITV &#123;
-//   @Override
-//   public void play() &#123;
-//     System.out.println(&quot;长虹电视机，打开&quot;);
-//  &#125;
-// &#125;
-
-
-// 实现接口
-// class OpenAndClose implements IOpenAndClose &#123;
-//     public void open(ITV tv)&#123;
-//        tv.play();
-//    &#125;
-// &#125;
-
-
-// 方式 2：通过构造方法依赖传递
-// interface IOpenAndClose &#123;
-//      public void open(); // 抽象方法
-// &#125;
-
-// interface ITV &#123; // ITV 接口
-//     public void play();
-// &#125;
-
-// class OpenAndClose Implements IOpenAndClose &#123;
-//    public ITV iv; // 成员
-//      public OpenAndClose(ITV tv) &#123;
-//             this.tv = tv ;
-//   &#125;
-//   public void open() &#123;
-//      this.tv.play();
-//         &#125;
-// &#125;
-
-
-//  方法 3，通过 setter 方法传递
-interface IOpenAndClose &#123;
-  
-&#125;
-</code></pre>
 
     </div>
 

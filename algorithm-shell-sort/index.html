@@ -308,30 +308,8 @@
 <p>​    选择一个增量序列 t1, t2, …, tk, 其中 ti&gt;tj, tk=1;</p>
 <p>2.按增量序列个数 k，对序列进行 k 趟排序；</p>
 <p>3.每趟排序，根据对应的增量 ti，将待排序列分割成若干长度为 m 的子序列，分别对各字表进行直接插入排序。仅增量因子为 1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。</p>
-<pre><code class="java">private void shellSort(int[] a)&#123;
-  int dk = a.length/2;
-  while(dk&gt;1)&#123;
-    ShellInSertSort(a,dk);
-    dk /= 2;
-  &#125;
-&#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> dk = a.length/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">while</span>(dk&gt;<span class="number">1</span>)&#123;</span><br><span class="line">    ShellInSertSort(a,dk);</span><br><span class="line">    dk /= <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ShellInsertSort</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> dk)</span></span>&#123;</span><br><span class="line">  <span class="comment">// 类似插入排序，只是插入排序增量是1，这里增量是 dk，把 1 换成 dk 就可以了</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=dk; i&lt;a.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i]&lt;a[i-dk])&#123;</span><br><span class="line">      <span class="keyword">int</span> j ;</span><br><span class="line">      <span class="keyword">int</span> x = a[i]; <span class="comment">// X 为待插入元素</span></span><br><span class="line">      a[i] = a[i-dk];</span><br><span class="line">      <span class="keyword">for</span>(j=i-dk; j&gt;=<span class="number">0</span> &amp;&amp; x&lt;a[j]; j=j-dk)&#123;</span><br><span class="line">        <span class="comment">// 通过循环，逐个后移一位找到要插入的位置。</span></span><br><span class="line">        a[j+dk] = a[j];</span><br><span class="line">      &#125;</span><br><span class="line">      a[j+dk]=x; <span class="comment">// 插入</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-private void ShellInsertSort(int[] a,int dk)&#123;
-  // 类似插入排序，只是插入排序增量是1，这里增量是 dk，把 1 换成 dk 就可以了
-  for(int i=dk; i&lt;a.length; i++)&#123;
-    if(a[i]&lt;a[i-dk])&#123;
-      int j ;
-      int x = a[i]; // X 为待插入元素
-      a[i] = a[i-dk];
-      for(j=i-dk; j&gt;=0 &amp;&amp; x&lt;a[j]; j=j-dk)&#123;
-        // 通过循环，逐个后移一位找到要插入的位置。
-        a[j+dk] = a[j];
-      &#125;
-      a[j+dk]=x; // 插入
-    &#125;
-  &#125;
-&#125;
-</code></pre>
 
     </div>
 

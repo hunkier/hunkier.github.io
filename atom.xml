@@ -312,11 +312,11 @@
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
-    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
     
   </entry>
   
@@ -339,11 +339,11 @@
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
+    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
+    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
     
   </entry>
   

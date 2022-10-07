@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="​        我们会在“管钱”上栽跟头、走弯路，不是因为这事有多困难，而是因为我们没有像重视自己的工作一样重视它。​        也许你会说，我当然要重视工作了，要不然挣不到钱，又何谈管钱呢？这种想法不是没有道理，但是你有没有想过：为了挣钱而行色匆匆的我们，愿意花100% 的精力在工作上，却从没有停下脚步，花哪怕是 5％ 的时间认真思考下关于“钱”的问题。我们为了挣钱，可以用996 的节奏工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员的个人财富课">
+<meta property="og:url" content="https://hunkier.cn/Personal-Wealth-Course-For-Programmers/index.html">
+<meta property="og:site_name" content="hunkier">
+<meta property="og:description" content="​        我们会在“管钱”上栽跟头、走弯路，不是因为这事有多困难，而是因为我们没有像重视自己的工作一样重视它。​        也许你会说，我当然要重视工作了，要不然挣不到钱，又何谈管钱呢？这种想法不是没有道理，但是你有没有想过：为了挣钱而行色匆匆的我们，愿意花100% 的精力在工作上，却从没有停下脚步，花哪怕是 5％ 的时间认真思考下关于“钱”的问题。我们为了挣钱，可以用996 的节奏工">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-07T03:46:12.000Z">
+<meta property="article:modified_time" content="2022-10-07T14:29:16.067Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="wealth">
+<meta property="article:tag" content="geektime">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://hunkier.cn/Personal-Wealth-Course-For-Programmers/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>程序员的个人财富课 | hunkier</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66022267-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66022267-2');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9a6791fa58c4e04f3a197ec3ce831c0d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="hunkier" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">hunkier</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习笔记，开源代码，技术分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/My-wechat/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">82</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">85</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">59</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/hunkier" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hunkier.cn/Personal-Wealth-Course-For-Programmers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+      <meta itemprop="name" content="hunkier">
+      <meta itemprop="description" content="学习笔记，开源代码，技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hunkier">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          程序员的个人财富课
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-07 11:46:12 / 修改时间：22:29:16" itemprop="dateCreated datePublished" datetime="2022-10-07T11:46:12+08:00">2022-10-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/wealth/" itemprop="url" rel="index"><span itemprop="name">wealth</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/wealth/geektime/" itemprop="url" rel="index"><span itemprop="name">geektime</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Personal-Wealth-Course-For-Programmers/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Personal-Wealth-Course-For-Programmers/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>​        我们会在“管钱”上栽跟头、走弯路，不是因为这事有多困难，而是因为我们没有像重视自己的工作一样重视它。<br>​        也许你会说，我当然要重视工作了，要不然挣不到钱，又何谈管钱呢？这种想法不是没有道理，但是你有没有想过：为了挣钱而行色匆匆的我们，愿意花100% 的精力在工作上，却从没有停下脚步，花哪怕是 5％ 的时间认真思考下关于“钱”的问题。我们为了挣钱，可以用996 的节奏工作，但真的挣到钱了，却总是往那里一放，任其贬值，或者随便投到某些看似会赚钱的地方，被别人收割。这不是很荒谬吗？<br>​        英文中有个词叫“low hanging fruit”，字面意思是“挂得很低的、容易摘的果实”，含义是那些容易实现的目标。我相信，一个真正的聪明人，应该学会用更少的精力去摘到那些生活中的 low hanging fruit。和解决你工作中那些极端刁难人的问题相比，进行有效的财富管理就是“容易摘的果子”。而我要做的，就是教给你正确的财富管理方法，让你能不那么费力地跳一跳，就能摘到这些果子。<br>​        如果你现在把 100%的时间都放在工作、学习上，那么不妨挤出 5%的时间，学习正确的财富管理方法。随着时间的推移，我相信财富管理带给你家庭的收益将逐渐超过工资收入。用5% 的时间，换取至少 50% 的收益，聪明的你不可能错过这笔买卖吧。</p>
+<span id="more"></span>
+
+<h1 id="01-建立属于你自己的财富双塔"><a href="#01-建立属于你自己的财富双塔" class="headerlink" title="01. 建立属于你自己的财富双塔"></a>01. 建立属于你自己的财富双塔</h1><ol>
+<li><p>财富的双塔框架指的是由“个人发展”塔和“投资理财”塔组成的稳固的财富结构；\2. “个人发展”更多需要人的外向型能力，而“投资理财”更多需要人的内向型能力；</p>
+</li>
+<li><p>要尽早让“个人发展”塔和“投资理财”塔互通互助，让财富的飞轮转起来；</p>
+</li>
+</ol>
+<p>.在工作紧张的情况下，还是要提前隔离出思考和处理财富管理问题的时间，只有这样，才能尽早脱离这种疲于应付的状态。</p>
+<h1 id="02-个人发展：你自己发展才是最大的财富源泉"><a href="#02-个人发展：你自己发展才是最大的财富源泉" class="headerlink" title="02.个人发展：你自己发展才是最大的财富源泉"></a>02.个人发展：你自己发展才是最大的财富源泉</h1><ol>
+<li><p>个人价值由三个同心圆组成，它们由内而外依次是“职场价值”“专业延伸价值”和“家庭与人生价值”。</p>
+</li>
+<li><p>在个人发展的道路上，要分清楚什么是财富，什么是收入。财富是能够持续产生收入的个人价值，而收入是一个瞬时量，是你个人价值带来的经济收益。</p>
+</li>
+<li><p>为了有更多时间和精力积累财富型资源，我们要尽量外包消耗型的工作。</p>
+</li>
+<li><p>专业延伸价值并不是你挖空心思凭空创造出来的，更多是在你个人发展的过程中自然生发而来的，你要做的就是用心抓住它们。</p>
+</li>
+</ol>
+<h1 id="03-如何建立稳固的投资理财结构："><a href="#03-如何建立稳固的投资理财结构：" class="headerlink" title="03. 如何建立稳固的投资理财结构："></a>03. 如何建立稳固的投资理财结构：</h1><ol>
+<li><p>所有的投资标的可以分为四大类：固收类、股票类、实物类、新兴类。</p>
+</li>
+<li><p>要尽力了解所有的投资标的大类，设置观察仓就是很好的了解新标的的方法。</p>
+</li>
+<li><p>在做资产配置时，要遵循层级迭代式投资法，自顶向下地规划你的投资行为。</p>
+</li>
+<li><p>记住永久组合的投资比例：25% 股票，25% 债券，25% 黄金，25%货基。</p>
+</li>
+<li><p>要时刻关注自己的大类资产是否存在失衡的情况，如果有，就要制定切实的计划去进行资产再平衡。</p>
+</li>
+</ol>
+<h1 id="04-实战知识：有哪些收益稳健的经典资产配置组合？"><a href="#04-实战知识：有哪些收益稳健的经典资产配置组合？" class="headerlink" title="04. 实战知识：有哪些收益稳健的经典资产配置组合？"></a>04. 实战知识：有哪些收益稳健的经典资产配置组合？</h1><p>可以看出，四种经典资产配置组合中的任何一种，相对于单个资产来说夏普率都有显著提升，明显改善了风险收益特征。也就是说，用远远小于单一资产的回撤水平，获得了跟单一资产中收益最高的股票资产接近的长期年化收益。</p>
+<p>  事实上，在财富管理的过程中，学会应用资产配置的思想，比选择具体的组合方案重要得多。即便你使用的不是这一讲提到的四种经典配置方案，只要投资者将一些相关性较低的资产类别进行组合，并用一个较为均衡的权重来分配，分散化的投资就可以大幅降低你的财富风险，让</p>
+<p>你的收益率更加稳健。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>谢谢你请我喝牛奶</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/assets/img/wechat.png" alt="hunkier 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/assets/img/alipay.png" alt="hunkier 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/hunkied">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/hunkier">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/assets/img/my_wechat.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/wealth/" rel="tag"><i class="fa fa-tag"></i> wealth</a>
+              <a href="/tags/geektime/" rel="tag"><i class="fa fa-tag"></i> geektime</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Web-front/" rel="prev" title="前端常用工具和知识">
+      <i class="fa fa-chevron-left"></i> 前端常用工具和知识
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01-%E5%BB%BA%E7%AB%8B%E5%B1%9E%E4%BA%8E%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E8%B4%A2%E5%AF%8C%E5%8F%8C%E5%A1%94"><span class="nav-number">1.</span> <span class="nav-text">01. 建立属于你自己的财富双塔</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95%EF%BC%9A%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%8F%91%E5%B1%95%E6%89%8D%E6%98%AF%E6%9C%80%E5%A4%A7%E7%9A%84%E8%B4%A2%E5%AF%8C%E6%BA%90%E6%B3%89"><span class="nav-number">2.</span> <span class="nav-text">02.个人发展：你自己发展才是最大的财富源泉</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E7%A8%B3%E5%9B%BA%E7%9A%84%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">03. 如何建立稳固的投资理财结构：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-%E5%AE%9E%E6%88%98%E7%9F%A5%E8%AF%86%EF%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E6%94%B6%E7%9B%8A%E7%A8%B3%E5%81%A5%E7%9A%84%E7%BB%8F%E5%85%B8%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%BB%84%E5%90%88%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">04. 实战知识：有哪些收益稳健的经典资产配置组合？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hunkier"
+      src="/assets/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">hunkier</p>
+  <div class="site-description" itemprop="description">学习笔记，开源代码，技术分享</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hunkier" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hunkier" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:huangkuier@gmail.com" title="E-Mail → mailto:huangkuier@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/hunkied" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;hunkied" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/huang.hunkier" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;huang.hunkier" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备20001211号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hunkier</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hunkier.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://hunkier.cn/Personal-Wealth-Course-For-Programmers/";
+    this.page.identifier = "Personal-Wealth-Course-For-Programmers/";
+    this.page.title = "程序员的个人财富课";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hunkier.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

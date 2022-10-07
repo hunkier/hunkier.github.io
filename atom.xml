@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2022-08-08T01:49:29.139Z</updated>
+  <updated>2022-10-07T14:29:16.067Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序员的个人财富课</title>
+    <link href="https://hunkier.cn/Personal-Wealth-Course-For-Programmers/"/>
+    <id>https://hunkier.cn/Personal-Wealth-Course-For-Programmers/</id>
+    <published>2022-10-07T03:46:12.000Z</published>
+    <updated>2022-10-07T14:29:16.067Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;​        我们会在“管钱”上栽跟头、走弯路，不是因为这事有多困难，而是因为我们没有像重视自己的工作一样重视它。&lt;br&gt;​        也许你会说，我当然要重视工作了，要不然挣不到钱，又何谈管钱呢？这种想法不是没有道理，但是你有没有想过：为了挣钱而行色匆匆的我们，愿意花100% 的精力在工作上，却从没有停下脚步，花哪怕是 5％ 的时间认真思考下关于“钱”的问题。我们为了挣钱，可以用996 的节奏工作，但真的挣到钱了，却总是往那里一放，任其贬值，或者随便投到某些看似会赚钱的地方，被别人收割。这不是很荒谬吗？&lt;br&gt;​        英文中有个词叫“low hanging fruit”，字面意思是“挂得很低的、容易摘的果实”，含义是那些容易实现的目标。我相信，一个真正的聪明人，应该学会用更少的精力去摘到那些生活中的 low hanging fruit。和解决你工作中那些极端刁难人的问题相比，进行有效的财富管理就是“容易摘的果子”。而我要做的，就是教给你正确的财富管理方法，让你能不那么费力地跳一跳，就能摘到这些果子。&lt;br&gt;​        如果你现在把 100%的时间都放在工作、学习上，那么不妨挤出 5%的时间，学习正确的财富管理方法。随着时间的推移，我相信财富管理带给你家庭的收益将逐渐超过工资收入。用5% 的时间，换取至少 50% 的收益，聪明的你不可能错过这笔买卖吧。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="wealth" scheme="https://hunkier.cn/categories/wealth/"/>
+    
+    <category term="geektime" scheme="https://hunkier.cn/categories/wealth/geektime/"/>
+    
+    
+    <category term="wealth" scheme="https://hunkier.cn/tags/wealth/"/>
+    
+    <category term="geektime" scheme="https://hunkier.cn/tags/geektime/"/>
+    
+  </entry>
   
   <entry>
     <title>前端常用工具和知识</title>
@@ -312,11 +335,11 @@
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
+    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
+    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
     
   </entry>
   
@@ -339,11 +362,11 @@
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
-    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
     
   </entry>
   
@@ -530,34 +553,6 @@
     <category term="设计模式" scheme="https://hunkier.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     <category term="七大原则" scheme="https://hunkier.cn/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 https 协议部署博客</title>
-    <link href="https://hunkier.cn/deploy-blog-with-https/"/>
-    <id>https://hunkier.cn/deploy-blog-with-https/</id>
-    <published>2019-12-15T08:48:34.000Z</published>
-    <updated>2020-05-22T14:16:17.549Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;https 成为互联网标配，自然得跟上，给自己的博客用加密版的传输协议 https。&lt;/p&gt;
-&lt;p&gt;首先需要一个域名和一台拥有固定外网 ip 的服务器，使域名可以解析到该服务器上。&lt;a href=&quot;https://caddyserver.com/&quot;&gt;caddy&lt;/a&gt; 可以自动能够向 Let’s Encrypt 申请和续期免费证书，有效期为 3 个月， 到期后自动续期。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="https" scheme="https://hunkier.cn/categories/https/"/>
-    
-    <category term="blog" scheme="https://hunkier.cn/categories/https/blog/"/>
-    
-    <category term="caddy" scheme="https://hunkier.cn/categories/https/blog/caddy/"/>
-    
-    
-    <category term="blog" scheme="https://hunkier.cn/tags/blog/"/>
-    
-    <category term="https" scheme="https://hunkier.cn/tags/https/"/>
-    
-    <category term="caddy" scheme="https://hunkier.cn/tags/caddy/"/>
     
   </entry>
   

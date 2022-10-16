@@ -459,6 +459,13 @@
   </url>
   
   <url>
+    <loc>https://hunkier.cn/tags/sshd/</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/tags/github/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
@@ -474,13 +481,6 @@
   
   <url>
     <loc>https://hunkier.cn/tags/hexo/</loc>
-    <lastmod>2022-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/tags/sshd/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -536,14 +536,14 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/CentOS-Linux-Users/</loc>
+    <loc>https://hunkier.cn/tags/chrome/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/chrome/</loc>
+    <loc>https://hunkier.cn/tags/CentOS-Linux-Users/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1021,14 +1021,14 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/github/</loc>
+    <loc>https://hunkier.cn/categories/centos/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/centos/</loc>
+    <loc>https://hunkier.cn/categories/github/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1196,13 +1196,6 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/github/blog/</loc>
-    <lastmod>2022-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/categories/centos/sshd/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
@@ -1210,7 +1203,7 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/centos/PaddleOCR/</loc>
+    <loc>https://hunkier.cn/categories/github/blog/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1218,6 +1211,13 @@
   
   <url>
     <loc>https://hunkier.cn/categories/centos/linux/</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/categories/centos/PaddleOCR/</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

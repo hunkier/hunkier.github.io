@@ -95,6 +95,54 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 修改ssh 端口</title>
+    <url>/CentOS-7-Modify-sshd-port/</url>
+    <content><![CDATA[<h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉</span><br><span class="line"></span><br><span class="line">Port 33378      //下面添加这一行</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">添加到防火墙：</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --add-port=<span class="number">33378</span>/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)</span><br><span class="line">重启：</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">查看添加端口是否成功，如果添加成功则会显示yes，否则no</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --query-port=<span class="number">33378</span>/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改SELinux"><a href="#修改SELinux" class="headerlink" title="修改SELinux"></a>修改SELinux</h2><p>使用以下命令查看当前SElinux 允许的ssh端口：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>添加33378端口到 SELinux</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -a -t ssh_port_t -p tcp 33378</span><br></pre></td></tr></table></figure>
+
+
+<p>然后确认一下是否添加进去</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
+
+
+<p>如果成功会输出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh_port_t                    tcp    33378, 22</span><br></pre></td></tr></table></figure>
+
+<p>重启ssh</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+
+<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+<h1 id="解决CentOS7-下-SSH登录慢的问题"><a href="#解决CentOS7-下-SSH登录慢的问题" class="headerlink" title="解决CentOS7 下 SSH登录慢的问题"></a>解决CentOS7 下 SSH登录慢的问题</h1><p>登陆SSH时 输入完用户名后要等一会才能输入密码，经总结下面方案可解决此问题。</p>
+<p>修改sshd_config以下两处，重启ssh即可。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/ssh/sshd_config</span></span><br><span class="line">GSSAPIAuthentication no</span><br><span class="line">UseDNS no</span><br></pre></td></tr></table></figure>
+
+<p>重启 ssh</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> systemctl restart sshd</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>centos</category>
+        <category>sshd</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>sshd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Github安装hexo博客</title>
     <url>/Blog-Hexo-Install/</url>
     <content><![CDATA[<ul>
@@ -298,51 +346,88 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS 7 修改ssh 端口</title>
-    <url>/CentOS-7-Modify-sshd-port/</url>
-    <content><![CDATA[<h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉</span><br><span class="line"></span><br><span class="line">Port 33378      //下面添加这一行</span><br></pre></td></tr></table></figure>
+    <title>CentOS 7 设置DNS服务器</title>
+    <url>/CentOS-7-Seting-DNS-Server/</url>
+    <content><![CDATA[<p>CentOS 7需要使用全新的命令行工具 nmcli 来设置</p>
+<h5 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli connection show</span><br><span class="line">NAME     UUID                                  TYPE      DEVICE</span><br><span class="line">cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0</span><br><span class="line">docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0</span><br><span class="line">enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0</span><br><span class="line">virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 
-<h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">添加到防火墙：</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --add-port=<span class="number">33378</span>/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)</span><br><span class="line">重启：</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">查看添加端口是否成功，如果添加成功则会显示yes，否则no</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --query-port=<span class="number">33378</span>/tcp</span><br></pre></td></tr></table></figure>
+<h5 id="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"><a href="#修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识" class="headerlink" title="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"></a>修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con mod enp2s0  ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;</span><br><span class="line">[root@bogon ~]#</span><br></pre></td></tr></table></figure>
 
-<h2 id="修改SELinux"><a href="#修改SELinux" class="headerlink" title="修改SELinux"></a>修改SELinux</h2><p>使用以下命令查看当前SElinux 允许的ssh端口：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
+<h5 id="将dns配置生效"><a href="#将dns配置生效" class="headerlink" title="将dns配置生效"></a>将dns配置生效</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con up enp2s0</span><br><span class="line">Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)</span><br></pre></td></tr></table></figure>
 
-<p>添加33378端口到 SELinux</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -a -t ssh_port_t -p tcp 33378</span><br></pre></td></tr></table></figure>
-
-
-<p>然后确认一下是否添加进去</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
-
-
-<p>如果成功会输出</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh_port_t                    tcp    33378, 22</span><br></pre></td></tr></table></figure>
-
-<p>重启ssh</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
-
-<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
-<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
-<h1 id="解决CentOS7-下-SSH登录慢的问题"><a href="#解决CentOS7-下-SSH登录慢的问题" class="headerlink" title="解决CentOS7 下 SSH登录慢的问题"></a>解决CentOS7 下 SSH登录慢的问题</h1><p>登陆SSH时 输入完用户名后要等一会才能输入密码，经总结下面方案可解决此问题。</p>
-<p>修改sshd_config以下两处，重启ssh即可。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/ssh/sshd_config</span></span><br><span class="line">GSSAPIAuthentication no</span><br><span class="line">UseDNS no</span><br></pre></td></tr></table></figure>
-
-<p>重启 ssh</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> systemctl restart sshd</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
+<h5 id="测试网络"><a href="#测试网络" class="headerlink" title="测试网络"></a>测试网络</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# ping www.baidu.com</span><br><span class="line">PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data.</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms</span><br><span class="line">^C</span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 4005ms</span><br><span class="line">rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms</span><br><span class="line">[root@bogon ~]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>centos</category>
-        <category>sshd</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>centos</tag>
-        <tag>sshd</tag>
+        <tag>DNS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS  firewall添加开放端口</title>
+    <url>/CentOS-7-firewall/</url>
+    <content><![CDATA[<p>添加</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent  </span><br></pre></td></tr></table></figure>
+
+
+<p>  （ <code>–permanent</code> 永久生效，没有此参数重启后失效）</p>
+<p>查看</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br></pre></td></tr></table></figure>
+
+<p>删除</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<p>重新载入</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>1、firewalld的基本使用</p>
+<p>启动： <code>systemctl start firewalld</code></p>
+<p>查看状态： <code>systemctl status firewalld</code></p>
+<p>停止： <code>systemctl disable firewalld</code></p>
+<p>禁用： <code>systemctl stop firewalld</code></p>
+<p>2.<code>systemctl</code>是 <code>CentOS 7</code> 的服务管理工具中主要的工具，它融合之前 <code>service</code> 和 <code>chkconfig</code> 的功能于一体。</p>
+<p>启动一个服务：<code>systemctl start firewalld.service</code><br>关闭一个服务：<code>systemctl stop firewalld.service</code><br>重启一个服务：<code>systemctl restart firewalld.service</code><br>显示一个服务的状态：<code>systemctl status firewalld.service</code><br>在开机时启用一个服务：<code>systemctl enable firewalld.service</code><br>在开机时禁用一个服务：<code>systemctl disable firewalld.service</code><br>查看服务是否开机启动：<code>systemctl is-enabled firewalld.service</code><br>查看已启动的服务列表：<code>systemctl list-unit-files|grep enabled</code><br>查看启动失败的服务列表：<code>systemctl --failed</code></p>
+<p>3.配置firewalld-cmd</p>
+<p>查看版本： <code>firewall-cmd --version</code></p>
+<p>查看帮助： <code>firewall-cmd --help</code></p>
+<p>显示状态： <code>firewall-cmd --state</code></p>
+<p>查看所有打开的端口： <code>firewall-cmd --zone=public --list-ports</code></p>
+<p>更新防火墙规则： <code>firewall-cmd --reload</code></p>
+<p>查看区域信息:  <code>firewall-cmd --get-active-zones</code></p>
+<p>查看指定接口所属区域： <code>firewall-cmd --get-zone-of-interface=eth0</code></p>
+<p>拒绝所有包：<code>firewall-cmd --panic-on</code></p>
+<p>取消拒绝状态： <code>firewall-cmd --panic-off</code></p>
+<p>查看是否拒绝： <code>firewall-cmd --query-panic</code></p>
+<p>那怎么开启一个端口呢<br>接下来通过以下命令开放http 80 端口：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --add-service=http --permanent</span><br><span class="line">sudo firewall-cmd --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+
+<p>命令末尾的 <code>—permanent</code> 表示用久有效，不加这句的话重启后刚才开放的端口就又失效了。</p>
+<p>然后重启防火墙：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+
+<p>再次查看端口的开放情况：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<p>查看</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-service=http</span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br></pre></td></tr></table></figure>
+
+<p>删除</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-service=http --permanent</span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>centos firewall</category>
+      </categories>
+      <tags>
+        <tag>centos firewall</tag>
       </tags>
   </entry>
   <entry>
@@ -535,91 +620,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS 7 设置DNS服务器</title>
-    <url>/CentOS-7-Seting-DNS-Server/</url>
-    <content><![CDATA[<p>CentOS 7需要使用全新的命令行工具 nmcli 来设置</p>
-<h5 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli connection show</span><br><span class="line">NAME     UUID                                  TYPE      DEVICE</span><br><span class="line">cni0     b2b8f5f9-acd2-42fd-9ec9-a76282425cd9  bridge    cni0</span><br><span class="line">docker0  33ebd49e-fd1b-4a2c-8261-c0463f4f4146  bridge    docker0</span><br><span class="line">enp2s0   b6579214-0ba6-4bf0-9319-2e0e4f584afd  ethernet  enp2s0</span><br><span class="line">virbr0   976717ae-c3ae-4582-aa09-039c26bef80d  bridge    virbr0</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h5 id="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"><a href="#修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识" class="headerlink" title="修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识"></a>修改当前网络连接对应的DNS服务器，这里的网络连接可以用名称或者UUID来标识</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con mod enp2s0  ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;</span><br><span class="line">[root@bogon ~]#</span><br></pre></td></tr></table></figure>
-
-<h5 id="将dns配置生效"><a href="#将dns配置生效" class="headerlink" title="将dns配置生效"></a>将dns配置生效</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# nmcli con up enp2s0</span><br><span class="line">Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)</span><br></pre></td></tr></table></figure>
-
-<h5 id="测试网络"><a href="#测试网络" class="headerlink" title="测试网络"></a>测试网络</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@bogon ~]# ping www.baidu.com</span><br><span class="line">PING www.a.shifen.com (14.215.177.39) 56(84) bytes of data.</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=1 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=2 ttl=53 time=5.60 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=3 ttl=53 time=5.48 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=4 ttl=53 time=8.57 ms</span><br><span class="line">64 bytes from 14.215.177.39 (14.215.177.39): icmp_seq=5 ttl=53 time=5.54 ms</span><br><span class="line">^C</span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 4005ms</span><br><span class="line">rtt min/avg/max/mdev = 5.485/6.138/8.575/1.222 ms</span><br><span class="line">[root@bogon ~]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>centos</category>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>DNS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS  firewall添加开放端口</title>
-    <url>/CentOS-7-firewall/</url>
-    <content><![CDATA[<p>添加</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent  </span><br></pre></td></tr></table></figure>
-
-
-<p>  （ <code>–permanent</code> 永久生效，没有此参数重启后失效）</p>
-<p>查看</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br></pre></td></tr></table></figure>
-
-<p>删除</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<p>重新载入</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>1、firewalld的基本使用</p>
-<p>启动： <code>systemctl start firewalld</code></p>
-<p>查看状态： <code>systemctl status firewalld</code></p>
-<p>停止： <code>systemctl disable firewalld</code></p>
-<p>禁用： <code>systemctl stop firewalld</code></p>
-<p>2.<code>systemctl</code>是 <code>CentOS 7</code> 的服务管理工具中主要的工具，它融合之前 <code>service</code> 和 <code>chkconfig</code> 的功能于一体。</p>
-<p>启动一个服务：<code>systemctl start firewalld.service</code><br>关闭一个服务：<code>systemctl stop firewalld.service</code><br>重启一个服务：<code>systemctl restart firewalld.service</code><br>显示一个服务的状态：<code>systemctl status firewalld.service</code><br>在开机时启用一个服务：<code>systemctl enable firewalld.service</code><br>在开机时禁用一个服务：<code>systemctl disable firewalld.service</code><br>查看服务是否开机启动：<code>systemctl is-enabled firewalld.service</code><br>查看已启动的服务列表：<code>systemctl list-unit-files|grep enabled</code><br>查看启动失败的服务列表：<code>systemctl --failed</code></p>
-<p>3.配置firewalld-cmd</p>
-<p>查看版本： <code>firewall-cmd --version</code></p>
-<p>查看帮助： <code>firewall-cmd --help</code></p>
-<p>显示状态： <code>firewall-cmd --state</code></p>
-<p>查看所有打开的端口： <code>firewall-cmd --zone=public --list-ports</code></p>
-<p>更新防火墙规则： <code>firewall-cmd --reload</code></p>
-<p>查看区域信息:  <code>firewall-cmd --get-active-zones</code></p>
-<p>查看指定接口所属区域： <code>firewall-cmd --get-zone-of-interface=eth0</code></p>
-<p>拒绝所有包：<code>firewall-cmd --panic-on</code></p>
-<p>取消拒绝状态： <code>firewall-cmd --panic-off</code></p>
-<p>查看是否拒绝： <code>firewall-cmd --query-panic</code></p>
-<p>那怎么开启一个端口呢<br>接下来通过以下命令开放http 80 端口：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --add-service=http --permanent</span><br><span class="line">sudo firewall-cmd --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-
-<p>命令末尾的 <code>—permanent</code> 表示用久有效，不加这句的话重启后刚才开放的端口就又失效了。</p>
-<p>然后重启防火墙：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-
-<p>再次查看端口的开放情况：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
-
-<p>查看</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-service=http</span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br></pre></td></tr></table></figure>
-
-<p>删除</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-service=http --permanent</span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>centos firewall</category>
-      </categories>
-      <tags>
-        <tag>centos firewall</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS 7 安装 go-fastdfs</title>
     <url>/CentOS-7-install-GoFastdfs/</url>
     <content><![CDATA[<p>CentOS 7 安装go-fastdfs文件服务</p>
@@ -787,6 +787,88 @@
       <tags>
         <tag>centos</tag>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS 7 安装 PaddleOCR HubServing</title>
+    <url>/CentOS-7-install-PaddleOCR-hubserving/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>  <a href="https://github.com/PaddlePaddle/PaddleOCR">PaddleOCR</a>旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。</p>
+ <span id="more"></span>
+
+<h2 id="查看本机的操作系统和位数信息"><a href="#查看本机的操作系统和位数信息" class="headerlink" title="查看本机的操作系统和位数信息"></a>查看本机的操作系统和位数信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname -m &amp;&amp; cat /etc/*release</span><br></pre></td></tr></table></figure>
+
+
+<p>确认需要安装 PaddlePaddle 的 Python 是您预期的位置，因为您计算机可能有多个 Python</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">which</span> python3</span><br></pre></td></tr></table></figure>
+
+<p>如果您是使用 Python 3，使用以下命令确认是 3.5.1+/3.6/3.7</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p>需要确认pip的版本是否满足要求，要求pip版本为9.0.1+</p>
+<p>如果您是使用 Python 3</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m ensurepip</span><br><span class="line"></span><br><span class="line">python3 -m pip --version</span><br></pre></td></tr></table></figure>
+
+
+<p>需要确认Python和pip是64bit，并且处理器架构是x86_64（或称作x64、Intel 64、AMD64）架构，目前PaddlePaddle不支持arm64架构。下面的第一行输出的是”64bit”，第二行输出的是”x86_64”、”x64”或”AMD64”即可：</p>
+<p>使用 Python 3</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import platform;print(platform.architecture()[0]);print(platform.machine())&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>若没有安装 安装 python3 和 pip3 则使用下面命令安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install python3 python3-pip -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新-pip3"><a href="#更新-pip3" class="headerlink" title="更新 pip3"></a>更新 pip3</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="comment"># 或者使用百度源</span></span><br><span class="line">pip3 install --upgrade pip -i https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-paddlepaddle"><a href="#安装-paddlepaddle" class="headerlink" title="安装 paddlepaddle"></a>安装 paddlepaddle</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install paddlepaddle==1.8.5 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-paddlehub"><a href="#安装-paddlehub" class="headerlink" title="安装 paddlehub"></a>安装 paddlehub</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install paddlehub --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>若安装过程没有报错，则安装成功。</p>
+<p>若提升 timeout 超时，重新运行安装命令，或者更换源后再次运行命令</p>
+<p>若出现版本不匹配错误，如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.</span><br><span class="line"></span><br><span class="line">We recommend you use --use-feature=2020-resolver to <span class="built_in">test</span> your packages with the new resolver before it becomes the default.</span><br><span class="line"></span><br><span class="line">paddlepaddle 1.7.2 requires matplotlib&lt;=2.2.4, but you<span class="string">&#x27;ll have matplotlib 3.3.2 which is incompatible.</span></span><br></pre></td></tr></table></figure>
+<p>手动安装指定版本依赖，命令如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install matplotlib==2.2.4 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>解决依赖错误后，重新运行响应安装命令则可安装成功</p>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/PaddlePaddle/PaddleOCR</span><br></pre></td></tr></table></figure>
+
+<p>移动到指定路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv PaddleOCR /PaddleOCR</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR </span><br><span class="line">pip3 install -r requirments.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /PaddleOCR/inference &amp;&amp;  <span class="built_in">cd</span> /PaddleOCR/inference &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/det/ch_ppocr_mobile_v1.1_det_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_det_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/cls/ch_ppocr_mobile_v1.1_cls_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_cls_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/rec/ch_ppocr_mobile_v1.1_rec_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_rec_infer.tar -C /PaddleOCR/inference </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="安装模型"><a href="#安装模型" class="headerlink" title="安装模型"></a>安装模型</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp;  <span class="built_in">export</span> PYTHONPATH=. &amp;&amp; \</span><br><span class="line">hub install deploy/hubserving/ocr_system/</span><br></pre></td></tr></table></figure>
+
+<p>出现：<code>Successfully installed ocr_system</code> 则安装成功</p>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp; <span class="built_in">export</span> PYTHONPATH=. &amp;&amp;  \</span><br><span class="line">hub serving start -m ocr_system</span><br></pre></td></tr></table></figure>
+<p>出现 <code>Running on http://0.0.0.0:8866/</code> 等信息，表示运行成功</p>
+<p>若要在后台一直运行，运行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp; <span class="built_in">export</span> PYTHONPATH=. &amp;&amp;  \</span><br><span class="line">nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h2><p>a. 计算待识别图片的Base64编码</p>
+<p>b. 发送服务请求</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Content-Type:application/json&quot;</span> -X POST --data <span class="string">&quot;&#123;\&quot;images\&quot;: [\&quot;填入图片Base64编码(需要删除&#x27;data:image/jpg;base64,&#x27;）\&quot;]&#125;&quot;</span> http://localhost:8866/predict/ocr_system</span><br></pre></td></tr></table></figure>
+<p>c. 返回结果（如果调用成功，会返回如下结果）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">&quot;msg&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;results&quot;</span>:[[&#123;<span class="string">&quot;confidence&quot;</span>:0.8403433561325073,<span class="string">&quot;text&quot;</span>:<span class="string">&quot;约定&quot;</span>,<span class="string">&quot;text_region&quot;</span>:[[345,377],[641,390],[634,540],[339,528]]&#125;,&#123;<span class="string">&quot;confidence&quot;</span>:0.8131805658340454,<span class="string">&quot;text&quot;</span>:<span class="string">&quot;最终相遇&quot;</span>,<span class="string">&quot;text_region&quot;</span>:[[356,532],[624,530],[624,596],[356,598]]&#125;]],<span class="string">&quot;status&quot;</span>:<span class="string">&quot;0&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>centos</category>
+        <category>PaddleOCR</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>PaddleOCR</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -978,88 +1060,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS 7 安装 PaddleOCR HubServing</title>
-    <url>/CentOS-7-install-PaddleOCR-hubserving/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>  <a href="https://github.com/PaddlePaddle/PaddleOCR">PaddleOCR</a>旨在打造一套丰富、领先、且实用的OCR工具库，助力使用者训练出更好的模型，并应用落地。</p>
- <span id="more"></span>
-
-<h2 id="查看本机的操作系统和位数信息"><a href="#查看本机的操作系统和位数信息" class="headerlink" title="查看本机的操作系统和位数信息"></a>查看本机的操作系统和位数信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname -m &amp;&amp; cat /etc/*release</span><br></pre></td></tr></table></figure>
-
-
-<p>确认需要安装 PaddlePaddle 的 Python 是您预期的位置，因为您计算机可能有多个 Python</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">which</span> python3</span><br></pre></td></tr></table></figure>
-
-<p>如果您是使用 Python 3，使用以下命令确认是 3.5.1+/3.6/3.7</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
-
-<p>需要确认pip的版本是否满足要求，要求pip版本为9.0.1+</p>
-<p>如果您是使用 Python 3</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m ensurepip</span><br><span class="line"></span><br><span class="line">python3 -m pip --version</span><br></pre></td></tr></table></figure>
-
-
-<p>需要确认Python和pip是64bit，并且处理器架构是x86_64（或称作x64、Intel 64、AMD64）架构，目前PaddlePaddle不支持arm64架构。下面的第一行输出的是”64bit”，第二行输出的是”x86_64”、”x64”或”AMD64”即可：</p>
-<p>使用 Python 3</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import platform;print(platform.architecture()[0]);print(platform.machine())&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>若没有安装 安装 python3 和 pip3 则使用下面命令安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install python3 python3-pip -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新-pip3"><a href="#更新-pip3" class="headerlink" title="更新 pip3"></a>更新 pip3</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="comment"># 或者使用百度源</span></span><br><span class="line">pip3 install --upgrade pip -i https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-paddlepaddle"><a href="#安装-paddlepaddle" class="headerlink" title="安装 paddlepaddle"></a>安装 paddlepaddle</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install paddlepaddle==1.8.5 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-paddlehub"><a href="#安装-paddlehub" class="headerlink" title="安装 paddlehub"></a>安装 paddlehub</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install paddlehub --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-<p>若安装过程没有报错，则安装成功。</p>
-<p>若提升 timeout 超时，重新运行安装命令，或者更换源后再次运行命令</p>
-<p>若出现版本不匹配错误，如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.</span><br><span class="line"></span><br><span class="line">We recommend you use --use-feature=2020-resolver to <span class="built_in">test</span> your packages with the new resolver before it becomes the default.</span><br><span class="line"></span><br><span class="line">paddlepaddle 1.7.2 requires matplotlib&lt;=2.2.4, but you<span class="string">&#x27;ll have matplotlib 3.3.2 which is incompatible.</span></span><br></pre></td></tr></table></figure>
-<p>手动安装指定版本依赖，命令如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install matplotlib==2.2.4 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-<p>解决依赖错误后，重新运行响应安装命令则可安装成功</p>
-<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/PaddlePaddle/PaddleOCR</span><br></pre></td></tr></table></figure>
-
-<p>移动到指定路径</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv PaddleOCR /PaddleOCR</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR </span><br><span class="line">pip3 install -r requirments.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /PaddleOCR/inference &amp;&amp;  <span class="built_in">cd</span> /PaddleOCR/inference &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/det/ch_ppocr_mobile_v1.1_det_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_det_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/cls/ch_ppocr_mobile_v1.1_cls_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_cls_infer.tar -C /PaddleOCR/inference  &amp;&amp;  \</span><br><span class="line">wget -c https://paddleocr.bj.bcebos.com/20-09-22/mobile/rec/ch_ppocr_mobile_v1.1_rec_infer.tar &amp;&amp;  \</span><br><span class="line">tar xf /PaddleOCR/inference/ch_ppocr_mobile_v1.1_rec_infer.tar -C /PaddleOCR/inference </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="安装模型"><a href="#安装模型" class="headerlink" title="安装模型"></a>安装模型</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp;  <span class="built_in">export</span> PYTHONPATH=. &amp;&amp; \</span><br><span class="line">hub install deploy/hubserving/ocr_system/</span><br></pre></td></tr></table></figure>
-
-<p>出现：<code>Successfully installed ocr_system</code> 则安装成功</p>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp; <span class="built_in">export</span> PYTHONPATH=. &amp;&amp;  \</span><br><span class="line">hub serving start -m ocr_system</span><br></pre></td></tr></table></figure>
-<p>出现 <code>Running on http://0.0.0.0:8866/</code> 等信息，表示运行成功</p>
-<p>若要在后台一直运行，运行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /PaddleOCR &amp;&amp; <span class="built_in">export</span> PYTHONPATH=. &amp;&amp;  \</span><br><span class="line">nohup hub serving start -m ocr_system &gt;&gt; /PaddleOCR/hub.log  2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-<h2 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h2><p>a. 计算待识别图片的Base64编码</p>
-<p>b. 发送服务请求</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Content-Type:application/json&quot;</span> -X POST --data <span class="string">&quot;&#123;\&quot;images\&quot;: [\&quot;填入图片Base64编码(需要删除&#x27;data:image/jpg;base64,&#x27;）\&quot;]&#125;&quot;</span> http://localhost:8866/predict/ocr_system</span><br></pre></td></tr></table></figure>
-<p>c. 返回结果（如果调用成功，会返回如下结果）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">&quot;msg&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;results&quot;</span>:[[&#123;<span class="string">&quot;confidence&quot;</span>:0.8403433561325073,<span class="string">&quot;text&quot;</span>:<span class="string">&quot;约定&quot;</span>,<span class="string">&quot;text_region&quot;</span>:[[345,377],[641,390],[634,540],[339,528]]&#125;,&#123;<span class="string">&quot;confidence&quot;</span>:0.8131805658340454,<span class="string">&quot;text&quot;</span>:<span class="string">&quot;最终相遇&quot;</span>,<span class="string">&quot;text_region&quot;</span>:[[356,532],[624,530],[624,596],[356,598]]&#125;]],<span class="string">&quot;status&quot;</span>:<span class="string">&quot;0&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>centos</category>
-        <category>PaddleOCR</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>PaddleOCR</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS 7 安装 Redis</title>
     <url>/CentOS-7-install-Redis/</url>
     <content><![CDATA[<p>CentOS 7 安装Redis</p>
@@ -1229,38 +1229,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS 用户相关操作</title>
-    <url>/CentOS-Users/</url>
-    <content><![CDATA[<p>Centos 用户相关操作</p>
-<p>查看centos中的用户和用户组<br>1、用户列表文件：<code>/etc/passwd/</code></p>
-<p>2、用户组列表文件：<code>/etc/group</code></p>
-<p>3、查看系统中有哪些用户：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>4、查看可以登录系统的用户：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1</span><br></pre></td></tr></table></figure>
-
-<p>5、查看用户操作：<code>w命令(需要root权限)</code></p>
-<p>6、查看某一用户：<code>w 用户名</code></p>
-<p>7、查看登录用户：<code>who</code></p>
-<p>8、查看用户登录历史记录：<code>last</code></p>
-<p>9、修改root用户密码：</p>
-<p><code>passwd</code></p>
-<p>10、root用户修改其他用户密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd &lt;user_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>11、查看系统版本：<code>cat /etc/redhat-release</code></p>
-<p>12、删除用户 <code>userdel 用户名</code></p>
-<p>13、查看组 <code>cat /etc/group</code></p>
-<p>14、删除组 <code>groupdel 组名</code></p>
-]]></content>
-      <tags>
-        <tag>CentOS Linux Users</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS 7 安装 google chrome</title>
     <url>/CentOS-7-install-google-chrome/</url>
     <content><![CDATA[<p>第一步： 执行如下命令：</p>
@@ -1290,6 +1258,38 @@
       <tags>
         <tag>centos</tag>
         <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS 用户相关操作</title>
+    <url>/CentOS-Users/</url>
+    <content><![CDATA[<p>Centos 用户相关操作</p>
+<p>查看centos中的用户和用户组<br>1、用户列表文件：<code>/etc/passwd/</code></p>
+<p>2、用户组列表文件：<code>/etc/group</code></p>
+<p>3、查看系统中有哪些用户：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>4、查看可以登录系统的用户：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1</span><br></pre></td></tr></table></figure>
+
+<p>5、查看用户操作：<code>w命令(需要root权限)</code></p>
+<p>6、查看某一用户：<code>w 用户名</code></p>
+<p>7、查看登录用户：<code>who</code></p>
+<p>8、查看用户登录历史记录：<code>last</code></p>
+<p>9、修改root用户密码：</p>
+<p><code>passwd</code></p>
+<p>10、root用户修改其他用户密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd &lt;user_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>11、查看系统版本：<code>cat /etc/redhat-release</code></p>
+<p>12、删除用户 <code>userdel 用户名</code></p>
+<p>13、查看组 <code>cat /etc/group</code></p>
+<p>14、删除组 <code>groupdel 组名</code></p>
+]]></content>
+      <tags>
+        <tag>CentOS Linux Users</tag>
       </tags>
   </entry>
   <entry>
@@ -3204,6 +3204,20 @@ date -s  ‘2018-12-14 10:50:00’
 <li>探索阶段是最难的，在这个阶段寻找能够让主业也受益的副业方向，是平衡时间投入最有效的手段；</li>
 <li>坚持，坚持，坚持。最重要的事情说三遍，否则前面所有的分析都毫无意义。</li>
 </ol>
+<h1 id="12-房产投资：如何做出理性的买房决策？"><a href="#12-房产投资：如何做出理性的买房决策？" class="headerlink" title="12 房产投资：如何做出理性的买房决策？"></a>12 房产投资：如何做出理性的买房决策？</h1><p>​        如果你准备购买投资房，我有两个建议。这些建议的依据是房地产的长期行业规律，而且每一条都经过了我不下五次的验证：</p>
+<p>​        <strong>第一，尽可能不要在房价暴涨的时候投资。</strong></p>
+<p>​        典型的时间段是 2016 年全年、2017 年初，以及 2021年初至 2021年 7月。由于房地产的跳涨特点，房价一旦开始上涨，就一定是大幅上涨，这就意味着你错过了交易的最佳窗口。</p>
+<p>​        <strong>第二，尽可能在房价进入稳定期后两到三年买房、换房。</strong></p>
+<p>​        中国的房地产价格周期一般是 4-5 年，比如北京最近的一个房地产周期是2017 年到 2021年，如果你在周期内的第三年购房，极有可能在未来一到两年遇到一轮上涨行情。不同国家房地产的价格周期各不相同，比如美国的房地产价格周期是 7 年左右（疫情期间的特殊行情除外），同样要把握好购房的节奏感。</p>
+<p>​        上面两条建议，也回答了这一讲开头提出的“什么是合适的购房时间节点”的问题。虽然我们这里讲的是购买投资房，其实在购买首套房时也要考虑房价周期的影响。虽然我们知道要尽早上车，但同时也要避免在当前周期的高点买入。</p>
+<p>​        到这里，我们就层次递进式地讨论清楚了买房决策中最重要的几个问题。</p>
+<ul>
+<li>要不要考虑买房这个问题？答：要。</li>
+<li>首套房该不该买，什么时候买？答：要买，而且要尽早买。</li>
+<li>购买首套房时，应该注意的最关键问题是什么？答：预算控制。</li>
+<li>该不该购买投资性房产？答：现阶段，房产只能算一个不太差的投资标的，如果你其他标的的投资能力强，不要再考虑房产投资。</li>
+<li>如何把握买房时间节点，买到价格相对便宜的房子？答：考虑房地产的跳涨特征和价格周期的影响，建议在房价进入稳定期后两到三年购房。</li>
+</ul>
 ]]></content>
       <categories>
         <category>wealth</category>

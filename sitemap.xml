@@ -4,7 +4,7 @@
   <url>
     <loc>https://hunkier.cn/Personal-Wealth-Course-For-Programmers/</loc>
     
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     
   </url>
   
@@ -508,14 +508,14 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/nginx/</loc>
+    <loc>https://hunkier.cn/tags/mysql/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/mysql/</loc>
+    <loc>https://hunkier.cn/tags/nginx/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -662,7 +662,7 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/AbstractQueuedSynchronizer/</loc>
+    <loc>https://hunkier.cn/tags/lock/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -683,7 +683,7 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/lock/</loc>
+    <loc>https://hunkier.cn/tags/AbstractQueuedSynchronizer/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -851,13 +851,6 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/vmware/</loc>
-    <lastmod>2022-10-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/tags/web/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
@@ -866,6 +859,13 @@
   
   <url>
     <loc>https://hunkier.cn/tags/front/</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/tags/vmware/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1203,13 +1203,6 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/centos/PaddleOCR/</loc>
-    <lastmod>2022-10-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/categories/centos/sshd/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
@@ -1224,6 +1217,13 @@
   </url>
   
   <url>
+    <loc>https://hunkier.cn/categories/centos/PaddleOCR/</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/categories/centos/go-fastdfs/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
@@ -1231,14 +1231,14 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/centos/nginx/</loc>
+    <loc>https://hunkier.cn/categories/centos/mysql/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/centos/mysql/</loc>
+    <loc>https://hunkier.cn/categories/centos/nginx/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1364,14 +1364,14 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/linux/centos/</loc>
+    <loc>https://hunkier.cn/categories/web/front/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/web/front/</loc>
+    <loc>https://hunkier.cn/categories/linux/centos/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1511,14 +1511,14 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/java/algorithm/bubble-sort/</loc>
+    <loc>https://hunkier.cn/categories/java/algorithm/biSearch/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/java/algorithm/biSearch/</loc>
+    <loc>https://hunkier.cn/categories/java/algorithm/bubble-sort/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

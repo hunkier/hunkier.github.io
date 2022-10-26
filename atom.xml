@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2022-10-26T13:05:04.374Z</updated>
+  <updated>2022-10-26T16:11:44.718Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hunkier.cn/Personal-Wealth-Course-For-Programmers/"/>
     <id>https://hunkier.cn/Personal-Wealth-Course-For-Programmers/</id>
     <published>2022-10-07T03:46:12.000Z</published>
-    <updated>2022-10-26T13:05:04.374Z</updated>
+    <updated>2022-10-26T16:11:44.718Z</updated>
     
     
     <summary type="html">&lt;p&gt;  我们会在“管钱”上栽跟头、走弯路，不是因为这事有多困难，而是因为我们没有像重视自己的工作一样重视它。&lt;/p&gt;
@@ -338,11 +338,11 @@
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
+    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
+    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="AbstractQueuedSynchronizer" scheme="https://hunkier.cn/tags/AbstractQueuedSynchronizer/"/>
     
   </entry>
   
@@ -365,11 +365,11 @@
     
     <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
     
-    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
-    
     <category term="java" scheme="https://hunkier.cn/tags/java/"/>
     
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
+    
+    <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
     
   </entry>
   

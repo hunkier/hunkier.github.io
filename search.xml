@@ -298,6 +298,54 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 修改ssh 端口</title>
+    <url>/CentOS-7-Modify-sshd-port/</url>
+    <content><![CDATA[<h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉</span><br><span class="line"></span><br><span class="line">Port 33378      //下面添加这一行</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">添加到防火墙：</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --add-port=<span class="number">33378</span>/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)</span><br><span class="line">重启：</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">查看添加端口是否成功，如果添加成功则会显示yes，否则no</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --query-port=<span class="number">33378</span>/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改SELinux"><a href="#修改SELinux" class="headerlink" title="修改SELinux"></a>修改SELinux</h2><p>使用以下命令查看当前SElinux 允许的ssh端口：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>添加33378端口到 SELinux</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -a -t ssh_port_t -p tcp 33378</span><br></pre></td></tr></table></figure>
+
+
+<p>然后确认一下是否添加进去</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
+
+
+<p>如果成功会输出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh_port_t                    tcp    33378, 22</span><br></pre></td></tr></table></figure>
+
+<p>重启ssh</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+
+<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
+<h1 id="解决CentOS7-下-SSH登录慢的问题"><a href="#解决CentOS7-下-SSH登录慢的问题" class="headerlink" title="解决CentOS7 下 SSH登录慢的问题"></a>解决CentOS7 下 SSH登录慢的问题</h1><p>登陆SSH时 输入完用户名后要等一会才能输入密码，经总结下面方案可解决此问题。</p>
+<p>修改sshd_config以下两处，重启ssh即可。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/ssh/sshd_config</span></span><br><span class="line">GSSAPIAuthentication no</span><br><span class="line">UseDNS no</span><br></pre></td></tr></table></figure>
+
+<p>重启 ssh</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> systemctl restart sshd</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>centos</category>
+        <category>sshd</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>sshd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AI Studio基本操作(一) Notebook篇</title>
     <url>/AiStudio-basic-use-notebook/</url>
     <content><![CDATA[<p>由于AI Studio使用了Notebook为主要编辑器, 因此也引入了一些iPython操作. 特别示例说明</p>
@@ -484,54 +532,6 @@
         <tag>centos</tag>
         <tag>PaddleOCR</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS 7 修改ssh 端口</title>
-    <url>/CentOS-7-Modify-sshd-port/</url>
-    <content><![CDATA[<h2 id="修改-etc-ssh-sshd-config"><a href="#修改-etc-ssh-sshd-config" class="headerlink" title="修改/etc/ssh/sshd_config"></a>修改/etc/ssh/sshd_config</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">Port 22         //这行去掉#号，防止配置不好以后不能远程登录，还得去机房修改，等修改以后的端口能使用以后在注释掉</span><br><span class="line"></span><br><span class="line">Port 33378      //下面添加这一行</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="修改firewall配置"><a href="#修改firewall配置" class="headerlink" title="修改firewall配置"></a>修改firewall配置</h2><p>firewall添加想要修改的ssh端口：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">添加到防火墙：</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --add-port=<span class="number">33378</span>/tcp --permanent (permanent是保存配置，不然下次重启以后这次修改无效)</span><br><span class="line">重启：</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">查看添加端口是否成功，如果添加成功则会显示yes，否则no</span><br><span class="line">firewall-cmd <span class="attr">--zone</span>=public --query-port=<span class="number">33378</span>/tcp</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改SELinux"><a href="#修改SELinux" class="headerlink" title="修改SELinux"></a>修改SELinux</h2><p>使用以下命令查看当前SElinux 允许的ssh端口：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
-
-<p>添加33378端口到 SELinux</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -a -t ssh_port_t -p tcp 33378</span><br></pre></td></tr></table></figure>
-
-
-<p>然后确认一下是否添加进去</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
-
-
-<p>如果成功会输出</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh_port_t                    tcp    33378, 22</span><br></pre></td></tr></table></figure>
-
-<p>重启ssh</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
-
-<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
-<p>测试新端口的ssh连接<br>测试修改端口以后的ssh连接，如果成功则将step1里面的port 22 重新注释掉</p>
-<h1 id="解决CentOS7-下-SSH登录慢的问题"><a href="#解决CentOS7-下-SSH登录慢的问题" class="headerlink" title="解决CentOS7 下 SSH登录慢的问题"></a>解决CentOS7 下 SSH登录慢的问题</h1><p>登陆SSH时 输入完用户名后要等一会才能输入密码，经总结下面方案可解决此问题。</p>
-<p>修改sshd_config以下两处，重启ssh即可。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/ssh/sshd_config</span></span><br><span class="line">GSSAPIAuthentication no</span><br><span class="line">UseDNS no</span><br></pre></td></tr></table></figure>
-
-<p>重启 ssh</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> systemctl restart sshd</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>centos</category>
-        <category>sshd</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>sshd</tag>
       </tags>
   </entry>
   <entry>
@@ -3313,6 +3313,16 @@ date -s  ‘2018-12-14 10:50:00’
 <li>我们的系统会利用日历策略，以及二八轮动策略的满仓版本和可空仓版本，针对沪深 300 指数、中证 500 指数和中证 1000 指数构建量化策略。</li>
 <li>通过对 16 年数据的回测，可以看到，我们构建的“量化一号”实现了 18.8% 的年化收益率和 29.8 % 的最大回撤，和中证 500、沪深 300 的原始指数相比，均有较大改善。</li>
 <li>今天我重点讲解的是数据中心、策略模块、回测平台这三个模块的实现细节，希望你能够对照源码再过一遍，加深理解。</li>
+</ol>
+<h1 id="27-量化实战：从-0-到-1-搭建起一套简单的量化投资系统-（下）"><a href="#27-量化实战：从-0-到-1-搭建起一套简单的量化投资系统-（下）" class="headerlink" title="27 量化实战：从 0 到 1 搭建起一套简单的量化投资系统 （下）"></a>27 量化实战：从 0 到 1 搭建起一套简单的量化投资系统 （下）</h1><ol>
+<li><p>管理模块是整个系统的绝对核心，我们的项目在开盘前调用管理模块，得到当天具体的目标仓位。</p>
+</li>
+<li><p>交易模块是交易的实际执行者。在真实的量化投资系统中，系统会通过自动化交易或者手动交易的方式执行交易模块的功能。</p>
+</li>
+<li><p>业绩分析模块通过分析实盘交易结果，得到系统的业绩情况。</p>
+</li>
+<li><p>接入成熟的量化交易平台可以帮你聚焦在量化策略研发上，实现量化策略 + 手动交易方案。</p>
+</li>
 </ol>
 ]]></content>
       <categories>

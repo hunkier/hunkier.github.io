@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
+    
+    <lastmod>2022-11-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Personal-Wealth-Course-For-Programmers/</loc>
     
-    <lastmod>2022-11-03</lastmod>
+    <lastmod>2022-11-04</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>https://hunkier.cn/Web-front/</loc>
     
     <lastmod>2022-08-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/CentOS-7-install-MySQL-5-7/</loc>
-    
-    <lastmod>2022-03-16</lastmod>
     
   </url>
   
@@ -900,13 +900,6 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/tags/merge-sort/</loc>
-    <lastmod>2022-11-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/tags/quick-sort/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
@@ -922,6 +915,13 @@
   
   <url>
     <loc>https://hunkier.cn/tags/shell-sort/</loc>
+    <lastmod>2022-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/tags/merge-sort/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1014,6 +1014,13 @@
 
   
   <url>
+    <loc>https://hunkier.cn/categories/centos/</loc>
+    <lastmod>2022-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/categories/Debug/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
@@ -1022,13 +1029,6 @@
   
   <url>
     <loc>https://hunkier.cn/categories/github/</loc>
-    <lastmod>2022-11-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/categories/centos/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1189,6 +1189,13 @@
   </url>
   
   <url>
+    <loc>https://hunkier.cn/categories/centos/PaddleOCR/</loc>
+    <lastmod>2022-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/categories/Debug/AiStudio/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
@@ -1204,13 +1211,6 @@
   
   <url>
     <loc>https://hunkier.cn/categories/centos/sshd/</loc>
-    <lastmod>2022-11-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/categories/centos/PaddleOCR/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1420,6 +1420,13 @@
   </url>
   
   <url>
+    <loc>https://hunkier.cn/categories/centos/PaddleOCR/Python/</loc>
+    <lastmod>2022-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/categories/Debug/AiStudio/Python/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
@@ -1428,13 +1435,6 @@
   
   <url>
     <loc>https://hunkier.cn/categories/github/blog/hexo/</loc>
-    <lastmod>2022-11-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/categories/centos/PaddleOCR/Python/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1539,13 +1539,6 @@
   </url>
   
   <url>
-    <loc>https://hunkier.cn/categories/java/algorithm/merge-sort/</loc>
-    <lastmod>2022-11-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hunkier.cn/categories/java/algorithm/quick-sort/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
@@ -1561,6 +1554,13 @@
   
   <url>
     <loc>https://hunkier.cn/categories/java/algorithm/shell-sort/</loc>
+    <lastmod>2022-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hunkier.cn/categories/java/algorithm/merge-sort/</loc>
     <lastmod>2022-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

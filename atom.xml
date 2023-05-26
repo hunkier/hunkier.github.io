@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2022-11-06T01:05:39.722Z</updated>
+  <updated>2023-05-26T14:20:02.221Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flex 布局教程：语法篇</title>
+    <link href="https://hunkier.cn/Flex-grammar/"/>
+    <id>https://hunkier.cn/Flex-grammar/</id>
+    <published>2023-05-26T14:16:10.000Z</published>
+    <updated>2023-05-26T14:20:02.221Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;作者： &lt;a href=&quot;http://www.ruanyifeng.com/&quot;&gt;阮一峰&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;网页布局（layout）是 CSS 的一个重点应用。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071001.gif&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;布局的传统解决方案，基于&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/box_model&quot;&gt;盒状模型&lt;/a&gt;，依赖 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/display&quot;&gt;&lt;code&gt;display&lt;/code&gt;&lt;/a&gt; 属性 + &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/position&quot;&gt;&lt;code&gt;position&lt;/code&gt;&lt;/a&gt;属性 + &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/float&quot;&gt;&lt;code&gt;float&lt;/code&gt;&lt;/a&gt;属性。它对于那些特殊布局非常不方便，比如，&lt;a href=&quot;https://css-tricks.com/centering-css-complete-guide/&quot;&gt;垂直居中&lt;/a&gt;就不容易实现。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071002.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://hunkier.cn/categories/Web/"/>
+    
+    <category term="Layout" scheme="https://hunkier.cn/categories/Web/Layout/"/>
+    
+    <category term="Flex" scheme="https://hunkier.cn/categories/Web/Layout/Flex/"/>
+    
+    <category term="CSS" scheme="https://hunkier.cn/categories/Web/Layout/Flex/CSS/"/>
+    
+    
+    <category term="Web" scheme="https://hunkier.cn/tags/Web/"/>
+    
+    <category term="Layout" scheme="https://hunkier.cn/tags/Layout/"/>
+    
+    <category term="Flex" scheme="https://hunkier.cn/tags/Flex/"/>
+    
+    <category term="CSS" scheme="https://hunkier.cn/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>程序员的个人财富课</title>
@@ -533,29 +568,6 @@
     <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
     
     <category term="chrome" scheme="https://hunkier.cn/tags/chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式七大原则</title>
-    <link href="https://hunkier.cn/Design-patter-7-principle/"/>
-    <id>https://hunkier.cn/Design-patter-7-principle/</id>
-    <published>2020-01-10T13:34:00.000Z</published>
-    <updated>2020-02-28T09:17:08.273Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;一、设计模式的目的&quot;&gt;&lt;a href=&quot;#一、设计模式的目的&quot; class=&quot;headerlink&quot; title=&quot;一、设计模式的目的&quot;&gt;&lt;/a&gt;一、设计模式的目的&lt;/h1&gt;&lt;p&gt;​    编写软件过程中，程序员面临着来自耦合性、内聚性以及可维护性，可扩展性，重用性，灵活性等多方面的挑战，设计模式是为了让程序(软件)，具有更好的&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="设计模式" scheme="https://hunkier.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="七大原则" scheme="https://hunkier.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
-    
-    
-    <category term="设计模式" scheme="https://hunkier.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="七大原则" scheme="https://hunkier.cn/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
     
   </entry>
   

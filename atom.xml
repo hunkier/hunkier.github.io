@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2023-05-26T14:20:02.221Z</updated>
+  <updated>2023-07-03T02:00:26.276Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web 前端打包优化</title>
+    <link href="https://hunkier.cn/Web-front-end-packaging/"/>
+    <id>https://hunkier.cn/Web-front-end-packaging/</id>
+    <published>2023-07-02T14:16:10.000Z</published>
+    <updated>2023-07-03T02:00:26.276Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;随着前端技术的快速发展，页面的很多功能和组件都有开源的实现，只需要把对应的开源项目的依赖加入到 package.json 的 dependencies 节点，配置好坐标中的项目名称和版本，便可直接使用。&lt;/p&gt;
+&lt;p&gt;但依赖的开源项目中往往只用到了其中的少部分功能或代码，但在使用 &lt;code&gt;webpack&lt;/code&gt; 打包时会把开源依赖包中所有的资源全打包，这时需要进行相应的优化。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://hunkier.cn/categories/Web/"/>
+    
+    <category term="webpack" scheme="https://hunkier.cn/categories/Web/webpack/"/>
+    
+    <category term="moment.js" scheme="https://hunkier.cn/categories/Web/webpack/moment-js/"/>
+    
+    <category term="terser" scheme="https://hunkier.cn/categories/Web/webpack/moment-js/terser/"/>
+    
+    
+    <category term="Web" scheme="https://hunkier.cn/tags/Web/"/>
+    
+    <category term="webpack" scheme="https://hunkier.cn/tags/webpack/"/>
+    
+    <category term="moment.js" scheme="https://hunkier.cn/tags/moment-js/"/>
+    
+    <category term="terser" scheme="https://hunkier.cn/tags/terser/"/>
+    
+  </entry>
   
   <entry>
     <title>Flex 布局教程：语法篇</title>
@@ -544,30 +576,6 @@
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
     
     <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 安装 google chrome</title>
-    <link href="https://hunkier.cn/CentOS-7-install-google-chrome/"/>
-    <id>https://hunkier.cn/CentOS-7-install-google-chrome/</id>
-    <published>2020-01-20T13:18:50.000Z</published>
-    <updated>2020-03-26T08:37:56.750Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;第一步： 执行如下命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd /etc/yum.repos.d/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="centos" scheme="https://hunkier.cn/categories/centos/"/>
-    
-    <category term="chrome" scheme="https://hunkier.cn/categories/centos/chrome/"/>
-    
-    
-    <category term="centos" scheme="https://hunkier.cn/tags/centos/"/>
-    
-    <category term="chrome" scheme="https://hunkier.cn/tags/chrome/"/>
     
   </entry>
   

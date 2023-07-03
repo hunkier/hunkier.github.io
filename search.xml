@@ -5173,4 +5173,47 @@ ValueError: tuple.index(x): x not in tuple
         <tag>CSS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Web 前端打包优化</title>
+    <url>/Web-front-end-packaging/</url>
+    <content><![CDATA[<p>随着前端技术的快速发展，页面的很多功能和组件都有开源的实现，只需要把对应的开源项目的依赖加入到 package.json 的 dependencies 节点，配置好坐标中的项目名称和版本，便可直接使用。</p>
+<p>但依赖的开源项目中往往只用到了其中的少部分功能或代码，但在使用 <code>webpack</code> 打包时会把开源依赖包中所有的资源全打包，这时需要进行相应的优化。</p>
+<span id="more"></span>
+
+
+<h2 id="一、moment-js-去除无用的语言包"><a href="#一、moment-js-去除无用的语言包" class="headerlink" title="一、moment.js 去除无用的语言包"></a>一、<code>moment.js</code> 去除无用的语言包</h2><p><code>moment.js</code> 是一个时间处理的开源实现，方便将时间进行各种操作和格式化，其主包中包含了多国语言的本地化。</p>
+<p>大部分项目都只是在国内使用，只需要简体中文即可。</p>
+<p>安装 <code>moment-locales-webpack-plugin</code> 打包依赖插件：</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i -D moment-locales-webpack-plugin</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>webpack 打包文件配置。</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MomentLocalesPlugin = <span class="built_in">require</span>(<span class="string">&#x27;moment-locales-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="function"><span class="title">configureWebpack</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line"><span class="comment">// moment，去除国际化，只保留简体中文</span></span><br><span class="line">   <span class="keyword">new</span> MomentLocalesPlugin(&#123;</span><br><span class="line">      <span class="attr">localesToKeep</span>: [<span class="string">&#x27;zh-cn&#x27;</span>],</span><br><span class="line">   &#125;),</span><br><span class="line">    ]&#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>打包后的文件就只包含简体中文，减少 600k 左右大小。</p>
+<h2 id="二、去除-js-源码终端注释、debugger、console-log"><a href="#二、去除-js-源码终端注释、debugger、console-log" class="headerlink" title="二、去除 js 源码终端注释、debugger、console.log()"></a>二、去除 js 源码终端注释、<code>debugger</code>、<code>console.log()</code></h2><p>前端在开发过程中，加入注释方便理解代码，加入<code>debugger</code>和<code>console.log()</code>调试程序，打包时就不希望这些无用的代码占用，有时还可能会泄露信息。<br>只需要加入打包优化插件即可去除开发过程中的<code>debugger</code>和<code>console.log()</code>。</p>
+<p>安装 <code>terser-webpack-plugin</code> 打包依赖插件：</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i -D terser-webpack-plugin@4.2.3</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>webpack 打包文件配置。</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isProduction = process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span> <span class="comment">// 判断是否打包生成生产生产环境的包</span></span><br><span class="line"><span class="keyword">const</span> TerserPlugin = !isProduction ? &#123;&#125; : <span class="built_in">require</span>(<span class="string">&#x27;terser-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> minimizer = !isProduction</span><br><span class="line">? []</span><br><span class="line">: [</span><br><span class="line">    <span class="keyword">new</span> TerserPlugin(&#123;</span><br><span class="line">        <span class="attr">extractComments</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">cache</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">terserOptions</span>: &#123;</span><br><span class="line">            <span class="attr">ecma</span>: <span class="literal">undefined</span>,</span><br><span class="line">            <span class="attr">warnings</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">parse</span>: &#123;&#125;,</span><br><span class="line">            <span class="attr">format</span>: &#123;</span><br><span class="line">                <span class="attr">comments</span>: <span class="literal">false</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">compress</span>: &#123;</span><br><span class="line">                <span class="attr">drop_console</span>: <span class="literal">true</span>, <span class="comment">// 清除 console 语句</span></span><br><span class="line">                <span class="attr">drop_debugger</span>: <span class="literal">true</span>, <span class="comment">// 清除 debugger 语句</span></span><br><span class="line">                <span class="attr">pure_funcs</span>: [<span class="string">&#x27;console.log&#x27;</span>], <span class="comment">// 移除console</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="function"><span class="title">configureWebpack</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line"> <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="comment">// 此处添加 移除console.log 和 debugger的代码</span></span><br><span class="line">    <span class="attr">minimizer</span>: minimizer,</span><br><span class="line">  &#125;,&#125;</span><br><span class="line">   &#125;,</span><br><span class="line">  <span class="function"><span class="title">chainWebpack</span>(<span class="params">config</span>)</span> &#123;</span><br><span class="line">         <span class="keyword">if</span>(isProduction)&#123;</span><br><span class="line">        <span class="comment">// 删除注释、debug、console.log</span></span><br><span class="line">            config.optimization.minimizer(<span class="string">&#x27;terser&#x27;</span>).tap(<span class="function">(<span class="params">args</span>) =&gt;</span> &#123;</span><br><span class="line">                args[<span class="number">0</span>].extractComments = <span class="literal">false</span></span><br><span class="line">                args[<span class="number">0</span>].cache = <span class="literal">true</span></span><br><span class="line">                args[<span class="number">0</span>].terserOptions.compress.drop_console = <span class="literal">true</span></span><br><span class="line">                args[<span class="number">0</span>].terserOptions.compress.drop_debugger = <span class="literal">true</span></span><br><span class="line">                args[<span class="number">0</span>].terserOptions.compress.pure_funcs = [<span class="string">&#x27;console.log&#x27;</span>]</span><br><span class="line">                args[<span class="number">0</span>].terserOptions.output = &#123;</span><br><span class="line">                  <span class="attr">comments</span>: <span class="literal">false</span>,</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">return</span> args</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>打包后的文件已去除 注释、<code>debugger</code>和<code>console.log()</code>。</p>
+]]></content>
+      <categories>
+        <category>Web</category>
+        <category>webpack</category>
+        <category>moment.js</category>
+        <category>terser</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>webpack</tag>
+        <tag>moment.js</tag>
+        <tag>terser</tag>
+      </tags>
+  </entry>
 </search>

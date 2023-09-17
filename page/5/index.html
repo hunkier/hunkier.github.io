@@ -217,6 +217,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hunkier.cn/CentOS-VNCserver/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+      <meta itemprop="name" content="hunkier">
+      <meta itemprop="description" content="学习笔记，开源代码，技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hunkier">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/CentOS-VNCserver/" class="post-title-link" itemprop="url">CentOS 7上部署vnc服务器并实现远程桌面</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-18 11:28:00" itemprop="dateCreated datePublished" datetime="2019-06-18T11:28:00+08:00">2019-06-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 11:00:25" itemprop="dateModified" datetime="2020-09-15T11:00:25+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos-vnc/" itemprop="url" rel="index"><span itemprop="name">centos vnc</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/CentOS-VNCserver/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="CentOS-VNCserver/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、安装X-Window-System"><a href="#一、安装X-Window-System" class="headerlink" title="一、安装X Window System"></a>一、安装X Window System</h2><p>注：若已经安装GUI则可跳过</p>
+<p>1、切换到root用户，执行 <code>yum groupinstall &quot;X Window System&quot;</code><br>2、执行 <code>yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts dejavu-lgc-sans-fonts -y</code> 安装相关组件<br>3、设置默认启动图形界面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y <span class="string">&quot;Fonts&quot;</span></span><br></pre></td></tr></table></figure>
+<p>4、设置默认启动图形界面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> unlink /etc/systemd/system/default.target</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ln -sf /lib/systemd/system/graphical.target  /etc/systemd/system/default.target</span></span><br></pre></td></tr></table></figure>
+<p>5、重启系统生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> reboot</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/CentOS-VNCserver/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hunkier.cn/CentOS-7-install-GoFastdfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -783,113 +884,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/MySQL-Master-Slave/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hunkier.cn/shardingsphere-jdbc-5.3.2.issue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-      <meta itemprop="name" content="hunkier">
-      <meta itemprop="description" content="学习笔记，开源代码，技术分享">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hunkier">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/shardingsphere-jdbc-5.3.2.issue/" class="post-title-link" itemprop="url">shardingsphere-jdbc 5.3.2 无法解析的 SQL 及解决方案</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-14 14:31:13" itemprop="dateCreated datePublished" datetime="2019-01-14T14:31:13+08:00">2019-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 08:42:35" itemprop="dateModified" datetime="2023-09-17T08:42:35+08:00">2023-09-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/shardingsphere-jdbc/" itemprop="url" rel="index"><span itemprop="name">shardingsphere-jdbc</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/shardingsphere-jdbc/master/" itemprop="url" rel="index"><span itemprop="name">master</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/shardingsphere-jdbc/master/slave/" itemprop="url" rel="index"><span itemprop="name">slave</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/shardingsphere-jdbc-5.3.2.issue/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="shardingsphere-jdbc-5.3.2.issue/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>shardingsphere-jdbc 作为知名开源数据库中间件，主要功能有读写分离、分库分表。功能很强大，但也存在一定兼容性，部分 SQL 无法正常解析。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/shardingsphere-jdbc-5.3.2.issue/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

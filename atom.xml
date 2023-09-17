@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2023-07-03T02:00:26.276Z</updated>
+  <updated>2023-09-17T00:45:13.148Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shardingsphere-jdbc 5.3.2 无法解析的 SQL 及解决方案</title>
+    <link href="https://hunkier.cn/shardingsphere-jdbc-5.3.2.issue/"/>
+    <id>https://hunkier.cn/shardingsphere-jdbc-5.3.2.issue/</id>
+    <published>2023-09-17T00:31:13.000Z</published>
+    <updated>2023-09-17T00:45:13.148Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h1&gt;&lt;p&gt;shardingsphere-jdbc 作为知名开源数据库中间件，主要功能有读写分离、分库分表。功能很强大，但也存在一定兼容性，部分 SQL 无法正常解析。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="MySQL" scheme="https://hunkier.cn/categories/MySQL/"/>
+    
+    <category term="shardingsphere-jdbc" scheme="https://hunkier.cn/categories/MySQL/shardingsphere-jdbc/"/>
+    
+    <category term="master" scheme="https://hunkier.cn/categories/MySQL/shardingsphere-jdbc/master/"/>
+    
+    <category term="slave" scheme="https://hunkier.cn/categories/MySQL/shardingsphere-jdbc/master/slave/"/>
+    
+    
+    <category term="MySQL" scheme="https://hunkier.cn/tags/MySQL/"/>
+    
+    <category term="master" scheme="https://hunkier.cn/tags/master/"/>
+    
+    <category term="slave" scheme="https://hunkier.cn/tags/slave/"/>
+    
+    <category term="shardingsphere-jdbc" scheme="https://hunkier.cn/tags/shardingsphere-jdbc/"/>
+    
+  </entry>
   
   <entry>
     <title>Web 前端打包优化</title>
@@ -549,33 +580,6 @@
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
     
     <category term="Synchronized" scheme="https://hunkier.cn/tags/Synchronized/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java并发--volatile 的应用</title>
-    <link href="https://hunkier.cn/Java-Concurrent-volatile/"/>
-    <id>https://hunkier.cn/Java-Concurrent-volatile/</id>
-    <published>2020-02-02T06:55:00.000Z</published>
-    <updated>2020-07-11T23:21:22.841Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;1-volatile的应用&quot;&gt;&lt;a href=&quot;#1-volatile的应用&quot; class=&quot;headerlink&quot; title=&quot;1　volatile的应用&quot;&gt;&lt;/a&gt;1　volatile的应用&lt;/h2&gt;&lt;p&gt;在多线程并发编程中synchronized和volatile都扮演着重要的角色，volatile是轻量级的synchronized，它在多处理器开发中保证了共享变量的“可见性”。可见性的意思是当一个线程修改一个共享变量时，另外一个线程能读到这个修改的值。如果volatile变量修饰符使用恰当的话，它比synchronized的使用和执行成本更低，因为它不会引起线程上下文的切换和调度。本文将深入分析在硬件层面上Intel处理器是如何实现volatile的，通过深入分析帮助我们正确地使用volatile变量。&lt;br&gt;</summary>
-    
-    
-    
-    <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-    <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
-    
-    
-    <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
-    
-    <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-    <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="volatile" scheme="https://hunkier.cn/tags/volatile/"/>
     
   </entry>
   

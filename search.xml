@@ -5216,4 +5216,40 @@ ValueError: tuple.index(x): x not in tuple
         <tag>terser</tag>
       </tags>
   </entry>
+  <entry>
+    <title>shardingsphere-jdbc 5.3.2 无法解析的 SQL 及解决方案</title>
+    <url>/shardingsphere-jdbc-5.3.2.issue/</url>
+    <content><![CDATA[<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>shardingsphere-jdbc 作为知名开源数据库中间件，主要功能有读写分离、分库分表。功能很强大，但也存在一定兼容性，部分 SQL 无法正常解析。</p>
+<span id="more"></span>
+
+<h3 id="文档："><a href="#文档：" class="headerlink" title="文档："></a>文档：</h3><p>读写分离配置：<a href="https://shardingsphere.apache.org/document/5.3.2/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/readwrite-splitting/">https://shardingsphere.apache.org/document/5.3.2/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/readwrite-splitting/</a></p>
+<p>分表配置：<a href="https://shardingsphere.apache.org/document/5.3.2/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/sharding/">https://shardingsphere.apache.org/document/5.3.2/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/sharding/</a></p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><ol>
+<li>报错: <code>attempting to get column &#39;XXX&#39; from result set.  Cause: java.sql.SQLException: Column Index out of range, 29 &gt; 28</code></li>
+</ol>
+<p>原因：连表查询时，存在查询列使用通配符 <code>* </code>，例如：<code>SELECT a.* , b.c1, b.c2 FROM tableA a , tableB b WHERE ...</code></p>
+<p>解决方案：</p>
+<p>a. 将 SELECT 查询列中的 a.*  放到最后，例如：<code>SELECT  b.c1, b.c2, a.* FROM tableA a , tableB b WHERE ...</code></p>
+<p>b. 降级使用 sharding-jdbc 4.1.1</p>
+<ol start="2">
+<li>报错：<code>Can not get index from column label </code></li>
+</ol>
+<p>原因：SQL 语句中函数列缺少别名，例如：<code>SELECT IFNULL((SELECT COUNT(*) FROM tableA a WHERE ...),0) </code></p>
+<p>解决方案：</p>
+<p>​    a. 添加查询函数列的别名，例如：<code>SELECT IFNULL((SELECT COUNT(*) FROM tableA a WHERE ...),0) AS countNum</code></p>
+<p>​    b. 降级使用 sharding-jdbc 4.1.1</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+        <category>shardingsphere-jdbc</category>
+        <category>master</category>
+        <category>slave</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>master</tag>
+        <tag>slave</tag>
+        <tag>shardingsphere-jdbc</tag>
+      </tags>
+  </entry>
 </search>

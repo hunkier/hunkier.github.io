@@ -4806,7 +4806,7 @@ ValueError: tuple.index(x): x not in tuple
 <p>三、定期备份表数据<br>​    分为12张表后，每年循环插入数据，最终数据量越来越大，需要定期将历史数据备份或迁移。这里采用修改表名，再新建和原表名结构一样的新表。例如：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span>  <span class="keyword">TABLE</span> dm_log_1 RENAME <span class="keyword">TO</span> dm_log201801;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> dm_log_1 <span class="keyword">LIKE</span> dm_log201801;</span><br></pre></td></tr></table></figure>
 
-<p>​    备份dm_log_1的数据，假设dm_log_1存的都是2018年1月份数据，则把表名修改为dm_log201801，然后再吉安一张表名为dm_log_1的表。<br>​    上述操作在数据库中写成存储过程，通过数据库定时事件调用执行，详细请看附件中相关sql语句。</p>
+<p>​    备份dm_log_1的数据，假设dm_log_1存的都是2018年1月份数据，则把表名修改为dm_log201801，然后再创建一张表名为dm_log_1的表。<br>​    上述操作在数据库中写成存储过程，通过数据库定时事件调用执行，详细请看附件中相关sql语句。</p>
 <p>定时事件调用策略：</p>
 <pre><code>    每月1日的凌晨3:30执行备份历史数据，例如:2018年7月1日凌晨3:30把表dm_log_1改为dm_log201801并新建表dm_log_1，2018年8月1日凌晨3:30把表dm_log_2改为dm_log201802并新建表dm_log_2，以此类推，保留最近半年的数据供物管系统页面查询，超过半年数据则需通过数据库查询历史数据。
     rename_dm_log_history为备份dm_log表数据的存储过程，Event_Rename_dm_log_history为定时事件每月调用rename_dm_log_history备份数据。

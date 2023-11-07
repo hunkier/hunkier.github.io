@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2023-09-17T00:45:13.148Z</updated>
+  <updated>2023-11-07T09:31:27.661Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>部署Spring Boot应用</title>
+    <link href="https://hunkier.cn/Deploying-Spring-Boot-Applications/"/>
+    <id>https://hunkier.cn/Deploying-Spring-Boot-Applications/</id>
+    <published>2023-11-07T13:34:00.000Z</published>
+    <updated>2023-11-07T09:31:27.661Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;部署Spring Boot应用&lt;/p&gt;
+&lt;p&gt;SpringBoot 应用可直接打包成 Jar、War，运行时执行 java -jar &lt;em&gt;.jar/&lt;/em&gt;.war 。但将其“解压”并以不同的方式运行也往往是一种优势，这在启动时（取决于jar的大小）实际上比从一个未“解压”的归档文件中运行要稍快一些。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="SpringBoot" scheme="https://hunkier.cn/categories/SpringBoot/"/>
+    
+    <category term="Deploying" scheme="https://hunkier.cn/categories/SpringBoot/Deploying/"/>
+    
+    <category term="shell" scheme="https://hunkier.cn/categories/SpringBoot/Deploying/shell/"/>
+    
+    <category term="logback" scheme="https://hunkier.cn/categories/SpringBoot/Deploying/shell/logback/"/>
+    
+    
+    <category term="SpringBoot Deploying shell logback" scheme="https://hunkier.cn/tags/SpringBoot-Deploying-shell-logback/"/>
+    
+  </entry>
   
   <entry>
     <title>shardingsphere-jdbc 5.3.2 无法解析的 SQL 及解决方案</title>
@@ -553,33 +579,6 @@
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
     
     <category term="object header" scheme="https://hunkier.cn/tags/object-header/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 并发--synchronized 的实现原理与应用</title>
-    <link href="https://hunkier.cn/Java-Concurrent-synchronized/"/>
-    <id>https://hunkier.cn/Java-Concurrent-synchronized/</id>
-    <published>2020-02-03T08:51:06.000Z</published>
-    <updated>2020-07-10T01:08:54.289Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在多线程并发编程中 synchronized 一直是元老级角色，很多人都会称呼它为重量级锁。但是，随着 Java SE 1.6 对 synchronized 进行了各种优化之后，有些情况下它就并不那么重了。本文详细介绍 Java SE 1.6 中为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁，以及锁的存储结构和升级过程。&lt;br&gt;</summary>
-    
-    
-    
-    <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-    <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
-    
-    
-    <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
-    
-    <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-    <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="Synchronized" scheme="https://hunkier.cn/tags/Synchronized/"/>
     
   </entry>
   

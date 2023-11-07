@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2023-11-07T09:31:27.661Z</updated>
+  <updated>2023-11-07T09:35:06.430Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hunkier.cn/Deploying-Spring-Boot-Applications/"/>
     <id>https://hunkier.cn/Deploying-Spring-Boot-Applications/</id>
     <published>2023-11-07T13:34:00.000Z</published>
-    <updated>2023-11-07T09:31:27.661Z</updated>
+    <updated>2023-11-07T09:35:06.430Z</updated>
     
     
     <summary type="html">&lt;p&gt;部署Spring Boot应用&lt;/p&gt;
-&lt;p&gt;SpringBoot 应用可直接打包成 Jar、War，运行时执行 java -jar &lt;em&gt;.jar/&lt;/em&gt;.war 。但将其“解压”并以不同的方式运行也往往是一种优势，这在启动时（取决于jar的大小）实际上比从一个未“解压”的归档文件中运行要稍快一些。&lt;/p&gt;</summary>
+&lt;p&gt;SpringBoot 应用可直接打包成 Jar、War，运行时执行 &lt;code&gt;java -jar *.jar/*.war &lt;/code&gt;。但将其“解压”并以不同的方式运行也往往是一种优势，这在启动时（取决于jar的大小）实际上比从一个未“解压”的归档文件中运行要稍快一些。&lt;/p&gt;</summary>
     
     
     

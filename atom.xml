@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2023-12-31T12:19:02.080Z</updated>
+  <updated>2023-12-31T12:25:13.874Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -21,10 +21,14 @@
     <link href="https://hunkier.cn/Java-New-Features/"/>
     <id>https://hunkier.cn/Java-New-Features/</id>
     <published>2023-12-31T10:55:09.000Z</published>
-    <updated>2023-12-31T12:19:02.080Z</updated>
+    <updated>2023-12-31T12:25:13.874Z</updated>
     
     
-    <summary type="html">&lt;p&gt;队列同步器AbstractQueuedSynchronizer（以下简称同步器），是用来构建锁或者其他同步组件的基础框架，它使用了一个int成员变量表示同步状态，通过内置的FIFO队列来完成资源获取线程的排队工作，并发包的作者（Doug Lea）期望它能够成为实现大部分同步需求的基础。&lt;br&gt;</summary>
+    <summary type="html">&lt;p&gt;当你还在用 Java8 开发时，突然发现 Java21 已经发布了，Java22 已经在路上。Java 的版本变化也太快了吧。&lt;/p&gt;
+&lt;p&gt;在 Java9 之前，Java 的版本更新一直都是比较慢的。比如，Java9 和 Java8 之间的间隔时间长达3年半。如此长的发布间隔，显然不能满足当前的需求。&lt;/p&gt;
+&lt;p&gt;Java9 之后的版本更新&lt;/p&gt;
+&lt;p&gt;从 Java9 开始，Java 改变了之前的以功能特性为导向的发布周期，而是转为固定时间间隔的火车发布模式，也就是release train。火车定时发车，赶不上这次车的乘客，就只能等下一班火车。&lt;/p&gt;
+&lt;p&gt;Java的固定发布时间是每年的3月和9月。Java21 是2023年9月发布的，是一个近期发布的长期支持版本。&lt;/p&gt;</summary>
     
     
     

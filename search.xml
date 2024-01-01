@@ -5480,7 +5480,7 @@ ValueError: tuple.index(x): x not in tuple
 <li>添加对记录模式的支持以出现在增强语句的标题中<code>for</code></li>
 <li>删除对命名记录模式的支持。</li>
 </ul>
-<p><strong>注意</strong>：不要把记录模式和 <a href="./java16.md">JDK16</a> 正式引入的记录类搞混了。</p>
+<p><strong>注意</strong>：不要把记录模式和 JDK16 正式引入的记录类搞混了。</p>
 <h2 id="JEP-433：switch-模式匹配（第四次预览）"><a href="#JEP-433：switch-模式匹配（第四次预览）" class="headerlink" title="JEP 433：switch 模式匹配（第四次预览）"></a>JEP 433：switch 模式匹配（第四次预览）</h2><p>正如 <code>instanceof</code> 一样， <code>switch</code> 也紧跟着增加了类型匹配自动转换功能。</p>
 <p><code>instanceof</code> 代码示例：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Old code</span></span><br><span class="line"><span class="keyword">if</span> (o <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">    String s = (String)o;</span><br><span class="line">    ... use s ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// New code</span></span><br><span class="line"><span class="keyword">if</span> (o <span class="keyword">instanceof</span> String s) &#123;</span><br><span class="line">    ... use s ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -5615,7 +5615,6 @@ ValueError: tuple.index(x): x not in tuple
 <p><code>@snippet</code> 这种方式生成的效果更好且使用起来更方便一些。</p>
 <h2 id="JEP-416-使用方法句柄重新实现反射核心"><a href="#JEP-416-使用方法句柄重新实现反射核心" class="headerlink" title="JEP 416:使用方法句柄重新实现反射核心"></a>JEP 416:使用方法句柄重新实现反射核心</h2><p>Java 18 改进了 <code>java.lang.reflect.Method</code>、<code>Constructor</code> 的实现逻辑，使之性能更好，速度更快。这项改动不会改动相关 API ，这意味着开发中不需要改动反射相关代码，就可以体验到性能更好反射。</p>
 <p>OpenJDK 官方给出了新老实现的反射性能基准测试结果。</p>
-<p><img src="https://oss.javaguide.cn/github/javaguide/java/new-features/JEP416Benchmark.png" alt="新老实现的反射性能基准测试结果"></p>
 <h2 id="JEP-417-向量-API（第三次孵化）"><a href="#JEP-417-向量-API（第三次孵化）" class="headerlink" title="JEP 417: 向量 API（第三次孵化）"></a>JEP 417: 向量 API（第三次孵化）</h2><p>向量（Vector） API 最初由 <a href="https://openjdk.java.net/jeps/338">JEP 338</a> 提出，并作为<a href="http://openjdk.java.net/jeps/11">孵化 API</a>集成到 Java 16 中。第二轮孵化由 <a href="https://openjdk.java.net/jeps/414">JEP 414</a> 提出并集成到 Java 17 中，第三轮孵化由 <a href="https://openjdk.java.net/jeps/417">JEP 417</a> 提出并集成到 Java 18 中，第四轮由 <a href="https://openjdk.java.net/jeps/426">JEP 426</a> 提出并集成到了 Java 19 中。</p>
 <p>向量计算由对向量的一系列操作组成。向量 API 用来表达向量计算，该计算可以在运行时可靠地编译为支持的 CPU 架构上的最佳向量指令，从而实现优于等效标量计算的性能。</p>
 <p>向量 API 的目标是为用户提供简洁易用且与平台无关的表达范围广泛的向量计算。</p>
@@ -5632,7 +5631,6 @@ ValueError: tuple.index(x): x not in tuple
 <h1 id="Java17-新特性"><a href="#Java17-新特性" class="headerlink" title="Java17 新特性"></a>Java17 新特性</h1><p>Java 17 在 2021 年 9 月 14 日正式发布，是一个长期支持（LTS）版本。</p>
 <p>下面这张图是 Oracle 官方给出的 Oracle JDK 支持的时间线。可以看得到，Java</p>
 <p>17 最多可以支持到 2029 年 9 月份。</p>
-<p><img src="https://oss.javaguide.cn/github/javaguide/java/new-features/4c1611fad59449edbbd6e233690e9fa7.png"></p>
 <p>Java 17 将是继 Java 8 以来最重要的长期支持（LTS）版本，是 Java 社区八年努力的成果。Spring 6.x 和 Spring Boot 3.x 最低支持的就是 Java 17。</p>
 <p>这次更新共带来 14 个新特性：</p>
 <ul>
@@ -5690,7 +5688,7 @@ ValueError: tuple.index(x): x not in tuple
 <p>相关阅读：<a href="https://openjdk.java.net/projects/jdk/16/">OpenJDK Java 16 文档</a> 。</p>
 <h2 id="JEP-338-向量-API-第一次孵化"><a href="#JEP-338-向量-API-第一次孵化" class="headerlink" title="JEP 338:向量 API(第一次孵化)"></a>JEP 338:向量 API(第一次孵化)</h2><p>向量（Vector） API 最初由 <a href="https://openjdk.java.net/jeps/338">JEP 338</a> 提出，并作为<a href="http://openjdk.java.net/jeps/11">孵化 API</a>集成到 Java 16 中。第二轮孵化由 <a href="https://openjdk.java.net/jeps/414">JEP 414</a> 提出并集成到 Java 17 中，第三轮孵化由 <a href="https://openjdk.java.net/jeps/417">JEP 417</a> 提出并集成到 Java 18 中，第四轮由 <a href="https://openjdk.java.net/jeps/426">JEP 426</a> 提出并集成到了 Java 19 中。</p>
 <p>该孵化器 API 提供了一个 API 的初始迭代以表达一些向量计算，这些计算在运行时可靠地编译为支持的 CPU 架构上的最佳向量硬件指令，从而获得优于同等标量计算的性能，充分利用单指令多数据（SIMD）技术（大多数现代 CPU 上都可以使用的一种指令）。尽管 HotSpot 支持自动向量化，但是可转换的标量操作集有限且易受代码更改的影响。该 API 将使开发人员能够轻松地用 Java 编写可移植的高性能向量算法。</p>
-<p>在 <a href="./java18.md">Java 18 新特性概览</a> 中，我有详细介绍到向量 API，这里就不再做额外的介绍了。</p>
+<p>在 Java 18 新特性概览 中，我有详细介绍到向量 API，这里就不再做额外的介绍了。</p>
 <h2 id="JEP-347-启用-C-14-语言特性"><a href="#JEP-347-启用-C-14-语言特性" class="headerlink" title="JEP 347:启用 C++ 14 语言特性"></a>JEP 347:启用 C++ 14 语言特性</h2><p>Java 16 允许在 JDK 的 C++ 源代码中使用 C++14 语言特性，并提供在 HotSpot 代码中可以使用哪些特性的具体指导。</p>
 <p>在 Java 15 中，JDK 中 C++ 代码使用的语言特性仅限于 C++98/03 语言标准。它要求更新各种平台编译器的最低可接受版本。</p>
 <h2 id="JEP-376-ZGC-并发线程堆栈处理"><a href="#JEP-376-ZGC-并发线程堆栈处理" class="headerlink" title="JEP 376:ZGC 并发线程堆栈处理"></a>JEP 376:ZGC 并发线程堆栈处理</h2><p>Java16 将 ZGC 线程栈处理从安全点转移到一个并发阶段，甚至在大堆上也允许在毫秒内暂停 GC 安全点。消除 ZGC 垃圾收集器中最后一个延迟源可以极大地提高应用程序的性能和效率。</p>
@@ -5785,7 +5783,7 @@ ValueError: tuple.index(x): x not in tuple
 </blockquote>
 <h2 id="JEP-396-默认强封装-JDK-内部元素"><a href="#JEP-396-默认强封装-JDK-内部元素" class="headerlink" title="JEP 396:默认强封装 JDK 内部元素"></a>JEP 396:默认强封装 JDK 内部元素</h2><p>此特性会默认强封装 JDK 的所有内部元素，但关键内部 API（例如 <code>sun.misc.Unsafe</code>）除外。默认情况下，使用早期版本成功编译的访问 JDK 内部 API 的代码可能不再起作用。鼓励开发人员从使用内部元素迁移到使用标准 API 的方法上，以便他们及其用户都可以无缝升级到将来的 Java 版本。强封装由 JDK 9 的启动器选项–illegal-access 控制，到 JDK 15 默认改为 warning，从 JDK 16 开始默认为 deny。（目前）仍然可以使用单个命令行选项放宽对所有软件包的封装，将来只有使用–add-opens 打开特定的软件包才行。</p>
 <h2 id="JEP-397-密封类-预览"><a href="#JEP-397-密封类-预览" class="headerlink" title="JEP 397:密封类(预览)"></a>JEP 397:密封类(预览)</h2><p>密封类由 <a href="https://openjdk.java.net/jeps/360">JEP 360</a> 提出预览，集成到了 Java 15 中。在 JDK 16 中， 密封类得到了改进（更加严格的引用检查和密封类的继承关系），由 <a href="https://openjdk.java.net/jeps/397">JEP 397</a> 提出了再次预览。</p>
-<p>在 <a href="./java14-15.md">Java 14 &amp; 15 新特性概览</a> 中，我有详细介绍到密封类，这里就不再做额外的介绍了。</p>
+<p>在 Java 14 &amp; 15 新特性概览中，我有详细介绍到密封类，这里就不再做额外的介绍了。</p>
 <h2 id="其他优化与改进"><a href="#其他优化与改进" class="headerlink" title="其他优化与改进"></a>其他优化与改进</h2><ul>
 <li><strong>JEP 380:Unix-Domain 套接字通道</strong>：Unix-domain 套接字一直是大多数 Unix 平台的一个特性，现在在 Windows 10 和 Windows Server 2019 也提供了支持。此特性为 java.nio.channels 包的套接字通道和服务器套接字通道 API 添加了 Unix-domain（AF_UNIX）套接字支持。它扩展了继承的通道机制以支持 Unix-domain 套接字通道和服务器套接字通道。Unix-domain 套接字用于同一主机上的进程间通信（IPC）。它们在很大程度上类似于 TCP/IP，区别在于套接字是通过文件系统路径名而不是 Internet 协议（IP）地址和端口号寻址的。对于本地进程间通信，Unix-domain 套接字比 TCP/IP 环回连接更安全、更有效</li>
 <li><strong>JEP 389:外部链接器 API(孵化)：</strong> 该孵化器 API 提供了静态类型、纯 Java 访问原生代码的特性，该 API 将大大简化绑定原生库的原本复杂且容易出错的过程。Java 1.1 就已通过 Java 原生接口（JNI）支持了原生方法调用，但并不好用。Java 开发人员应该能够为特定任务绑定特定的原生库。它还提供了外来函数支持，而无需任何中间的 JNI 粘合代码。</li>
@@ -5799,9 +5797,8 @@ ValueError: tuple.index(x): x not in tuple
 <li><a href="https://www.oracle.com/java/technologies/javase/16all-relnotes.html">Consolidated JDK 16 Release Notes</a></li>
 <li><a href="https://www.infoq.cn/article/IAkwhx7i9V7G8zLVEd4L">Java 16 正式发布，新特性一一解析</a></li>
 <li><a href="https://xie.infoq.cn/article/8304c894c4e38318d38ceb116">实操 | 剖析 Java16 新语法特性</a>（写的很赞）</li>
-<li><h1 id="Java15-新特性"><a href="#Java15-新特性" class="headerlink" title="Java15 新特性"></a>Java15 新特性</h1></li>
 </ul>
-<h3 id="CharSequence"><a href="#CharSequence" class="headerlink" title="CharSequence"></a>CharSequence</h3><p><code>CharSequence</code> 接口添加了一个默认方法 <code>isEmpty()</code> 来判断字符序列为空，如果是则返回 true。</p>
+<h1 id="Java15-新特性"><a href="#Java15-新特性" class="headerlink" title="Java15 新特性"></a>Java15 新特性</h1><h3 id="CharSequence"><a href="#CharSequence" class="headerlink" title="CharSequence"></a>CharSequence</h3><p><code>CharSequence</code> 接口添加了一个默认方法 <code>isEmpty()</code> 来判断字符序列为空，如果是则返回 true。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.length() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><p><code>TreeMap</code> 新引入了下面这些方法：</p>

@@ -6058,7 +6058,6 @@ ValueError: tuple.index(x): x not in tuple
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> &lt;E&gt; <span class="function">List&lt;E&gt; <span class="title">copyOf</span><span class="params">(Collection&lt;? extends E&gt; coll)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ImmutableCollections.listCopy(coll);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用 <code>copyOf()</code> 创建的集合为不可变集合，不能进行添加、删除、替换、 排序等操作，不然会报 <code>java.lang.UnsupportedOperationException</code> 异常。 IDEA 也会有相应的提示。</p>
-<p><img src="https://oss.javaguide.cn/java-guide-blog/image-20210816154125579.png"></p>
 <p>并且，<code>java.util.stream.Collectors</code> 中新增了静态方法，用于将流中的元素收集为不可变的集合。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.stream().collect(Collectors.toUnmodifiableList());</span><br><span class="line">list.stream().collect(Collectors.toUnmodifiableSet());</span><br></pre></td></tr></table></figure>
 
@@ -6088,7 +6087,6 @@ ValueError: tuple.index(x): x not in tuple
 </ul>
 <h2 id="JShell"><a href="#JShell" class="headerlink" title="JShell"></a>JShell</h2><p>JShell 是 Java 9 新增的一个实用工具。为 Java 提供了类似于 Python 的实时命令行交互工具。</p>
 <p>在 JShell 中可以直接输入表达式并查看其执行结果。</p>
-<p><img src="https://oss.javaguide.cn/java-guide-blog/image-20210816083417616.png"></p>
 <p><strong>JShell 为我们带来了哪些好处呢？</strong></p>
 <ol>
 <li>降低了输出第一行 Java 版”Hello World！”的门槛，能够提高新手的学习热情。</li>

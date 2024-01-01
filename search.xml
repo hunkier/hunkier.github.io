@@ -6107,7 +6107,6 @@ ValueError: tuple.index(x): x not in tuple
 </blockquote>
 <p>简单来说，你可以将一个模块看作是一组唯一命名、可重用的包、资源和模块描述文件（<code>module-info.java</code>）。</p>
 <p>任意一个 jar 文件，只要加上一个模块描述文件（<code>module-info.java</code>），就可以升级为一个模块。</p>
-<p><img src="https://oss.javaguide.cn/java-guide-blog/module-structure.png"></p>
 <p>在引入了模块系统之后，JDK 被重新组织成 94 个模块。Java 应用可以通过新增的 <strong><a href="http://openjdk.java.net/jeps/282">jlink</a> 工具</strong> (Jlink 是随 Java 9 一起发布的新命令行工具。它允许开发人员为基于模块的 Java 应用程序创建自己的轻量级、定制的 JRE)，创建出只包含所依赖的 JDK 模块的自定义运行时镜像。这样可以极大的减少 Java 运行时环境的大小。</p>
 <p>我们可以通过 <code>exports</code> 关键词精准控制哪些类可以对外开放使用，哪些类只能内部使用。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> my.<span class="keyword">module</span> &#123;</span><br><span class="line">    <span class="comment">//exports 公开指定包的所有公共成员</span></span><br><span class="line">    <span class="keyword">exports</span> com.my.<span class="keyword">package</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> my.<span class="keyword">module</span> &#123;</span><br><span class="line">     <span class="comment">//exports…to 限制访问的成员范围</span></span><br><span class="line">    export com.my.<span class="keyword">package</span>.name to com.specific.<span class="keyword">package</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -6165,7 +6164,6 @@ ValueError: tuple.index(x): x not in tuple
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取当前正在运行的 JVM 的进程</span></span><br><span class="line">ProcessHandle currentProcess = ProcessHandle.current();</span><br><span class="line"><span class="comment">// 输出进程的 id</span></span><br><span class="line">System.out.println(currentProcess.pid());</span><br><span class="line"><span class="comment">// 输出进程的信息</span></span><br><span class="line">System.out.println(currentProcess.info());</span><br></pre></td></tr></table></figure>
 
 <p><code>ProcessHandle</code> 接口概览：</p>
-<p><img src="https://oss.javaguide.cn/java-guide-blog/image-20210816104614414.png"></p>
 <h2 id="响应式流-（-Reactive-Streams-）"><a href="#响应式流-（-Reactive-Streams-）" class="headerlink" title="响应式流 （ Reactive Streams ）"></a>响应式流 （ Reactive Streams ）</h2><p>在 Java 9 中的 <code>java.util.concurrent.Flow</code> 类中新增了反应式流规范的核心接口 。</p>
 <p><code>Flow</code> 中包含了 <code>Flow.Publisher</code>、<code>Flow.Subscriber</code>、<code>Flow.Subscription</code> 和 <code>Flow.Processor</code> 等 4 个核心接口。Java 9 还提供了<code>SubmissionPublisher</code> 作为<code>Flow.Publisher</code> 的一个实现。</p>
 <p>关于 Java 9 响应式流更详细的解读，推荐你看 <a href="https://www.cnblogs.com/IcanFixIt/p/7245377.html">Java 9 揭秘（17. Reactive Streams ）- 林本托</a> 这篇文章。</p>

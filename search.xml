@@ -5401,7 +5401,7 @@ ValueError: tuple.index(x): x not in tuple
 </blockquote>
 <p>分代 ZGC 可以显著减少垃圾回收过程中的停顿时间，并提高应用程序的响应性能。这对于大型 Java 应用程序和高并发场景下的性能优化非常有价值。</p>
 <h2 id="JEP-440：记录模式"><a href="#JEP-440：记录模式" class="headerlink" title="JEP 440：记录模式"></a>JEP 440：记录模式</h2><p>记录模式在 Java 19 进行了第一次预览， 由 <a href="https://openjdk.org/jeps/405">JEP 405</a> 提出。JDK 20 中是第二次预览，由 <a href="https://openjdk.org/jeps/432">JEP 432</a> 提出。最终，记录模式在 JDK21 顺利转正。</p>
-<p><a href="./java20.md">Java 20 新特性概览</a>已经详细介绍过记录模式，这里就不重复了。</p>
+<p>Java 20 新特性概览已经详细介绍过记录模式，这里就不重复了。</p>
 <h2 id="JEP-441：switch-的模式匹配"><a href="#JEP-441：switch-的模式匹配" class="headerlink" title="JEP 441：switch 的模式匹配"></a>JEP 441：switch 的模式匹配</h2><p>增强 Java 中的 switch 表达式和语句，允许在 case 标签中使用模式。当模式匹配时，执行 case 标签对应的代码。</p>
 <p>在下面的代码中，switch 表达式使用了类型模式来进行匹配。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">formatterPatternSwitch</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">switch</span> (obj) &#123;</span><br><span class="line">        <span class="keyword">case</span> Integer i -&gt; String.format(<span class="string">&quot;int %d&quot;</span>, i);</span><br><span class="line">        <span class="keyword">case</span> Long l    -&gt; String.format(<span class="string">&quot;long %d&quot;</span>, l);</span><br><span class="line">        <span class="keyword">case</span> Double d  -&gt; String.format(<span class="string">&quot;double %f&quot;</span>, d);</span><br><span class="line">        <span class="keyword">case</span> String s  -&gt; String.format(<span class="string">&quot;String %s&quot;</span>, s);</span><br><span class="line">        <span class="keyword">default</span>        -&gt; obj.toString();</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -5497,11 +5497,10 @@ ValueError: tuple.index(x): x not in tuple
 <li>增强的 <code>MemoryLayout</code> 层次结构</li>
 <li><code>MemorySession</code>拆分为<code>Arena</code>和<code>SegmentScope</code>，以促进跨维护边界的段共享。</li>
 </ul>
-<p>在 <a href="./java19.md">Java 19 新特性概览</a> 中，我有详细介绍到外部函数和内存 API，这里就不再做额外的介绍了。</p>
+<p>在 Java 19 新特性概览中，我有详细介绍到外部函数和内存 API，这里就不再做额外的介绍了。</p>
 <h2 id="JEP-436-虚拟线程（第二次预览）"><a href="#JEP-436-虚拟线程（第二次预览）" class="headerlink" title="JEP 436: 虚拟线程（第二次预览）"></a>JEP 436: 虚拟线程（第二次预览）</h2><p>虚拟线程（Virtual Thread）是 JDK 而不是 OS 实现的轻量级线程(Lightweight Process，LWP），由 JVM 调度。许多虚拟线程共享同一个操作系统线程，虚拟线程的数量可以远大于操作系统线程的数量。</p>
 <p>在引入虚拟线程之前，<code>java.lang.Thread</code> 包已经支持所谓的平台线程，也就是没有虚拟线程之前，我们一直使用的线程。JVM 调度程序通过平台线程（载体线程）来管理虚拟线程，一个平台线程可以在不同的时间执行不同的虚拟线程（多个虚拟线程挂载在一个平台线程上），当虚拟线程被阻塞或等待时，平台线程可以切换到执行另一个虚拟线程。</p>
 <p>虚拟线程、平台线程和系统内核线程的关系图如下所示（图源：<a href="https://medium.com/javarevisited/how-to-use-java-19-virtual-threads-c16a32bad5f7">How to Use Java 19 Virtual Threads</a>）：</p>
-<p><img src="https://oss.javaguide.cn/github/javaguide/java/new-features/virtual-threads-platform-threads-kernel-threads-relationship.png" alt="虚拟线程、平台线程和系统内核线程的关系"></p>
 <p>关于平台线程和系统内核线程的对应关系多提一点：在 Windows 和 Linux 等主流操作系统中，Java 线程采用的是一对一的线程模型，也就是一个平台线程对应一个系统内核线程。Solaris 系统是一个特例，HotSpot VM 在 Solaris 上支持多对多和一对一。具体可以参考 R 大的回答: <a href="https://www.zhihu.com/question/23096638/answer/29617153">JVM 中的线程模型是用户级的么？</a>。</p>
 <p>相比较于平台线程来说，虚拟线程是廉价且轻量级的，使用完后立即被销毁，因此它们不需要被重用或池化，每个任务可以有自己专属的虚拟线程来运行。虚拟线程暂停和恢复来实现线程之间的切换，避免了上下文切换的额外耗费，兼顾了多线程的优点，简化了高并发程序的复杂，可以有效减少编写、维护和观察高吞吐量并发应用程序的工作量。</p>
 <p>虚拟线程在其他多线程语言中已经被证实是十分有用的，比如 Go 中的 Goroutine、Erlang 中的进程。</p>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
+    
+    <lastmod>2024-01-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hunkier.cn/Personal-Wealth-Course-For-Programmers/</loc>
     
     <lastmod>2024-01-12</lastmod>
@@ -264,13 +271,6 @@
     <loc>https://hunkier.cn/Blog-Hexo-Install/</loc>
     
     <lastmod>2020-05-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hunkier.cn/deploy-blog-with-https/</loc>
-    
-    <lastmod>2020-05-22</lastmod>
     
   </url>
   

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hunkier.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="CentOS  安装 Docker 后，可以方便的使用 Docker 安装其他系统所需的运行环境。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS  安装 Docker">
+<meta property="og:url" content="https://hunkier.cn/CentOS-install-Docker/index.html">
+<meta property="og:site_name" content="hunkier">
+<meta property="og:description" content="CentOS  安装 Docker 后，可以方便的使用 Docker 安装其他系统所需的运行环境。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-12T06:30:24.000Z">
+<meta property="article:modified_time" content="2024-01-12T07:18:48.474Z">
+<meta property="article:author" content="hunkier">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://hunkier.cn/CentOS-install-Docker/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CentOS  安装 Docker | hunkier</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66022267-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66022267-2');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9a6791fa58c4e04f3a197ec3ce831c0d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="hunkier" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">hunkier</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习笔记，开源代码，技术分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/My-wechat/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">93</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">101</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/hunkier" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hunkier.cn/CentOS-install-Docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+      <meta itemprop="name" content="hunkier">
+      <meta itemprop="description" content="学习笔记，开源代码，技术分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hunkier">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS  安装 Docker
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 14:30:24 / 修改时间：15:18:48" itemprop="dateCreated datePublished" datetime="2024-01-12T14:30:24+08:00">2024-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos/" itemprop="url" rel="index"><span itemprop="name">centos</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/CentOS-install-Docker/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="CentOS-install-Docker/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>CentOS  安装 Docker 后，可以方便的使用 Docker 安装其他系统所需的运行环境。</p>
+ <span id="more"></span>
+
+<p>刚安装的CentOS 8服务器，在使用一些常见命令时，发现找不到这些命令，然后使用yum在线安装这些命令时报错：【错误：为仓库 ‘appstream’ 下载元数据失败 : <code>Cannot prepare internal mirrorlist: No URLs in mirrorlist</code>】<br>在网上查阅资料得知，<code>CentOS Linux 8 </code>版本的操作系统结束了生命周期（EOL），Linux 社区不再维护该版本的操作系统，<code>CentOS Linux 8</code> 的镜像及yum源一起迁移到了 <a href="https://vault.centos.org/">https://vault.centos.org</a></p>
+<p>原因已经明确了，CentOS 8 的yum源失效了，那就更新下yum源呗，下边提供几个解决方案供参考。</p>
+<p>将yum源改为国内的，方法都类似，以<code>mirrors.aliyun.com</code> 为例：<br>1）编辑 <code>/etc/yum.repos.d/</code> 中的相应文件，在 mirrorlist= 开头行前面加 # 注释掉；并将 #baseurl= 开头行取消#注释<br>2）对于 CentOS 8 之前版本，把域名及路径 <code>mirror.centos.org/centos/$releasever</code>替换为 <code>mirrors.aliyun.com/centos-vault/$minorver</code><br>3）对于 CentOS 8 版本，把域名及路径 <code>mirror.centos.org/$contentdir/$releasever</code>替换为 <code>mirrors.aliyun.com/centos-vault/$minorver</code><br>（<code>$minorver</code> 为 centos 完整版本号，如 CentOS 7 的最后一个版本为 7.9.2009，CentOS 8 的最后一个版本为 8.5.2111）<br>具体命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Centos 8 之前版本</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以 CentOS 7.9.2009 为例</span></span><br><span class="line">minorver=7.9.2009</span><br><span class="line">sudo sed -e &quot;s|^mirrorlist=|#mirrorlist=|g&quot; \</span><br><span class="line">         -e &quot;s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://mirrors.aliyun.com/centos-vault/$minorver|g&quot; \</span><br><span class="line">         -i.bak \</span><br><span class="line">         /etc/yum.repos.d/CentOS-*.repo</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> CentOS 8 版本</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以 CentOS 8.5.2111 为例</span></span><br><span class="line">minorver=8.5.2111</span><br><span class="line">sudo sed -e &quot;s|^mirrorlist=|#mirrorlist=|g&quot; \</span><br><span class="line">         -e &quot;s|^#baseurl=http://mirror.centos.org/\$contentdir/\$releasever|baseurl=https://mirrors.aliyun.com/centos-vault/$minorver|g&quot; \</span><br><span class="line">         -i.bak \</span><br><span class="line">         /etc/yum.repos.d/CentOS-*.repo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>配置文件中，如果需要启用一些 repo，需要将其中的 enabled=0 改为 enabled=1，enabled 省略默认等效为 enabled=1<br>在切换yum源后，如果之前的yum源在本地有缓存，需要先清理下缓存 yum clean all，然后如果有需要再重新更新缓存 yum makecache<br>不推荐不同的yum源混用，可能会在软件升级等操作中出现一些未知错误！</p>
+<p>安装 Docker 所需要的依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> yum install -y yum-utils device-mapper-persistent-data lvm2</span></span><br><span class="line">Repository extras is listed more than once in the configuration</span><br><span class="line">Last metadata expiration check: 0:01:28 ago on Fri 12 Jan 2024 10:52:40 AM CST.</span><br><span class="line">Package device-mapper-persistent-data-0.9.0-4.el8.x86_64 is already installed.</span><br><span class="line">Package lvm2-8:2.03.12-10.el8.x86_64 is already installed.</span><br><span class="line">Dependencies resolved.</span><br><span class="line">================================================================================================================================</span><br><span class="line"> Package                        Architecture                Version                           Repository                   Size</span><br><span class="line">================================================================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> yum-utils                      noarch                      4.0.21-3.el8                      baseos                       73 k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================================================================</span><br><span class="line">Install  1 Package</span><br><span class="line"></span><br><span class="line">Total download size: 73 k</span><br><span class="line">Installed size: 22 k</span><br><span class="line">Downloading Packages:</span><br><span class="line">yum-utils-4.0.21-3.el8.noarch.rpm                                                               528 kB/s |  73 kB     00:00    </span><br><span class="line">--------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">Total                                                                                           522 kB/s |  73 kB     00:00     </span><br><span class="line">Running transaction check</span><br><span class="line">Transaction check succeeded.</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded.</span><br><span class="line">Running transaction</span><br><span class="line">  Preparing        :                                                                                                        1/1 </span><br><span class="line">  Installing       : yum-utils-4.0.21-3.el8.noarch                                                                          1/1 </span><br><span class="line">  Running scriptlet: yum-utils-4.0.21-3.el8.noarch                                                                          1/1 </span><br><span class="line">  Verifying        : yum-utils-4.0.21-3.el8.noarch                                                                          1/1 </span><br><span class="line"></span><br><span class="line">Installed:</span><br><span class="line">  yum-utils-4.0.21-3.el8.noarch                                                                                                 </span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure>
+
+<p>添加阿里云仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span></span><br><span class="line">Repository extras is listed more than once in the configuration</span><br><span class="line">Adding repo from: http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<p>安装 Docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> yum -y install docker-ce</span></span><br><span class="line">Repository extras is listed more than once in the configuration</span><br><span class="line">Docker CE Stable - x86_64                       203 kB/s |  52 kB     00:00</span><br><span class="line">Dependencies resolved.</span><br><span class="line">================================================================================</span><br><span class="line"> Package                   Arch   Version                Repository        Size</span><br><span class="line">================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> docker-ce                 x86_64 3:24.0.7-1.el8         docker-ce-stable  24 M</span><br><span class="line">Installing dependencies:</span><br><span class="line"> container-selinux         noarch 2:2.167.0-1.module_el8.5.0+911+f19012f9</span><br><span class="line">                                                         appstream         54 k</span><br><span class="line"> containerd.io             x86_64 1.6.26-3.1.el8         docker-ce-stable  35 M</span><br><span class="line"> docker-ce-cli             x86_64 1:24.0.7-1.el8         docker-ce-stable 7.2 M</span><br><span class="line"> fuse-common               x86_64 3.2.1-12.el8           baseos            21 k</span><br><span class="line"> fuse-overlayfs            x86_64 1.7.1-1.module_el8.5.0+890+6b136101</span><br><span class="line">                                                         appstream         73 k</span><br><span class="line"> fuse3                     x86_64 3.2.1-12.el8           baseos            50 k</span><br><span class="line"> fuse3-libs                x86_64 3.2.1-12.el8           baseos            94 k</span><br><span class="line"> libcgroup                 x86_64 0.41-19.el8            baseos            70 k</span><br><span class="line"> libslirp                  x86_64 4.4.0-1.module_el8.5.0+890+6b136101</span><br><span class="line">                                                         appstream         70 k</span><br><span class="line"> slirp4netns               x86_64 1.1.8-1.module_el8.5.0+890+6b136101</span><br><span class="line">                                                         appstream         51 k</span><br><span class="line">Installing weak dependencies:</span><br><span class="line"> docker-buildx-plugin      x86_64 0.11.2-1.el8           docker-ce-stable  13 M</span><br><span class="line"> docker-ce-rootless-extras x86_64 24.0.7-1.el8           docker-ce-stable 4.9 M</span><br><span class="line"> docker-compose-plugin     x86_64 2.21.0-1.el8           docker-ce-stable  13 M</span><br><span class="line">Enabling module streams:</span><br><span class="line"> container-tools                  rhel8</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================</span><br><span class="line">Install  14 Packages</span><br><span class="line"></span><br><span class="line">Total download size: 97 M</span><br><span class="line">Installed size: 370 M</span><br><span class="line">Downloading Packages:</span><br><span class="line">(1/14): libslirp-4.4.0-1.module_el8.5.0+890+6b1 304 kB/s |  70 kB     00:00</span><br><span class="line">(2/14): container-selinux-2.167.0-1.module_el8. 229 kB/s |  54 kB     00:00</span><br><span class="line">(3/14): fuse-overlayfs-1.7.1-1.module_el8.5.0+8 283 kB/s |  73 kB     00:00</span><br><span class="line">(4/14): slirp4netns-1.1.8-1.module_el8.5.0+890+ 434 kB/s |  51 kB     00:00</span><br><span class="line">(5/14): fuse3-3.2.1-12.el8.x86_64.rpm           405 kB/s |  50 kB     00:00</span><br><span class="line">(6/14): fuse-common-3.2.1-12.el8.x86_64.rpm     122 kB/s |  21 kB     00:00</span><br><span class="line">(7/14): libcgroup-0.41-19.el8.x86_64.rpm        337 kB/s |  70 kB     00:00</span><br><span class="line">(8/14): fuse3-libs-3.2.1-12.el8.x86_64.rpm      337 kB/s |  94 kB     00:00</span><br><span class="line">(9/14): docker-buildx-plugin-0.11.2-1.el8.x86_6 867 kB/s |  13 MB     00:15</span><br><span class="line">(10/14): docker-ce-cli-24.0.7-1.el8.x86_64.rpm  866 kB/s | 7.2 MB     00:08</span><br><span class="line">(11/14): docker-ce-24.0.7-1.el8.x86_64.rpm                                           856 kB/s |  24 MB     00:28</span><br><span class="line">(12/14): docker-ce-rootless-extras-24.0.7-1.el8.x86_64.rpm                           828 kB/s | 4.9 MB     00:06</span><br><span class="line">(13/14): containerd.io-1.6.26-3.1.el8.x86_64.rpm                                     865 kB/s |  35 MB     00:41</span><br><span class="line">(14/14): docker-compose-plugin-2.21.0-1.el8.x86_64.rpm                               876 kB/s |  13 MB     00:14</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------</span><br><span class="line">Total                                                                                2.2 MB/s |  97 MB     00:44</span><br><span class="line">Docker CE Stable - x86_64                                                             13 kB/s | 1.6 kB     00:00</span><br><span class="line">Importing GPG key 0x621E9F35:</span><br><span class="line"> Userid     : &quot;Docker Release (CE rpm) &lt;docker@docker.com&gt;&quot;</span><br><span class="line"> Fingerprint: 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35</span><br><span class="line"> From       : https://mirrors.aliyun.com/docker-ce/linux/centos/gpg</span><br><span class="line">Key imported successfully</span><br><span class="line">Running transaction check</span><br><span class="line">Transaction check succeeded.</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded.</span><br><span class="line">Running transaction</span><br><span class="line">  Preparing        :                                                                                             1/1</span><br><span class="line">  Installing       : docker-compose-plugin-2.21.0-1.el8.x86_64                                                  1/14</span><br><span class="line">  Running scriptlet: docker-compose-plugin-2.21.0-1.el8.x86_64                                                  1/14</span><br><span class="line">  Running scriptlet: container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                           2/14</span><br><span class="line">  Installing       : container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                           2/14</span><br><span class="line">  Running scriptlet: container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                           2/14</span><br><span class="line">  Installing       : containerd.io-1.6.26-3.1.el8.x86_64                                                        3/14</span><br><span class="line">  Running scriptlet: containerd.io-1.6.26-3.1.el8.x86_64                                                        3/14</span><br><span class="line">  Installing       : docker-buildx-plugin-0.11.2-1.el8.x86_64                                                   4/14</span><br><span class="line">  Running scriptlet: docker-buildx-plugin-0.11.2-1.el8.x86_64                                                   4/14</span><br><span class="line">  Installing       : docker-ce-cli-1:24.0.7-1.el8.x86_64                                                        5/14</span><br><span class="line">  Running scriptlet: docker-ce-cli-1:24.0.7-1.el8.x86_64                                                        5/14</span><br><span class="line">  Running scriptlet: libcgroup-0.41-19.el8.x86_64                                                               6/14</span><br><span class="line">  Installing       : libcgroup-0.41-19.el8.x86_64                                                               6/14</span><br><span class="line">  Running scriptlet: libcgroup-0.41-19.el8.x86_64                                                               6/14</span><br><span class="line">  Installing       : fuse3-libs-3.2.1-12.el8.x86_64                                                             7/14</span><br><span class="line">  Running scriptlet: fuse3-libs-3.2.1-12.el8.x86_64                                                             7/14</span><br><span class="line">  Installing       : fuse-common-3.2.1-12.el8.x86_64                                                            8/14</span><br><span class="line">  Installing       : fuse3-3.2.1-12.el8.x86_64                                                                  9/14</span><br><span class="line">  Installing       : fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                                 10/14</span><br><span class="line">  Running scriptlet: fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                                 10/14</span><br><span class="line">  Installing       : libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64                                       11/14</span><br><span class="line">  Installing       : slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64                                    12/14</span><br><span class="line">  Installing       : docker-ce-rootless-extras-24.0.7-1.el8.x86_64                                             13/14</span><br><span class="line">  Running scriptlet: docker-ce-rootless-extras-24.0.7-1.el8.x86_64                                             13/14</span><br><span class="line">  Installing       : docker-ce-3:24.0.7-1.el8.x86_64                                                           14/14</span><br><span class="line">  Running scriptlet: docker-ce-3:24.0.7-1.el8.x86_64                                                           14/14</span><br><span class="line">  Running scriptlet: container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                          14/14</span><br><span class="line">  Running scriptlet: docker-ce-3:24.0.7-1.el8.x86_64                                                           14/14</span><br><span class="line">  Verifying        : container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                           1/14</span><br><span class="line">  Verifying        : fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                                  2/14</span><br><span class="line">  Verifying        : libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64                                        3/14</span><br><span class="line">  Verifying        : slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64                                     4/14</span><br><span class="line">  Verifying        : fuse-common-3.2.1-12.el8.x86_64                                                            5/14</span><br><span class="line">  Verifying        : fuse3-3.2.1-12.el8.x86_64                                                                  6/14</span><br><span class="line">  Verifying        : fuse3-libs-3.2.1-12.el8.x86_64                                                             7/14</span><br><span class="line">  Verifying        : libcgroup-0.41-19.el8.x86_64                                                               8/14</span><br><span class="line">  Verifying        : containerd.io-1.6.26-3.1.el8.x86_64                                                        9/14</span><br><span class="line">  Verifying        : docker-buildx-plugin-0.11.2-1.el8.x86_64                                                  10/14</span><br><span class="line">  Verifying        : docker-ce-3:24.0.7-1.el8.x86_64                                                           11/14</span><br><span class="line">  Verifying        : docker-ce-cli-1:24.0.7-1.el8.x86_64                                                       12/14</span><br><span class="line">  Verifying        : docker-ce-rootless-extras-24.0.7-1.el8.x86_64                                             13/14</span><br><span class="line">  Verifying        : docker-compose-plugin-2.21.0-1.el8.x86_64                                                 14/14</span><br><span class="line"></span><br><span class="line">Installed:</span><br><span class="line">  container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch</span><br><span class="line">  containerd.io-1.6.26-3.1.el8.x86_64</span><br><span class="line">  docker-buildx-plugin-0.11.2-1.el8.x86_64</span><br><span class="line">  docker-ce-3:24.0.7-1.el8.x86_64</span><br><span class="line">  docker-ce-cli-1:24.0.7-1.el8.x86_64</span><br><span class="line">  docker-ce-rootless-extras-24.0.7-1.el8.x86_64</span><br><span class="line">  docker-compose-plugin-2.21.0-1.el8.x86_64</span><br><span class="line">  fuse-common-3.2.1-12.el8.x86_64</span><br><span class="line">  fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64</span><br><span class="line">  fuse3-3.2.1-12.el8.x86_64</span><br><span class="line">  fuse3-libs-3.2.1-12.el8.x86_64</span><br><span class="line">  libcgroup-0.41-19.el8.x86_64</span><br><span class="line">  libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64</span><br><span class="line">  slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64</span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure>
+
+<p>启动 Docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> systemctl start docker</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> docker info</span></span><br><span class="line">Client: Docker Engine - Community</span><br><span class="line"> Version:    24.0.7</span><br><span class="line"> Context:    default</span><br><span class="line"> Debug Mode: false</span><br><span class="line"> Plugins:</span><br><span class="line">  buildx: Docker Buildx (Docker Inc.)</span><br><span class="line">    Version:  v0.11.2</span><br><span class="line">    Path:     /usr/libexec/docker/cli-plugins/docker-buildx</span><br><span class="line">  compose: Docker Compose (Docker Inc.)</span><br><span class="line">    Version:  v2.21.0</span><br><span class="line">    Path:     /usr/libexec/docker/cli-plugins/docker-compose</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Containers: 0</span><br><span class="line">  Running: 0</span><br><span class="line">  Paused: 0</span><br><span class="line">  Stopped: 0</span><br><span class="line"> Images: 0</span><br><span class="line"> Server Version: 24.0.7</span><br><span class="line"> Storage Driver: overlay2</span><br><span class="line">  Backing Filesystem: xfs</span><br><span class="line">  Supports d_type: true</span><br><span class="line">  Using metacopy: false</span><br><span class="line">  Native Overlay Diff: true</span><br><span class="line">  userxattr: false</span><br><span class="line"> Logging Driver: json-file</span><br><span class="line"> Cgroup Driver: cgroupfs</span><br><span class="line"> Cgroup Version: 1</span><br><span class="line"> Plugins:</span><br><span class="line">  Volume: local</span><br><span class="line">  Network: bridge host ipvlan macvlan null overlay</span><br><span class="line">  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog</span><br><span class="line"> Swarm: inactive</span><br><span class="line"> Runtimes: io.containerd.runc.v2 runc</span><br><span class="line"> Default Runtime: runc</span><br><span class="line"> Init Binary: docker-init</span><br><span class="line"> containerd version: 3dd1e886e55dd695541fdcd67420c2888645a495</span><br><span class="line"> runc version: v1.1.10-0-g18a0cb0</span><br><span class="line"> init version: de40ad0</span><br><span class="line"> Security Options:</span><br><span class="line">  seccomp</span><br><span class="line">   Profile: builtin</span><br><span class="line"> Kernel Version: 4.18.0-305.3.1.el8.x86_64</span><br><span class="line"> Operating System: CentOS Linux 8</span><br><span class="line"> OSType: linux</span><br><span class="line"> Architecture: x86_64</span><br><span class="line"> CPUs: 2</span><br><span class="line"> Total Memory: 1.678GiB</span><br><span class="line"> Name: iZ7xvfhhgkw6gw7larw760Z</span><br><span class="line"> ID: 26a237c9-fb55-4ccb-87ed-6a5881d52537</span><br><span class="line"> Docker Root Dir: /var/lib/docker</span><br><span class="line"> Debug Mode: false</span><br><span class="line"> Experimental: false</span><br><span class="line"> Insecure Registries:</span><br><span class="line">  127.0.0.0/8</span><br><span class="line"> Live Restore Enabled: false</span><br></pre></td></tr></table></figure>
+
+<p>————————————————<br>参考链接：<a href="https://blog.csdn.net/B11050729/article/details/131382641">https://blog.csdn.net/B11050729/article/details/131382641</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start/stop/status  redis </span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>谢谢你请我喝牛奶</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/assets/img/wechat.png" alt="hunkier 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/assets/img/alipay.png" alt="hunkier 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/hunkied">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/hunkier">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/assets/img/my_wechat.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/centos/" rel="tag"><i class="fa fa-tag"></i> centos</a>
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Java-New-Features/" rel="prev" title="Java 新特性">
+      <i class="fa fa-chevron-left"></i> Java 新特性
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hunkier"
+      src="/assets/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">hunkier</p>
+  <div class="site-description" itemprop="description">学习笔记，开源代码，技术分享</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hunkier" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hunkier" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:huangkuier@gmail.com" title="E-Mail → mailto:huangkuier@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/hunkied" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;hunkied" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/huang.hunkier" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;huang.hunkier" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备20001211号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hunkier</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hunkier.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://hunkier.cn/CentOS-install-Docker/";
+    this.page.identifier = "CentOS-install-Docker/";
+    this.page.title = "CentOS  安装 Docker";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hunkier.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

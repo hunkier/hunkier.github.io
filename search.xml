@@ -6432,4 +6432,26 @@ ValueError: tuple.index(x): x not in tuple
         <tag>Docker</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Netty 权威指南笔记</title>
+    <url>/Netty-Authoritative-Guide/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>《Netty 权威指南》 是异步非阻塞通讯领域的经典之作，基于最新 Netty 5.0 </p>
+<span id="more"></span>
+
+
+
+
+<p>参考：<a href="https://weread.qq.com/web/bookDetail/e9732610813ab7c22g016854">《Netty 权威指南》李林峰</a></p>
+]]></content>
+      <categories>
+        <category>reactor</category>
+        <category>nio</category>
+        <category>netty</category>
+      </categories>
+      <tags>
+        <tag>reactor</tag>
+        <tag>nio</tag>
+        <tag>netty</tag>
+      </tags>
+  </entry>
 </search>

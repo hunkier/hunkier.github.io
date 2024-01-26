@@ -6,7 +6,7 @@
   <link href="https://hunkier.cn/atom.xml" rel="self"/>
   
   <link href="https://hunkier.cn/"/>
-  <updated>2024-01-12T09:42:09.198Z</updated>
+  <updated>2024-01-26T13:43:56.298Z</updated>
   <id>https://hunkier.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快速学习新技术的方法</title>
+    <link href="https://hunkier.cn/Fast-Learn-New-Technology/"/>
+    <id>https://hunkier.cn/Fast-Learn-New-Technology/</id>
+    <published>2024-01-26T08:42:18.000Z</published>
+    <updated>2024-01-26T13:43:56.298Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在软件开发快速发展的时代，新技术和已有技术的更新速度都非常快，有人戏称“新技术的出现速度远超过个人的学习速度”。在这个日新月异的互联网时代，软件开发者如何保持自己的竞争力呢？今天，我们就来探讨如何快速且深入地学习一门新技术。&lt;/p&gt;
+&lt;p&gt;我们都知道，在英语考试中有一个经典题型叫做“完形填空”。英语老师曾经建议，“在做完形填空之前，应先花一分钟快速阅读整篇文章，以便对全文内容有个大致了解，这样可以提高做题的准确率。”&lt;/p&gt;
+&lt;p&gt;同样的，我认为这种做题方法在学习软件技术时也同样适用。在开始学习某一新技术之前，我们应先快速了解它的整体情况，再深入学习其中的细节内容。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="learn technology" scheme="https://hunkier.cn/categories/learn-technology/"/>
+    
+    
+    <category term="learn technology" scheme="https://hunkier.cn/tags/learn-technology/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS  安装 Docker</title>
@@ -544,37 +565,6 @@
     <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
     
     <category term="lock" scheme="https://hunkier.cn/tags/lock/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java并发--原子操作的实现原理</title>
-    <link href="https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/"/>
-    <id>https://hunkier.cn/Java-Concurrent-realization-principle-of-atomic-operation/</id>
-    <published>2020-02-06T02:38:29.000Z</published>
-    <updated>2020-07-13T02:57:22.275Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;原子（atomic）本意是“不能被进一步分割的最小粒子”，而原子操作（atomic operation）意为“不可被中断的一个或一系列操作”。在多处理器上实现原子操作就变得有点复杂。让我们一起来聊一聊在Intel处理器和Java里是如何实现原子操作的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="java" scheme="https://hunkier.cn/categories/java/"/>
-    
-    <category term="concurrent" scheme="https://hunkier.cn/categories/java/concurrent/"/>
-    
-    
-    <category term="jvm" scheme="https://hunkier.cn/tags/jvm/"/>
-    
-    <category term="java" scheme="https://hunkier.cn/tags/java/"/>
-    
-    <category term="concurrent" scheme="https://hunkier.cn/tags/concurrent/"/>
-    
-    <category term="atomic" scheme="https://hunkier.cn/tags/atomic/"/>
-    
-    <category term="CAS" scheme="https://hunkier.cn/tags/CAS/"/>
-    
-    <category term="LOCK" scheme="https://hunkier.cn/tags/LOCK/"/>
     
   </entry>
   

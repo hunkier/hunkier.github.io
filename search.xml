@@ -6479,4 +6479,40 @@ ValueError: tuple.index(x): x not in tuple
         <tag>learn technology</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Git 为 ssh 协议设置代理</title>
+    <url>/Ssh-Proxy/</url>
+    <content><![CDATA[<blockquote>
+<p>鉴于国情 Github 时好时坏，现在 Git 推送又只能通过ssh协议，因此本文讲述如何在不同系统中为 ssh 协议配置代理</p>
+</blockquote>
+<blockquote>
+<p>最常见错误即 kex_exchange_identification: Connection closed by remote host</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一、配置"><a href="#一、配置" class="headerlink" title="一、配置"></a>一、配置</h2><blockquote>
+<p>请自行准备代理，下文配置其中的ip和端口修改成你自己代理的参数</p>
+</blockquote>
+<h3 id="1-Windows下"><a href="#1-Windows下" class="headerlink" title="1.Windows下"></a>1.Windows下</h3><p>修改<code>C:\Users\$&#123;your username&#125;\.ssh</code>目录下的<code>config</code>文件，若没有则新建</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Host github.com                      </span><br><span class="line">        Hostname ssh.github.com            </span><br><span class="line">        Port 443   </span><br><span class="line">        User git</span><br><span class="line">        ProxyCommand connect -S 127.0.0.1:7890 %h %p</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-类Unix系统"><a href="#2-类Unix系统" class="headerlink" title="2.类Unix系统"></a>2.类Unix系统</h3><blockquote>
+<p>例如Linux、MacOS、Windows的Wsl2等等</p>
+</blockquote>
+<p>修改<code>~/.ssh</code>目录下的<code>config</code>文件，若没有则新建</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">        Hostname ssh.github.com</span><br><span class="line">        Port 443</span><br><span class="line">        User git</span><br><span class="line">        ProxyCommand nc -v -x 172.28.208.1:7890 %h %p</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-验证"><a href="#二-验证" class="headerlink" title="二.验证"></a>二.验证</h2><p>Windows下打开 <code>git bash</code>，其他系统使用终端执行 <code>ssh -T git@github.com</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 (&lt;no hostip for proxy command&gt;)&#x27; can&#x27;t be established.</span><br><span class="line">ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;[ssh.github.com]:443&#x27; (ECDSA) to the list of known hosts.</span><br><span class="line">Hi seepine! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+<p>若出现错误，则删除<code>.ssh</code>目录中<code>known_hosts</code>文件重试。</p>
+<p>原文地址：<a href="https://seepine.com/git/ssh-proxy/">https://seepine.com/git/ssh-proxy/</a></p>
+]]></content>
+      <categories>
+        <category>git ssh</category>
+      </categories>
+      <tags>
+        <tag>git ssh</tag>
+      </tags>
+  </entry>
 </search>

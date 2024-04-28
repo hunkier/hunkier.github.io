@@ -6516,4 +6516,20 @@ ValueError: tuple.index(x): x not in tuple
         <tag>git ssh</tag>
       </tags>
   </entry>
+  <entry>
+    <title>网址导航</title>
+    <url>/Website-navigation/</url>
+    <content><![CDATA[<h1 id="AI-大模型"><a href="#AI-大模型" class="headerlink" title="AI 大模型"></a>AI 大模型</h1><h2 id="OPENAI"><a href="#OPENAI" class="headerlink" title="OPENAI"></a>OPENAI</h2><p><a href="https://chat.openai.com/">Chatgpt</a><br><a href="https://platform.openai.com/docs/introduction">Documentation</a><br><a href="https://platform.openai.com/docs/api-reference">API reference</a><br><a href="https://platform.openai.com/playground?mode=chat">Playground</a></p>
+ <span id="more"></span>
+
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><h2 id="Jetbrain"><a href="#Jetbrain" class="headerlink" title="Jetbrain"></a><a href="https://www.jetbrains.com/ides/">Jetbrain</a></h2><h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a><a href="https://www.oracle.com/cn/java/technologies/downloads/#jdk21-mac">JDK</a></h2><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a><a href="https://git-scm.com/">Git</a></h2>]]></content>
+      <categories>
+        <category>website</category>
+        <category>navigation</category>
+      </categories>
+      <tags>
+        <tag>website</tag>
+        <tag>navigation</tag>
+      </tags>
+  </entry>
 </search>
